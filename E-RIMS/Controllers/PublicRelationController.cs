@@ -19,6 +19,7 @@ namespace E_RIMS.Controllers
             var publicRelation = db.PublicRelation;
             return View(publicRelation.ToList());
             //Test Github
+            //Test 2 2
            
         }
 
