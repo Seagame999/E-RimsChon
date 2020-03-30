@@ -11,6 +11,8 @@ namespace E_RIMS.Controllers
 {
     public class PublicRelationController : Controller
     {
+        // Boonchoo test git
+
         ERIMSEntities db = new ERIMSEntities();
         // GET: PublicRelation
 
