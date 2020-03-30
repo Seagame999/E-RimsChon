@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<br><br>
+<h3><strong>ผลงานวิจัย</strong></h3>
+<hr>
+
+<a href="@Url.Action("AllResearch","Research")"><h6 class="text-primary">+จัดการผลงานวิจัย</h6></a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="ค้นหางานวิจัย" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ค้นหา</button>
+    </form>
+<br>
+    <div>
+        <h5>Search results</h5>
+        <h5>Item 1 to 5 of 10</h5>
+        <div>
+            <h5>1. <a href="@Url.Action("DetailResearch","Research")">[Bacteramia caused by Vibrio......]</a></h5>
+        </div>
+        <div>
+            <h5>2. <a href="#">[.......]</a></h5>
+        </div>
+        <div>
+            <h5>3. <a href="#">[.......]</a></h5>
+        </div>
+        <div>
+            <h5>4. <a href="#">[.......]</a></h5>
+        </div>
+        <div>
+            <h5>5. <a href="#">[.......]</a></h5>
+        </div>
+    </div>

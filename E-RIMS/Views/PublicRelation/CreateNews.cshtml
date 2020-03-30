@@ -1,0 +1,66 @@
+﻿@model E_RIMS.Models.PublicRelation
+@{
+    /**/
+
+    ViewBag.Title = "CreateNews";
+}
+
+
+<br /><br />
+<h3><strong>สร้างข่าวประชาสัมพันธ์</strong></h3>
+
+@using (Html.BeginForm(Html.BeginForm("CreateNews", "PublicRelation", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PublicRelation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label>รูปประกอบข่าว</label>
+            <div class="col-md-10">
+                <input type="file" name="image2" />
+                @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>ชื่อเรื่อง</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.newsName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.newsName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>รายละเอียด</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="date" class="datepicker-inline" name="date">
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.docUpload, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="docUpload2" />
+                @Html.ValidationMessageFor(model => model.docUpload2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-success" value="CreatNews">สร้างข่าว</button>
+            </div>
+        </div>
+    </div>
+}

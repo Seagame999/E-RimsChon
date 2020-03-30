@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<br>
+<h3><strong>ประวัตินักวิจัย</strong></h3>
+<a href="@Url.Action("CreateResearcher","Researcher")"><h6 class="text-primary">+เพิ่มนักวิจัย</h6></a>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="card-deck">
+            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                <a href="@Url.Action("DetailResearcher","Researcher")">
+                    <img class="card-img-top" src="https://img.favpng.com/14/1/17/doctorate-researcher-medical-laboratory-research-institute-png-favpng-4XUawpBqw0ksTw4eNzAk5e9J3.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <a href="@Url.Action("DetailResearcher","Researcher")">
+                            <h5 class="card-title text-center">นายเชี่ยวชาญ เก่งดี</h5>
+                        </a>
+                        <p class="card-text text-center">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
+                        <p class="card-text">เบอร์สำนักงาน : 032-184848</p>
+                        <p class="card-text">เบอร์โทรสาร : 023-487887</p>
+                        <p class="card-text">เบอร์มือถือ : 082-154884</p>
+
+                    </div>
+</div>
+            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">นักวิจัย 2</h5>
+                    <p class="card-text">....</p>
+                </div>
+            </div>
+            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">นักวิจัย 3</h5>
+                    <p class="card-text">....</p>
+                </div>
+            </div>
+            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">นักวิจัย 4</h5>
+                    <p class="card-text">....</p>
+                </div>
+            </div>
+            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">นักวิจัย 5</h5>
+                    <p class="card-text">....</p>
+                </div>
+            </div>
+            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">นักวิจัย 6</h5>
+                    <p class="card-text">....</p>
+                </div>
+            </div>
+        </div>
+        @*--Pagination*@
+        <div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+

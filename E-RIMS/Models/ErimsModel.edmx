@@ -1,0 +1,1165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ERIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AcademicPaper">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="abstract" Type="text" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="files" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AcademicWorkYear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="academicWorkYear" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="budgetYear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="budgetYear" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CategoryWork">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departmentName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="district" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="DocumentDownload">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="docUpload" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Education Level">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="educationLevel" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Expert">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="nameTitle" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="surname" Type="varchar" MaxLength="255" />
+          <Property Name="identificationNumber" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="varchar" MaxLength="255" />
+          <Property Name="levels" Type="varchar" MaxLength="255" />
+          <Property Name="houseNumberHome" Type="varchar" MaxLength="255" />
+          <Property Name="villageNumberHome" Type="varchar" MaxLength="255" />
+          <Property Name="alleyHome" Type="varchar" MaxLength="255" />
+          <Property Name="roadHome" Type="varchar" MaxLength="255" />
+          <Property Name="subDistricHome" Type="varchar" MaxLength="255" />
+          <Property Name="districHome" Type="varchar" MaxLength="255" />
+          <Property Name="provinceHome" Type="varchar" MaxLength="255" />
+          <Property Name="postalHome" Type="varchar" MaxLength="255" />
+          <Property Name="moblieNumber" Type="varchar" MaxLength="255" />
+          <Property Name="houseNumberOffice" Type="varchar" MaxLength="255" />
+          <Property Name="villageNumberOffice" Type="varchar" MaxLength="255" />
+          <Property Name="alleyOffice" Type="varchar" MaxLength="255" />
+          <Property Name="roadOffice" Type="varchar" MaxLength="255" />
+          <Property Name="subDistrictOffice" Type="varchar" MaxLength="255" />
+          <Property Name="districtOffice" Type="varchar" MaxLength="255" />
+          <Property Name="provinceOffice" Type="varchar" MaxLength="255" />
+          <Property Name="postalCodeOffice" Type="varchar" MaxLength="255" />
+          <Property Name="officePhoneNumber" Type="varchar" MaxLength="255" />
+          <Property Name="officeFax" Type="varchar" MaxLength="255" />
+          <Property Name="officeMobileNumber" Type="varchar" MaxLength="255" />
+          <Property Name="educationLevel" Type="varchar" MaxLength="255" />
+          <Property Name="graduationYear" Type="varchar" MaxLength="255" />
+          <Property Name="schoolName" Type="varchar" MaxLength="255" />
+          <Property Name="subjectQualification" Type="varchar" MaxLength="255" />
+          <Property Name="specialExpertise" Type="text" />
+          <Property Name="dateWorkFrom" Type="date" />
+          <Property Name="dateWorkTo" Type="date" />
+          <Property Name="workplace" Type="varchar" MaxLength="255" />
+          <Property Name="positionWork" Type="varchar" MaxLength="255" />
+          <Property Name="academicWorkYear" Type="varchar" MaxLength="255" />
+          <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="255" />
+          <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
+          <Property Name="publication" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Innovation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="abstract" Type="text" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="files" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Innovator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="nameTitle" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="surname" Type="varchar" MaxLength="255" />
+          <Property Name="identificationNumber" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="varchar" MaxLength="255" />
+          <Property Name="levels" Type="varchar" MaxLength="255" />
+          <Property Name="houseNumberHome" Type="varchar" MaxLength="255" />
+          <Property Name="villageNumberHome" Type="varchar" MaxLength="255" />
+          <Property Name="alleyHome" Type="varchar" MaxLength="255" />
+          <Property Name="roadHome" Type="varchar" MaxLength="255" />
+          <Property Name="subDistrictHome" Type="varchar" MaxLength="255" />
+          <Property Name="districtHome" Type="varchar" MaxLength="255" />
+          <Property Name="provinceHome" Type="varchar" MaxLength="255" />
+          <Property Name="postalCodeHome" Type="varchar" MaxLength="255" />
+          <Property Name="moblieNumber" Type="varchar" MaxLength="255" />
+          <Property Name="houseNumberOffice" Type="varchar" MaxLength="255" />
+          <Property Name="villageNumberOffice" Type="varchar" MaxLength="255" />
+          <Property Name="alleyOffice" Type="varchar" MaxLength="255" />
+          <Property Name="roadOffice" Type="varchar" MaxLength="255" />
+          <Property Name="subDistrictOffice" Type="varchar" MaxLength="255" />
+          <Property Name="districtOffice" Type="varchar" MaxLength="255" />
+          <Property Name="provinceOffice" Type="varchar" MaxLength="255" />
+          <Property Name="postalCodeOffice" Type="varchar" MaxLength="255" />
+          <Property Name="officePhoneNumber" Type="varchar" MaxLength="255" />
+          <Property Name="officeFax" Type="varchar" MaxLength="255" />
+          <Property Name="officeMobileNumber" Type="varchar" MaxLength="255" />
+          <Property Name="education" Type="text" />
+          <Property Name="specialExpertise" Type="text" />
+          <Property Name="dateWorkFrom" Type="date" />
+          <Property Name="dateWorkTo" Type="date" />
+          <Property Name="workplace" Type="varchar" MaxLength="255" />
+          <Property Name="positionWork" Type="varchar" MaxLength="255" />
+          <Property Name="academicWorkYear" Type="varchar" MaxLength="255" />
+          <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="255" />
+          <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
+          <Property Name="publication" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="JoinDevelopmentTeam">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="files" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="levels" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NameTitle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameTitle" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="OperatingActivities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="operatingActivieies" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OverallOperation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="overallOperation" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="province" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PublicRelation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="newsName" Type="varchar(max)" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="htmlLink" Type="varchar" MaxLength="255" />
+          <Property Name="date" Type="date" />
+          <Property Name="views" Type="int" />
+          <Property Name="docUpload" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Research">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="abstract" Type="text" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="files" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Researcher">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="nameTitle" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="surname" Type="varchar" MaxLength="255" />
+          <Property Name="identificationNumber" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="varchar" MaxLength="255" />
+          <Property Name="levels" Type="varchar" MaxLength="255" />
+          <Property Name="houseNumberHome" Type="varchar" MaxLength="255" />
+          <Property Name="villageNumberHome" Type="varchar" MaxLength="255" />
+          <Property Name="alleyHome" Type="varchar" MaxLength="255" />
+          <Property Name="roadHome" Type="varchar" MaxLength="255" />
+          <Property Name="subDistrictHome" Type="varchar" MaxLength="255" />
+          <Property Name="districtHome" Type="varchar" MaxLength="255" />
+          <Property Name="provinceHome" Type="varchar" MaxLength="255" />
+          <Property Name="postalCodeHome" Type="varchar" MaxLength="255" />
+          <Property Name="moblieNumber" Type="varchar" MaxLength="255" />
+          <Property Name="houseNumberOffice" Type="varchar" MaxLength="255" />
+          <Property Name="villageNumberOffice" Type="varchar" MaxLength="255" />
+          <Property Name="alleyOffice" Type="varchar" MaxLength="255" />
+          <Property Name="roadOffice" Type="varchar" MaxLength="255" />
+          <Property Name="subDistrictOffice" Type="varchar" MaxLength="255" />
+          <Property Name="districtOffice" Type="varchar" MaxLength="255" />
+          <Property Name="provinceOffice" Type="varchar" MaxLength="255" />
+          <Property Name="postalCodeOffice" Type="varchar" MaxLength="255" />
+          <Property Name="officePhoneNumber" Type="varchar" MaxLength="255" />
+          <Property Name="officeFax" Type="varchar" MaxLength="255" />
+          <Property Name="officeMobileNumber" Type="varchar" MaxLength="255" />
+          <Property Name="education" Type="text" />
+          <Property Name="specialExpertise" Type="text" />
+          <Property Name="dateWorkFrom" Type="date" />
+          <Property Name="dateWorkTo" Type="date" />
+          <Property Name="workplace" Type="varchar" MaxLength="255" />
+          <Property Name="positionWork" Type="varchar" MaxLength="255" />
+          <Property Name="academicWorkYear" Type="varchar" MaxLength="255" />
+          <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="255" />
+          <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
+          <Property Name="publication" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ResearchFuds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="fundsName" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="htmlLink" Type="varchar" MaxLength="255" />
+          <Property Name="docUpload" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ResearchMonitoring">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="budgetYear" Type="varchar" MaxLength="255" />
+          <Property Name="department" Type="varchar" MaxLength="255" />
+          <Property Name="workName" Type="varchar" MaxLength="255" />
+          <Property Name="overallOperation" Type="varchar" MaxLength="255" />
+          <Property Name="operation" Type="text" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="progress" Type="int" />
+          <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="docUpload" Type="varchar" MaxLength="255" />
+          <Property Name="updates" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ResearchTopic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="topic" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="htmlLink" Type="varchar" MaxLength="255" />
+          <Property Name="docUploads" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SubDistrict">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subDistrict" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityContainer Name="ERIMSModelStoreContainer">
+          <EntitySet Name="AcademicPaper" EntityType="Self.AcademicPaper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AcademicWorkYear" EntityType="Self.AcademicWorkYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="budgetYear" EntityType="Self.budgetYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryWork" EntityType="Self.CategoryWork" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentDownload" EntityType="Self.DocumentDownload" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education Level" EntityType="Self.Education Level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expert" EntityType="Self.Expert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Innovation" EntityType="Self.Innovation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Innovator" EntityType="Self.Innovator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JoinDevelopmentTeam" EntityType="Self.JoinDevelopmentTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NameTitle" EntityType="Self.NameTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperatingActivities" EntityType="Self.OperatingActivities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverallOperation" EntityType="Self.OverallOperation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublicRelation" EntityType="Self.PublicRelation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Research" EntityType="Self.Research" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Researcher" EntityType="Self.Researcher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResearchFuds" EntityType="Self.ResearchFuds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResearchMonitoring" EntityType="Self.ResearchMonitoring" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResearchTopic" EntityType="Self.ResearchTopic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubDistrict" EntityType="Self.SubDistrict" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERIMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AcademicPaper">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AcademicWorkYear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="academicWorkYear1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="budgetYear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="budgetYear1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CategoryWork">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departmentName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="district1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DocumentDownload">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Education_Level">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="educationLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Expert">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="identificationNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="levels" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="houseNumberHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villageNumberHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alleyHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roadHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subDistricHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="districHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="provinceHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="postalHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="moblieNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="houseNumberOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villageNumberOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alleyOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roadOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subDistrictOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="districtOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="provinceOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="postalCodeOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officePhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officeFax" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officeMobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="educationLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="graduationYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="schoolName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subjectQualification" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="specialExpertise" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateWorkFrom" Type="DateTime" Precision="0" />
+          <Property Name="dateWorkTo" Type="DateTime" Precision="0" />
+          <Property Name="workplace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="positionWork" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="academicWorkYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="joinDevelopmentTeam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Innovation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Innovator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="identificationNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="levels" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="houseNumberHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villageNumberHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alleyHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roadHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subDistrictHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="districtHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="provinceHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="postalCodeHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="moblieNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="houseNumberOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villageNumberOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alleyOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roadOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subDistrictOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="districtOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="provinceOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="postalCodeOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officePhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officeFax" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officeMobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="education" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="specialExpertise" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateWorkFrom" Type="DateTime" Precision="0" />
+          <Property Name="dateWorkTo" Type="DateTime" Precision="0" />
+          <Property Name="workplace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="positionWork" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="academicWorkYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="joinDevelopmentTeam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="JoinDevelopmentTeam">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="joinDevelopmentTeam1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="levels" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NameTitle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameTitle1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OperatingActivities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="operatingActivieies" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OverallOperation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="overallOperation1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="province1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PublicRelation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="newsName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="htmlLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="views" Type="Int32" />
+          <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Research">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Researcher">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="identificationNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="levels" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="houseNumberHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villageNumberHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alleyHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roadHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subDistrictHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="districtHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="provinceHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="postalCodeHome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="moblieNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="houseNumberOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villageNumberOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alleyOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roadOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subDistrictOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="districtOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="provinceOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="postalCodeOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officePhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officeFax" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="officeMobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="education" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="specialExpertise" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateWorkFrom" Type="DateTime" Precision="0" />
+          <Property Name="dateWorkTo" Type="DateTime" Precision="0" />
+          <Property Name="workplace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="positionWork" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="academicWorkYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="joinDevelopmentTeam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ResearchFuds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="fundsName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="htmlLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ResearchMonitoring">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="budgetYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="workName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="overallOperation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="progress" Type="Int32" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="updates" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ResearchTopic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="topic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="htmlLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="docUploads" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SubDistrict">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subDistrict1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ERIMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AcademicPaper" EntityType="Self.AcademicPaper" />
+          <EntitySet Name="AcademicWorkYear" EntityType="Self.AcademicWorkYear" />
+          <EntitySet Name="budgetYear" EntityType="Self.budgetYear" />
+          <EntitySet Name="CategoryWork" EntityType="Self.CategoryWork" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="District" EntityType="Self.District" />
+          <EntitySet Name="DocumentDownload" EntityType="Self.DocumentDownload" />
+          <EntitySet Name="Education_Level" EntityType="Self.Education_Level" />
+          <EntitySet Name="Expert" EntityType="Self.Expert" />
+          <EntitySet Name="Innovation" EntityType="Self.Innovation" />
+          <EntitySet Name="Innovator" EntityType="Self.Innovator" />
+          <EntitySet Name="JoinDevelopmentTeam" EntityType="Self.JoinDevelopmentTeam" />
+          <EntitySet Name="Journal" EntityType="Self.Journal" />
+          <EntitySet Name="Level" EntityType="Self.Level" />
+          <EntitySet Name="Member" EntityType="Self.Member" />
+          <EntitySet Name="NameTitle" EntityType="Self.NameTitle" />
+          <EntitySet Name="OperatingActivities" EntityType="Self.OperatingActivities" />
+          <EntitySet Name="OverallOperation" EntityType="Self.OverallOperation" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="Province" EntityType="Self.Province" />
+          <EntitySet Name="PublicRelation" EntityType="Self.PublicRelation" />
+          <EntitySet Name="Research" EntityType="Self.Research" />
+          <EntitySet Name="Researcher" EntityType="Self.Researcher" />
+          <EntitySet Name="ResearchFuds" EntityType="Self.ResearchFuds" />
+          <EntitySet Name="ResearchMonitoring" EntityType="Self.ResearchMonitoring" />
+          <EntitySet Name="ResearchTopic" EntityType="Self.ResearchTopic" />
+          <EntitySet Name="SubDistrict" EntityType="Self.SubDistrict" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ERIMSModelStoreContainer" CdmEntityContainer="ERIMSEntities">
+          <EntitySetMapping Name="AcademicPaper">
+            <EntityTypeMapping TypeName="ERIMSModel.AcademicPaper">
+              <MappingFragment StoreEntitySet="AcademicPaper">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abstract" ColumnName="abstract" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="files" ColumnName="files" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AcademicWorkYear">
+            <EntityTypeMapping TypeName="ERIMSModel.AcademicWorkYear">
+              <MappingFragment StoreEntitySet="AcademicWorkYear">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="academicWorkYear1" ColumnName="academicWorkYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="budgetYear">
+            <EntityTypeMapping TypeName="ERIMSModel.budgetYear">
+              <MappingFragment StoreEntitySet="budgetYear">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="budgetYear1" ColumnName="budgetYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryWork">
+            <EntityTypeMapping TypeName="ERIMSModel.CategoryWork">
+              <MappingFragment StoreEntitySet="CategoryWork">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="ERIMSModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="District">
+            <EntityTypeMapping TypeName="ERIMSModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="district1" ColumnName="district" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentDownload">
+            <EntityTypeMapping TypeName="ERIMSModel.DocumentDownload">
+              <MappingFragment StoreEntitySet="DocumentDownload">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="docUpload" ColumnName="docUpload" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Education_Level">
+            <EntityTypeMapping TypeName="ERIMSModel.Education_Level">
+              <MappingFragment StoreEntitySet="Education Level">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="educationLevel" ColumnName="educationLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expert">
+            <EntityTypeMapping TypeName="ERIMSModel.Expert">
+              <MappingFragment StoreEntitySet="Expert">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="nameTitle" ColumnName="nameTitle" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="identificationNumber" ColumnName="identificationNumber" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="levels" ColumnName="levels" />
+                <ScalarProperty Name="houseNumberHome" ColumnName="houseNumberHome" />
+                <ScalarProperty Name="villageNumberHome" ColumnName="villageNumberHome" />
+                <ScalarProperty Name="alleyHome" ColumnName="alleyHome" />
+                <ScalarProperty Name="roadHome" ColumnName="roadHome" />
+                <ScalarProperty Name="subDistricHome" ColumnName="subDistricHome" />
+                <ScalarProperty Name="districHome" ColumnName="districHome" />
+                <ScalarProperty Name="provinceHome" ColumnName="provinceHome" />
+                <ScalarProperty Name="postalHome" ColumnName="postalHome" />
+                <ScalarProperty Name="moblieNumber" ColumnName="moblieNumber" />
+                <ScalarProperty Name="houseNumberOffice" ColumnName="houseNumberOffice" />
+                <ScalarProperty Name="villageNumberOffice" ColumnName="villageNumberOffice" />
+                <ScalarProperty Name="alleyOffice" ColumnName="alleyOffice" />
+                <ScalarProperty Name="roadOffice" ColumnName="roadOffice" />
+                <ScalarProperty Name="subDistrictOffice" ColumnName="subDistrictOffice" />
+                <ScalarProperty Name="districtOffice" ColumnName="districtOffice" />
+                <ScalarProperty Name="provinceOffice" ColumnName="provinceOffice" />
+                <ScalarProperty Name="postalCodeOffice" ColumnName="postalCodeOffice" />
+                <ScalarProperty Name="officePhoneNumber" ColumnName="officePhoneNumber" />
+                <ScalarProperty Name="officeFax" ColumnName="officeFax" />
+                <ScalarProperty Name="officeMobileNumber" ColumnName="officeMobileNumber" />
+                <ScalarProperty Name="educationLevel" ColumnName="educationLevel" />
+                <ScalarProperty Name="graduationYear" ColumnName="graduationYear" />
+                <ScalarProperty Name="schoolName" ColumnName="schoolName" />
+                <ScalarProperty Name="subjectQualification" ColumnName="subjectQualification" />
+                <ScalarProperty Name="specialExpertise" ColumnName="specialExpertise" />
+                <ScalarProperty Name="dateWorkFrom" ColumnName="dateWorkFrom" />
+                <ScalarProperty Name="dateWorkTo" ColumnName="dateWorkTo" />
+                <ScalarProperty Name="workplace" ColumnName="workplace" />
+                <ScalarProperty Name="positionWork" ColumnName="positionWork" />
+                <ScalarProperty Name="academicWorkYear" ColumnName="academicWorkYear" />
+                <ScalarProperty Name="joinDevelopmentTeam" ColumnName="joinDevelopmentTeam" />
+                <ScalarProperty Name="nameAcademic" ColumnName="nameAcademic" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Innovation">
+            <EntityTypeMapping TypeName="ERIMSModel.Innovation">
+              <MappingFragment StoreEntitySet="Innovation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abstract" ColumnName="abstract" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="files" ColumnName="files" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Innovator">
+            <EntityTypeMapping TypeName="ERIMSModel.Innovator">
+              <MappingFragment StoreEntitySet="Innovator">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="nameTitle" ColumnName="nameTitle" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="identificationNumber" ColumnName="identificationNumber" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="levels" ColumnName="levels" />
+                <ScalarProperty Name="houseNumberHome" ColumnName="houseNumberHome" />
+                <ScalarProperty Name="villageNumberHome" ColumnName="villageNumberHome" />
+                <ScalarProperty Name="alleyHome" ColumnName="alleyHome" />
+                <ScalarProperty Name="roadHome" ColumnName="roadHome" />
+                <ScalarProperty Name="subDistrictHome" ColumnName="subDistrictHome" />
+                <ScalarProperty Name="districtHome" ColumnName="districtHome" />
+                <ScalarProperty Name="provinceHome" ColumnName="provinceHome" />
+                <ScalarProperty Name="postalCodeHome" ColumnName="postalCodeHome" />
+                <ScalarProperty Name="moblieNumber" ColumnName="moblieNumber" />
+                <ScalarProperty Name="houseNumberOffice" ColumnName="houseNumberOffice" />
+                <ScalarProperty Name="villageNumberOffice" ColumnName="villageNumberOffice" />
+                <ScalarProperty Name="alleyOffice" ColumnName="alleyOffice" />
+                <ScalarProperty Name="roadOffice" ColumnName="roadOffice" />
+                <ScalarProperty Name="subDistrictOffice" ColumnName="subDistrictOffice" />
+                <ScalarProperty Name="districtOffice" ColumnName="districtOffice" />
+                <ScalarProperty Name="provinceOffice" ColumnName="provinceOffice" />
+                <ScalarProperty Name="postalCodeOffice" ColumnName="postalCodeOffice" />
+                <ScalarProperty Name="officePhoneNumber" ColumnName="officePhoneNumber" />
+                <ScalarProperty Name="officeFax" ColumnName="officeFax" />
+                <ScalarProperty Name="officeMobileNumber" ColumnName="officeMobileNumber" />
+                <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="specialExpertise" ColumnName="specialExpertise" />
+                <ScalarProperty Name="dateWorkFrom" ColumnName="dateWorkFrom" />
+                <ScalarProperty Name="dateWorkTo" ColumnName="dateWorkTo" />
+                <ScalarProperty Name="workplace" ColumnName="workplace" />
+                <ScalarProperty Name="positionWork" ColumnName="positionWork" />
+                <ScalarProperty Name="academicWorkYear" ColumnName="academicWorkYear" />
+                <ScalarProperty Name="joinDevelopmentTeam" ColumnName="joinDevelopmentTeam" />
+                <ScalarProperty Name="nameAcademic" ColumnName="nameAcademic" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JoinDevelopmentTeam">
+            <EntityTypeMapping TypeName="ERIMSModel.JoinDevelopmentTeam">
+              <MappingFragment StoreEntitySet="JoinDevelopmentTeam">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="joinDevelopmentTeam1" ColumnName="joinDevelopmentTeam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Journal">
+            <EntityTypeMapping TypeName="ERIMSModel.Journal">
+              <MappingFragment StoreEntitySet="Journal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="files" ColumnName="files" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Level">
+            <EntityTypeMapping TypeName="ERIMSModel.Level">
+              <MappingFragment StoreEntitySet="Level">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="levels" ColumnName="levels" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="ERIMSModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NameTitle">
+            <EntityTypeMapping TypeName="ERIMSModel.NameTitle">
+              <MappingFragment StoreEntitySet="NameTitle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nameTitle1" ColumnName="nameTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperatingActivities">
+            <EntityTypeMapping TypeName="ERIMSModel.OperatingActivities">
+              <MappingFragment StoreEntitySet="OperatingActivities">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="operatingActivieies" ColumnName="operatingActivieies" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverallOperation">
+            <EntityTypeMapping TypeName="ERIMSModel.OverallOperation">
+              <MappingFragment StoreEntitySet="OverallOperation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="overallOperation1" ColumnName="overallOperation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="ERIMSModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="position1" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Province">
+            <EntityTypeMapping TypeName="ERIMSModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="province1" ColumnName="province" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublicRelation">
+            <EntityTypeMapping TypeName="ERIMSModel.PublicRelation">
+              <MappingFragment StoreEntitySet="PublicRelation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="newsName" ColumnName="newsName" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="htmlLink" ColumnName="htmlLink" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="views" ColumnName="views" />
+                <ScalarProperty Name="docUpload" ColumnName="docUpload" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Research">
+            <EntityTypeMapping TypeName="ERIMSModel.Research">
+              <MappingFragment StoreEntitySet="Research">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abstract" ColumnName="abstract" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="files" ColumnName="files" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Researcher">
+            <EntityTypeMapping TypeName="ERIMSModel.Researcher">
+              <MappingFragment StoreEntitySet="Researcher">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="nameTitle" ColumnName="nameTitle" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="identificationNumber" ColumnName="identificationNumber" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="levels" ColumnName="levels" />
+                <ScalarProperty Name="houseNumberHome" ColumnName="houseNumberHome" />
+                <ScalarProperty Name="villageNumberHome" ColumnName="villageNumberHome" />
+                <ScalarProperty Name="alleyHome" ColumnName="alleyHome" />
+                <ScalarProperty Name="roadHome" ColumnName="roadHome" />
+                <ScalarProperty Name="subDistrictHome" ColumnName="subDistrictHome" />
+                <ScalarProperty Name="districtHome" ColumnName="districtHome" />
+                <ScalarProperty Name="provinceHome" ColumnName="provinceHome" />
+                <ScalarProperty Name="postalCodeHome" ColumnName="postalCodeHome" />
+                <ScalarProperty Name="moblieNumber" ColumnName="moblieNumber" />
+                <ScalarProperty Name="houseNumberOffice" ColumnName="houseNumberOffice" />
+                <ScalarProperty Name="villageNumberOffice" ColumnName="villageNumberOffice" />
+                <ScalarProperty Name="alleyOffice" ColumnName="alleyOffice" />
+                <ScalarProperty Name="roadOffice" ColumnName="roadOffice" />
+                <ScalarProperty Name="subDistrictOffice" ColumnName="subDistrictOffice" />
+                <ScalarProperty Name="districtOffice" ColumnName="districtOffice" />
+                <ScalarProperty Name="provinceOffice" ColumnName="provinceOffice" />
+                <ScalarProperty Name="postalCodeOffice" ColumnName="postalCodeOffice" />
+                <ScalarProperty Name="officePhoneNumber" ColumnName="officePhoneNumber" />
+                <ScalarProperty Name="officeFax" ColumnName="officeFax" />
+                <ScalarProperty Name="officeMobileNumber" ColumnName="officeMobileNumber" />
+                <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="specialExpertise" ColumnName="specialExpertise" />
+                <ScalarProperty Name="dateWorkFrom" ColumnName="dateWorkFrom" />
+                <ScalarProperty Name="dateWorkTo" ColumnName="dateWorkTo" />
+                <ScalarProperty Name="workplace" ColumnName="workplace" />
+                <ScalarProperty Name="positionWork" ColumnName="positionWork" />
+                <ScalarProperty Name="academicWorkYear" ColumnName="academicWorkYear" />
+                <ScalarProperty Name="joinDevelopmentTeam" ColumnName="joinDevelopmentTeam" />
+                <ScalarProperty Name="nameAcademic" ColumnName="nameAcademic" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResearchFuds">
+            <EntityTypeMapping TypeName="ERIMSModel.ResearchFuds">
+              <MappingFragment StoreEntitySet="ResearchFuds">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="fundsName" ColumnName="fundsName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="htmlLink" ColumnName="htmlLink" />
+                <ScalarProperty Name="docUpload" ColumnName="docUpload" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResearchMonitoring">
+            <EntityTypeMapping TypeName="ERIMSModel.ResearchMonitoring">
+              <MappingFragment StoreEntitySet="ResearchMonitoring">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="budgetYear" ColumnName="budgetYear" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="workName" ColumnName="workName" />
+                <ScalarProperty Name="overallOperation" ColumnName="overallOperation" />
+                <ScalarProperty Name="operation" ColumnName="operation" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="progress" ColumnName="progress" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="docUpload" ColumnName="docUpload" />
+                <ScalarProperty Name="updates" ColumnName="updates" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResearchTopic">
+            <EntityTypeMapping TypeName="ERIMSModel.ResearchTopic">
+              <MappingFragment StoreEntitySet="ResearchTopic">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="topic" ColumnName="topic" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="htmlLink" ColumnName="htmlLink" />
+                <ScalarProperty Name="docUploads" ColumnName="docUploads" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubDistrict">
+            <EntityTypeMapping TypeName="ERIMSModel.SubDistrict">
+              <MappingFragment StoreEntitySet="SubDistrict">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="subDistrict1" ColumnName="subDistrict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

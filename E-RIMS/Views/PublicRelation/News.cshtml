@@ -1,0 +1,17 @@
+﻿@model E_RIMS.Models.PublicRelation
+@{
+    ViewBag.Title = "PublicRelation";
+}
+<br><br>
+<h2>@Html.DisplayFor(model => model.newsName)</h2>
+<div class="container">
+    <small class="text-muted float-right"><img src="~/Image/calendar-regular.svg" width="15" height="15"> &nbsp; @Html.DisplayFor(model => model.date) &nbsp;</small>
+    <small class="text-muted float-right"><img src="~/Image/eye-regular.svg" width="15" height="15"> &nbsp; @Html.DisplayFor(model => model.views) &nbsp;</small>
+    <br><br>
+        <p>
+            <img src="@Url.Content(Model.image)"><br><br>
+            @Html.DisplayFor(model => model.description)
+        </p>
+    ดาวน์โหลดเอกสารเพิ่มเติม<a href="@Html.DisplayFor(model => model.docUpload)"><h6 class="text-primary"><img src="~/Image/download-solid.svg" width="10" height="10">&nbsp;เอกสาร</h6></a>
+</div>
+
