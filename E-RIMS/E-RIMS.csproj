@@ -137,11 +137,13 @@
     <Compile Include="Controllers\InnovationController.cs" />
     <Compile Include="Controllers\InnovatorsController.cs" />
     <Compile Include="Controllers\JournalController.cs" />
+    <Compile Include="Controllers\KnowledgeBoxController.cs" />
     <Compile Include="Controllers\PublicRelationController.cs" />
     <Compile Include="Controllers\ResearchController.cs" />
     <Compile Include="Controllers\ResearcherAndInnovatorController.cs" />
     <Compile Include="Controllers\ResearcherController.cs" />
     <Compile Include="Controllers\TreasuryWorkController.cs" />
+    <Compile Include="Controllers\WorkTrackingController.cs" />
     <Compile Include="FileValidation\FileExtensionsValidationImage.cs" />
     <Compile Include="FileValidation\FileExtensionsValidationDoc.cs" />
     <Compile Include="Global.asax.cs">
@@ -275,6 +277,7 @@
     <Content Include="Image\img2.png" />
     <Content Include="Image\img3.png" />
     <Content Include="Image\img4.jpg" />
+    <Content Include="Image\learning-material.svg" />
     <Content Include="Image\pencil-alt-solid.svg" />
     <Content Include="Image\search-dollar-solid.svg" />
     <Content Include="Image\tasks-solid.svg" />
@@ -454,12 +457,14 @@
     <Content Include="Views\Expert\ExpertDetails.cshtml" />
     <Content Include="Views\Expert\EditExpert.cshtml" />
     <Content Include="Views\Expert\DeleteExpert.cshtml" />
+    <Content Include="Views\WorkTracking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="docUploadPublicRelation\" />
     <Folder Include="ImageExpert\" />
     <Folder Include="ImagePublicRelation\" />
+    <Folder Include="Views\KnowledgeBox\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
