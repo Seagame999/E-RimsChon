@@ -1,26 +1,86 @@
-﻿
+﻿@model E_RIMS.Models.Journal
+
 @{
-    ViewBag.Title = "CreateJournal";
+    /**/
+    ViewBag.Title = "หน้าจอเพิ่มวารสาร";
 }
 
-<h3><strong>เพิ่มวารสาร</strong></h3>
-<hr>
-<form class="form-inline">
-    <label class="mr-sm-2">ชื่อเรื่อง</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">บทคัดย่อ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ประเภท</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>...</option>
-        <option>.....</option>
-    </select>
-    <label class="mr-sm-2">ผู้จัดทำ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ไฟล์/วิดีโอ</label>
-    <input type="file" class="form-control-file">
-</form>
-<div class="row justify-content-center">
-    <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
-</div>
+@using (Html.BeginForm(Html.BeginForm("CreateJournal", "Journal", FormMethod.Post, new {
+    enctype = "multipart/form-data" })))
+{
 
+    @Html.AntiForgeryToken()
+
+    <br/><br/>
+
+    <div class="container">
+        <h3><i class="fa fa-plus"></i>&nbsp;เพิ่มวารสารฉบับใหม่&nbsp;<small>กรุณากรอกข้อมูลของวารสารให้ครบถ้วน</small></h3>
+        <hr>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                <div class="card">
+                    <div class="card-header"><i class="fa fa-plus"></i>&nbsp;เพิ่มข้อมูลวารสารฉบับใหม่</div>
+                    <div class="card-body">
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="journalName"><i class="fas fa-book"></i> ชื่อวารสาร ฉบับที่ ปีที่ตีพิมพ์</label>
+                                @Html.EditorFor(model => model.name,
+                                    new {
+                                        @class = "form-control",
+                                        @required = "required"
+                                    })
+                                <small id="" class="form-text text-muted">เช่น วารสารสำนักควบคุมโรคที่ 6 ชลบุรี ฉบับที่ 1 พ.ศ.2560</small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="description"><i class="fas fa-info"></i></label>&nbsp;รายละเอียด
+                                @Html.TextAreaFor(model => model.description,
+                                    new {
+                                        @class = "form-control",
+                                        @cols = 80,
+                                        @rows = 10,
+                                        @required = "required"
+                                    })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="">ภาพปกวารสาร (*.jpg, *.png)</label>
+                                @Html.LabelFor(model => model.image,
+                                    new {
+                                        @class = "control-label"
+                                    })
+                                <input type="file" class="form-control-file" required name="image" id="image">
+                                <small id="" class="form-text text-muted">ภาพที่แสดงหน้าปกของวารสาร</small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="">ไฟล์เอกสารวารสาร (*.pdf)</label>
+                                @Html.LabelFor(model => model.files,
+                                    new {
+                                        @class = "control-label"
+                                    })
+                                <input type="file" class="form-control-file" required name="files" id="files">
+                                <small id="" class="form-text text-muted">ไฟล์เอกสารของวารสาร</small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="agreeCheck">
+                                    <label class="form-check-label" for="agreeCheck">ฉันได้ตรวจสอบความถูกต้องของข้อมูลแล้ว</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;บันทึกข้อมูล</button>
+                                <button type="reset" class="btn btn-danger"><i class="fa fa-closed-captioning"></i>&nbsp;ยกเลิก</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
