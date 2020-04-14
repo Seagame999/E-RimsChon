@@ -1,0 +1,249 @@
+﻿@model IEnumerable<E_RIMS.Models.Innovator>
+
+@{
+    ViewBag.Title = "InnovatorList";
+}
+
+<h2>InnovatorList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nameTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.identificationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.levels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseNumberHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.villageNumberHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alleyHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roadHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subDistrictHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.districtHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.provinceHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postalCodeHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.moblieNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseNumberOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.villageNumberOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alleyOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roadOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subDistrictOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.districtOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.provinceOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postalCodeOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.officePhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.officeFax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.officeMobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.education)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specialExpertise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateWorkFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateWorkTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.workplace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.positionWork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.academicWorkYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.joinDevelopmentTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nameAcademic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publication)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.identificationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.levels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseNumberHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.villageNumberHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alleyHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roadHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subDistrictHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.districtHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.provinceHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postalCodeHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.moblieNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseNumberOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.villageNumberOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alleyOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roadOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subDistrictOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.districtOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.provinceOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postalCodeOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.officePhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.officeFax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.officeMobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialExpertise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateWorkFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateWorkTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.workplace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.positionWork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.academicWorkYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.joinDevelopmentTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameAcademic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publication)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

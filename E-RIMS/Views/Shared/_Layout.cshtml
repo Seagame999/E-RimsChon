@@ -3,24 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>ระบบจัดการงานวิจัย นวัตกรรม (E-RIMS) @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
-
-    @Styles.Render("~/Content/css")
-
-    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/all.css" rel="stylesheet" />
-
     <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
             <a class="navbar-brand" href="@Url.Action("Index","Home")">
                 <img src="~/Image/IconHome.png" class="d-inline-block align-top" style="width:40px; height:40px;"/>
-                &nbsp; E-RIMS: ODPC6 Chonburi testtest
+                &nbsp; E-RIMS: ODPC6 Chonburi
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

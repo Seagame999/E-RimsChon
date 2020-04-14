@@ -6,16 +6,22 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using E_RIMS.FileValidation;
 namespace E_RIMS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+    using System.Web.Mvc;
+
     public partial class Innovator
     {
         public int id { get; set; }
         public string image { get; set; }
+        [FileExtensionsValidationImage]
+        public HttpPostedFileBase image2 { get; set; }
         public string nameTitle { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
