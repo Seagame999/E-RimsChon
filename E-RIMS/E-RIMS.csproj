@@ -481,10 +481,21 @@
     <Content Include="Views\Innovators\DeleteInnovator.cshtml" />
     <Content Include="Views\Researcher\EditResearcher.cshtml" />
     <Content Include="Views\Researcher\DeleteResearcher.cshtml" />
+    <Content Include="Views\Research\EditResearch.cshtml" />
+    <Content Include="Views\Research\DeleteResearch.cshtml" />
+    <Content Include="Views\AcademicPaper\DetailAcademicPaper.cshtml" />
+    <Content Include="Views\AcademicPaper\EditAcademicPaper.cshtml" />
+    <Content Include="Views\AcademicPaper\DeleteAcademicPaper.cshtml" />
+    <Content Include="Views\Innovation\DetailInnovation.cshtml" />
+    <Content Include="Views\Innovation\EditInnovation.cshtml" />
+    <Content Include="Views\Innovation\DeleteInnovation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="docUploadAcademicPaper\" />
+    <Folder Include="docUploadInnovation\" />
     <Folder Include="docUploadPublicRelation\" />
+    <Folder Include="docUploadResearch\" />
     <Folder Include="ImageExpert\" />
     <Folder Include="ImageInnovator\" />
     <Folder Include="ImagePublicRelation\" />
