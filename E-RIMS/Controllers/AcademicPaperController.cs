@@ -13,10 +13,29 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: AcademicPaper
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var academicPaper = db.AcademicPaper;
-            return View(academicPaper);
+            var academicPaperResult = academicPaper.ToList();
+
+            if(search != null)
+            {
+                if (search != null)
+                {
+                    academicPaperResult = db.AcademicPaper.Where(x => x.name == search).ToList();             
+                }
+                else if (search != null)
+                {
+                    academicPaperResult = db.AcademicPaper.Where(x => x.@abstract == search).ToList();
+                }
+                else if (search != null)
+                {
+                    academicPaperResult = db.AcademicPaper.Where(x => x.creator == search).ToList();
+                }
+            }
+            
+
+                return View(academicPaperResult);
         }
 
         public ActionResult AllAcademicPaper()

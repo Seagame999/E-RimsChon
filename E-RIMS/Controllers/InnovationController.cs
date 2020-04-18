@@ -13,10 +13,28 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: Innovation
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var innovation = db.Innovation;
-            return View(innovation.ToList());
+            var innovationResult = innovation.ToList();
+
+            if (search != null)
+            {
+                if (search != null)
+                {
+                    innovationResult = db.Innovation.Where(x => x.name == search).ToList();
+                }
+                else if (search != null)
+                {
+                    innovationResult = db.Innovation.Where(x => x.@abstract == search).ToList();
+                }
+                else if (search != null)
+                {
+                    innovationResult = db.Innovation.Where(x => x.creator == search).ToList();
+                }
+            }
+
+                return View(innovationResult);
         }
 
         public ActionResult AllInnovation()
