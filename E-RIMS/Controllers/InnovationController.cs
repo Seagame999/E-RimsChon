@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_RIMS.Controllers
 {
@@ -13,26 +15,30 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: Innovation
-        public ActionResult Index(string search)
+        public ActionResult Index(string search,int? page)
         {
             var innovation = db.Innovation;
-            var innovationResult = innovation.ToList();
 
+            //--Pagination 10 each
+            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
             if (search != null)
             {
                 if (search != null)
                 {
-                    innovationResult = db.Innovation.Where(x => x.name == search).ToList();
+                    innovationResult = db.Innovation.Where(x => x.name.StartsWith(search) || x.name == search).ToList().ToPagedList(page ?? 1, 10); ;
                 }
                 else if (search != null)
                 {
-                    innovationResult = db.Innovation.Where(x => x.@abstract == search).ToList();
+                    innovationResult = db.Innovation.Where(x => x.@abstract.StartsWith(search) || x.@abstract == search).ToList().ToPagedList(page ?? 1, 10); ;
                 }
                 else if (search != null)
                 {
-                    innovationResult = db.Innovation.Where(x => x.creator == search).ToList();
+                    innovationResult = db.Innovation.Where(x => x.creator.StartsWith(search) || x.creator == search).ToList().ToPagedList(page ?? 1, 10); ;
                 }
             }
+            //--
 
                 return View(innovationResult);
         }

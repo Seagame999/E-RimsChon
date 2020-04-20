@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_RIMS.Controllers
 {
@@ -13,27 +15,30 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: AcademicPaper
-        public ActionResult Index(string search)
+        public ActionResult Index(string search,int? page)
         {
             var academicPaper = db.AcademicPaper;
-            var academicPaperResult = academicPaper.ToList();
 
-            if(search != null)
+            //--Pagination 10 each
+            var academicPaperResult = academicPaper.ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
+            if (search != null)
             {
                 if (search != null)
                 {
-                    academicPaperResult = db.AcademicPaper.Where(x => x.name == search).ToList();             
+                    academicPaperResult = db.AcademicPaper.Where(x => x.name.StartsWith(search) || x.name == search).ToList().ToPagedList(page ?? 1, 10);             
                 }
                 else if (search != null)
                 {
-                    academicPaperResult = db.AcademicPaper.Where(x => x.@abstract == search).ToList();
+                    academicPaperResult = db.AcademicPaper.Where(x => x.@abstract.StartsWith(search) || x.@abstract == search).ToList().ToPagedList(page ?? 1, 10);
                 }
                 else if (search != null)
                 {
-                    academicPaperResult = db.AcademicPaper.Where(x => x.creator == search).ToList();
+                    academicPaperResult = db.AcademicPaper.Where(x => x.creator.StartsWith(search) || x.creator == search).ToList().ToPagedList(page ?? 1, 10);
                 }
             }
-            
+            //--
 
                 return View(academicPaperResult);
         }

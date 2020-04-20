@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_RIMS.Controllers
 {
@@ -13,10 +15,14 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var publicRelation = db.PublicRelation;
-            return View(publicRelation.ToList());
+
+            //--Pagination 6 cards
+            var publicRelationResult = publicRelation.ToList().ToPagedList(page ?? 1, 6);
+
+            return View(publicRelationResult);
         }
 
        

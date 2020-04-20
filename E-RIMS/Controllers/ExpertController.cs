@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_RIMS.Controllers
 {
@@ -14,10 +16,14 @@ namespace E_RIMS.Controllers
         ERIMSEntities db = new ERIMSEntities();
         // GET: Expert
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var expert = db.Expert;
-            return View(expert.ToList());
+
+            //--Pagination 6 cards
+            var expertResult = expert.ToList().ToPagedList(page ?? 1, 6);
+
+            return View(expertResult);
         }
 
         public ActionResult ListExpert()
