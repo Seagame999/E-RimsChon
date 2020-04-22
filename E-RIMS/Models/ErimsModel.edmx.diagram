@@ -21,8 +21,7 @@
         <EntityTypeShape EntityType="ERIMSModel.Level" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.Member" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.NameTitle" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERIMSModel.OperatingActivities" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERIMSModel.OverallOperation" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERIMSModel.OverallOperation" Width="1.5" PointX="16.375" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.Position" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.Province" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.PublicRelation" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
@@ -30,8 +29,10 @@
         <EntityTypeShape EntityType="ERIMSModel.Researcher" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.ResearchFuds" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.ResearchMonitoring" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERIMSModel.ResearchTopic" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERIMSModel.SubDistrict" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERIMSModel.ResearchTopic" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERIMSModel.SubDistrict" Width="1.5" PointX="14.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERIMSModel.PercentActivities" Width="1.5" PointX="7.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ERIMSModel.OperatingActivities" Width="1.5" PointX="13.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

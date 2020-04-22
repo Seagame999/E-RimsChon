@@ -85,6 +85,15 @@ namespace E_RIMS.Controllers
             {
                 return HttpNotFound();
             }
+
+            var modelNameTitle = db.NameTitle.ToList();
+            ViewBag.nameTitleView = (from item in modelNameTitle
+                                     select new SelectListItem
+                                     {
+                                         Text = item.nameTitle1,
+                                         Value = item.nameTitle1.ToString()
+                                     });
+
             return View(expert);
         }
 

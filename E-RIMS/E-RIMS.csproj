@@ -225,6 +225,9 @@
     <Compile Include="Models\OverallOperation.cs">
       <DependentUpon>ErimsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PercentActivities.cs">
+      <DependentUpon>ErimsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Position.cs">
       <DependentUpon>ErimsModel.tt</DependentUpon>
     </Compile>

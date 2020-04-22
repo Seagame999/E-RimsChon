@@ -12,10 +12,10 @@ namespace E_RIMS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OperatingActivities
+    public partial class PercentActivities
     {
         public int id { get; set; }
-        public string operatingActivities1 { get; set; }
+        public string status { get; set; }
         public Nullable<int> percents { get; set; }
     }
 }
