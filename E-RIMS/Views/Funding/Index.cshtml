@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "แหล่งทุนวิจัย";
+}
+<br /><br />
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">แหล่งทุนวิจัย</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>แหล่งทุนวิจัยสำหรับนักวิจัย</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+
+        <div class="row">
+            <div class="col">
+                <img src="~/Image/tsri_logo.png" class="rounded mx-auto d-block" alt="" style="width:150px;">
+                <p class="text-center">สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม (สกสว.)<br/><a href="" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i>&nbsp;ข้อมูลเพิ่มเติม</a></p>
+            </div>
+            <div class="col">
+                <img src="~/Image/logo_NRCT.jpg" class="rounded mx-auto d-block" alt="" style="width:150px;">
+                <p class="text-center">สำนักงานการวิจัยแห่งชาติ (วช.)<br /><a href="" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i>&nbsp;ข้อมูลเพิ่มเติม</a></p>
+            </div>
+            <div class="col align-middle">
+                <img src="~/Image/nia_logo_color.jpg" class="rounded mx-auto d-block" alt="" style="width:150px;">
+                <p class="text-center">สำนักงานนวัตกรรมแห่งชาติ<br /><a href="" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i>&nbsp;ข้อมูลเพิ่มเติม</a></p>
+            </div>
+            <div class="col">
+                <img src="~/Image/arda_logo.png" class="rounded mx-auto d-block" alt="" style="width:150px;">
+                <p class="text-center">ARDA สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)<br /><a href="" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i>&nbsp;ข้อมูลเพิ่มเติม</a></p>
+            </div>
+            <div class="col">
+                <img src="~/Image/hsri_logo.jpg" class="rounded mx-auto d-block" alt="" style="width:150px;">
+                <p class="text-center">สถาบันวิจัยระบบสาธารณสุข<br /><a href="" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i>&nbsp;ข้อมูลเพิ่มเติม</a></p>
+            </div>
+        </div>
+
+    </div>
+</div>

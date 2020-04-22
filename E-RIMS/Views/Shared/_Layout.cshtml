@@ -17,7 +17,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
             <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                <img src="~/Image/IconHome.png" class="d-inline-block align-top" style="width:40px; height:40px;"/>
+                <img src="~/Image/odpc6_logo.png" class="d-inline-block" style="height:60px;"/>
                 &nbsp; E-RIMS: ODPC6 Chonburi
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,13 +46,13 @@
                             <i class="fa fa-info-circle"></i>&nbsp;ข้อมูลสำหรับนักวิจัย&nbsp;
                         </a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="#"><i class="fa fa-piggy-bank"></i>&nbsp;แหล่งทุนวิจัย</a>
-                            <a class="dropdown-item" role="presentation" href="#"><i class="fa fa-th-list"></i>&nbsp;ประเด็นหัวข้อวิจัย</a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index","Expert")"><i class="fa fa-user-md"></i>&nbsp;ทำเนียบผู้เชี่ยวชาญ</a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index","Journal")"><i class="fa fa-book"></i>&nbsp;วารสารสคร.6</a>
-                            <a class="dropdown-item" role="presentation" href="#"><i class="fa fa-bookmark"></i>&nbsp;องค์ความรู้</a>
+                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Funding")"><i class="fa fa-piggy-bank"></i>&nbsp;แหล่งทุนวิจัย</a>
+                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchTopic")"><i class="fa fa-th-list"></i>&nbsp;ประเด็นหัวข้อวิจัย</a>
+                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Expert")"><i class="fa fa-user-md"></i>&nbsp;ทำเนียบผู้เชี่ยวชาญ</a>
+                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Journal")"><i class="fa fa-book"></i>&nbsp;วารสารสคร.6</a>
+                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "KnowledgeBox")"><i class="fa fa-bookmark"></i>&nbsp;กล่องความรู้</a>
                             <div class="dropdown-divider" role="presentation"></div>
-                            <a class="dropdown-item" role="presentation" href="#"><i class="fa fa-download"></i>&nbsp;เอกสารดาวน์โหลด</a>
+                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "DocumentDownload")"><i class="fa fa-download"></i>&nbsp;เอกสารดาวน์โหลด</a>
                         </div>
                     </li>
                 </ul>

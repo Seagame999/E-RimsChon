@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "กล่องความรู้";
+}
+<br /><br />
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">กล่องความรู้ที่น่าสนใจ</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>รวบรวมองค์ความรู้จากหลายแหล่งที่น่าสนใจต่อนักวิจัย</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center"><i class="fa fa-2x fa-question"></i></h1>
+                <p class="text-center">การตั้งคำถาม <br/>และการเขียนกรอบแนวคิด งานวิจัย
+                    <br /><a href="~/docUploadKnowledge/DPC6 CHB- WS 26-01-16.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                </p>
+            </div>
+            <div class="col">
+                <h1 class="text-center"><i class="fa fa-2x fa-pen"></i></h1>
+                <p class="text-center">
+                    การเขียนโครงร่างวิจัย<br/>
+                    ตามหลักจริยธรรมการวิจัยในคน
+                    <br /><a href="~/docUploadKnowledge/DPC6 CHB- WS 27-01-16.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                </p>
+            </div>
+            <div class="col align-middle">
+                <h1 class="text-center"><i class="fa fa-2x fa-tools"></i></h1>
+                <p class="text-center">
+                    หลักการสร้างเครื่องมือ<br/>ที่ใช้ในงานวิจัย
+                    <br /><a href="~/docUploadKnowledge/WS2 - 23-03-16 res. tools nf.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                </p>
+            </div>
+            <div class="col">
+                <h1 class="text-center"><i class="fa fa-2x fa-hospital-user"></i></h1>
+                <p class="text-center">
+                    หลักการเขียน
+                    เอกสารขอคำยินยอมงานวิจัย<br/>
+                    ตามหลักจริยธรรมการวิจัยในคน
+                    <br /><a href="~/docUploadKnowledge/WS2 - 24-03-16 ICF.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                </p>
+            </div>
+            <div class="col">
+                <h1 class="text-center"><i class="fa fa-2x fa-book"></i></h1>
+                <p class="text-center">
+                    การเขียนเอกสารวิชาการ
+                    <br /><a href="~/docUploadKnowledge/WS3-14-07-16 manuscript.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

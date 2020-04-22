@@ -1,11 +1,69 @@
 ﻿@model E_RIMS.Models.PublicRelation
 @{
-    /**/
-
-    ViewBag.Title = "CreateNews";
+    ViewBag.Title = "เพิ่มการประชาสัมพันธ์ข่าวใหม่";
 }
 
+<br><br>
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("AllNews", "PublicRelation")">ข่าวประชาสัมพันธ์</a></li>
+        <li class="breadcrumb-item active" aria-current="page">เพิ่มข้อมูลข่าวประชาสัมพันธ์ใหม่</li>
+    </ol>
+</nav>
+
+@using (Html.BeginForm(Html.BeginForm("CreateNews", "PublicRelation", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card">
+        <div class="card-header">
+            <h3>จัดการข้อมูลข่าวประชาสัมพันธ์</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <hr />
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label>ชื่อเรื่อง</label>
+                        @Html.EditorFor(model => model.newsName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.newsName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-4">
+                        <label>รูปประกอบข่าว</label>
+                        <input type="file" name="image2" />
+                        @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-4">
+                        <label>รายละเอียด</label>
+                        @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <input type="date" class="datepicker-inline" name="date">
+                    </div>
+                    <div class="form-group col-4">
+                        @Html.LabelFor(model => model.docUpload, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <input type="file" name="docUpload2" />
+                        @Html.ValidationMessageFor(model => model.docUpload2, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        <button type="button" class="btn btn-success text-center" value="CreatNews"><i class="fa fa-check-circle"></i>&nbsp;บันทึก</button>
+                        <button type="reset" class="btn btn-danger text-center"><i class="fa fa-times-circle"></i>&nbsp;ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+<!--
 <br /><br />
 <h3><strong>สร้างข่าวประชาสัมพันธ์</strong></h3>
 
@@ -64,3 +122,4 @@
         </div>
     </div>
 }
+    -->
