@@ -15,6 +15,7 @@ namespace E_RIMS.Models
     public partial class OperatingActivities
     {
         public int id { get; set; }
-        public string operatingActivieies { get; set; }
+        public string operatingActivities1 { get; set; }
+        public Nullable<int> percents { get; set; }
     }
 }

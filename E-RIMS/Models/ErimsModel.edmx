@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ERIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ERIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AcademicPaper">
           <Key>
             <PropertyRef Name="id" />
@@ -202,6 +202,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="255" />
           <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="role" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NameTitle">
@@ -216,7 +217,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="operatingActivieies" Type="varchar" MaxLength="255" />
+          <Property Name="operatingActivities" Type="varchar" MaxLength="255" />
+          <Property Name="percents" Type="int" />
         </EntityType>
         <EntityType Name="OverallOperation">
           <Key>
@@ -224,6 +226,38 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="overallOperation" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="lastUpdate" Type="date" />
+          <Property Name="activity1" Type="text" />
+          <Property Name="percents1" Type="int" />
+          <Property Name="activity2" Type="text" />
+          <Property Name="percents2" Type="int" />
+          <Property Name="activity3" Type="text" />
+          <Property Name="percents3" Type="int" />
+          <Property Name="activity4" Type="text" />
+          <Property Name="percents4" Type="int" />
+          <Property Name="activity5" Type="text" />
+          <Property Name="percents5" Type="int" />
+          <Property Name="activity6" Type="text" />
+          <Property Name="percents6" Type="int" />
+          <Property Name="activity7" Type="text" />
+          <Property Name="percents7" Type="int" />
+          <Property Name="activity8" Type="text" />
+          <Property Name="percents8" Type="int" />
+          <Property Name="activity9" Type="text" />
+          <Property Name="percents9" Type="int" />
+          <Property Name="activity10" Type="text" />
+          <Property Name="percents10" Type="int" />
+        </EntityType>
+        <EntityType Name="PercentActivities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="percents" Type="int" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -370,6 +404,7 @@
           <EntitySet Name="NameTitle" EntityType="Self.NameTitle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OperatingActivities" EntityType="Self.OperatingActivities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OverallOperation" EntityType="Self.OverallOperation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PercentActivities" EntityType="Self.PercentActivities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PublicRelation" EntityType="Self.PublicRelation" Schema="dbo" store:Type="Tables" />
@@ -380,8 +415,7 @@
           <EntitySet Name="ResearchTopic" EntityType="Self.ResearchTopic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubDistrict" EntityType="Self.SubDistrict" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ERIMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -583,6 +617,7 @@
           <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="NameTitle">
           <Key>
@@ -591,19 +626,36 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nameTitle1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="OperatingActivities">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="operatingActivieies" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="OverallOperation">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="overallOperation1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastUpdate" Type="DateTime" Precision="0" />
+          <Property Name="activity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents1" Type="Int32" />
+          <Property Name="activity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents2" Type="Int32" />
+          <Property Name="activity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents3" Type="Int32" />
+          <Property Name="activity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents4" Type="Int32" />
+          <Property Name="activity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents5" Type="Int32" />
+          <Property Name="activity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents6" Type="Int32" />
+          <Property Name="activity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents7" Type="Int32" />
+          <Property Name="activity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents8" Type="Int32" />
+          <Property Name="activity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents9" Type="Int32" />
+          <Property Name="activity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="percents10" Type="Int32" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -748,7 +800,6 @@
           <EntitySet Name="Level" EntityType="Self.Level" />
           <EntitySet Name="Member" EntityType="Self.Member" />
           <EntitySet Name="NameTitle" EntityType="Self.NameTitle" />
-          <EntitySet Name="OperatingActivities" EntityType="Self.OperatingActivities" />
           <EntitySet Name="OverallOperation" EntityType="Self.OverallOperation" />
           <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="Province" EntityType="Self.Province" />
@@ -759,7 +810,25 @@
           <EntitySet Name="ResearchMonitoring" EntityType="Self.ResearchMonitoring" />
           <EntitySet Name="ResearchTopic" EntityType="Self.ResearchTopic" />
           <EntitySet Name="SubDistrict" EntityType="Self.SubDistrict" />
+          <EntitySet Name="PercentActivities" EntityType="ERIMSModel.PercentActivities" />
+          <EntitySet Name="OperatingActivities" EntityType="ERIMSModel.OperatingActivities" />
         </EntityContainer>
+        <EntityType Name="PercentActivities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="percents" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OperatingActivities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="operatingActivities1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="percents" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -973,6 +1042,7 @@
           <EntitySetMapping Name="Member">
             <EntityTypeMapping TypeName="ERIMSModel.Member">
               <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -988,17 +1058,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OperatingActivities">
-            <EntityTypeMapping TypeName="ERIMSModel.OperatingActivities">
-              <MappingFragment StoreEntitySet="OperatingActivities">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="operatingActivieies" ColumnName="operatingActivieies" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OverallOperation">
             <EntityTypeMapping TypeName="ERIMSModel.OverallOperation">
               <MappingFragment StoreEntitySet="OverallOperation">
+                <ScalarProperty Name="percents10" ColumnName="percents10" />
+                <ScalarProperty Name="activity10" ColumnName="activity10" />
+                <ScalarProperty Name="percents9" ColumnName="percents9" />
+                <ScalarProperty Name="activity9" ColumnName="activity9" />
+                <ScalarProperty Name="percents8" ColumnName="percents8" />
+                <ScalarProperty Name="activity8" ColumnName="activity8" />
+                <ScalarProperty Name="percents7" ColumnName="percents7" />
+                <ScalarProperty Name="activity7" ColumnName="activity7" />
+                <ScalarProperty Name="percents6" ColumnName="percents6" />
+                <ScalarProperty Name="activity6" ColumnName="activity6" />
+                <ScalarProperty Name="percents5" ColumnName="percents5" />
+                <ScalarProperty Name="activity5" ColumnName="activity5" />
+                <ScalarProperty Name="percents4" ColumnName="percents4" />
+                <ScalarProperty Name="activity4" ColumnName="activity4" />
+                <ScalarProperty Name="percents3" ColumnName="percents3" />
+                <ScalarProperty Name="activity3" ColumnName="activity3" />
+                <ScalarProperty Name="percents2" ColumnName="percents2" />
+                <ScalarProperty Name="activity2" ColumnName="activity2" />
+                <ScalarProperty Name="percents1" ColumnName="percents1" />
+                <ScalarProperty Name="activity1" ColumnName="activity1" />
+                <ScalarProperty Name="lastUpdate" ColumnName="lastUpdate" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="overallOperation1" ColumnName="overallOperation" />
               </MappingFragment>
@@ -1136,6 +1222,24 @@
               <MappingFragment StoreEntitySet="SubDistrict">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="subDistrict1" ColumnName="subDistrict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PercentActivities">
+            <EntityTypeMapping TypeName="ERIMSModel.PercentActivities">
+              <MappingFragment StoreEntitySet="PercentActivities">
+                <ScalarProperty Name="percents" ColumnName="percents" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperatingActivities">
+            <EntityTypeMapping TypeName="ERIMSModel.OperatingActivities">
+              <MappingFragment StoreEntitySet="OperatingActivities">
+                <ScalarProperty Name="percents" ColumnName="percents" />
+                <ScalarProperty Name="operatingActivities1" ColumnName="operatingActivities" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

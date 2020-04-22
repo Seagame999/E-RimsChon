@@ -16,5 +16,29 @@ namespace E_RIMS.Models
     {
         public int id { get; set; }
         public string overallOperation1 { get; set; }
+        public string name { get; set; }
+        public string category { get; set; }
+        public string creator { get; set; }
+        public Nullable<System.DateTime> lastUpdate { get; set; }
+        public string activity1 { get; set; }
+        public Nullable<int> percents1 { get; set; }
+        public string activity2 { get; set; }
+        public Nullable<int> percents2 { get; set; }
+        public string activity3 { get; set; }
+        public Nullable<int> percents3 { get; set; }
+        public string activity4 { get; set; }
+        public Nullable<int> percents4 { get; set; }
+        public string activity5 { get; set; }
+        public Nullable<int> percents5 { get; set; }
+        public string activity6 { get; set; }
+        public Nullable<int> percents6 { get; set; }
+        public string activity7 { get; set; }
+        public Nullable<int> percents7 { get; set; }
+        public string activity8 { get; set; }
+        public Nullable<int> percents8 { get; set; }
+        public string activity9 { get; set; }
+        public Nullable<int> percents9 { get; set; }
+        public string activity10 { get; set; }
+        public Nullable<int> percents10 { get; set; }
     }
 }

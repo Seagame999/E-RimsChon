@@ -41,7 +41,6 @@ namespace E_RIMS.Models
         public virtual DbSet<Level> Level { get; set; }
         public virtual DbSet<Member> Member { get; set; }
         public virtual DbSet<NameTitle> NameTitle { get; set; }
-        public virtual DbSet<OperatingActivities> OperatingActivities { get; set; }
         public virtual DbSet<OverallOperation> OverallOperation { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Province> Province { get; set; }
@@ -52,5 +51,7 @@ namespace E_RIMS.Models
         public virtual DbSet<ResearchMonitoring> ResearchMonitoring { get; set; }
         public virtual DbSet<ResearchTopic> ResearchTopic { get; set; }
         public virtual DbSet<SubDistrict> SubDistrict { get; set; }
+        public virtual DbSet<PercentActivities> PercentActivities { get; set; }
+        public virtual DbSet<OperatingActivities> OperatingActivities { get; set; }
     }
 }
