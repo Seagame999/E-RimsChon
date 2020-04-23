@@ -1,4 +1,6 @@
-﻿@model IEnumerable<E_RIMS.Models.PublicRelation>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.PublicRelation>
 
 @{
     ViewBag.Title = "ข่าวประชาสัมพันธ์";
@@ -40,23 +42,16 @@
                             <td>@Html.DisplayFor(modelItem => item.description)</td>
                             <td>@Html.DisplayFor(modelItem => item.htmlLink)</td>
                             <td><a href="@Html.DisplayFor(modelItem => item.docUpload)" class="btn btn-info btn-sm"><i class="fa fa-file"></i></a></td>
-                            <td><a href="@Url.Action("Edit"+"/"+item.id,"PublicRelation")" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>&nbsp;<a href="@Url.Action("Delete"+"/"+item.id,"PublicRelation")" class="btn btn-danger btn-sm"><i class="fa fa-eraser"></i></a></td>
+                            <td><a href="@Url.Action("EditNews"+"/"+item.id,"PublicRelation")" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>&nbsp;<a href="@Url.Action("Delete"+"/"+item.id,"PublicRelation")" class="btn btn-danger btn-sm"><i class="fa fa-eraser"></i></a></td>
                         </tr>
                     }
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="6" class="text-center">
-                            <div>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-end text-center">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                            <div class="row">
+                                <div class="col-6"></div>
+                                <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
                             </div>
                         </td>
                     </tr>

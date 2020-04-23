@@ -29,8 +29,14 @@ namespace E_RIMS.FileValidation
                 {
                     return ValidationResult.Success;
                 }
+
+                return new ValidationResult("ขออภัยไฟล์ไม่สนับสนุน");
             }
-            return new ValidationResult("ขออภัยไฟล์ไม่สนับสนุน");
+            else
+            {
+                return ValidationResult.Success;
+            }
+            
             
 
         }

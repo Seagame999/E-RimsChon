@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_RIMS.Controllers
 {
@@ -15,10 +17,12 @@ namespace E_RIMS.Controllers
         ERIMSEntities db = new ERIMSEntities();
         // GET: PublicRelation
 
-        public ActionResult AllNews()
+        public ActionResult AllNews(int? page)
         {
             var publicRelation = db.PublicRelation;
-            return View(publicRelation.ToList());     
+            var publicRelationResult = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
+
+            return View(publicRelationResult);     
         }
 
         public ActionResult CreateNews()

@@ -26,9 +26,15 @@ namespace E_RIMS.FileValidation
                     return ValidationResult.Success;
 
                 }
+
+                return new ValidationResult("กรุณาใส่รูปภาพ(JPG,PNG,BMP)");
+            }
+            else
+            {
+                return ValidationResult.Success;
             }
 
-            return new ValidationResult("กรุณาใส่รูปภาพ(JPG,PNG,BMP)");
+            
 
         }
 
