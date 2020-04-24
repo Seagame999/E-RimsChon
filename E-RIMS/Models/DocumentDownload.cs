@@ -11,7 +11,11 @@ namespace E_RIMS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+    using E_RIMS.FileValidation;
+
     public partial class DocumentDownload
     {
         public int id { get; set; }
@@ -19,5 +23,7 @@ namespace E_RIMS.Models
         public string name { get; set; }
         public string description { get; set; }
         public string docUpload { get; set; }
+        [FileExtensionsValidationDoc]
+        public HttpPostedFileBase docUpload2{ get; set; }
     }
 }

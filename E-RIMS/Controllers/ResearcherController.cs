@@ -45,7 +45,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(researcher.image2.FileName);
                     string extension = Path.GetExtension(researcher.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    researcher.image = "~/ImageResearcher/" + fileName;
+                    researcher.image = "/ImageResearcher/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImageResearcher/"), fileName);
                     researcher.image2.SaveAs(fileName);
 
@@ -90,7 +90,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(researcher.image2.FileName);
                     string extension = Path.GetExtension(researcher.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    researcher.image = "~/ImageResearcher/" + fileName;
+                    researcher.image = "/ImageResearcher/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImageResearcher/"), fileName);
                     researcher.image2.SaveAs(fileName);
                 }

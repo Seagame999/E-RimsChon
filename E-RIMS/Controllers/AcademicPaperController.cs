@@ -64,7 +64,7 @@ namespace E_RIMS.Controllers
                     var fileNameDoc = Path.GetFileNameWithoutExtension(academicPaper.files2.FileName);
                     string extension = Path.GetExtension(academicPaper.files2.FileName);
                     fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    academicPaper.files = "~/docUploadAcademicPaper/" + fileNameDoc;
+                    academicPaper.files = "/docUploadAcademicPaper/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadAcademicPaper/"), fileNameDoc);
                     academicPaper.files2.SaveAs(path);
                 }
@@ -109,7 +109,7 @@ namespace E_RIMS.Controllers
                     var fileNameDoc = Path.GetFileNameWithoutExtension(academicPaper.files2.FileName);
                     string extension = Path.GetExtension(academicPaper.files2.FileName);
                     fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    academicPaper.files = "~/docUploadAcademicPaper/" + fileNameDoc;
+                    academicPaper.files = "/docUploadAcademicPaper/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadAcademicPaper/"), fileNameDoc);
                     academicPaper.files2.SaveAs(path);
                 }

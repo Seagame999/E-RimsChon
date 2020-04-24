@@ -54,7 +54,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(expert.image2.FileName);
                     string extension = Path.GetExtension(expert.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    expert.image = "~/ImageExpert/" + fileName;
+                    expert.image = "/ImageExpert/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImageExpert/"), fileName);
                     expert.image2.SaveAs(fileName);
                 }
@@ -107,7 +107,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(expert.image2.FileName);
                     string extension = Path.GetExtension(expert.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    expert.image = "~/ImageExpert/" + fileName;
+                    expert.image = "/ImageExpert/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImageExpert/"), fileName);
                     expert.image2.SaveAs(fileName);
                 }

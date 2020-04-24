@@ -1,8 +1,12 @@
-﻿@{
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.Journal>
+
+@{
     ViewBag.Title = "วารสารสคร.6 จังหวัดชลบุรี";
 }
 
-<br/><br/>
+<br /><br />
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -19,89 +23,27 @@
         <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
         <hr />
         <div class="form-row">
+            <div class="col-md-12">
+                <div class="card-deck">
+                    @foreach (var item in Model)
+                    {
+                        <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                            <img class="card-img-top" src="@Url.Content(item.image)" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.name)</h5>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.description)<a href="@Url.Action("DetailJournal"+"/"+item.id)">&nbsp;รายละเอียด</a></p>                              
+                            </div>
+                        </div>
+                    }
 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
         </div>
     </div>
 </div>
 
-<!--
 
-<br><br>
-<h3><strong>วารสาร สคร.6 ชลบุรี</strong></h3>
-<hr>
-
-<a href="@Url.Action("AllJournal","Journal")"><h6 class="text-primary">+จัดการวารสาร</h6></a>
-<form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="ค้นหาวารสาร" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ค้นหา</button>
-</form>
-
-<br>
-
-@*CardJounal*@
-<div class="container mt-3">
-    <div class="row">
-        <div class="card-deck">
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <a href="#">
-                    <img class="card-img-top" src="~/Image/img3.png" alt="Card image cap">
-                </a>
-                <div class="card-body">
-                    <a>
-                        <h5 class="card-title text-center">ปีที่ 19 ฉบับ 2 พ.ค. - ส.ค.2558</h5>
-                    </a>
-
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">วารสาร 2</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">วารสาร 3</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">วารสาร 4</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">วารสาร 5</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">นักวิจัย 6</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-        </div>
-        @*--Pagination*@
-        <div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
--->

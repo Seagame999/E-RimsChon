@@ -1,4 +1,5 @@
-﻿@{
+﻿@model E_RIMS.Models.Journal
+@{
     ViewBag.Title = "เพิ่มข้อมูลวารสารฉบับใหม่";
 }
 
@@ -12,62 +13,49 @@
     </ol>
 </nav>
 
-<div class="card">
-    <div class="card-header">
-        <h3>จัดการข้อมูลวารสาร</h3>
-    </div>
-    <div class="card-body">
-        <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
-        <hr />
-        <form>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <label for="journalName"><i class="fa fa-book"></i>&nbsp;ชื่อวารสาร</label>
-                    <input type="text" class="form-control" id="journalName" placeholder="ชื่อวารสาร ฉบับที่ ปีที่">
-                </div>
-                <div class="form-group col-6">
-                    <label for="journalCoverFile"><i class="fa fa-image"></i>&nbsp;ภาพหน้าปกวารสาร</label>
-                    <input type="file" class="form-control-file" placeholder="ภาพหน้าปกวารสาร *.jpg หรือ *.png" id="journalCoverFile">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <label for="journalDesc"><i class="fa fa-info"></i>&nbsp;รายละเอียดวารสาร</label>
-                    <textarea class="form-control" id="journalDesc" rows="3" placeholder="รายละเอียดวารสาร"></textarea>
-                </div>
-                <div class="form-group col-6">
-                    <label for="journalFile"><i class="fa fa-file-pdf"></i>&nbsp;ไฟล์เล่มวารสาร</label>
-                    <input type="file" class="form-control-file" placeholder="ไฟล์เอกสารเล่มวารสาร *.pdf" id="journalFile">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-12 text-right">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-success text-center"><i class="fa fa-check-circle"></i>&nbsp;บันทึก</button>
-                        <button type="reset" class="btn btn-danger text-center"><i class="fa fa-times-circle"></i>&nbsp;ยกเลิก</button>
+@using (Html.BeginForm(Html.BeginForm("CreateJournal", "Journal", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header">
+            <h3>จัดการข้อมูลวารสาร</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <hr />
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="journalName"><i class="fa fa-book"></i>&nbsp;ชื่อวารสาร</label>
+                        <input type="text" class="form-control" id="journalName" name="name" placeholder="ชื่อวารสาร ฉบับที่ ปีที่">
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="journalCoverFile"><i class="fa fa-image"></i>&nbsp;ภาพหน้าปกวารสาร</label>
+                        <input type="file" class="form-control-file" placeholder="ภาพหน้าปกวารสาร *.jpg หรือ *.png" id="journalCoverFile" name="image2">
+                        @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </div>
-        </form>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="journalDesc"><i class="fa fa-info"></i>&nbsp;รายละเอียดวารสาร</label>
+                        <textarea class="form-control" id="journalDesc" rows="3" placeholder="รายละเอียดวารสาร" name="description"></textarea>
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="journalFile"><i class="fa fa-file-pdf"></i>&nbsp;ไฟล์เล่มวารสาร</label>
+                        <input type="file" class="form-control-file" placeholder="ไฟล์เอกสารเล่มวารสาร *.pdf" id="journalFile" name="files2">
+                        @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 text-right">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success text-center"><i class="fa fa-check-circle"></i>&nbsp;บันทึก</button>
+                            <button type="reset" class="btn btn-danger text-center"><i class="fa fa-times-circle"></i>&nbsp;ยกเลิก</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
-</div>
-
-<!--
-<form class="form-inline">
-    <label class="mr-sm-2">ชื่อเรื่อง</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">บทคัดย่อ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ประเภท</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>...</option>
-        <option>.....</option>
-    </select>
-    <label class="mr-sm-2">ผู้จัดทำ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ไฟล์/วิดีโอ</label>
-    <input type="file" class="form-control-file">
-</form>
-<div class="row justify-content-center">
-    <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
-</div>-->
+}

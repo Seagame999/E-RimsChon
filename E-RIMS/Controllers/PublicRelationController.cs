@@ -40,7 +40,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(publicRelation.image2.FileName);
                     string extension = Path.GetExtension(publicRelation.image2.FileName);
                     fileName = fileName +"_"+ DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    publicRelation.image = "~/ImagePublicRelation/" + fileName;
+                    publicRelation.image = "/ImagePublicRelation/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImagePublicRelation/"), fileName);
                     publicRelation.image2.SaveAs(fileName);
                 }
@@ -50,7 +50,7 @@ namespace E_RIMS.Controllers
                     var fileNameDoc = Path.GetFileNameWithoutExtension(publicRelation.docUpload2.FileName);
                     string extension2 = Path.GetExtension(publicRelation.docUpload2.FileName);
                     fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension2;
-                    publicRelation.docUpload = "~/docUploadPublicRelation/" + fileNameDoc;
+                    publicRelation.docUpload = "/docUploadPublicRelation/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadPublicRelation/"), fileNameDoc);
                     publicRelation.docUpload2.SaveAs(path);
                 }
@@ -98,7 +98,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(publicRelation.image2.FileName);
                     string extension = Path.GetExtension(publicRelation.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    publicRelation.image = "~/ImagePublicRelation/" + fileName;
+                    publicRelation.image = "/ImagePublicRelation/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImagePublicRelation/"), fileName);
                     publicRelation.image2.SaveAs(fileName);
                 }
@@ -108,7 +108,7 @@ namespace E_RIMS.Controllers
                     var fileNameDoc = Path.GetFileNameWithoutExtension(publicRelation.docUpload2.FileName);
                     string extension2 = Path.GetExtension(publicRelation.docUpload2.FileName);
                     fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension2;
-                    publicRelation.docUpload = "~/docUploadPublicRelation/" + fileNameDoc;
+                    publicRelation.docUpload = "/docUploadPublicRelation/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadPublicRelation/"), fileNameDoc);
                     publicRelation.docUpload2.SaveAs(path);
                 }

@@ -519,15 +519,19 @@
     <Content Include="Views\DocumentDownload\Index.cshtml" />
     <Content Include="Views\Funding\Index.cshtml" />
     <Content Include="Views\ResearchTopic\Index.cshtml" />
+    <Content Include="Views\Journal\DetailJournal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="docUploadAcademicPaper\" />
+    <Folder Include="docUploadDocumentDownload\" />
     <Folder Include="docUploadInnovation\" />
+    <Folder Include="docUploadJournal\" />
     <Folder Include="docUploadPublicRelation\" />
     <Folder Include="docUploadResearch\" />
     <Folder Include="ImageExpert\" />
     <Folder Include="ImageInnovator\" />
+    <Folder Include="ImageJournal\" />
     <Folder Include="ImagePublicRelation\" />
     <Folder Include="ImageResearcher\" />
     <Folder Include="Views\KnowledgeBox\" />

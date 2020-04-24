@@ -47,7 +47,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(innovator.image2.FileName);
                     string extension = Path.GetExtension(innovator.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    innovator.image = "~/ImageInnovator/" + fileName;
+                    innovator.image = "/ImageInnovator/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImageInnovator/"), fileName);
                     innovator.image2.SaveAs(fileName);
                 }
@@ -91,7 +91,7 @@ namespace E_RIMS.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(innovator.image2.FileName);
                     string extension = Path.GetExtension(innovator.image2.FileName);
                     fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
-                    innovator.image = "~/ImageInnovator/" + fileName;
+                    innovator.image = "/ImageInnovator/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImageInnovator/"), fileName);
                     innovator.image2.SaveAs(fileName);
                 }

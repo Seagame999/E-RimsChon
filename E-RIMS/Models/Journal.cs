@@ -11,14 +11,23 @@ namespace E_RIMS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+    using E_RIMS.FileValidation;
+
     public partial class Journal
     {
         public int id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public string image { get; set; }
+        [Required(ErrorMessage = "กรุณาใส่ภาพหน้าปกวารสาร")]
+        [FileExtensionsValidationImage]
+        public HttpPostedFileBase image2 { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string files { get; set; }
+        [FileExtensionsValidationDoc]
+        public HttpPostedFileBase files2 { get; set; }
     }
 }
