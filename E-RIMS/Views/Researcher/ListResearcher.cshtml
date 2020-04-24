@@ -1,8 +1,16 @@
 ﻿@model IEnumerable<E_RIMS.Models.Researcher>
 
 @{
-    ViewBag.Title = "ListResearcher";
+    ViewBag.Title = "จัดการข้อมูลนักวิจัย และนักนวัตกร";
 }
+<br />
+<br />
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">ประวัตินักวิจัยและนวัตกร</li>
+    </ol>
+</nav>
 
 <h2>ListResearcher</h2>
 
@@ -125,125 +133,126 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nameTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.identificationNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.position)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.levels)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.houseNumberHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.villageNumberHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.alleyHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.roadHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subDistrictHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.districtHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.provinceHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postalCodeHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.moblieNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.houseNumberOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.villageNumberOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.alleyOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.roadOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subDistrictOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.districtOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.provinceOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postalCodeOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officePhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officeFax)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officeMobileNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.education)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.specialExpertise)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dateWorkFrom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dateWorkTo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.workplace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.positionWork)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.academicWorkYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.joinDevelopmentTeam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nameAcademic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.publication)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.identificationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.levels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.houseNumberHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.villageNumberHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alleyHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.roadHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subDistrictHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.districtHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provinceHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postalCodeHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.moblieNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.houseNumberOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.villageNumberOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alleyOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.roadOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subDistrictOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.districtOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provinceOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postalCodeOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.officePhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.officeFax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.officeMobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.education)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialExpertise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateWorkFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateWorkTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.workplace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.positionWork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.academicWorkYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.joinDevelopmentTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameAcademic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publication)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>

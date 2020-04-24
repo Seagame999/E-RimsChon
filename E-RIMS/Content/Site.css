@@ -1,10 +1,11 @@
 ﻿body {
   font-family: "Sarabun", sans-serif;
+  font-size: 14px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-  margin-top: 50px;
+  margin-top: 100px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -30,11 +31,12 @@
 input,
 select,
 textarea {
-  max-width: 280px;
+    /* max-width: 280px; */
 }
 
 .navbar-custom {
   background-color: #247ba0;
+  font-size: 18px;
 }
 
 /* change the brand and text color */
