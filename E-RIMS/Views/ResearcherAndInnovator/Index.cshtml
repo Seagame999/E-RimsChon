@@ -1,29 +1,48 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "จัดการข้อมูลนักวิจัย และนักนวัตกร";
 }
 
-<br>
-<br>
-<h3><strong>ประวัตินักวิจัยและนวัตกร</strong></h3>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <center><a href="@Url.Action("Index","Researcher")">
-                <img src="https://banner2.cleanpng.com/20180603/tkw/kisspng-emojipedia-science-scientist-technology-emoji-friends-5b13f8d9ea9d31.615426061528035545961.jpg" width="500" height="300">
-                <h3>นักวิจัย</h3>
-            </a></center>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">ประวัตินักวิจัยและนวัตกร</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>ประวัตินักวิจัยและนวัตกร</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-title">
+                            จัดการข้อมูลนักวิจัย
+                        </div>
+                        <a href="@Url.Action("Index","Researcher")">
+                            <img src="~/Image/researcher.png" class="rounded" alt="จัดการข้อมูลนักวิจัย" style="height:250px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-title">
+                            จัดการข้อมูลนักนวัตกร
+                        </div>
+                        <a href="@Url.Action("Index","Innovators")">
+                            <img src="~/Image/innovator.png" class="rounded" alt="จัดการข้อมูลนักนวัตกร" style="height:250px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <center>
-                <a href="@Url.Action("Index","Innovators")">
-                    <img src="https://img.favpng.com/8/21/16/scientist-science-emoji-research-scientific-evidence-png-favpng-8Zek3NHmTKX97QF1wq4g632UU.jpg" width="500" height="300">
-                    <h3>นวัตกร</h3>
-                </a>
-            </center>
-</div>
     </div>
 </div>
-    
-
