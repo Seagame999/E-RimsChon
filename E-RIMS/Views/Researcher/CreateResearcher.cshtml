@@ -1,4 +1,5 @@
-﻿@{
+﻿@model E_RIMS.Models.Researcher
+@{
     ViewBag.Title = "เพิ่มข้อมูลนักวิจัยใหม่";
 }
 
@@ -10,239 +11,222 @@
     </ol>
 </nav>
 
-<div class="card">
-    <div class="card-header">
-        <h3>จัดการข้อมูลนักวิจัย</h3>
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">
-            <i class="fa fa-user-circle"></i>&nbsp;@ViewBag.Title
-        </h5>
-        <hr />
-
-        <form>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fa fa-info-circle"></i>&nbsp;ข้อมูลทั่วไป
+@using (Html.BeginForm(Html.BeginForm("CreateResearcher", "Researcher", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header">
+            <h3>จัดการข้อมูลนักวิจัย</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fa fa-user-circle"></i>&nbsp;@ViewBag.Title
+            </h5>
+            <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-info-circle"></i>&nbsp;ข้อมูลทั่วไป
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>รูปประจำตัว</label>
+                                    <input type="file" class="form-control-file" name="image2">
+                                    @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label>คำนำหน้า</label>
+                                        <select class="form-control" name="nameTitle">
+                                            <option>นาย</option>
+                                            <option>นางสาว</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.nameTitle, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label>ชื่อ :</label>
+                                        <input type="text" class="form-control" name="name">
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label>นามสกุล :</label>
+                                        <input type="text" class="form-control" name="surname">
+                                        @Html.ValidationMessageFor(model => model.surname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>เลขประจำตัวประชาชน :</label>
+                                        <input type="text" class="form-control" name="identificationNumber">
+                                        @Html.ValidationMessageFor(model => model.identificationNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>ตำแหน่ง :</label>
+                                        @Html.DropDownListFor(model => model.position, (IEnumerable<SelectListItem>)ViewBag.PositionView, "ตำแหน่ง", new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>ระดับ :</label>
+                                        @Html.DropDownListFor(model => model.levels, (IEnumerable<SelectListItem>)ViewBag.LevelView, "ระดับ", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>รูปประจำตัว</label>
-                                <input type="file" class="form-control-file">
+                        <br />
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-building"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (ที่ทำงาน)
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-2">
-                                    <label>คำนำหน้า</label>
-                                    <select class="form-control">
-                                        <option>นาย</option>
-                                        <option>นางสาว</option>
-                                    </select>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="">เบอร์โทรศัพท์</label>
+                                        <input type="text" class="form-control" id="" name="officePhoneNumber">
+                                        @Html.ValidationMessageFor(model => model.officePhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">เบอร์โทรศัพท์มือถือ</label>
+                                        <input type="text" class="form-control" id="" name="moblieNumber">
+                                        @Html.ValidationMessageFor(model => model.moblieNumber, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-5">
-                                    <label>ชื่อ :</label>
-                                    <input type="text" class="form-control">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="">บ้านเลขที่</label>
+                                        <input type="text" class="form-control" id="" name="houseNumberOffice">
+                                        @Html.ValidationMessageFor(model => model.houseNumberOffice, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">ถนน</label>
+                                        <input type="text" class="form-control" id="" name="roadOffice">
+                                        @Html.ValidationMessageFor(model => model.roadOffice, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">ตำบล</label>
+                                        <input type="text" class="form-control" id="" name="subDistrictOffice">
+                                        @Html.ValidationMessageFor(model => model.subDistrictOffice, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-5">
-                                    <label>นามสกุล :</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label>เลขประจำตัวประชาชน :</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>ตำแหน่ง :</label>
-                                    <select class="form-control">
-                                        <option>...</option>
-                                        <option>.....</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>ระดับ :</label>
-                                    <select class="form-control">
-                                        <option>7</option>
-                                        <option>8</option>
-                                    </select>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="">อำเภอ</label>
+                                        <input type="text" class="form-control" id="" name="districtOffice">
+                                        @Html.ValidationMessageFor(model => model.districtOffice, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">จังหวัด</label>
+                                        <input type="text" class="form-control" id="" name="provinceOffice">
+                                        @Html.ValidationMessageFor(model => model.provinceOffice, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">รหัสไปรษณีย์</label>
+                                        <input type="text" class="form-control" id="" name="postalCodeOffice">
+                                        @Html.ValidationMessageFor(model => model.postalCodeOffice, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br />
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fa fa-building"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (ที่ทำงาน)
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-home"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (บ้าน)
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="">เบอร์โทรศัพท์</label>
+                                        <input type="text" class="form-control" id="">                                        
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">เบอร์โทรศัพท์มือถือ</label>
+                                        <input type="text" class="form-control" id="">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="">บ้านเลขที่</label>
+                                        <input type="text" class="form-control" id="" name="houseNumberHome">
+                                        @Html.ValidationMessageFor(model => model.houseNumberHome, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">ถนน</label>
+                                        <input type="text" class="form-control" id="" name="roadHome">
+                                        @Html.ValidationMessageFor(model => model.roadHome, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">ตำบล</label>
+                                        <input type="text" class="form-control" id="" name="subDistrictHome">
+                                        @Html.ValidationMessageFor(model => model.subDistrictHome, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="">อำเภอ</label>
+                                        <input type="text" class="form-control" id="" name="districtHome">
+                                        @Html.ValidationMessageFor(model => model.districtHome, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">จังหวัด</label>
+                                        <input type="text" class="form-control" id="" name="provinceHome">
+                                        @Html.ValidationMessageFor(model => model.provinceHome, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">รหัสไปรษณีย์</label>
+                                        <input type="text" class="form-control" id="" name="postalCodeHome">
+                                        @Html.ValidationMessageFor(model => model.postalCodeHome, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
+                                    <input type="text" class="form-control" id="" name="Email">
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
+                        <br />
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-graduation-cap "></i>&nbsp;การศึกษาและความเชี่ยวชาญ
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">บ้านเลขที่</label>
-                                    <input type="text" class="form-control" id="">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="">วุฒิการศึกษาสูงสุด</label>
+                                        <input type="text" class="form-control" id="" name="education">
+                                        @Html.ValidationMessageFor(model => model.education, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
+                                        <input type="text" class="form-control" id="" name="workplace">
+                                        @Html.ValidationMessageFor(model => model.workplace, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ถนน</label>
-                                    <input type="text" class="form-control" id="">
+                                <div class="form-group">
+                                    <label for="">ความเชี่ยวชาญ</label>
+                                    <textarea class="form-control" id="" rows="3" name="specialExpertise"></textarea>
+                                    @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ตำบล</label>
-                                    <input type="text" class="form-control" id="">
+                                <div class="form-group">
+                                    <label for="">ประสบการณ์ทำงาน</label>
+                                    <textarea class="form-control" id="" rows="3" name="positionWork"></textarea>
+                                    @Html.ValidationMessageFor(model => model.positionWork, "", new { @class = "text-danger" })
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">อำเภอ</label>
-                                    <input type="text" class="form-control" id="">
+                                <div class="form-group">
+                                    <label for="">ผลงานทางวิชาการ</label>
+                                    <textarea class="form-control" id="" rows="3" name="nameAcademic"></textarea>
+                                    @Html.ValidationMessageFor(model => model.nameAcademic, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">จังหวัด</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">รหัสไปรษณีย์</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
-                                <input type="text" class="form-control" id="">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fa fa-home"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (บ้าน)
-                        </div>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">บ้านเลขที่</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ถนน</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ตำบล</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">อำเภอ</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">จังหวัด</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">รหัสไปรษณีย์</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
-                                <input type="text" class="form-control" id="">
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fa fa-graduation-cap "></i>&nbsp;การศึกษาและความเชี่ยวชาญ
-                        </div>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="">วุฒิการศึกษาสูงสุด</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">ความเชี่ยวชาญ</label>
-                                <textarea class="form-control" id="" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="">ประสบการณ์ทำงาน</label>
-                                <textarea class="form-control" id="" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="">ผลงานทางวิชาการ</label>
-                                <textarea class="form-control" id="" rows="3"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        </div>
+        <div class="card-footer text-right">
+            <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-save"></i>&nbsp;บันทึก</button>&nbsp;
+            <button type="reset" class="btn btn-danger btn-lg"><i class="fa fa-window-close"></i>&nbsp;ยกเลิก</button>
+        </div>
     </div>
-    <div class="card-footer text-right">
-        <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-save"></i>&nbsp;บันทึก</button>&nbsp;
-        <button type="reset" class="btn btn-danger btn-lg"><i class="fa fa-window-close"></i>&nbsp;ยกเลิก</button>
-    </div>
-</div>
+}
 
-<!--
-<div class="form-group">
-    <label>รูปประจำตัว</label>
-    <input type="file" class="form-control-file">
-</div>
-<form class="form-inline">
-    <label class="mr-sm-2">คำนำหน้าชื่อ</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>นาย</option>
-        <option>นางสาว</option>
-    </select>
-    <label class="mr-sm-2">ชื่อ :</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">นามสกุล :</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <br>
-    <label class="mr-sm-2">เลขประจำตัวประชาชน :</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <br>
-    <label class="mr-sm-2">ตำแหน่ง :</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>...</option>
-        <option>.....</option>
-    </select>
-    <label class="mr-sm-2">ระดับ :</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>7</option>
-        <option>8</option>
-    </select>
-</form>
-<div class="row justify-content-center">
-    <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
-</div>
-    -->
+    

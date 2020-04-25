@@ -23,7 +23,7 @@ namespace E_RIMS.Controllers
             //--Pagination 6 cards
             var innovatorResult = innovator.ToList().ToPagedList(page ?? 1, 6);
 
-            return View(innovator.ToList());
+            return View(innovatorResult);
         }
 
         public ActionResult InnovatorList()
@@ -34,6 +34,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult CreateInnovator()
         {
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
             return View();
         }
 

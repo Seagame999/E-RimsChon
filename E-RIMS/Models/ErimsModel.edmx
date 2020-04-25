@@ -169,6 +169,7 @@
           <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="255" />
           <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
           <Property Name="publication" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="JoinDevelopmentTeam">
           <Key>
@@ -340,6 +341,7 @@
           <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="255" />
           <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
           <Property Name="publication" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="ResearchFuds">
           <Key>
@@ -583,6 +585,7 @@
           <Property Name="joinDevelopmentTeam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="JoinDevelopmentTeam">
           <Key>
@@ -738,6 +741,7 @@
           <Property Name="joinDevelopmentTeam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ResearchFuds">
           <Key>
@@ -970,6 +974,7 @@
           <EntitySetMapping Name="Innovator">
             <EntityTypeMapping TypeName="ERIMSModel.Innovator">
               <MappingFragment StoreEntitySet="Innovator">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="nameTitle" ColumnName="nameTitle" />
@@ -1136,6 +1141,7 @@
           <EntitySetMapping Name="Researcher">
             <EntityTypeMapping TypeName="ERIMSModel.Researcher">
               <MappingFragment StoreEntitySet="Researcher">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="nameTitle" ColumnName="nameTitle" />
