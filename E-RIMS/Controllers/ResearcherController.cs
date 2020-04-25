@@ -21,7 +21,7 @@ namespace E_RIMS.Controllers
 
             //--Pagination 6 cards
             var researcherResult = researcher.ToList().ToPagedList(page ?? 1, 6);
-            return View(researcher.ToList());
+            return View(researcherResult);
         }
 
         public ActionResult ListResearcher()
@@ -32,6 +32,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult CreateResearcher()
         {
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                     select new SelectListItem
+                                     {
+                                         Text = item.position1,
+                                         Value = item.position1.ToString()
+                                     });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                    {
+                                        Text = item.levels,
+                                        Value = item.levels.ToString()
+                                    });
             return View();
         }
 

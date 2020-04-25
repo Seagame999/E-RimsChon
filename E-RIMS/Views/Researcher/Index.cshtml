@@ -1,4 +1,7 @@
-﻿@{
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.Researcher>
+@{
     ViewBag.Title = "ประวัตินักวิจัย";
 }
 
@@ -25,258 +28,59 @@
         <div class="row">
             <div class="col">
                 <div class="card-deck">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title text-center">
-                                <a href="@Url.Action("DetailResearcher","Researcher")">
-                                    นายเชี่ยวชาญ เก่งดี
-                                </a>
-                            </h6>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <img src="~/Image/avatar.png" class="rounded" style="height:200px">
-                                    <p class="card-text">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
+                    @foreach (var item in Model)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-center">
+                                    <a href="@Url.Action("DetailResearcher"+"/"+item.id,"Researcher")">
+                                        @Html.DisplayFor(modelItem => item.name)
+                                    </a>
+                                </h6>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <img src="@Url.Content(item.image)" class="rounded" style="height:200px">
+                                        <p class="card-text">@Html.DisplayFor(modelItem => item.position)</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์สำนักงาน:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.officePhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์โทรสาร:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.officeFax)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์มือถือ:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.moblieNumber)
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์สำนักงาน:
-                                </div>
-                                <div class="col-md-6">
-                                    032-184848
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์โทรสาร:
-                                </div>
-                                <div class="col-md-6">
-                                    023-487887
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์มือถือ:
-                                </div>
-                                <div class="col-md-6">
-                                    082-154884
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher","Researcher")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditResearcher", "Researcher")">แก้ไขข้อมูล</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title text-center">
-                                <a href="@Url.Action("DetailResearcher","Researcher")">
-                                    นายเชี่ยวชาญ เก่งดี
-                                </a>
-                            </h6>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <img src="~/Image/avatar.png" class="rounded" style="height:200px">
-                                    <p class="card-text">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์สำนักงาน:
-                                </div>
-                                <div class="col-md-6">
-                                    032-184848
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์โทรสาร:
-                                </div>
-                                <div class="col-md-6">
-                                    023-487887
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์มือถือ:
-                                </div>
-                                <div class="col-md-6">
-                                    082-154884
-                                </div>
+                            <div class="card-footer text-right">
+                                <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher"+"/"+item.id,"Researcher")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditResearcher"+"/"+item.id, "Researcher")">แก้ไขข้อมูล</a>
                             </div>
                         </div>
-                        <div class="card-footer text-right">
-                            <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher","Researcher")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditResearcher", "Researcher")">แก้ไขข้อมูล</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title text-center">
-                                <a href="@Url.Action("DetailResearcher","Researcher")">
-                                    นายเชี่ยวชาญ เก่งดี
-                                </a>
-                            </h6>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <img src="~/Image/avatar.png" class="rounded" style="height:200px">
-                                    <p class="card-text">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์สำนักงาน:
-                                </div>
-                                <div class="col-md-6">
-                                    032-184848
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์โทรสาร:
-                                </div>
-                                <div class="col-md-6">
-                                    023-487887
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์มือถือ:
-                                </div>
-                                <div class="col-md-6">
-                                    082-154884
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher","Researcher")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditResearcher", "Researcher")">แก้ไขข้อมูล</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title text-center">
-                                <a href="@Url.Action("DetailResearcher","Researcher")">
-                                    นายเชี่ยวชาญ เก่งดี
-                                </a>
-                            </h6>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <img src="~/Image/avatar.png" class="rounded" style="height:200px">
-                                    <p class="card-text">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์สำนักงาน:
-                                </div>
-                                <div class="col-md-6">
-                                    032-184848
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์โทรสาร:
-                                </div>
-                                <div class="col-md-6">
-                                    023-487887
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    เบอร์มือถือ:
-                                </div>
-                                <div class="col-md-6">
-                                    082-154884
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher","Researcher")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditResearcher", "Researcher")">แก้ไขข้อมูล</a>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
-
-        @*--Pagination*@
-        <div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
         </div>
     </div>
 </div>
 
-<!--<div class="container mt-3">
-    <div class="row">
-        <div class="card-deck">
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <a href="">
-                    <img class="card-img-top" src="https://img.favpng.com/14/1/17/doctorate-researcher-medical-laboratory-research-institute-png-favpng-4XUawpBqw0ksTw4eNzAk5e9J3.jpg" alt="Card image cap">
-                </a>
-                <div class="card-body">
-                    <a href="@Url.Action("DetailResearcher","Researcher")">
-                        <h5 class="card-title text-center">นายเชี่ยวชาญ เก่งดี</h5>
-                    </a>
-                    <p class="card-text text-center">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
-                    <p class="card-text">เบอร์สำนักงาน : 032-184848</p>
-                    <p class="card-text">เบอร์โทรสาร : 023-487887</p>
-                    <p class="card-text">เบอร์มือถือ : 082-154884</p>
 
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">นักวิจัย 2</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">นักวิจัย 3</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">นักวิจัย 4</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">นักวิจัย 5</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://placehold.it/280x140/bca" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">นักวิจัย 6</h5>
-                    <p class="card-text">....</p>
-                </div>
-            </div>
-        </div>
-        @*--Pagination*@
-        <div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>-->

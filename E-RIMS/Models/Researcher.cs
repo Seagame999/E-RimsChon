@@ -58,5 +58,6 @@ namespace E_RIMS.Models
         public string joinDevelopmentTeam { get; set; }
         public string nameAcademic { get; set; }
         public string publication { get; set; }
+        public string Email { get; set; }
     }
 }

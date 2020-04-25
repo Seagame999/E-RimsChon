@@ -32,44 +32,35 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col text-center">
-                                    <img src="~/Image/avatar.png" class="rounded border border-dark" style="height:250px; margin-bottom:20px; padding:10px;"/>
+                                    <img src="@Url.Content(Model.image)" class="rounded border border-dark" style="height:250px; margin-bottom:20px; padding:10px;"/>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-2">
                                     <label>คำนำหน้า</label>
-                                    <select class="form-control" disabled>
-                                        <option>นาย</option>
-                                        <option>นางสาว</option>
-                                    </select>
+                                    <label class="form-control">@Model.nameTitle</label>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>ชื่อ :</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label class="form-control">@Model.name</label>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>นามสกุล :</label>
-                                    <input type="text" class="form-control" contenteditable="false">
+                                    <label class="form-control">@Model.surname</label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>เลขประจำตัวประชาชน :</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label class="form-control">@Model.identificationNumber</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>ตำแหน่ง :</label>
-                                    <select class="form-control" disabled>
-                                        <option>...</option>
-                                        <option>.....</option>
-                                    </select>
+                                    <label class="form-control">@Model.position</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>ระดับ :</label>
-                                    <select class="form-control" disabled>
-                                        <option>7</option>
-                                        <option>8</option>
-                                    </select>
+                                    <label class="form-control">@Model.levels</label>
                                 </div>
                             </div>
                         </div>
@@ -83,44 +74,44 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="">เบอร์โทรศัพท์</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.officePhoneNumber</label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.moblieNumber</label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="">บ้านเลขที่</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.houseNumberOffice</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">ถนน</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.roadOffice</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">ตำบล</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.subDistrictOffice</label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="">อำเภอ</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.districtOffice</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">จังหวัด</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.provinceOffice</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">รหัสไปรษณีย์</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.postalCodeOffice</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
-                                <input type="text" class="form-control" id="" disabled>
+                                <label class="form-control">@Model.Email</label>
                             </div>
                         </div>
                     </div>
@@ -134,44 +125,44 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="">เบอร์โทรศัพท์</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.moblieNumber</label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.moblieNumber</label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="">บ้านเลขที่</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.houseNumberHome</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">ถนน</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.roadHome</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">ตำบล</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.subDistrictHome</label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="">อำเภอ</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.districtHome</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">จังหวัด</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.provinceHome</label>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">รหัสไปรษณีย์</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.postalCodeHome</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
-                                <input type="text" class="form-control" id="" disabled>
+                                <label class="form-control">@Model.Email</label>
                             </div>
                         </div>
                     </div>
@@ -184,24 +175,24 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="">วุฒิการศึกษาสูงสุด</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.education</label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
-                                    <input type="text" class="form-control" id="" disabled>
+                                    <label class="form-control">@Model.workplace</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">ความเชี่ยวชาญ</label>
-                                <textarea class="form-control" id="" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="" rows="3" disabled>@Model.specialExpertise</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">ประสบการณ์ทำงาน</label>
-                                <textarea class="form-control" id="" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="" rows="3" disabled>@Model.positionWork</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">ผลงานทางวิชาการ</label>
-                                <textarea class="form-control" id="" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="" rows="3" disabled>@Model.nameAcademic</textarea>
                             </div>
                         </div>
                     </div>
@@ -213,48 +204,3 @@
         <a href="@Url.Action("EditResearcher", "Researcher")" class="btn btn-success btn-lg"><i class="fa fa-user-edit"></i>&nbsp;แก้ไขข้อมูลนักวิจัย</a>&nbsp;
     </div>
 </div>
-
-
-<!--<br>
-<br>
-<h3><strong>ประวัตินักวิจัย</strong></h3>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://img.favpng.com/14/1/17/doctorate-researcher-medical-laboratory-research-institute-png-favpng-4XUawpBqw0ksTw4eNzAk5e9J3.jpg" alt="Card image cap">
-                <div class="card-body">
-
-                    <h5 class="card-title text-center">นายเชี่ยวชาญ เก่งดี</h5>
-                    <p class="card-text text-center">นักวิชาการสาธารณสุขเชี่ยวชาญ</p>
-                    <p class="card-text">เบอร์สำนักงาน : 032-184848</p>
-                    <p class="card-text">เบอร์โทรสาร : 023-487887</p>
-                    <p class="card-text">เบอร์มือถือ : 082-154884</p>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-8">
-            <h6>
-                ประวัติการศึกษา :
-            </h6>
-            <br>
-            <h6>
-                ความชำนาญพิเศษ :
-            </h6>
-            <br>
-            <h6>
-                ประสบการณ์ทำงาน :
-            </h6>
-            <br>
-            <h6>
-                ผลงานวิชาการ :
-            </h6>
-            <br>
-
-        </div>
-    </div>
-</div>
--->
