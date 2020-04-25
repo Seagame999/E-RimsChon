@@ -1,10 +1,72 @@
-﻿
-@{
-    ViewBag.Title = "CreateResearch";
+﻿@{
+    ViewBag.Title = "เพิ่มงานวิจัยชิ้นใหม่";
 }
 
-<h3><strong>เพิ่มผลงานวิจัย</strong></h3>
-<hr>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Research")">งานวิจัย</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>จัดการข้อมูลงานวิจัย</h3>
+    </div>
+    <form>
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title
+            </h5>
+            <hr />
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label class="">ประเภท</label>
+                    <select class="form-control">
+                        <option>...</option>
+                        <option>.....</option>
+                    </select>
+                </div>
+                <div class="form-group col-4">
+                    <label class="">ชื่อเรื่อง</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group col-4">
+                    <label class="">ผู้จัดทำ</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="">บทคัดย่อ</label>
+                    <textarea class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group col-6">
+                    <label class="">ไฟล์เอกสาร</label>
+                    <input type="file" class="form-control-file">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            <div class="form-group text-right">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success text-center"><i class="fa fa-check-circle"></i>&nbsp;บันทึก</button>
+                    <button type="reset" class="btn btn-danger text-center"><i class="fa fa-times-circle"></i>&nbsp;ยกเลิก</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--
 <form class="form-inline">
     <label class="mr-sm-2">ชื่อเรื่อง</label>
     <input type="text" class="form-control mb-2 mr-sm-2">
@@ -23,4 +85,4 @@
 <div class="row justify-content-center">
     <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
 </div>
-
+-->

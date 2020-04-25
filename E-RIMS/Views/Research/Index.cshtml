@@ -1,16 +1,66 @@
 ﻿@model IEnumerable<E_RIMS.Models.Research>
-@{
-    ViewBag.Title = "Index";
-}
-<br><br>
-<h3><strong>ผลงานวิจัย</strong></h3>
-<hr>
 
-<a href="@Url.Action("AllResearch","Research")"><h6 class="text-primary">+จัดการผลงานวิจัย</h6></a>
-<form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="ค้นหางานวิจัย" aria-label="Search" name="search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">ค้นหา</button>
-</form>
+@{
+    ViewBag.Title = "งานวิจัย";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>จัดการข้อมูลงานวิจัย&nbsp;<a href="@Url.Action("CreateResearch", "Research")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มงานวิจัยใหม่</a></h3>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">
+            <i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title
+        </h5>
+        <hr />
+        <div class="row">
+            <div class="col">
+                <form class="form-inline">
+                    <input class="form-control" type="search" placeholder="ระบุคำค้นหา" aria-label="Search" name="search">
+                    &nbsp;<button class="btn btn-warning" type="submit"><i class="fa fa-search"></i>&nbsp;ค้นหา</button>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-striped" style="margin-top:20px;">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ชื่องานวิจัย</th>
+                    <th scope="col">ผู้จัดทำ</th>
+                    <th scope="col">การกระทำ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row"></th>
+                        <td>@Html.DisplayFor(modelItem => item.name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.creator)</td>
+                        <td><a href="#" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<!--
+
+
+<a href="@Url.Action("AllResearch","Research")" class=""><h6 class="text-primary">+จัดการผลงานวิจัย</h6></a>
 <br>
 <div>
     <h5>Search results</h5>
@@ -33,7 +83,5 @@
 </div>
 
 
-@foreach (var item in Model)
-{
-<a>@Html.DisplayFor(modelItem => item.name)</a>
-}
+
+    -->

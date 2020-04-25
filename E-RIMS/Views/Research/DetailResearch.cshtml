@@ -1,13 +1,61 @@
-﻿
-@{
-    ViewBag.Title = "DetailResearch";
+﻿@{
+    ViewBag.Title = "ข้อมูลงานวิจัย";
 }
 
-<br><br>
-<h6>Rev Chillena,2019 June (36)392-395</h6>
-<h5><strong>[Bacteramia caused by Vibrio]</strong></h5>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Research")">งานวิจัย</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
 
-<h5>Abstract</h5>
+<div class="card">
+    <div class="card-header">
+        <h3>จัดการข้อมูลงานวิจัย</h3>
+    </div>
+    <form>
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title
+            </h5>
+            <hr />
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label class="">ประเภท</label>
+                    <select class="form-control" disabled>
+                        <option>...</option>
+                        <option>.....</option>
+                    </select>
+                </div>
+                <div class="form-group col-4">
+                    <label class="">ชื่อเรื่อง</label>
+                    <input type="text" class="form-control" disabled>
+                </div>
+                <div class="form-group col-4">
+                    <label class="">ผู้จัดทำ</label>
+                    <input type="text" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="">บทคัดย่อ</label>
+                    <textarea class="form-control" rows="5" disabled></textarea>
+                </div>
+                <div class="form-group col-6 text-center">
+                    <a href="#" target="_blank" class="btn btn-info" style="margin-top:50px;"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลดไฟล์เอกสารงานวิจัย</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--<h5>Abstract</h5>
 <div class="container">
     <p>
         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -15,7 +63,6 @@
         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-<p>
+    <p>
 </div>
-<a href="#"><h6><img src="~/Image/download-solid.svg" width="15" height="15">&nbsp;Download Article</h6></a>
-
+<a href="#"><h6><img src="~/Image/download-solid.svg" width="15" height="15">&nbsp;Download Article</h6></a>-->
