@@ -1,48 +1,205 @@
-﻿
+﻿@model E_RIMS.Models.Innovator
 @{
-    ViewBag.Title = "DetailInnovator";
+    ViewBag.Title = "ข้อมูลรายละเอียดของนวัตกร";
 }
 
-<br>
-<br>
-<h3><strong>ประวัตินวัตกร</strong></h3>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                <img class="card-img-top" src="https://i7.pngguru.com/preview/8/405/244/nursing-health-care-medicine-unlicensed-assistive-personnel-nurse-health.jpg" alt="Card image cap">
-                <div class="card-body">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Innovators")">นวัตกร</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
 
-                    <h5 class="card-title text-center">นางพยาบาล สุดสวย</h5>
-                    <p class="card-text text-center">พยาบาลวิชาชีพชำนาญการพิเศษ</p>
-                    <p class="card-text">เบอร์สำนักงาน : 032-184848</p>
-                    <p class="card-text">เบอร์โทรสาร : 023-487887</p>
-                    <p class="card-text">เบอร์มือถือ : 082-154884</p>
+<div class="card">
+    <div class="card-header">
+        <h3>จัดการข้อมูลนวัตกร</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            <i class="fa fa-user-circle"></i>&nbsp;@ViewBag.Title
+        </h5>
+        <hr/>
 
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-info-circle"></i>&nbsp;ข้อมูลทั่วไป
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <img src="@Url.Content(Model.image)" class="rounded border border-dark" style="height:250px; margin-bottom:20px; padding:10px;" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label>คำนำหน้า</label>
+                                    <label class="form-control">@Model.nameTitle</label>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>ชื่อ :</label>
+                                    <label class="form-control">@Model.name</label>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>นามสกุล :</label>
+                                    <label class="form-control">@Model.surname</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>เลขประจำตัวประชาชน :</label>
+                                    <label class="form-control">@Model.identificationNumber</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ตำแหน่ง :</label>
+                                    <label class="form-control">@Model.position</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ระดับ :</label>
+                                    <label class="form-control">@Model.levels</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-building"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (ที่ทำงาน)
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="">เบอร์โทรศัพท์</label>
+                                    <label class="form-control">@Model.officePhoneNumber</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="">เบอร์โทรศัพท์มือถือ</label>
+                                    <label class="form-control">@Model.moblieNumber</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="">บ้านเลขที่</label>
+                                    <label class="form-control">@Model.houseNumberOffice</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">ถนน</label>
+                                    <label class="form-control">@Model.roadOffice</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">ตำบล</label>
+                                    <label class="form-control">@Model.subDistrictOffice</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="">อำเภอ</label>
+                                    <label class="form-control">@Model.districtOffice</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">จังหวัด</label>
+                                    <label class="form-control">@Model.provinceOffice</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">รหัสไปรษณีย์</label>
+                                    <label class="form-control">@Model.postalCodeOffice</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
+                                <label class="form-control">@Model.Email</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-home"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (บ้าน)
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="">เบอร์โทรศัพท์</label>
+                                    <label class="form-control">@Model.moblieNumber</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="">เบอร์โทรศัพท์มือถือ</label>
+                                    <label class="form-control">@Model.moblieNumber</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="">บ้านเลขที่</label>
+                                    <label class="form-control">@Model.houseNumberHome</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">ถนน</label>
+                                    <label class="form-control">@Model.roadHome</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">ตำบล</label>
+                                    <label class="form-control">@Model.subDistrictHome</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="">อำเภอ</label>
+                                    <label class="form-control">@Model.districtHome</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">จังหวัด</label>
+                                    <label class="form-control">@Model.provinceHome</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">รหัสไปรษณีย์</label>
+                                    <label class="form-control">@Model.postalCodeHome</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
+                                <label class="form-control">@Model.Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-graduation-cap "></i>&nbsp;การศึกษาและความเชี่ยวชาญ
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="">วุฒิการศึกษาสูงสุด</label>
+                                    <label class="form-control">@Model.education</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
+                                    <label class="form-control">@Model.workplace</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">ความเชี่ยวชาญ</label>
+                                <textarea class="form-control" id="" rows="3" disabled>@Model.specialExpertise</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="">ประสบการณ์ทำงาน</label>
+                                <textarea class="form-control" id="" rows="3" disabled>@Model.positionWork</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="">ผลงานทางวิชาการ</label>
+                                <textarea class="form-control" id="" rows="3" disabled>@Model.nameAcademic</textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-8">
-            <h6>
-                ประวัติการศึกษา :
-            </h6>
-            <br>
-            <h6>
-                ความชำนาญพิเศษ :
-            </h6>
-            <br>
-            <h6>
-                ประสบการณ์ทำงาน :
-            </h6>
-            <br>
-            <h6>
-                ผลงานวิชาการ :
-            </h6>
-            <br>
-
-        </div>
+        </form>
+    </div>
+    <div class="card-footer text-right">
+        <a href="@Url.Action("EditInnovator"+"/"+(Model.id),"Innovators")" class="btn btn-success btn-lg"><i class="fa fa-user-edit"></i>&nbsp;แก้ไขข้อมูลนักวิจัย</a>&nbsp;
     </div>
 </div>
-
