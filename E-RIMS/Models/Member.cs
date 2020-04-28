@@ -11,13 +11,23 @@ namespace E_RIMS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+
     public partial class Member
     {
         public int id { get; set; }
+        [Required]
         public string username { get; set; }
+        [Required]
         public string password { get; set; }
+        [Required]
+        [System.ComponentModel.DataAnnotations.Compare("password")]
+        public string confirmPassword { get; set; }
         public string role { get; set; }
+        [Required]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string email { get; set; }
     }
 }

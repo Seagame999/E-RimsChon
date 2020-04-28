@@ -72,7 +72,7 @@ namespace E_RIMS.Controllers
             PublicRelation publicRelation = db.PublicRelation.Find(id);
             if (publicRelation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("AllNews");
             }
             return View(publicRelation);
         }
@@ -83,7 +83,7 @@ namespace E_RIMS.Controllers
             PublicRelation publicRelation = db.PublicRelation.Find(id);
             if (publicRelation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("AllNews");
             }
             return View(publicRelation);
         }
@@ -126,7 +126,7 @@ namespace E_RIMS.Controllers
 
             if (publicRelation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("AllNews");
             }
             return View(publicRelation);
         }

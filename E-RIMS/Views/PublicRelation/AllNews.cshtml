@@ -25,7 +25,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">ที่</th>
+                        <th scope="col">วันที่</th>
                         <th scope="col">ชื่อเรื่อง</th>
                         <th scope="col">รายละเอียด</th>
                         <th scope="col">HTML Link</th>
@@ -37,12 +37,12 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td></td>
+                            <td>@Html.DisplayFor(modelItem => item.date)</td>
                             <td>@Html.DisplayFor(modelItem => item.newsName)</td>
                             <td>@Html.DisplayFor(modelItem => item.description)</td>
-                            <td>@Html.DisplayFor(modelItem => item.htmlLink)</td>
+                            <td><a href="@Url.Action("news"+"/"+item.id,"PublicRelation")">@Url.Action("news" + "/" + item.id, "PublicRelation")</a></td>
                             <td><a href="@Html.DisplayFor(modelItem => item.docUpload)" class="btn btn-info btn-sm"><i class="fa fa-file"></i></a></td>
-                            <td><a href="@Url.Action("EditNews"+"/"+item.id,"PublicRelation")" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>&nbsp;<a href="@Url.Action("Delete"+"/"+item.id,"PublicRelation")" class="btn btn-danger btn-sm"><i class="fa fa-eraser"></i></a></td>
+                            <td><a href="@Url.Action("EditNews"+"/"+item.id,"PublicRelation")" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>&nbsp;<a href="@Url.Action("DeleteNews"+"/"+item.id,"PublicRelation")" class="btn btn-danger btn-sm"><i class="fa fa-eraser"></i></a></td>
                         </tr>
                     }
                 </tbody>

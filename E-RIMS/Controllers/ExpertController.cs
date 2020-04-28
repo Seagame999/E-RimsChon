@@ -73,7 +73,7 @@ namespace E_RIMS.Controllers
             Expert expert = db.Expert.Find(id);
             if(expert == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(expert);
         }
@@ -83,7 +83,7 @@ namespace E_RIMS.Controllers
             Expert expert = db.Expert.Find(id);
             if(expert == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             var modelNameTitle = db.NameTitle.ToList();
@@ -126,7 +126,7 @@ namespace E_RIMS.Controllers
             Expert expert = db.Expert.Find(id);
             if(expert == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(expert);
         }

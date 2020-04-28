@@ -21,7 +21,7 @@ namespace E_RIMS.Controllers
 
             //--Pagination 10 each
             var academicPaperResult = academicPaper.ToList().ToPagedList(page ?? 1, 10);
-
+            
             //--Search Engine
             if (search != null)
             {
@@ -46,7 +46,7 @@ namespace E_RIMS.Controllers
         public ActionResult AllAcademicPaper()
         {
             var academicPaper = db.AcademicPaper;
-            return View(academicPaper);
+            return View(academicPaper.ToList());
         }
 
         public ActionResult CreateAcademicPaper()
@@ -84,7 +84,7 @@ namespace E_RIMS.Controllers
             AcademicPaper academicPaper = db.AcademicPaper.Find(id);
             if (academicPaper == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(academicPaper);
         }
@@ -94,7 +94,7 @@ namespace E_RIMS.Controllers
             AcademicPaper academicPaper = db.AcademicPaper.Find(id);
             if (academicPaper == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(academicPaper);
         }
@@ -127,7 +127,7 @@ namespace E_RIMS.Controllers
             AcademicPaper academicPaper = db.AcademicPaper.Find(id);
             if (academicPaper == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(academicPaper);
         }

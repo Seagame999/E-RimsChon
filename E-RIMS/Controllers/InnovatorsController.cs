@@ -81,7 +81,7 @@ namespace E_RIMS.Controllers
             Innovator innovator = db.Innovator.Find(id);
             if(innovator == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(innovator);
         }
@@ -91,7 +91,7 @@ namespace E_RIMS.Controllers
             Innovator innovator = db.Innovator.Find(id);
             if (innovator == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(innovator);
         }

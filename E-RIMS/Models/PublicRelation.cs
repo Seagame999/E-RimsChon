@@ -26,6 +26,8 @@ namespace E_RIMS.Models
         public HttpPostedFileBase image2 { get; set; }
         public string description { get; set; }
         public string htmlLink { get; set; }
+        [Required(ErrorMessage ="กรุณาเลือกวันเดือนปี")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<int> views { get; set; }
         [FileExtensionsValidationDoc]

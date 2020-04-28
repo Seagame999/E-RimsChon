@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace E_RIMS.Controllers
 {
@@ -28,6 +30,7 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                member.password = GetMD5(member.password);
                 db.Member.Add(member);
                 db.SaveChanges();
                 ModelState.Clear();
@@ -43,7 +46,7 @@ namespace E_RIMS.Controllers
             Member member = db.Member.Find(id);
             if (member == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(member);
         }
@@ -53,7 +56,7 @@ namespace E_RIMS.Controllers
             Member member = db.Member.Find(id);
             if (member == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(member);
         }
@@ -63,12 +66,30 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                member.password = GetMD5(member.password);
                 db.Entry(member).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(member);
+        }
+
+
+        //Password Hash MD5
+        public string GetMD5(string password)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(password);
+            byte[] targetData = md5.ComputeHash(fromData);
+
+            string byteToString = null;
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byteToString += targetData[i].ToString("x2"); 
+            }
+            return byteToString;
+
         }
     }
 }

@@ -146,6 +146,7 @@
     <Compile Include="Controllers\InnovatorsController.cs" />
     <Compile Include="Controllers\JournalController.cs" />
     <Compile Include="Controllers\KnowledgeBoxController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PublicRelationController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ResearchController.cs" />
@@ -538,6 +539,7 @@
     <Folder Include="ImageJournal\" />
     <Folder Include="ImagePublicRelation\" />
     <Folder Include="ImageResearcher\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>

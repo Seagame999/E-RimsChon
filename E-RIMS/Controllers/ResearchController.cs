@@ -86,7 +86,7 @@ namespace E_RIMS.Controllers
             Research research = db.Research.Find(id);
             if (research == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(research);
         }
@@ -96,7 +96,7 @@ namespace E_RIMS.Controllers
             Research research = db.Research.Find(id);
             if (research == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(research);
         }
@@ -128,7 +128,7 @@ namespace E_RIMS.Controllers
             Research research = db.Research.Find(id);
             if (research == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(research);
         }

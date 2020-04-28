@@ -69,7 +69,7 @@ namespace E_RIMS.Controllers
             DocumentDownload documentDownload = db.DocumentDownload.Find(id);
             if(documentDownload == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             return View(documentDownload);
@@ -103,7 +103,7 @@ namespace E_RIMS.Controllers
             DocumentDownload documentDownload = db.DocumentDownload.Find(id);
             if (documentDownload == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             return View(documentDownload);

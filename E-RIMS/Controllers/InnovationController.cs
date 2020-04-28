@@ -38,8 +38,7 @@ namespace E_RIMS.Controllers
                     innovationResult = db.Innovation.Where(x => x.creator.StartsWith(search) || x.creator == search).ToList().ToPagedList(page ?? 1, 10); ;
                 }
             }
-            //--
-
+            
                 return View(innovationResult);
         }
 
@@ -84,7 +83,7 @@ namespace E_RIMS.Controllers
             Innovation innovation = db.Innovation.Find(id);
             if(innovation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(innovation);
             
@@ -95,7 +94,7 @@ namespace E_RIMS.Controllers
             Innovation innovation = db.Innovation.Find(id);
             if (innovation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(innovation);
         }
@@ -127,7 +126,7 @@ namespace E_RIMS.Controllers
             Innovation innovation = db.Innovation.Find(id);
             if (innovation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(innovation);
         }

@@ -77,7 +77,7 @@ namespace E_RIMS.Controllers
             Journal journal = db.Journal.Find(id);
             if(journal == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             return View(journal);
@@ -88,7 +88,7 @@ namespace E_RIMS.Controllers
             Journal journal = db.Journal.Find(id);
             if (journal == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             return View(journal);
@@ -131,7 +131,7 @@ namespace E_RIMS.Controllers
             Journal journal = db.Journal.Find(id);
             if (journal == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             return View(journal);

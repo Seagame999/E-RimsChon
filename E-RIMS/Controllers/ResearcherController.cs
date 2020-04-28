@@ -80,7 +80,7 @@ namespace E_RIMS.Controllers
             Researcher researcher = db.Researcher.Find(id);
             if (researcher == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(researcher);
         }
@@ -90,7 +90,7 @@ namespace E_RIMS.Controllers
             Researcher researcher = db.Researcher.Find(id);
             if (researcher == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(researcher);
         }
@@ -123,7 +123,7 @@ namespace E_RIMS.Controllers
             Researcher researcher = db.Researcher.Find(id);
             if (researcher == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(researcher);
         }

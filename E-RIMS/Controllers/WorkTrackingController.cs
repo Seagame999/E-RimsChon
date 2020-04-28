@@ -66,7 +66,7 @@ namespace E_RIMS.Controllers
 
             if(overallOperation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             return View(overallOperation);
@@ -77,7 +77,7 @@ namespace E_RIMS.Controllers
             OverallOperation overallOperation = db.OverallOperation.Find(id);
             if (overallOperation == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
 
             var percentSelect = db.PercentActivities.ToList();
