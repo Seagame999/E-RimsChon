@@ -1,4 +1,5 @@
-﻿@{
+﻿@model E_RIMS.Models.Research
+@{
     ViewBag.Title = "เพิ่มงานวิจัยชิ้นใหม่";
 }
 
@@ -18,7 +19,8 @@
     <div class="card-header">
         <h3>จัดการข้อมูลงานวิจัย</h3>
     </div>
-    <form>
+    @using (Html.BeginForm(Html.BeginForm("CreateResearch", "Research", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
         <div class="card-body">
             <h5 class="card-title">
                 <i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title
@@ -34,18 +36,20 @@
                             <div class="form-row">
                                 <div class="form-group col-2">
                                     <label class="">ประเภทผลงาน</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="type">
                                         <option>วิจัย</option>
                                         <option>วิชาการ</option>
                                     </select>
+                                    @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-4">
                                     <label class="">ชื่อเรื่อง</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name">
+                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">กลุ่มงาน</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="workGroup">
                                         <option>งานเภสัชกรรม</option>
                                         <option>บริหารทั่วไป</option>
                                         <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
@@ -63,10 +67,12 @@
                                         <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
                                         <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
                                     </select>
+                                    @Html.ValidationMessageFor(model => model.workGroup, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">ผู้จัดทำ</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="creator">
+                                    @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
@@ -84,29 +90,34 @@
                             <div class="form-row">
                                 <div class="form-group col-3">
                                     <label class="">บทนำ</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="preface"></textarea>
+                                    @Html.ValidationMessageFor(model => model.preface, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">วัตถุประสงค์</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="objective"></textarea>
+                                    @Html.ValidationMessageFor(model => model.preface, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">ประโยชน์ที่คาดว่าจะได้รับ</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="benefit"></textarea>
+                                    @Html.ValidationMessageFor(model => model.benefit, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">รูปแบบงานวิจัย</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="format"></textarea>
+                                    @Html.ValidationMessageFor(model => model.format, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-3">
                                     <label class="">สถานที่ศึกษา</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="school"></textarea>
+                                    @Html.ValidationMessageFor(model => model.school, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">ระยะเวลาที่ศึกษา</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="timeOfStudy">
                                         <option>1 เดือน</option>
                                         <option>2 เดือน</option>
                                         <option>3 เดือน</option>
@@ -120,39 +131,46 @@
                                         <option>11 เดือน</option>
                                         <option>12 เดือน</option>
                                     </select>
+                                    @Html.ValidationMessageFor(model => model.timeOfStudy, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">ประชากรที่ศึกษา</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="population"></textarea>
+                                    @Html.ValidationMessageFor(model => model.population, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">วิธีการเลือกตัวอย่าง</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="sampleMethod"></textarea>
+                                    @Html.ValidationMessageFor(model => model.sampleMethod, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-3">
                                     <label class="">เครื่องมือที่ใช้ในการวิจัย</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="toolsOfResearch"></textarea>
+                                    @Html.ValidationMessageFor(model => model.toolsOfResearch, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">การวิเคราะห์ข้อมูล</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="dataAnalysis"></textarea>
+                                    @Html.ValidationMessageFor(model => model.dataAnalysis, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">วิธีการเก็บรวบรวมข้อมูล</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" name="dataMethodCollect"></textarea>
+                                    @Html.ValidationMessageFor(model => model.dataMethodCollect, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">อัพโหลดไฟล์ที่เกี่ยวข้อง</label>
-                                    <input type="file" class="form-control-file" />
+                                    <input type="file" class="form-control-file" name="files2" />
+                                    @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <br/>
+            <br />
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -185,163 +203,163 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity1" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep1" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity2" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep2" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity3" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep3" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity4" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep4" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity5" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep5" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity6" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep6" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity7" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep7" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity8" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep8" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>9</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity9" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep9" value="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>10</td>
-                                        <td><input type="text" class="form-control form-control-sm" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
-                                        <td><input type="checkbox" class="form-check" /></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity10" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isOct10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep10" value="true" /></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -359,26 +377,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    }
 </div>
 
-<!--
-<form class="form-inline">
-    <label class="mr-sm-2">ชื่อเรื่อง</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">บทคัดย่อ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ประเภท</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>...</option>
-        <option>.....</option>
-    </select>
-    <label class="mr-sm-2">ผู้จัดทำ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ไฟล์/วิดีโอ</label>
-    <input type="file" class="form-control-file">
-</form>
-<div class="row justify-content-center">
-    <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
-</div>
--->

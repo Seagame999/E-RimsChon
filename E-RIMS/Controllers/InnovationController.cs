@@ -31,7 +31,7 @@ namespace E_RIMS.Controllers
                 }
                 else if (search != null)
                 {
-                    innovationResult = db.Innovation.Where(x => x.@abstract.StartsWith(search) || x.@abstract == search).ToList().ToPagedList(page ?? 1, 10); ;
+                    innovationResult = db.Innovation.Where(x => x.backgroudAndImportance.StartsWith(search) || x.backgroudAndImportance == search).ToList().ToPagedList(page ?? 1, 10); ;
                 }
                 else if (search != null)
                 {
@@ -68,6 +68,7 @@ namespace E_RIMS.Controllers
                     innovation.files2.SaveAs(path);
                 }
 
+                innovation.date = DateTime.Today;
                 db.Innovation.Add(innovation);
                 db.SaveChanges();
                 ModelState.Clear();
@@ -114,6 +115,7 @@ namespace E_RIMS.Controllers
                     innovation.files2.SaveAs(path);
                 }
 
+                innovation.date = DateTime.Today;
                 db.Entry(innovation).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

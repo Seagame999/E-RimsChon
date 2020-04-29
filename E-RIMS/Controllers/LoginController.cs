@@ -30,7 +30,7 @@ namespace E_RIMS.Controllers
             if (ModelState.IsValid)
             {
                 var inputPassword = GetMD5(password);
-                var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(password)).ToList();
+                var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(inputPassword)).ToList();
 
                 if(data.Count() > 0)
                 {

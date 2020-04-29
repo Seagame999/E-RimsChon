@@ -34,7 +34,6 @@ namespace E_RIMS.Models
         public virtual DbSet<DocumentDownload> DocumentDownload { get; set; }
         public virtual DbSet<Education_Level> Education_Level { get; set; }
         public virtual DbSet<Expert> Expert { get; set; }
-        public virtual DbSet<Innovation> Innovation { get; set; }
         public virtual DbSet<Innovator> Innovator { get; set; }
         public virtual DbSet<JoinDevelopmentTeam> JoinDevelopmentTeam { get; set; }
         public virtual DbSet<Journal> Journal { get; set; }
@@ -45,7 +44,6 @@ namespace E_RIMS.Models
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Province> Province { get; set; }
         public virtual DbSet<PublicRelation> PublicRelation { get; set; }
-        public virtual DbSet<Research> Research { get; set; }
         public virtual DbSet<Researcher> Researcher { get; set; }
         public virtual DbSet<ResearchFuds> ResearchFuds { get; set; }
         public virtual DbSet<ResearchMonitoring> ResearchMonitoring { get; set; }
@@ -53,5 +51,7 @@ namespace E_RIMS.Models
         public virtual DbSet<SubDistrict> SubDistrict { get; set; }
         public virtual DbSet<PercentActivities> PercentActivities { get; set; }
         public virtual DbSet<OperatingActivities> OperatingActivities { get; set; }
+        public virtual DbSet<Innovation> Innovation { get; set; }
+        public virtual DbSet<Research> Research { get; set; }
     }
 }

@@ -157,6 +157,7 @@
     <Compile Include="Controllers\WorkTrackingController.cs" />
     <Compile Include="FileValidation\FileExtensionsValidationImage.cs" />
     <Compile Include="FileValidation\FileExtensionsValidationDoc.cs" />
+    <Compile Include="FileValidation\FileExtensionsValidationWorkPiece.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

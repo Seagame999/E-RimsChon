@@ -31,7 +31,7 @@ namespace E_RIMS.Controllers
                 }       
                 else if (search != null)
                 {
-                    researchResult = db.Research.Where(x => x.@abstract.StartsWith(search) || x.@abstract == search).ToList().ToPagedList(page ?? 1, 10);
+                    researchResult = db.Research.Where(x => x.preface.StartsWith(search) || x.preface == search).ToList().ToPagedList(page ?? 1, 10);
                 }
                 else if (search != null)
                 {
@@ -70,6 +70,7 @@ namespace E_RIMS.Controllers
                     research.files2.SaveAs(path);
                 }
 
+                research.date = DateTime.Today;
                 db.Research.Add(research);
                 db.SaveChanges();
                 ModelState.Clear();
@@ -116,6 +117,7 @@ namespace E_RIMS.Controllers
                     research.files2.SaveAs(path);
                 }
 
+                research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

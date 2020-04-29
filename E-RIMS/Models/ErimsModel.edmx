@@ -119,13 +119,147 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="date" Type="date" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
           <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="abstract" Type="text" />
-          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="workGroup" Type="varchar" MaxLength="255" />
           <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="backgroudAndImportance" Type="text" />
+          <Property Name="objective" Type="text" />
+          <Property Name="targetGroup" Type="text" />
+          <Property Name="benefit" Type="text" />
           <Property Name="files" Type="varchar" MaxLength="255" />
+          <Property Name="activity1" Type="varchar(max)" />
+          <Property Name="isJan1" Type="bit" />
+          <Property Name="isFeb1" Type="bit" />
+          <Property Name="isMar1" Type="bit" />
+          <Property Name="isApr1" Type="bit" />
+          <Property Name="isMay1" Type="bit" />
+          <Property Name="isJun1" Type="bit" />
+          <Property Name="isJul1" Type="bit" />
+          <Property Name="isAug1" Type="bit" />
+          <Property Name="isSep1" Type="bit" />
+          <Property Name="isOct1" Type="bit" />
+          <Property Name="isNov1" Type="bit" />
+          <Property Name="isDec1" Type="bit" />
+          <Property Name="activity2" Type="varchar(max)" />
+          <Property Name="isJan2" Type="bit" />
+          <Property Name="isFeb2" Type="bit" />
+          <Property Name="isMar2" Type="bit" />
+          <Property Name="isApr2" Type="bit" />
+          <Property Name="isMay2" Type="bit" />
+          <Property Name="isJun2" Type="bit" />
+          <Property Name="isJul2" Type="bit" />
+          <Property Name="isAug2" Type="bit" />
+          <Property Name="isSep2" Type="bit" />
+          <Property Name="isOct2" Type="bit" />
+          <Property Name="isNov2" Type="bit" />
+          <Property Name="isDec2" Type="bit" />
+          <Property Name="activity3" Type="varchar(max)" />
+          <Property Name="isJan3" Type="bit" />
+          <Property Name="isFeb3" Type="bit" />
+          <Property Name="isMar3" Type="bit" />
+          <Property Name="isApr3" Type="bit" />
+          <Property Name="isMay3" Type="bit" />
+          <Property Name="isJun3" Type="bit" />
+          <Property Name="isJul3" Type="bit" />
+          <Property Name="isAug3" Type="bit" />
+          <Property Name="isSep3" Type="bit" />
+          <Property Name="isOct3" Type="bit" />
+          <Property Name="isNov3" Type="bit" />
+          <Property Name="isDec3" Type="bit" />
+          <Property Name="activity4" Type="varchar(max)" />
+          <Property Name="isJan4" Type="bit" />
+          <Property Name="isFeb4" Type="bit" />
+          <Property Name="isMar4" Type="bit" />
+          <Property Name="isApr4" Type="bit" />
+          <Property Name="isMay4" Type="bit" />
+          <Property Name="isJun4" Type="bit" />
+          <Property Name="isJul4" Type="bit" />
+          <Property Name="isAug4" Type="bit" />
+          <Property Name="isSep4" Type="bit" />
+          <Property Name="isOct4" Type="bit" />
+          <Property Name="isNov4" Type="bit" />
+          <Property Name="isDec4" Type="bit" />
+          <Property Name="activity5" Type="varchar(max)" />
+          <Property Name="isJan5" Type="bit" />
+          <Property Name="isFeb5" Type="bit" />
+          <Property Name="isMar5" Type="bit" />
+          <Property Name="isApr5" Type="bit" />
+          <Property Name="isMay5" Type="bit" />
+          <Property Name="isJun5" Type="bit" />
+          <Property Name="isJul5" Type="bit" />
+          <Property Name="isAug5" Type="bit" />
+          <Property Name="isSep5" Type="bit" />
+          <Property Name="isOct5" Type="bit" />
+          <Property Name="isNov5" Type="bit" />
+          <Property Name="isDec5" Type="bit" />
+          <Property Name="activity6" Type="varchar(max)" />
+          <Property Name="isJan6" Type="bit" />
+          <Property Name="isFeb6" Type="bit" />
+          <Property Name="isMar6" Type="bit" />
+          <Property Name="isApr6" Type="bit" />
+          <Property Name="isMay6" Type="bit" />
+          <Property Name="isJun6" Type="bit" />
+          <Property Name="isJul6" Type="bit" />
+          <Property Name="isAug6" Type="bit" />
+          <Property Name="isSep6" Type="bit" />
+          <Property Name="isOct6" Type="bit" />
+          <Property Name="isNov6" Type="bit" />
+          <Property Name="isDec6" Type="bit" />
+          <Property Name="activity7" Type="varchar(max)" />
+          <Property Name="isJan7" Type="bit" />
+          <Property Name="isFeb7" Type="bit" />
+          <Property Name="isMar7" Type="bit" />
+          <Property Name="isApr7" Type="bit" />
+          <Property Name="isMay7" Type="bit" />
+          <Property Name="isJun7" Type="bit" />
+          <Property Name="isJul7" Type="bit" />
+          <Property Name="isAug7" Type="bit" />
+          <Property Name="isSep7" Type="bit" />
+          <Property Name="isOct7" Type="bit" />
+          <Property Name="isNov7" Type="bit" />
+          <Property Name="isDec7" Type="bit" />
+          <Property Name="activity8" Type="varchar(max)" />
+          <Property Name="isJan8" Type="bit" />
+          <Property Name="isFeb8" Type="bit" />
+          <Property Name="isMar8" Type="bit" />
+          <Property Name="isApr8" Type="bit" />
+          <Property Name="isMay8" Type="bit" />
+          <Property Name="isJun8" Type="bit" />
+          <Property Name="isJul8" Type="bit" />
+          <Property Name="isAug8" Type="bit" />
+          <Property Name="isSep8" Type="bit" />
+          <Property Name="isOct8" Type="bit" />
+          <Property Name="isNov8" Type="bit" />
+          <Property Name="isDec8" Type="bit" />
+          <Property Name="activity9" Type="varchar(max)" />
+          <Property Name="isJan9" Type="bit" />
+          <Property Name="isFeb9" Type="bit" />
+          <Property Name="isMar9" Type="bit" />
+          <Property Name="isApr9" Type="bit" />
+          <Property Name="isMay9" Type="bit" />
+          <Property Name="isJun9" Type="bit" />
+          <Property Name="isJul9" Type="bit" />
+          <Property Name="isAug9" Type="bit" />
+          <Property Name="isSep9" Type="bit" />
+          <Property Name="isOct9" Type="bit" />
+          <Property Name="isNov9" Type="bit" />
+          <Property Name="isDec9" Type="bit" />
+          <Property Name="activity10" Type="varchar(max)" />
+          <Property Name="isJan10" Type="bit" />
+          <Property Name="isFeb10" Type="bit" />
+          <Property Name="isMar10" Type="bit" />
+          <Property Name="isApr10" Type="bit" />
+          <Property Name="isMay10" Type="bit" />
+          <Property Name="isJun10" Type="bit" />
+          <Property Name="isJul10" Type="bit" />
+          <Property Name="isAug10" Type="bit" />
+          <Property Name="isSep10" Type="bit" />
+          <Property Name="isOct10" Type="bit" />
+          <Property Name="isNov10" Type="bit" />
+          <Property Name="isDec10" Type="bit" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -293,11 +427,152 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="date" Type="date" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
           <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="abstract" Type="text" />
-          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="workGroup" Type="varchar" MaxLength="255" />
           <Property Name="creator" Type="varchar" MaxLength="255" />
+          <Property Name="preface" Type="text" />
+          <Property Name="objective" Type="text" />
+          <Property Name="benefit" Type="text" />
+          <Property Name="format" Type="text" />
+          <Property Name="school" Type="text" />
+          <Property Name="timeOfStudy" Type="varchar" MaxLength="50" />
+          <Property Name="population" Type="text" />
+          <Property Name="sampleMethod" Type="text" />
+          <Property Name="toolsOfResearch" Type="text" />
+          <Property Name="dataAnalysis" Type="text" />
+          <Property Name="dataMethodCollect" Type="text" />
           <Property Name="files" Type="varchar" MaxLength="255" />
+          <Property Name="activity1" Type="varchar(max)" />
+          <Property Name="isJan1" Type="bit" />
+          <Property Name="isFeb1" Type="bit" />
+          <Property Name="isMar1" Type="bit" />
+          <Property Name="isApr1" Type="bit" />
+          <Property Name="isMay1" Type="bit" />
+          <Property Name="isJun1" Type="bit" />
+          <Property Name="isJul1" Type="bit" />
+          <Property Name="isAug1" Type="bit" />
+          <Property Name="isSep1" Type="bit" />
+          <Property Name="isOct1" Type="bit" />
+          <Property Name="isNov1" Type="bit" />
+          <Property Name="isDec1" Type="bit" />
+          <Property Name="activity2" Type="varchar(max)" />
+          <Property Name="isJan2" Type="bit" />
+          <Property Name="isFeb2" Type="bit" />
+          <Property Name="isMar2" Type="bit" />
+          <Property Name="isApr2" Type="bit" />
+          <Property Name="isMay2" Type="bit" />
+          <Property Name="isJun2" Type="bit" />
+          <Property Name="isJul2" Type="bit" />
+          <Property Name="isAug2" Type="bit" />
+          <Property Name="isSep2" Type="bit" />
+          <Property Name="isOct2" Type="bit" />
+          <Property Name="isNov2" Type="bit" />
+          <Property Name="isDec2" Type="bit" />
+          <Property Name="activity3" Type="varchar(max)" />
+          <Property Name="isJan3" Type="bit" />
+          <Property Name="isFeb3" Type="bit" />
+          <Property Name="isMar3" Type="bit" />
+          <Property Name="isApr3" Type="bit" />
+          <Property Name="isMay3" Type="bit" />
+          <Property Name="isJun3" Type="bit" />
+          <Property Name="isJul3" Type="bit" />
+          <Property Name="isAug3" Type="bit" />
+          <Property Name="isSep3" Type="bit" />
+          <Property Name="isOct3" Type="bit" />
+          <Property Name="isNov3" Type="bit" />
+          <Property Name="isDec3" Type="bit" />
+          <Property Name="activity4" Type="varchar(max)" />
+          <Property Name="isJan4" Type="bit" />
+          <Property Name="isFeb4" Type="bit" />
+          <Property Name="isMar4" Type="bit" />
+          <Property Name="isApr4" Type="bit" />
+          <Property Name="isMay4" Type="bit" />
+          <Property Name="isJun4" Type="bit" />
+          <Property Name="isJul4" Type="bit" />
+          <Property Name="isAug4" Type="bit" />
+          <Property Name="isSep4" Type="bit" />
+          <Property Name="isOct4" Type="bit" />
+          <Property Name="isNov4" Type="bit" />
+          <Property Name="isDec4" Type="bit" />
+          <Property Name="activity5" Type="varchar(max)" />
+          <Property Name="isJan5" Type="bit" />
+          <Property Name="isFeb5" Type="bit" />
+          <Property Name="isMar5" Type="bit" />
+          <Property Name="isApr5" Type="bit" />
+          <Property Name="isMay5" Type="bit" />
+          <Property Name="isJun5" Type="bit" />
+          <Property Name="isJul5" Type="bit" />
+          <Property Name="isAug5" Type="bit" />
+          <Property Name="isSep5" Type="bit" />
+          <Property Name="isOct5" Type="bit" />
+          <Property Name="isNov5" Type="bit" />
+          <Property Name="isDec5" Type="bit" />
+          <Property Name="activity6" Type="varchar(max)" />
+          <Property Name="isJan6" Type="bit" />
+          <Property Name="isFeb6" Type="bit" />
+          <Property Name="isMar6" Type="bit" />
+          <Property Name="isApr6" Type="bit" />
+          <Property Name="isMay6" Type="bit" />
+          <Property Name="isJun6" Type="bit" />
+          <Property Name="isJul6" Type="bit" />
+          <Property Name="isAug6" Type="bit" />
+          <Property Name="isSep6" Type="bit" />
+          <Property Name="isOct6" Type="bit" />
+          <Property Name="isNov6" Type="bit" />
+          <Property Name="isDec6" Type="bit" />
+          <Property Name="activity7" Type="varchar(max)" />
+          <Property Name="isJan7" Type="bit" />
+          <Property Name="isFeb7" Type="bit" />
+          <Property Name="isMar7" Type="bit" />
+          <Property Name="isApr7" Type="bit" />
+          <Property Name="isMay7" Type="bit" />
+          <Property Name="isJun7" Type="bit" />
+          <Property Name="isJul7" Type="bit" />
+          <Property Name="isAug7" Type="bit" />
+          <Property Name="isSep7" Type="bit" />
+          <Property Name="isOct7" Type="bit" />
+          <Property Name="isNov7" Type="bit" />
+          <Property Name="isDec7" Type="bit" />
+          <Property Name="activity8" Type="varchar(max)" />
+          <Property Name="isJan8" Type="bit" />
+          <Property Name="isFeb8" Type="bit" />
+          <Property Name="isMar8" Type="bit" />
+          <Property Name="isApr8" Type="bit" />
+          <Property Name="isMay8" Type="bit" />
+          <Property Name="isJun8" Type="bit" />
+          <Property Name="isJul8" Type="bit" />
+          <Property Name="isAug8" Type="bit" />
+          <Property Name="isSep8" Type="bit" />
+          <Property Name="isOct8" Type="bit" />
+          <Property Name="isNov8" Type="bit" />
+          <Property Name="isDec8" Type="bit" />
+          <Property Name="activity9" Type="varchar(max)" />
+          <Property Name="isJan9" Type="bit" />
+          <Property Name="isFeb9" Type="bit" />
+          <Property Name="isMar9" Type="bit" />
+          <Property Name="isApr9" Type="bit" />
+          <Property Name="isMay9" Type="bit" />
+          <Property Name="isJun9" Type="bit" />
+          <Property Name="isJul9" Type="bit" />
+          <Property Name="isAug9" Type="bit" />
+          <Property Name="isSep9" Type="bit" />
+          <Property Name="isOct9" Type="bit" />
+          <Property Name="isNov9" Type="bit" />
+          <Property Name="isDec9" Type="bit" />
+          <Property Name="activity10" Type="varchar(max)" />
+          <Property Name="isJan10" Type="bit" />
+          <Property Name="isFeb10" Type="bit" />
+          <Property Name="isMar10" Type="bit" />
+          <Property Name="isApr10" Type="bit" />
+          <Property Name="isMay10" Type="bit" />
+          <Property Name="isJun10" Type="bit" />
+          <Property Name="isJul10" Type="bit" />
+          <Property Name="isAug10" Type="bit" />
+          <Property Name="isSep10" Type="bit" />
+          <Property Name="isOct10" Type="bit" />
+          <Property Name="isNov10" Type="bit" />
+          <Property Name="isDec10" Type="bit" />
         </EntityType>
         <EntityType Name="Researcher">
           <Key>
@@ -531,18 +806,6 @@
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Innovation">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="date" Type="DateTime" Precision="0" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Innovator">
           <Key>
             <PropertyRef Name="id" />
@@ -687,18 +950,6 @@
           <Property Name="views" Type="Int32" />
           <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Research">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="date" Type="DateTime" Precision="0" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Researcher">
           <Key>
             <PropertyRef Name="id" />
@@ -797,7 +1048,6 @@
           <EntitySet Name="DocumentDownload" EntityType="Self.DocumentDownload" />
           <EntitySet Name="Education_Level" EntityType="Self.Education_Level" />
           <EntitySet Name="Expert" EntityType="Self.Expert" />
-          <EntitySet Name="Innovation" EntityType="Self.Innovation" />
           <EntitySet Name="Innovator" EntityType="Self.Innovator" />
           <EntitySet Name="JoinDevelopmentTeam" EntityType="Self.JoinDevelopmentTeam" />
           <EntitySet Name="Journal" EntityType="Self.Journal" />
@@ -808,7 +1058,6 @@
           <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="Province" EntityType="Self.Province" />
           <EntitySet Name="PublicRelation" EntityType="Self.PublicRelation" />
-          <EntitySet Name="Research" EntityType="Self.Research" />
           <EntitySet Name="Researcher" EntityType="Self.Researcher" />
           <EntitySet Name="ResearchFuds" EntityType="Self.ResearchFuds" />
           <EntitySet Name="ResearchMonitoring" EntityType="Self.ResearchMonitoring" />
@@ -816,6 +1065,8 @@
           <EntitySet Name="SubDistrict" EntityType="Self.SubDistrict" />
           <EntitySet Name="PercentActivities" EntityType="ERIMSModel.PercentActivities" />
           <EntitySet Name="OperatingActivities" EntityType="ERIMSModel.OperatingActivities" />
+          <EntitySet Name="Innovation" EntityType="ERIMSModel.Innovation" />
+          <EntitySet Name="Research" EntityType="ERIMSModel.Research" />
         </EntityContainer>
         <EntityType Name="PercentActivities">
           <Key>
@@ -832,6 +1083,305 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="operatingActivities1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="percents" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Innovation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="workGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="backgroudAndImportance" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="objective" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="targetGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="benefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan1" Type="Boolean" />
+          <Property Name="isFeb1" Type="Boolean" />
+          <Property Name="isMar1" Type="Boolean" />
+          <Property Name="isApr1" Type="Boolean" />
+          <Property Name="isMay1" Type="Boolean" />
+          <Property Name="isJun1" Type="Boolean" />
+          <Property Name="isJul1" Type="Boolean" />
+          <Property Name="isAug1" Type="Boolean" />
+          <Property Name="isSep1" Type="Boolean" />
+          <Property Name="isOct1" Type="Boolean" />
+          <Property Name="isNov1" Type="Boolean" />
+          <Property Name="isDec1" Type="Boolean" />
+          <Property Name="activity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan2" Type="Boolean" />
+          <Property Name="isFeb2" Type="Boolean" />
+          <Property Name="isMar2" Type="Boolean" />
+          <Property Name="isApr2" Type="Boolean" />
+          <Property Name="isMay2" Type="Boolean" />
+          <Property Name="isJun2" Type="Boolean" />
+          <Property Name="isJul2" Type="Boolean" />
+          <Property Name="isAug2" Type="Boolean" />
+          <Property Name="isSep2" Type="Boolean" />
+          <Property Name="isOct2" Type="Boolean" />
+          <Property Name="isNov2" Type="Boolean" />
+          <Property Name="isDec2" Type="Boolean" />
+          <Property Name="activity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan3" Type="Boolean" />
+          <Property Name="isFeb3" Type="Boolean" />
+          <Property Name="isMar3" Type="Boolean" />
+          <Property Name="isApr3" Type="Boolean" />
+          <Property Name="isMay3" Type="Boolean" />
+          <Property Name="isJun3" Type="Boolean" />
+          <Property Name="isJul3" Type="Boolean" />
+          <Property Name="isAug3" Type="Boolean" />
+          <Property Name="isSep3" Type="Boolean" />
+          <Property Name="isOct3" Type="Boolean" />
+          <Property Name="isNov3" Type="Boolean" />
+          <Property Name="isDec3" Type="Boolean" />
+          <Property Name="activity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan4" Type="Boolean" />
+          <Property Name="isFeb4" Type="Boolean" />
+          <Property Name="isMar4" Type="Boolean" />
+          <Property Name="isApr4" Type="Boolean" />
+          <Property Name="isMay4" Type="Boolean" />
+          <Property Name="isJun4" Type="Boolean" />
+          <Property Name="isJul4" Type="Boolean" />
+          <Property Name="isAug4" Type="Boolean" />
+          <Property Name="isSep4" Type="Boolean" />
+          <Property Name="isOct4" Type="Boolean" />
+          <Property Name="isNov4" Type="Boolean" />
+          <Property Name="isDec4" Type="Boolean" />
+          <Property Name="activity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan5" Type="Boolean" />
+          <Property Name="isFeb5" Type="Boolean" />
+          <Property Name="isMar5" Type="Boolean" />
+          <Property Name="isApr5" Type="Boolean" />
+          <Property Name="isMay5" Type="Boolean" />
+          <Property Name="isJun5" Type="Boolean" />
+          <Property Name="isJul5" Type="Boolean" />
+          <Property Name="isAug5" Type="Boolean" />
+          <Property Name="isSep5" Type="Boolean" />
+          <Property Name="isOct5" Type="Boolean" />
+          <Property Name="isNov5" Type="Boolean" />
+          <Property Name="isDec5" Type="Boolean" />
+          <Property Name="activity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan6" Type="Boolean" />
+          <Property Name="isFeb6" Type="Boolean" />
+          <Property Name="isMar6" Type="Boolean" />
+          <Property Name="isApr6" Type="Boolean" />
+          <Property Name="isMay6" Type="Boolean" />
+          <Property Name="isJun6" Type="Boolean" />
+          <Property Name="isJul6" Type="Boolean" />
+          <Property Name="isAug6" Type="Boolean" />
+          <Property Name="isSep6" Type="Boolean" />
+          <Property Name="isOct6" Type="Boolean" />
+          <Property Name="isNov6" Type="Boolean" />
+          <Property Name="isDec6" Type="Boolean" />
+          <Property Name="activity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan7" Type="Boolean" />
+          <Property Name="isFeb7" Type="Boolean" />
+          <Property Name="isMar7" Type="Boolean" />
+          <Property Name="isApr7" Type="Boolean" />
+          <Property Name="isMay7" Type="Boolean" />
+          <Property Name="isJun7" Type="Boolean" />
+          <Property Name="isJul7" Type="Boolean" />
+          <Property Name="isAug7" Type="Boolean" />
+          <Property Name="isSep7" Type="Boolean" />
+          <Property Name="isOct7" Type="Boolean" />
+          <Property Name="isNov7" Type="Boolean" />
+          <Property Name="isDec7" Type="Boolean" />
+          <Property Name="activity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan8" Type="Boolean" />
+          <Property Name="isFeb8" Type="Boolean" />
+          <Property Name="isMar8" Type="Boolean" />
+          <Property Name="isApr8" Type="Boolean" />
+          <Property Name="isMay8" Type="Boolean" />
+          <Property Name="isJun8" Type="Boolean" />
+          <Property Name="isJul8" Type="Boolean" />
+          <Property Name="isAug8" Type="Boolean" />
+          <Property Name="isSep8" Type="Boolean" />
+          <Property Name="isOct8" Type="Boolean" />
+          <Property Name="isNov8" Type="Boolean" />
+          <Property Name="isDec8" Type="Boolean" />
+          <Property Name="activity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan9" Type="Boolean" />
+          <Property Name="isFeb9" Type="Boolean" />
+          <Property Name="isMar9" Type="Boolean" />
+          <Property Name="isApr9" Type="Boolean" />
+          <Property Name="isMay9" Type="Boolean" />
+          <Property Name="isJun9" Type="Boolean" />
+          <Property Name="isJul9" Type="Boolean" />
+          <Property Name="isAug9" Type="Boolean" />
+          <Property Name="isSep9" Type="Boolean" />
+          <Property Name="isOct9" Type="Boolean" />
+          <Property Name="isNov9" Type="Boolean" />
+          <Property Name="isDec9" Type="Boolean" />
+          <Property Name="activity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan10" Type="Boolean" />
+          <Property Name="isFeb10" Type="Boolean" />
+          <Property Name="isMar10" Type="Boolean" />
+          <Property Name="isApr10" Type="Boolean" />
+          <Property Name="isMay10" Type="Boolean" />
+          <Property Name="isJun10" Type="Boolean" />
+          <Property Name="isJul10" Type="Boolean" />
+          <Property Name="isAug10" Type="Boolean" />
+          <Property Name="isSep10" Type="Boolean" />
+          <Property Name="isOct10" Type="Boolean" />
+          <Property Name="isNov10" Type="Boolean" />
+          <Property Name="isDec10" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Research">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="workGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="preface" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="objective" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="benefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="format" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="school" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="timeOfStudy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="population" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sampleMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="toolsOfResearch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dataAnalysis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dataMethodCollect" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan1" Type="Boolean" />
+          <Property Name="isFeb1" Type="Boolean" />
+          <Property Name="isMar1" Type="Boolean" />
+          <Property Name="isApr1" Type="Boolean" />
+          <Property Name="isMay1" Type="Boolean" />
+          <Property Name="isJun1" Type="Boolean" />
+          <Property Name="isJul1" Type="Boolean" />
+          <Property Name="isAug1" Type="Boolean" />
+          <Property Name="isSep1" Type="Boolean" />
+          <Property Name="isOct1" Type="Boolean" />
+          <Property Name="isNov1" Type="Boolean" />
+          <Property Name="isDec1" Type="Boolean" />
+          <Property Name="activity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan2" Type="Boolean" />
+          <Property Name="isFeb2" Type="Boolean" />
+          <Property Name="isMar2" Type="Boolean" />
+          <Property Name="isApr2" Type="Boolean" />
+          <Property Name="isMay2" Type="Boolean" />
+          <Property Name="isJun2" Type="Boolean" />
+          <Property Name="isJul2" Type="Boolean" />
+          <Property Name="isAug2" Type="Boolean" />
+          <Property Name="isSep2" Type="Boolean" />
+          <Property Name="isOct2" Type="Boolean" />
+          <Property Name="isNov2" Type="Boolean" />
+          <Property Name="isDec2" Type="Boolean" />
+          <Property Name="activity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan3" Type="Boolean" />
+          <Property Name="isFeb3" Type="Boolean" />
+          <Property Name="isMar3" Type="Boolean" />
+          <Property Name="isApr3" Type="Boolean" />
+          <Property Name="isMay3" Type="Boolean" />
+          <Property Name="isJun3" Type="Boolean" />
+          <Property Name="isJul3" Type="Boolean" />
+          <Property Name="isAug3" Type="Boolean" />
+          <Property Name="isSep3" Type="Boolean" />
+          <Property Name="isOct3" Type="Boolean" />
+          <Property Name="isNov3" Type="Boolean" />
+          <Property Name="isDec3" Type="Boolean" />
+          <Property Name="activity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan4" Type="Boolean" />
+          <Property Name="isFeb4" Type="Boolean" />
+          <Property Name="isMar4" Type="Boolean" />
+          <Property Name="isApr4" Type="Boolean" />
+          <Property Name="isMay4" Type="Boolean" />
+          <Property Name="isJun4" Type="Boolean" />
+          <Property Name="isJul4" Type="Boolean" />
+          <Property Name="isAug4" Type="Boolean" />
+          <Property Name="isSep4" Type="Boolean" />
+          <Property Name="isOct4" Type="Boolean" />
+          <Property Name="isNov4" Type="Boolean" />
+          <Property Name="isDec4" Type="Boolean" />
+          <Property Name="activity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan5" Type="Boolean" />
+          <Property Name="isFeb5" Type="Boolean" />
+          <Property Name="isMar5" Type="Boolean" />
+          <Property Name="isApr5" Type="Boolean" />
+          <Property Name="isMay5" Type="Boolean" />
+          <Property Name="isJun5" Type="Boolean" />
+          <Property Name="isJul5" Type="Boolean" />
+          <Property Name="isAug5" Type="Boolean" />
+          <Property Name="isSep5" Type="Boolean" />
+          <Property Name="isOct5" Type="Boolean" />
+          <Property Name="isNov5" Type="Boolean" />
+          <Property Name="isDec5" Type="Boolean" />
+          <Property Name="activity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan6" Type="Boolean" />
+          <Property Name="isFeb6" Type="Boolean" />
+          <Property Name="isMar6" Type="Boolean" />
+          <Property Name="isApr6" Type="Boolean" />
+          <Property Name="isMay6" Type="Boolean" />
+          <Property Name="isJun6" Type="Boolean" />
+          <Property Name="isJul6" Type="Boolean" />
+          <Property Name="isAug6" Type="Boolean" />
+          <Property Name="isSep6" Type="Boolean" />
+          <Property Name="isOct6" Type="Boolean" />
+          <Property Name="isNov6" Type="Boolean" />
+          <Property Name="isDec6" Type="Boolean" />
+          <Property Name="activity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan7" Type="Boolean" />
+          <Property Name="isFeb7" Type="Boolean" />
+          <Property Name="isMar7" Type="Boolean" />
+          <Property Name="isApr7" Type="Boolean" />
+          <Property Name="isMay7" Type="Boolean" />
+          <Property Name="isJun7" Type="Boolean" />
+          <Property Name="isJul7" Type="Boolean" />
+          <Property Name="isAug7" Type="Boolean" />
+          <Property Name="isSep7" Type="Boolean" />
+          <Property Name="isOct7" Type="Boolean" />
+          <Property Name="isNov7" Type="Boolean" />
+          <Property Name="isDec7" Type="Boolean" />
+          <Property Name="activity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan8" Type="Boolean" />
+          <Property Name="isFeb8" Type="Boolean" />
+          <Property Name="isMar8" Type="Boolean" />
+          <Property Name="isApr8" Type="Boolean" />
+          <Property Name="isMay8" Type="Boolean" />
+          <Property Name="isJun8" Type="Boolean" />
+          <Property Name="isJul8" Type="Boolean" />
+          <Property Name="isAug8" Type="Boolean" />
+          <Property Name="isSep8" Type="Boolean" />
+          <Property Name="isOct8" Type="Boolean" />
+          <Property Name="isNov8" Type="Boolean" />
+          <Property Name="isDec8" Type="Boolean" />
+          <Property Name="activity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan9" Type="Boolean" />
+          <Property Name="isFeb9" Type="Boolean" />
+          <Property Name="isMar9" Type="Boolean" />
+          <Property Name="isApr9" Type="Boolean" />
+          <Property Name="isMay9" Type="Boolean" />
+          <Property Name="isJun9" Type="Boolean" />
+          <Property Name="isJul9" Type="Boolean" />
+          <Property Name="isAug9" Type="Boolean" />
+          <Property Name="isSep9" Type="Boolean" />
+          <Property Name="isOct9" Type="Boolean" />
+          <Property Name="isNov9" Type="Boolean" />
+          <Property Name="isDec9" Type="Boolean" />
+          <Property Name="activity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isJan10" Type="Boolean" />
+          <Property Name="isFeb10" Type="Boolean" />
+          <Property Name="isMar10" Type="Boolean" />
+          <Property Name="isApr10" Type="Boolean" />
+          <Property Name="isMay10" Type="Boolean" />
+          <Property Name="isJun10" Type="Boolean" />
+          <Property Name="isJul10" Type="Boolean" />
+          <Property Name="isAug10" Type="Boolean" />
+          <Property Name="isSep10" Type="Boolean" />
+          <Property Name="isOct10" Type="Boolean" />
+          <Property Name="isNov10" Type="Boolean" />
+          <Property Name="isDec10" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -955,19 +1505,6 @@
                 <ScalarProperty Name="joinDevelopmentTeam" ColumnName="joinDevelopmentTeam" />
                 <ScalarProperty Name="nameAcademic" ColumnName="nameAcademic" />
                 <ScalarProperty Name="publication" ColumnName="publication" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Innovation">
-            <EntityTypeMapping TypeName="ERIMSModel.Innovation">
-              <MappingFragment StoreEntitySet="Innovation">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="abstract" ColumnName="abstract" />
-                <ScalarProperty Name="category" ColumnName="category" />
-                <ScalarProperty Name="creator" ColumnName="creator" />
-                <ScalarProperty Name="files" ColumnName="files" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1125,19 +1662,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Research">
-            <EntityTypeMapping TypeName="ERIMSModel.Research">
-              <MappingFragment StoreEntitySet="Research">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="abstract" ColumnName="abstract" />
-                <ScalarProperty Name="category" ColumnName="category" />
-                <ScalarProperty Name="creator" ColumnName="creator" />
-                <ScalarProperty Name="files" ColumnName="files" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Researcher">
             <EntityTypeMapping TypeName="ERIMSModel.Researcher">
               <MappingFragment StoreEntitySet="Researcher">
@@ -1245,6 +1769,307 @@
               <MappingFragment StoreEntitySet="OperatingActivities">
                 <ScalarProperty Name="percents" ColumnName="percents" />
                 <ScalarProperty Name="operatingActivities1" ColumnName="operatingActivities" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Innovation">
+            <EntityTypeMapping TypeName="ERIMSModel.Innovation">
+              <MappingFragment StoreEntitySet="Innovation">
+                <ScalarProperty Name="isDec10" ColumnName="isDec10" />
+                <ScalarProperty Name="isNov10" ColumnName="isNov10" />
+                <ScalarProperty Name="isOct10" ColumnName="isOct10" />
+                <ScalarProperty Name="isSep10" ColumnName="isSep10" />
+                <ScalarProperty Name="isAug10" ColumnName="isAug10" />
+                <ScalarProperty Name="isJul10" ColumnName="isJul10" />
+                <ScalarProperty Name="isJun10" ColumnName="isJun10" />
+                <ScalarProperty Name="isMay10" ColumnName="isMay10" />
+                <ScalarProperty Name="isApr10" ColumnName="isApr10" />
+                <ScalarProperty Name="isMar10" ColumnName="isMar10" />
+                <ScalarProperty Name="isFeb10" ColumnName="isFeb10" />
+                <ScalarProperty Name="isJan10" ColumnName="isJan10" />
+                <ScalarProperty Name="activity10" ColumnName="activity10" />
+                <ScalarProperty Name="isDec9" ColumnName="isDec9" />
+                <ScalarProperty Name="isNov9" ColumnName="isNov9" />
+                <ScalarProperty Name="isOct9" ColumnName="isOct9" />
+                <ScalarProperty Name="isSep9" ColumnName="isSep9" />
+                <ScalarProperty Name="isAug9" ColumnName="isAug9" />
+                <ScalarProperty Name="isJul9" ColumnName="isJul9" />
+                <ScalarProperty Name="isJun9" ColumnName="isJun9" />
+                <ScalarProperty Name="isMay9" ColumnName="isMay9" />
+                <ScalarProperty Name="isApr9" ColumnName="isApr9" />
+                <ScalarProperty Name="isMar9" ColumnName="isMar9" />
+                <ScalarProperty Name="isFeb9" ColumnName="isFeb9" />
+                <ScalarProperty Name="isJan9" ColumnName="isJan9" />
+                <ScalarProperty Name="activity9" ColumnName="activity9" />
+                <ScalarProperty Name="isDec8" ColumnName="isDec8" />
+                <ScalarProperty Name="isNov8" ColumnName="isNov8" />
+                <ScalarProperty Name="isOct8" ColumnName="isOct8" />
+                <ScalarProperty Name="isSep8" ColumnName="isSep8" />
+                <ScalarProperty Name="isAug8" ColumnName="isAug8" />
+                <ScalarProperty Name="isJul8" ColumnName="isJul8" />
+                <ScalarProperty Name="isJun8" ColumnName="isJun8" />
+                <ScalarProperty Name="isMay8" ColumnName="isMay8" />
+                <ScalarProperty Name="isApr8" ColumnName="isApr8" />
+                <ScalarProperty Name="isMar8" ColumnName="isMar8" />
+                <ScalarProperty Name="isFeb8" ColumnName="isFeb8" />
+                <ScalarProperty Name="isJan8" ColumnName="isJan8" />
+                <ScalarProperty Name="activity8" ColumnName="activity8" />
+                <ScalarProperty Name="isDec7" ColumnName="isDec7" />
+                <ScalarProperty Name="isNov7" ColumnName="isNov7" />
+                <ScalarProperty Name="isOct7" ColumnName="isOct7" />
+                <ScalarProperty Name="isSep7" ColumnName="isSep7" />
+                <ScalarProperty Name="isAug7" ColumnName="isAug7" />
+                <ScalarProperty Name="isJul7" ColumnName="isJul7" />
+                <ScalarProperty Name="isJun7" ColumnName="isJun7" />
+                <ScalarProperty Name="isMay7" ColumnName="isMay7" />
+                <ScalarProperty Name="isApr7" ColumnName="isApr7" />
+                <ScalarProperty Name="isMar7" ColumnName="isMar7" />
+                <ScalarProperty Name="isFeb7" ColumnName="isFeb7" />
+                <ScalarProperty Name="isJan7" ColumnName="isJan7" />
+                <ScalarProperty Name="activity7" ColumnName="activity7" />
+                <ScalarProperty Name="isDec6" ColumnName="isDec6" />
+                <ScalarProperty Name="isNov6" ColumnName="isNov6" />
+                <ScalarProperty Name="isOct6" ColumnName="isOct6" />
+                <ScalarProperty Name="isSep6" ColumnName="isSep6" />
+                <ScalarProperty Name="isAug6" ColumnName="isAug6" />
+                <ScalarProperty Name="isJul6" ColumnName="isJul6" />
+                <ScalarProperty Name="isJun6" ColumnName="isJun6" />
+                <ScalarProperty Name="isMay6" ColumnName="isMay6" />
+                <ScalarProperty Name="isApr6" ColumnName="isApr6" />
+                <ScalarProperty Name="isMar6" ColumnName="isMar6" />
+                <ScalarProperty Name="isFeb6" ColumnName="isFeb6" />
+                <ScalarProperty Name="isJan6" ColumnName="isJan6" />
+                <ScalarProperty Name="activity6" ColumnName="activity6" />
+                <ScalarProperty Name="isDec5" ColumnName="isDec5" />
+                <ScalarProperty Name="isNov5" ColumnName="isNov5" />
+                <ScalarProperty Name="isOct5" ColumnName="isOct5" />
+                <ScalarProperty Name="isSep5" ColumnName="isSep5" />
+                <ScalarProperty Name="isAug5" ColumnName="isAug5" />
+                <ScalarProperty Name="isJul5" ColumnName="isJul5" />
+                <ScalarProperty Name="isJun5" ColumnName="isJun5" />
+                <ScalarProperty Name="isMay5" ColumnName="isMay5" />
+                <ScalarProperty Name="isApr5" ColumnName="isApr5" />
+                <ScalarProperty Name="isMar5" ColumnName="isMar5" />
+                <ScalarProperty Name="isFeb5" ColumnName="isFeb5" />
+                <ScalarProperty Name="isJan5" ColumnName="isJan5" />
+                <ScalarProperty Name="activity5" ColumnName="activity5" />
+                <ScalarProperty Name="isDec4" ColumnName="isDec4" />
+                <ScalarProperty Name="isNov4" ColumnName="isNov4" />
+                <ScalarProperty Name="isOct4" ColumnName="isOct4" />
+                <ScalarProperty Name="isSep4" ColumnName="isSep4" />
+                <ScalarProperty Name="isAug4" ColumnName="isAug4" />
+                <ScalarProperty Name="isJul4" ColumnName="isJul4" />
+                <ScalarProperty Name="isJun4" ColumnName="isJun4" />
+                <ScalarProperty Name="isMay4" ColumnName="isMay4" />
+                <ScalarProperty Name="isApr4" ColumnName="isApr4" />
+                <ScalarProperty Name="isMar4" ColumnName="isMar4" />
+                <ScalarProperty Name="isFeb4" ColumnName="isFeb4" />
+                <ScalarProperty Name="isJan4" ColumnName="isJan4" />
+                <ScalarProperty Name="activity4" ColumnName="activity4" />
+                <ScalarProperty Name="isDec3" ColumnName="isDec3" />
+                <ScalarProperty Name="isNov3" ColumnName="isNov3" />
+                <ScalarProperty Name="isOct3" ColumnName="isOct3" />
+                <ScalarProperty Name="isSep3" ColumnName="isSep3" />
+                <ScalarProperty Name="isAug3" ColumnName="isAug3" />
+                <ScalarProperty Name="isJul3" ColumnName="isJul3" />
+                <ScalarProperty Name="isJun3" ColumnName="isJun3" />
+                <ScalarProperty Name="isMay3" ColumnName="isMay3" />
+                <ScalarProperty Name="isApr3" ColumnName="isApr3" />
+                <ScalarProperty Name="isMar3" ColumnName="isMar3" />
+                <ScalarProperty Name="isFeb3" ColumnName="isFeb3" />
+                <ScalarProperty Name="isJan3" ColumnName="isJan3" />
+                <ScalarProperty Name="activity3" ColumnName="activity3" />
+                <ScalarProperty Name="isDec2" ColumnName="isDec2" />
+                <ScalarProperty Name="isNov2" ColumnName="isNov2" />
+                <ScalarProperty Name="isOct2" ColumnName="isOct2" />
+                <ScalarProperty Name="isSep2" ColumnName="isSep2" />
+                <ScalarProperty Name="isAug2" ColumnName="isAug2" />
+                <ScalarProperty Name="isJul2" ColumnName="isJul2" />
+                <ScalarProperty Name="isJun2" ColumnName="isJun2" />
+                <ScalarProperty Name="isMay2" ColumnName="isMay2" />
+                <ScalarProperty Name="isApr2" ColumnName="isApr2" />
+                <ScalarProperty Name="isMar2" ColumnName="isMar2" />
+                <ScalarProperty Name="isFeb2" ColumnName="isFeb2" />
+                <ScalarProperty Name="isJan2" ColumnName="isJan2" />
+                <ScalarProperty Name="activity2" ColumnName="activity2" />
+                <ScalarProperty Name="isDec1" ColumnName="isDec1" />
+                <ScalarProperty Name="isNov1" ColumnName="isNov1" />
+                <ScalarProperty Name="isOct1" ColumnName="isOct1" />
+                <ScalarProperty Name="isSep1" ColumnName="isSep1" />
+                <ScalarProperty Name="isAug1" ColumnName="isAug1" />
+                <ScalarProperty Name="isJul1" ColumnName="isJul1" />
+                <ScalarProperty Name="isJun1" ColumnName="isJun1" />
+                <ScalarProperty Name="isMay1" ColumnName="isMay1" />
+                <ScalarProperty Name="isApr1" ColumnName="isApr1" />
+                <ScalarProperty Name="isMar1" ColumnName="isMar1" />
+                <ScalarProperty Name="isFeb1" ColumnName="isFeb1" />
+                <ScalarProperty Name="isJan1" ColumnName="isJan1" />
+                <ScalarProperty Name="activity1" ColumnName="activity1" />
+                <ScalarProperty Name="files" ColumnName="files" />
+                <ScalarProperty Name="benefit" ColumnName="benefit" />
+                <ScalarProperty Name="targetGroup" ColumnName="targetGroup" />
+                <ScalarProperty Name="objective" ColumnName="objective" />
+                <ScalarProperty Name="backgroudAndImportance" ColumnName="backgroudAndImportance" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="workGroup" ColumnName="workGroup" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Research">
+            <EntityTypeMapping TypeName="ERIMSModel.Research">
+              <MappingFragment StoreEntitySet="Research">
+                <ScalarProperty Name="isDec10" ColumnName="isDec10" />
+                <ScalarProperty Name="isNov10" ColumnName="isNov10" />
+                <ScalarProperty Name="isOct10" ColumnName="isOct10" />
+                <ScalarProperty Name="isSep10" ColumnName="isSep10" />
+                <ScalarProperty Name="isAug10" ColumnName="isAug10" />
+                <ScalarProperty Name="isJul10" ColumnName="isJul10" />
+                <ScalarProperty Name="isJun10" ColumnName="isJun10" />
+                <ScalarProperty Name="isMay10" ColumnName="isMay10" />
+                <ScalarProperty Name="isApr10" ColumnName="isApr10" />
+                <ScalarProperty Name="isMar10" ColumnName="isMar10" />
+                <ScalarProperty Name="isFeb10" ColumnName="isFeb10" />
+                <ScalarProperty Name="isJan10" ColumnName="isJan10" />
+                <ScalarProperty Name="activity10" ColumnName="activity10" />
+                <ScalarProperty Name="isDec9" ColumnName="isDec9" />
+                <ScalarProperty Name="isNov9" ColumnName="isNov9" />
+                <ScalarProperty Name="isOct9" ColumnName="isOct9" />
+                <ScalarProperty Name="isSep9" ColumnName="isSep9" />
+                <ScalarProperty Name="isAug9" ColumnName="isAug9" />
+                <ScalarProperty Name="isJul9" ColumnName="isJul9" />
+                <ScalarProperty Name="isJun9" ColumnName="isJun9" />
+                <ScalarProperty Name="isMay9" ColumnName="isMay9" />
+                <ScalarProperty Name="isApr9" ColumnName="isApr9" />
+                <ScalarProperty Name="isMar9" ColumnName="isMar9" />
+                <ScalarProperty Name="isFeb9" ColumnName="isFeb9" />
+                <ScalarProperty Name="isJan9" ColumnName="isJan9" />
+                <ScalarProperty Name="activity9" ColumnName="activity9" />
+                <ScalarProperty Name="isDec8" ColumnName="isDec8" />
+                <ScalarProperty Name="isNov8" ColumnName="isNov8" />
+                <ScalarProperty Name="isOct8" ColumnName="isOct8" />
+                <ScalarProperty Name="isSep8" ColumnName="isSep8" />
+                <ScalarProperty Name="isAug8" ColumnName="isAug8" />
+                <ScalarProperty Name="isJul8" ColumnName="isJul8" />
+                <ScalarProperty Name="isJun8" ColumnName="isJun8" />
+                <ScalarProperty Name="isMay8" ColumnName="isMay8" />
+                <ScalarProperty Name="isApr8" ColumnName="isApr8" />
+                <ScalarProperty Name="isMar8" ColumnName="isMar8" />
+                <ScalarProperty Name="isFeb8" ColumnName="isFeb8" />
+                <ScalarProperty Name="isJan8" ColumnName="isJan8" />
+                <ScalarProperty Name="activity8" ColumnName="activity8" />
+                <ScalarProperty Name="isDec7" ColumnName="isDec7" />
+                <ScalarProperty Name="isNov7" ColumnName="isNov7" />
+                <ScalarProperty Name="isOct7" ColumnName="isOct7" />
+                <ScalarProperty Name="isSep7" ColumnName="isSep7" />
+                <ScalarProperty Name="isAug7" ColumnName="isAug7" />
+                <ScalarProperty Name="isJul7" ColumnName="isJul7" />
+                <ScalarProperty Name="isJun7" ColumnName="isJun7" />
+                <ScalarProperty Name="isMay7" ColumnName="isMay7" />
+                <ScalarProperty Name="isApr7" ColumnName="isApr7" />
+                <ScalarProperty Name="isMar7" ColumnName="isMar7" />
+                <ScalarProperty Name="isFeb7" ColumnName="isFeb7" />
+                <ScalarProperty Name="isJan7" ColumnName="isJan7" />
+                <ScalarProperty Name="activity7" ColumnName="activity7" />
+                <ScalarProperty Name="isDec6" ColumnName="isDec6" />
+                <ScalarProperty Name="isNov6" ColumnName="isNov6" />
+                <ScalarProperty Name="isOct6" ColumnName="isOct6" />
+                <ScalarProperty Name="isSep6" ColumnName="isSep6" />
+                <ScalarProperty Name="isAug6" ColumnName="isAug6" />
+                <ScalarProperty Name="isJul6" ColumnName="isJul6" />
+                <ScalarProperty Name="isJun6" ColumnName="isJun6" />
+                <ScalarProperty Name="isMay6" ColumnName="isMay6" />
+                <ScalarProperty Name="isApr6" ColumnName="isApr6" />
+                <ScalarProperty Name="isMar6" ColumnName="isMar6" />
+                <ScalarProperty Name="isFeb6" ColumnName="isFeb6" />
+                <ScalarProperty Name="isJan6" ColumnName="isJan6" />
+                <ScalarProperty Name="activity6" ColumnName="activity6" />
+                <ScalarProperty Name="isDec5" ColumnName="isDec5" />
+                <ScalarProperty Name="isNov5" ColumnName="isNov5" />
+                <ScalarProperty Name="isOct5" ColumnName="isOct5" />
+                <ScalarProperty Name="isSep5" ColumnName="isSep5" />
+                <ScalarProperty Name="isAug5" ColumnName="isAug5" />
+                <ScalarProperty Name="isJul5" ColumnName="isJul5" />
+                <ScalarProperty Name="isJun5" ColumnName="isJun5" />
+                <ScalarProperty Name="isMay5" ColumnName="isMay5" />
+                <ScalarProperty Name="isApr5" ColumnName="isApr5" />
+                <ScalarProperty Name="isMar5" ColumnName="isMar5" />
+                <ScalarProperty Name="isFeb5" ColumnName="isFeb5" />
+                <ScalarProperty Name="isJan5" ColumnName="isJan5" />
+                <ScalarProperty Name="activity5" ColumnName="activity5" />
+                <ScalarProperty Name="isDec4" ColumnName="isDec4" />
+                <ScalarProperty Name="isNov4" ColumnName="isNov4" />
+                <ScalarProperty Name="isOct4" ColumnName="isOct4" />
+                <ScalarProperty Name="isSep4" ColumnName="isSep4" />
+                <ScalarProperty Name="isAug4" ColumnName="isAug4" />
+                <ScalarProperty Name="isJul4" ColumnName="isJul4" />
+                <ScalarProperty Name="isJun4" ColumnName="isJun4" />
+                <ScalarProperty Name="isMay4" ColumnName="isMay4" />
+                <ScalarProperty Name="isApr4" ColumnName="isApr4" />
+                <ScalarProperty Name="isMar4" ColumnName="isMar4" />
+                <ScalarProperty Name="isFeb4" ColumnName="isFeb4" />
+                <ScalarProperty Name="isJan4" ColumnName="isJan4" />
+                <ScalarProperty Name="activity4" ColumnName="activity4" />
+                <ScalarProperty Name="isDec3" ColumnName="isDec3" />
+                <ScalarProperty Name="isNov3" ColumnName="isNov3" />
+                <ScalarProperty Name="isOct3" ColumnName="isOct3" />
+                <ScalarProperty Name="isSep3" ColumnName="isSep3" />
+                <ScalarProperty Name="isAug3" ColumnName="isAug3" />
+                <ScalarProperty Name="isJul3" ColumnName="isJul3" />
+                <ScalarProperty Name="isJun3" ColumnName="isJun3" />
+                <ScalarProperty Name="isMay3" ColumnName="isMay3" />
+                <ScalarProperty Name="isApr3" ColumnName="isApr3" />
+                <ScalarProperty Name="isMar3" ColumnName="isMar3" />
+                <ScalarProperty Name="isFeb3" ColumnName="isFeb3" />
+                <ScalarProperty Name="isJan3" ColumnName="isJan3" />
+                <ScalarProperty Name="activity3" ColumnName="activity3" />
+                <ScalarProperty Name="isDec2" ColumnName="isDec2" />
+                <ScalarProperty Name="isNov2" ColumnName="isNov2" />
+                <ScalarProperty Name="isOct2" ColumnName="isOct2" />
+                <ScalarProperty Name="isSep2" ColumnName="isSep2" />
+                <ScalarProperty Name="isAug2" ColumnName="isAug2" />
+                <ScalarProperty Name="isJul2" ColumnName="isJul2" />
+                <ScalarProperty Name="isJun2" ColumnName="isJun2" />
+                <ScalarProperty Name="isMay2" ColumnName="isMay2" />
+                <ScalarProperty Name="isApr2" ColumnName="isApr2" />
+                <ScalarProperty Name="isMar2" ColumnName="isMar2" />
+                <ScalarProperty Name="isFeb2" ColumnName="isFeb2" />
+                <ScalarProperty Name="isJan2" ColumnName="isJan2" />
+                <ScalarProperty Name="activity2" ColumnName="activity2" />
+                <ScalarProperty Name="isDec1" ColumnName="isDec1" />
+                <ScalarProperty Name="isNov1" ColumnName="isNov1" />
+                <ScalarProperty Name="isOct1" ColumnName="isOct1" />
+                <ScalarProperty Name="isSep1" ColumnName="isSep1" />
+                <ScalarProperty Name="isAug1" ColumnName="isAug1" />
+                <ScalarProperty Name="isJul1" ColumnName="isJul1" />
+                <ScalarProperty Name="isJun1" ColumnName="isJun1" />
+                <ScalarProperty Name="isMay1" ColumnName="isMay1" />
+                <ScalarProperty Name="isApr1" ColumnName="isApr1" />
+                <ScalarProperty Name="isMar1" ColumnName="isMar1" />
+                <ScalarProperty Name="isFeb1" ColumnName="isFeb1" />
+                <ScalarProperty Name="isJan1" ColumnName="isJan1" />
+                <ScalarProperty Name="activity1" ColumnName="activity1" />
+                <ScalarProperty Name="files" ColumnName="files" />
+                <ScalarProperty Name="dataMethodCollect" ColumnName="dataMethodCollect" />
+                <ScalarProperty Name="dataAnalysis" ColumnName="dataAnalysis" />
+                <ScalarProperty Name="toolsOfResearch" ColumnName="toolsOfResearch" />
+                <ScalarProperty Name="sampleMethod" ColumnName="sampleMethod" />
+                <ScalarProperty Name="population" ColumnName="population" />
+                <ScalarProperty Name="timeOfStudy" ColumnName="timeOfStudy" />
+                <ScalarProperty Name="school" ColumnName="school" />
+                <ScalarProperty Name="format" ColumnName="format" />
+                <ScalarProperty Name="benefit" ColumnName="benefit" />
+                <ScalarProperty Name="objective" ColumnName="objective" />
+                <ScalarProperty Name="preface" ColumnName="preface" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="workGroup" ColumnName="workGroup" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
