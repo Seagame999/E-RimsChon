@@ -68,6 +68,12 @@ namespace E_RIMS.Controllers
                     innovation.files2.SaveAs(path);
                 }
 
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    innovation.idOwner = Convert.ToInt32(Session["Id"]);
+                    innovation.usernameOwner = Session["Username"].ToString();
+                }
+
                 innovation.date = DateTime.Today;
                 db.Innovation.Add(innovation);
                 db.SaveChanges();
@@ -113,6 +119,12 @@ namespace E_RIMS.Controllers
                     innovation.files = "/docUploadInnovation/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadInnovation/"), fileNameDoc);
                     innovation.files2.SaveAs(path);
+                }
+
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    innovation.idOwner = Convert.ToInt32(Session["Id"]);
+                    innovation.usernameOwner = Session["Username"].ToString();
                 }
 
                 innovation.date = DateTime.Today;
