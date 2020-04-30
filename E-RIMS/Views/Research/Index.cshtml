@@ -1,20 +1,123 @@
-﻿@{
-    ViewBag.Title = "เพิ่มงานวิจัยชิ้นใหม่";
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<E_RIMS.Models.Research>
+
+@{
+    ViewBag.Title = "งานวิจัย";
 }
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="@Url.Action("Index", "Research")">งานวิจัย</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active">งานวิจัย</li>
     </ol>
 </nav>
 
 <div class="card">
+    <div class="card-header">
+        <h3>จัดการงานวิจัย&nbsp;<a href="@Url.Action("CreateInnovation", "Innovation")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มงานนวัตกรรมชิ้นใหม่</a></h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+        <div class="card">
+            <div class="card-header">
+                ค้นหางานนวัตกรรม
+            </div>
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-row">
+                        <div class="form-group col-2">
+                            <label class="" for="">ปีงบประมาณ</label>
+                            <select class="custom-select custom-select-sm" id="">
+                                <option selected>-- ปีงบประมาณ --</option>
+                                <option>2561</option>
+                                <option>2562</option>
+                                <option>2563</option>
+                                <option>2564</option>
+                                <option>2565</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label class="" for="">ชื่องานวิจัย</label>
+                            <input type="text" class="form-control form-control-sm" />
+                        </div>
+                        <div class="form-group col-3">
+                            <label class="" for="">นักวิจัย</label>
+                            <select class="custom-select custom-select-sm" id="">
+                                <option selected>-- นักวิจัย --</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="">กลุ่มงาน</label>
+                            <select class="form-control custom-select-sm" name="workGroup">
+                                <option>งานเภสัชกรรม</option>
+                                <option>บริหารทั่วไป</option>
+                                <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
+                                <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
+                                <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
+                                <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
+                                <option>โรคติดต่อ</option>
+                                <option>โรคไม่ติดต่อ</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
+                                <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
+                                <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
+                                <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิจัย</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <h5 class="card-title">รายการงานวิจัย</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">ปีงบประมาณ</th>
+                    <th scope="col">ชื่องานวิจัย</th>
+                    <th scope="col">นักวิจัย</th>
+                    <th scope="col">กลุ่มงาน</th>
+                    <th scope="col">การกระทำ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="text-center">2563</td>
+                    <td><a href="#">การพัฒนาระบบสารสนเทศบนเว็บ เพื่อการบริหารจัดการงานวิจัยภายใน สคร.6 ชลบุรี</a></td>
+                    <td>นายมานะ รักษ์ไทย</td>
+                    <td>กลุ่มงานวิจัย สคร.6</td>
+                    <td class="text-nowrap"><a href="#" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="text-center">
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-6"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<!--<div class="card">
     <div class="card-header">
         <h3>จัดการข้อมูลงานวิจัย</h3>
     </div>
@@ -65,7 +168,7 @@
         </div>
     </form>
 </div>
-
+    -->
 <!--
 <form class="form-inline">
     <label class="mr-sm-2">ชื่อเรื่อง</label>
@@ -86,4 +189,3 @@
     <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
 </div>
 -->
-
