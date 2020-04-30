@@ -16,21 +16,22 @@
 
 <div class="card">
     <div class="card-header">
-        <h3>จัดการงานวิจัย&nbsp;<a href="@Url.Action("CreateInnovation", "Innovation")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มงานนวัตกรรมชิ้นใหม่</a></h3>
+        <h3>จัดการงานวิจัย&nbsp;<a href="@Url.Action("CreateResearch", "Research")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มงานวิจัยชิ้นใหม่</a></h3>
     </div>
     <div class="card-body">
         <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
         <hr />
         <div class="card">
             <div class="card-header">
-                ค้นหางานนวัตกรรม
+                ค้นหางานวิจัย
             </div>
             <div class="card-body">
-                <form class="form">
+                @using (Html.BeginForm("Index", "Research", FormMethod.Post))
+                {
                     <div class="form-row">
                         <div class="form-group col-2">
                             <label class="" for="">ปีงบประมาณ</label>
-                            <select class="custom-select custom-select-sm" id="">
+                            <select class="custom-select custom-select-sm" id="" name="budgetYear">
                                 <option selected>-- ปีงบประมาณ --</option>
                                 <option>2561</option>
                                 <option>2562</option>
@@ -41,11 +42,11 @@
                         </div>
                         <div class="form-group col-3">
                             <label class="" for="">ชื่องานวิจัย</label>
-                            <input type="text" class="form-control form-control-sm" />
+                            <input type="text" class="form-control form-control-sm" name="name" />
                         </div>
                         <div class="form-group col-3">
                             <label class="" for="">นักวิจัย</label>
-                            <select class="custom-select custom-select-sm" id="">
+                            <select class="custom-select custom-select-sm" id="" name="creator">
                                 <option selected>-- นักวิจัย --</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -55,6 +56,7 @@
                         <div class="form-group col-4">
                             <label class="">กลุ่มงาน</label>
                             <select class="form-control custom-select-sm" name="workGroup">
+                                <option selected>-- กลุ่มงาน --</option>
                                 <option>งานเภสัชกรรม</option>
                                 <option>บริหารทั่วไป</option>
                                 <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
@@ -77,7 +79,7 @@
                     <div class="form-group text-right">
                         <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิจัย</button>
                     </div>
-                </form>
+                }
             </div>
         </div>
         <br />
@@ -94,21 +96,26 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var item in Model)
+                {
                 <tr>
-                    <td>1</td>
-                    <td class="text-center">2563</td>
-                    <td><a href="#">การพัฒนาระบบสารสนเทศบนเว็บ เพื่อการบริหารจัดการงานวิจัยภายใน สคร.6 ชลบุรี</a></td>
-                    <td>นายมานะ รักษ์ไทย</td>
-                    <td>กลุ่มงานวิจัย สคร.6</td>
-                    <td class="text-nowrap"><a href="#" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                    <td>@Html.DisplayFor(modelItem => item.date)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
+                    <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                    <td>@Html.DisplayFor(modelItem => item.creator)</td>
+                    <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
+                    <td class="text-nowrap"><a href="@Url.Action("EditResearch"+"/"+item.id,"Research")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
                 </tr>
+                }
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="6" class="text-center">
                         <div class="row">
                             <div class="col-6"></div>
-                            <div class="col-6"></div>
+                            <div class="col-6">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -117,75 +124,3 @@
     </div>
 </div>
 
-<!--<div class="card">
-    <div class="card-header">
-        <h3>จัดการข้อมูลงานวิจัย</h3>
-    </div>
-    <form>
-        <div class="card-body">
-            <h5 class="card-title">
-                <i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title
-            </h5>
-            <hr />
-
-            <div class="form-row">
-                <div class="form-group col-4">
-                    <label class="">ประเภท</label>
-                    <select class="form-control">
-                        <option>...</option>
-                        <option>.....</option>
-                    </select>
-                </div>
-                <div class="form-group col-4">
-                    <label class="">ชื่อเรื่อง</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group col-4">
-                    <label class="">ผู้จัดทำ</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <label class="">บทคัดย่อ</label>
-                    <textarea class="form-control" rows="5"></textarea>
-                </div>
-                <div class="form-group col-6">
-                    <label class="">ไฟล์เอกสาร</label>
-                    <input type="file" class="form-control-file">
-                </div>
-            </div>
-
-        </div>
-
-        <div class="card-footer">
-            <div class="form-group text-right">
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success text-center"><i class="fa fa-check-circle"></i>&nbsp;บันทึก</button>
-                    <button type="reset" class="btn btn-danger text-center"><i class="fa fa-times-circle"></i>&nbsp;ยกเลิก</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-    -->
-<!--
-<form class="form-inline">
-    <label class="mr-sm-2">ชื่อเรื่อง</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">บทคัดย่อ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ประเภท</label>
-    <select class="form-control mb-2 mr-sm-2">
-        <option>...</option>
-        <option>.....</option>
-    </select>
-    <label class="mr-sm-2">ผู้จัดทำ</label>
-    <input type="text" class="form-control mb-2 mr-sm-2">
-    <label class="mr-sm-2">ไฟล์/วิดีโอ</label>
-    <input type="file" class="form-control-file">
-</form>
-<div class="row justify-content-center">
-    <button type="submit" class="btn btn-outline-success text-center">บันทึก</button>
-</div>
--->

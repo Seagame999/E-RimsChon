@@ -19,6 +19,7 @@ namespace E_RIMS.Models
     public partial class Research
     {
         public int id { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> date { get; set; }
         public string type { get; set; }
         public string name { get; set; }

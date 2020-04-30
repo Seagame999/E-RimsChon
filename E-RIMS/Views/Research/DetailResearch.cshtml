@@ -1,4 +1,5 @@
-﻿@{
+﻿@model E_RIMS.Models.Research
+@{
     ViewBag.Title = "ข้อมูลงานวิจัย";
 }
 
@@ -28,41 +29,27 @@
             <div class="form-row">
                 <div class="form-group col-4">
                     <label class="">ประเภท</label>
-                    <select class="form-control" disabled>
-                        <option>...</option>
-                        <option>.....</option>
-                    </select>
+                    <label class="form-control">@Model.type</label>
                 </div>
                 <div class="form-group col-4">
                     <label class="">ชื่อเรื่อง</label>
-                    <input type="text" class="form-control" disabled>
+                    <label class="form-control">@Model.name</label>
                 </div>
                 <div class="form-group col-4">
                     <label class="">ผู้จัดทำ</label>
-                    <input type="text" class="form-control" disabled>
+                    <label class="form-control">@Model.creator</label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
                     <label class="">บทคัดย่อ</label>
-                    <textarea class="form-control" rows="5" disabled></textarea>
+                    <textarea class="form-control" rows="5">@Model.preface</textarea>
                 </div>
                 <div class="form-group col-6 text-center">
-                    <a href="#" target="_blank" class="btn btn-info" style="margin-top:50px;"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลดไฟล์เอกสารงานวิจัย</a>
+                    <a href="@Model.files" target="_blank" class="btn btn-info" style="margin-top:50px;"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลดไฟล์เอกสารงานวิจัย</a>
                 </div>
             </div>
         </div>
     </form>
 </div>
 
-<!--<h5>Abstract</h5>
-<div class="container">
-    <p>
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    <p>
-</div>
-<a href="#"><h6><img src="~/Image/download-solid.svg" width="15" height="15">&nbsp;Download Article</h6></a>-->

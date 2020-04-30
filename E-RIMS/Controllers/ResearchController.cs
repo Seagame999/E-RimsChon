@@ -15,7 +15,18 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: Research
-        public ActionResult Index(string search,int? page)
+        public ActionResult Index(string search, int? page)
+        {
+            var research = db.Research;
+
+            //--Pagination 10 each
+            var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
+
+            return View(researchResult);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string budgetYear, string name, string creator, string workGroup, int? page)
         {
             var research = db.Research;
 
@@ -23,26 +34,31 @@ namespace E_RIMS.Controllers
             var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
 
             //--Search Engine
-            if (search != null)
+            if (budgetYear != "-- ปีงบประมาณ --")
             {
-                if (search != null)
-                {
-                    researchResult = db.Research.Where(x => x.name.StartsWith(search) || x.name == search).ToList().ToPagedList(page ?? 1, 10);
-                }       
-                else if (search != null)
-                {
-                    researchResult = db.Research.Where(x => x.preface.StartsWith(search) || x.preface == search).ToList().ToPagedList(page ?? 1, 10);
-                }
-                else if (search != null)
-                {
-                    researchResult = db.Research.Where(x => x.creator.StartsWith(search) || x.creator == search).ToList().ToPagedList(page ?? 1, 10);
-                }
-
+                researchResult = db.Research.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
+                return View(researchResult);
             }
-            //--
-
-            return View(researchResult);
-        }
+            else if (name != "")
+            {
+                researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+                return View(researchResult);
+            }
+            else if (creator != "-- นักวิจัย --")
+            {
+                researchResult = db.Research.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+                return View(researchResult);
+            }
+            else if (workGroup != "-- กลุ่มงาน --")
+            {
+                researchResult = db.Research.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
+                return View(researchResult);
+            }
+            else
+            {
+                return View(researchResult);
+            }
+   }
 
         public ActionResult AllResearch()
         {
@@ -147,7 +163,7 @@ namespace E_RIMS.Controllers
             return View(research);
         }
 
-        [HttpPost,ActionName("DeleteResearch")]
+        [HttpPost, ActionName("DeleteResearch")]
         public ActionResult DeleteResearchConfirm(int id)
         {
             Research research = db.Research.Find(id);
