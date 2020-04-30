@@ -260,6 +260,9 @@
           <Property Name="isOct10" Type="bit" />
           <Property Name="isNov10" Type="bit" />
           <Property Name="isDec10" Type="bit" />
+          <Property Name="budgetYear" Type="varchar" MaxLength="50" />
+          <Property Name="idOwner" Type="int" />
+          <Property Name="usernameOwner" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -573,6 +576,9 @@
           <Property Name="isOct10" Type="bit" />
           <Property Name="isNov10" Type="bit" />
           <Property Name="isDec10" Type="bit" />
+          <Property Name="budgetYear" Type="varchar" MaxLength="50" />
+          <Property Name="idOwner" Type="int" />
+          <Property Name="usernameOwner" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Researcher">
           <Key>
@@ -1229,6 +1235,9 @@
           <Property Name="isOct10" Type="Boolean" />
           <Property Name="isNov10" Type="Boolean" />
           <Property Name="isDec10" Type="Boolean" />
+          <Property Name="budgetYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idOwner" Type="Int32" />
+          <Property Name="usernameOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Research">
           <Key>
@@ -1382,6 +1391,9 @@
           <Property Name="isOct10" Type="Boolean" />
           <Property Name="isNov10" Type="Boolean" />
           <Property Name="isDec10" Type="Boolean" />
+          <Property Name="budgetYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idOwner" Type="Int32" />
+          <Property Name="usernameOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1776,6 +1788,9 @@
           <EntitySetMapping Name="Innovation">
             <EntityTypeMapping TypeName="ERIMSModel.Innovation">
               <MappingFragment StoreEntitySet="Innovation">
+                <ScalarProperty Name="usernameOwner" ColumnName="usernameOwner" />
+                <ScalarProperty Name="idOwner" ColumnName="idOwner" />
+                <ScalarProperty Name="budgetYear" ColumnName="budgetYear" />
                 <ScalarProperty Name="isDec10" ColumnName="isDec10" />
                 <ScalarProperty Name="isNov10" ColumnName="isNov10" />
                 <ScalarProperty Name="isOct10" ColumnName="isOct10" />
@@ -1923,6 +1938,9 @@
           <EntitySetMapping Name="Research">
             <EntityTypeMapping TypeName="ERIMSModel.Research">
               <MappingFragment StoreEntitySet="Research">
+                <ScalarProperty Name="usernameOwner" ColumnName="usernameOwner" />
+                <ScalarProperty Name="idOwner" ColumnName="idOwner" />
+                <ScalarProperty Name="budgetYear" ColumnName="budgetYear" />
                 <ScalarProperty Name="isDec10" ColumnName="isDec10" />
                 <ScalarProperty Name="isNov10" ColumnName="isNov10" />
                 <ScalarProperty Name="isOct10" ColumnName="isOct10" />

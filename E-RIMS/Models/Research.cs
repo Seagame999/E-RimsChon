@@ -168,5 +168,8 @@ namespace E_RIMS.Models
         public Nullable<bool> isOct10 { get; set; }
         public Nullable<bool> isNov10 { get; set; }
         public Nullable<bool> isDec10 { get; set; }
+        public string budgetYear { get; set; }
+        public Nullable<int> idOwner { get; set; }
+        public string usernameOwner { get; set; }
     }
 }

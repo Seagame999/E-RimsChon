@@ -70,6 +70,12 @@ namespace E_RIMS.Controllers
                     research.files2.SaveAs(path);
                 }
 
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    research.idOwner = Convert.ToInt32(Session["Id"]);
+                    research.usernameOwner = Session["Username"].ToString();
+                }
+
                 research.date = DateTime.Today;
                 db.Research.Add(research);
                 db.SaveChanges();
@@ -115,6 +121,12 @@ namespace E_RIMS.Controllers
                     research.files = "/docUploadResearch/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadResearch/"), fileNameDoc);
                     research.files2.SaveAs(path);
+                }
+
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    research.idOwner = Convert.ToInt32(Session["Id"]);
+                    research.usernameOwner = Session["Username"].ToString();
                 }
 
                 research.date = DateTime.Today;
