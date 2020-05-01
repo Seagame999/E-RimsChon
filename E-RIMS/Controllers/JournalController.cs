@@ -25,11 +25,14 @@ namespace E_RIMS.Controllers
             return View(journalResult);
         }
 
-        public ActionResult AllJournal()
+        public ActionResult AllJournal(int? page)
         {
             var journal = db.Journal;
 
-            return View(journal.ToList());
+            //--Pagination 10 each
+            var journalResult = journal.ToList().ToPagedList(page ?? 1, 10);
+
+            return View(journalResult);
         }
 
         public ActionResult CreateJournal()

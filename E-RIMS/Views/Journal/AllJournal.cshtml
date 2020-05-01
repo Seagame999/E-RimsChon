@@ -1,91 +1,49 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 @model IPagedList<E_RIMS.Models.Journal>
+
 @{
-    ViewBag.Title = "AllJournal";
+    ViewBag.Title = "วารสารสคร.6 จังหวัดชลบุรี";
 }
 
-<br><br>
-<h3><strong>วารสาร สคร.6 ชลบุรี</strong></h3>
-<a href="@Url.Action("CreateJournal","Journal")"><h6 class="text-primary">+เพิ่มวารสาร</h6></a>
+<br /><br />
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">ที่</th>
-            <th scope="col">ชื่อเรื่อง</th>
-            <th scope="col">บทคัดย่อ</th>
-            <th scope="col">ประเภท</th>
-            <th scope="col">ผู้จัดทำ</th>
-            <th scope="col">เอกสาร</th>
-            <th scope="col">การกระทำ</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td><img src="~/Image/download-solid.svg" width="20" height="20"></td>
-            <td><img src="~/Image/pencil-alt-solid.svg" width="20" height="20">&nbsp;<img src="~/Image/trash-alt-regular.svg" width="20" height="20"></td>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">วารสาร สคร.6</li>
+    </ol>
+</nav>
 
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td><img src="~/Image/download-solid.svg" width="20" height="20"></td>
-            <td><img src="~/Image/pencil-alt-solid.svg" width="20" height="20">&nbsp;<img src="~/Image/trash-alt-regular.svg" width="20" height="20"></td>
+<div class="card">
+    <div class="card-header">
+        <h3>วารสาร สคร.6 จังหวัดชลบุรี&nbsp;<a href="@Url.Action("CreateJournal", "Journal")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มวารสารฉบับใหม่</a></h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+        <div class="form-row">
+            <div class="col-md-12">
+                <div class="card-deck">
+                    @foreach (var item in Model)
+                    {
+                        <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                            <img class="card-img-top" src="@Url.Content(item.image)" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.name)</h5>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.description)<a href="@Url.Action("DetailJournal"+"/"+item.id)">&nbsp;รายละเอียด</a></p>
+                            </div>
+                        </div>
+                    }
 
-
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td><img src="~/Image/download-solid.svg" width="20" height="20"></td>
-            <td><img src="~/Image/pencil-alt-solid.svg" width="20" height="20">&nbsp;<img src="~/Image/trash-alt-regular.svg" width="20" height="20"></td>
-
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td><img src="~/Image/download-solid.svg" width="20" height="20"></td>
-            <td><img src="~/Image/pencil-alt-solid.svg" width="20" height="20">&nbsp;<img src="~/Image/trash-alt-regular.svg" width="20" height="20"></td>
-
-        </tr>
-        <tr>
-            <th scope="row">5</th>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td>.....</td>
-            <td><img src="~/Image/download-solid.svg" width="20" height="20"></td>
-            <td><img src="~/Image/pencil-alt-solid.svg" width="20" height="20">&nbsp;<img src="~/Image/trash-alt-regular.svg" width="20" height="20"></td>
-
-        </tr>
-    </tbody>
-</table>
-
-<div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+        </div>
+    </div>
 </div>
 
 

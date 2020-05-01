@@ -1,77 +1,346 @@
 ﻿@model E_RIMS.Models.Innovation
-
 @{
-    ViewBag.Title = "EditInnovation";
+    ViewBag.Title = "แก้ไขนวัตกรรม";
 }
 
-<h2>EditInnovation</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Innovation</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id)
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Innovation")">งานนวัตกรรม</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.abstract, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.abstract, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.abstract, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.category, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.category, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.category, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.creator, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.creator, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.files, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+<div class="card">
+    <div class="card-header">
+        <h3>จัดการข้อมูลงานนวัตกรรม</h3>
     </div>
-}
+    @using (Html.BeginForm(Html.BeginForm("EditInnovation", "Innovation", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fa fa-lightbulb"></i>&nbsp;@ViewBag.Title
+            </h5>
+            <hr />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-user-circle"></i>&nbsp;นวัตกร และข้อมูลงานนวัตกรรม</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-2">
+                                    <label class="">ปีงบประมาณ</label>
+                                    <select class="form-control custom-select-sm" name="budgetYear">
+                                        <option>2561</option>
+                                        <option>2562</option>
+                                        <option>2563</option>
+                                        <option>2564</option>
+                                        <option>2565</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-2">
+                                    <label class="">ประเภทผลงาน</label>
+                                    <select class="form-control custom-select-sm" name="type">
+                                        <option>Product</option>
+                                        <option>Process</option>
+                                        <option>Service</option>
+                                        <option>Policy/Strategic</option>
+                                        @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+                                    </select>
+                                </div>
+                                <div class="form-group col-8">
+                                    <label class="">ชื่อเรื่อง</label>
+                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">กลุ่มงาน</label>
+                                    <select class="form-control custom-select-sm" name="workGroup">
+                                        <option>งานเภสัชกรรม</option>
+                                        <option>บริหารทั่วไป</option>
+                                        <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
+                                        <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
+                                        <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
+                                        <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
+                                        <option>โรคติดต่อ</option>
+                                        <option>โรคไม่ติดต่อ</option>
+                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
+                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
+                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
+                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
+                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
+                                        <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
+                                        <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
+                                        <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.workGroup, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-8">
+                                    <label class="">ผู้จัดทำ</label>
+                                    @Html.EditorFor(model => model.creator, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-info"></i>&nbsp;รายละเอียดงานนวัตกรรม</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label class="">ที่มาและความสำคัญ</label>
+                                    @Html.TextAreaFor(model => model.backgroudAndImportance, new { @class = "form-control", @rows = 3 })
+                                    @Html.ValidationMessageFor(model => model.backgroudAndImportance, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">วัตถุประสงค์</label>
+                                    @Html.TextAreaFor(model => model.objective, new { @class = "form-control", @rows = 3 })
+                                    @Html.ValidationMessageFor(model => model.objective, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">กลุ่มเป้าหมาย/ผู้ใช้ประโยชน์/ผู้ที่เกี่ยวข้อง</label>
+                                    @Html.TextAreaFor(model => model.targetGroup, new { @class = "form-control", @rows = 3 })
+                                    @Html.ValidationMessageFor(model => model.targetGroup, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label class="text-sm-left">ประโยชน์/ผลลัพธ์/ผลกระทบที่คาดว่าจะได้รับ</label>
+                                    @Html.TextAreaFor(model => model.benefit, new { @class = "form-control", @rows = 3 })
+                                    @Html.ValidationMessageFor(model => model.benefit, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">อัพโหลดไฟล์ที่เกี่ยวข้อง</label>
+                                    <input type="file" class="form-control-file" name="files2" />
+                                    @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-calendar-check"></i>&nbsp;ระยะเวลาดำเนินงาน</h6>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" rowspan="2" class="align-middle">#</th>
+                                        <th scope="col" rowspan="2" class="align-middle">ขั้นตอนการดำเนินงาน</th>
+                                        <th scope="col" colspan="12" class="text-center">ระยะเวลาการดำเนินงาน</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">ต.ค.</th>
+                                        <th scope="col">พ.ย.</th>
+                                        <th scope="col">ธ.ค.</th>
+                                        <th scope="col">ม.ค.</th>
+                                        <th scope="col">ก.พ.</th>
+                                        <th scope="col">มี.ค.</th>
+                                        <th scope="col">เม.ย.</th>
+                                        <th scope="col">พ.ค.</th>
+                                        <th scope="col">มิ.ย.</th>
+                                        <th scope="col">ก.ค.</th>
+                                        <th scope="col">ส.ค.</th>
+                                        <th scope="col">ก.ย.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>@Html.EditorFor(model => model.activity1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug1" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep1" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>@Html.EditorFor(model => model.activity2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug2" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep2" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>@Html.EditorFor(model => model.activity3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug3" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep3" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>@Html.EditorFor(model => model.activity4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug4" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep4" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>@Html.EditorFor(model => model.activity5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug5" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep5" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>@Html.EditorFor(model => model.activity6, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug6" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep6" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>@Html.EditorFor(model => model.activity7, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug7" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep7" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>@Html.EditorFor(model => model.activity8, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug8" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep8" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>@Html.EditorFor(model => model.activity9, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug9" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep9" value="true" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>@Html.EditorFor(model => model.activity10, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        <td><input type="checkbox" class="form-check" name="isOct10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isNov10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isDec10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJan10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isFeb10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMar10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isApr10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isMay10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJun10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isJul10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isAug10" value="true" /></td>
+                                        <td><input type="checkbox" class="form-check" name="isSep10" value="true" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="form-group text-right">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success text-center"><i class="fa fa-check-circle"></i>&nbsp;บันทึก</button>
+                    <button type="reset" class="btn btn-danger text-center"><i class="fa fa-times-circle"></i>&nbsp;ยกเลิก</button>
+                </div>
+            </div>
+        </div>
+    }
 </div>
+

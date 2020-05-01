@@ -1,7 +1,7 @@
-﻿@using PagedList;
+﻿@model IPagedList<E_RIMS.Models.Innovation>
+@using PagedList;
 @using PagedList.Mvc;
 
-@model IPagedList<E_RIMS.Models.Research>
 
 @{
     ViewBag.Title = "งานนวัตกรรม";
@@ -26,11 +26,12 @@
                 ค้นหางานนวัตกรรม
             </div>
             <div class="card-body">
-                <form class="form">
+                @using (Html.BeginForm("Index", "Innovation", FormMethod.Post))
+                {
                     <div class="form-row">
                         <div class="form-group col-2">
                             <label class="" for="">ปีงบประมาณ</label>
-                            <select class="custom-select custom-select-sm" id="">
+                            <select class="custom-select custom-select-sm" id="" name="budgetYear">
                                 <option selected>-- ปีงบประมาณ --</option>
                                 <option>2561</option>
                                 <option>2562</option>
@@ -41,11 +42,11 @@
                         </div>
                         <div class="form-group col-3">
                             <label class="" for="">ชื่อนวัตกรรม</label>
-                            <input type="text" class="form-control form-control-sm" />
+                            <input type="text" class="form-control form-control-sm" name="name" />
                         </div>
                         <div class="form-group col-3">
                             <label class="" for="">นวัตกร</label>
-                            <select class="custom-select custom-select-sm" id="">
+                            <select class="custom-select custom-select-sm" id="" name="creator">
                                 <option selected>-- นวัตกร --</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -55,6 +56,7 @@
                         <div class="form-group col-4">
                             <label class="">กลุ่มงาน</label>
                             <select class="form-control custom-select-sm" name="workGroup">
+                                <option selected>-- กลุ่มงาน --</option>
                                 <option>งานเภสัชกรรม</option>
                                 <option>บริหารทั่วไป</option>
                                 <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
@@ -77,7 +79,7 @@
                     <div class="form-group text-right">
                         <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหานวัตกรรม</button>
                     </div>
-                </form>
+                }
             </div>
         </div>
         <br />
@@ -95,22 +97,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td class="text-center">2563</td>
-                    <td><a href="#">การวินิจฉัยโรคแนวใหม่ ด้วยเทคนิควิธี...</a></td>
-                    <td>Process</td>
-                    <td>นายมานะ รักษ์ไทย</td>
-                    <td>กลุ่มงานวิจัย สคร.6</td>
-                    <td class="text-nowrap"><a href="#" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.date)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
+                        <td><a href="@Url.Action("DetailInnovation"+"/"+item.id,"Innovation")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.type)</td>
+                        <td>@Html.DisplayFor(modelItem => item.creator)</td>
+                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
+                        <td class="text-nowrap"><a href="@Url.Action("EditInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                    </tr>
+                }
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="6" class="text-center">
                         <div class="row">
                             <div class="col-6"></div>
-                            <div class="col-6"></div>
+                            <div class="col-6">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -119,20 +126,3 @@
     </div>
 </div>
 
-
-
-<!--@{
-    ViewBag.Title = "Index";
-}
-
-<br><br>
-<h3><strong>ผลงานนวัตกรรม</strong></h3>
-<hr>
-
-<a href="@Url.Action("AllInnovation","Innovation")"><h6 class="text-primary">+จัดการผลงานนวัตกรรม</h6></a>
-
-<form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="ค้นหาผลงานนวัตกรรม" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ค้นหา</button>
-</form>
-<br>-->

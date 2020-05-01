@@ -15,7 +15,18 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: Innovation
-        public ActionResult Index(string search,int? page)
+        public ActionResult Index(int? page)
+        {
+            var innovation = db.Innovation;
+
+            //--Pagination 10 each
+            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+
+            return View(innovationResult);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string budgetYear, string name, string creator, string workGroup, int? page)
         {
             var innovation = db.Innovation;
 
@@ -23,29 +34,40 @@ namespace E_RIMS.Controllers
             var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
 
             //--Search Engine
-            if (search != null)
+            if (budgetYear != "-- ปีงบประมาณ --")
             {
-                if (search != null)
-                {
-                    innovationResult = db.Innovation.Where(x => x.name.StartsWith(search) || x.name == search).ToList().ToPagedList(page ?? 1, 10); ;
-                }
-                else if (search != null)
-                {
-                    innovationResult = db.Innovation.Where(x => x.backgroudAndImportance.StartsWith(search) || x.backgroudAndImportance == search).ToList().ToPagedList(page ?? 1, 10); ;
-                }
-                else if (search != null)
-                {
-                    innovationResult = db.Innovation.Where(x => x.creator.StartsWith(search) || x.creator == search).ToList().ToPagedList(page ?? 1, 10); ;
-                }
-            }
-            
+                innovationResult = db.Innovation.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
                 return View(innovationResult);
+            }
+            else if (name != "")
+            {
+                innovationResult = db.Innovation.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+                return View(innovationResult);
+            }
+            else if (creator != "-- นวัตกร --")
+            {
+                innovationResult = db.Innovation.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+                return View(innovationResult);
+            }
+            else if (workGroup != "-- กลุ่มงาน --")
+            {
+                innovationResult = db.Innovation.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
+                return View(innovationResult);
+            }
+            else
+            {
+                return View(innovationResult);
+            }
         }
 
-        public ActionResult AllInnovation()
+        public ActionResult AllInnovation(int? page)
         {
             var innovation = db.Innovation;
-            return View(innovation.ToList());
+
+            //--Pagination 10 each
+            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+
+            return View(innovationResult);
         }
 
         public ActionResult CreateInnovation()
@@ -56,9 +78,9 @@ namespace E_RIMS.Controllers
         [HttpPost]
         public ActionResult CreateInnovation(Innovation innovation)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-               if(innovation != null)
+                if (innovation != null)
                 {
                     var fileNameDoc = Path.GetFileNameWithoutExtension(innovation.files2.FileName);
                     string extension = Path.GetExtension(innovation.files2.FileName);
@@ -88,12 +110,12 @@ namespace E_RIMS.Controllers
         public ActionResult DetailInnovation(int id)
         {
             Innovation innovation = db.Innovation.Find(id);
-            if(innovation == null)
+            if (innovation == null)
             {
                 return RedirectToAction("Index");
             }
             return View(innovation);
-            
+
         }
 
         public ActionResult EditInnovation(int id)
@@ -111,7 +133,7 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(innovation.files2 != null)
+                if (innovation.files2 != null)
                 {
                     var fileNameDoc = Path.GetFileNameWithoutExtension(innovation.files2.FileName);
                     string extension = Path.GetExtension(innovation.files2.FileName);
@@ -145,7 +167,7 @@ namespace E_RIMS.Controllers
             return View(innovation);
         }
 
-        [HttpPost,ActionName("DeleteInnovation")]
+        [HttpPost, ActionName("DeleteInnovation")]
         public ActionResult DeleteInnovationConfirm(int id)
         {
             Innovation innovation = db.Innovation.Find(id);

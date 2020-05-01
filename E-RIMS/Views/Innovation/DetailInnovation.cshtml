@@ -1,66 +1,55 @@
 ﻿@model E_RIMS.Models.Innovation
 
 @{
-    ViewBag.Title = "DetailInnovation";
+    ViewBag.Title = "ข้อมูลนวัตกรรม";
 }
 
-<h2>DetailInnovation</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Innovation")">นวัตกรรม</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
 
-<div>
-    <h4>Innovation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.date)
-        </dt>
+<div class="card">
+    <div class="card-header">
+        <h3>จัดการข้อมูลนวัตกรรม</h3>
+    </div>
+    <form>
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title
+            </h5>
+            <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.abstract)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.abstract)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.category)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.creator)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.creator)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.files)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.files)
-        </dd>
-
-    </dl>
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label class="">ประเภท</label>
+                    <label class="form-control">@Model.type</label>
+                </div>
+                <div class="form-group col-4">
+                    <label class="">ชื่อเรื่อง</label>
+                    <label class="form-control">@Model.name</label>
+                </div>
+                <div class="form-group col-4">
+                    <label class="">ผู้จัดทำ</label>
+                    <label class="form-control">@Model.creator</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="">ที่มาและความสำคัญ</label>
+                    <textarea class="form-control" rows="5">@Model.backgroudAndImportance</textarea>
+                </div>
+                <div class="form-group col-6 text-center">
+                    <a href="@Model.files" target="_blank" class="btn btn-info" style="margin-top:50px;"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลดไฟล์เอกสารนวัตกรรม</a>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

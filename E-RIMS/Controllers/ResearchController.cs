@@ -15,7 +15,7 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: Research
-        public ActionResult Index(string search, int? page)
+        public ActionResult Index(int? page)
         {
             var research = db.Research;
 
@@ -60,10 +60,14 @@ namespace E_RIMS.Controllers
             }
    }
 
-        public ActionResult AllResearch()
+        public ActionResult AllResearch(int? page)
         {
             var research = db.Research;
-            return View(research.ToList());
+
+            //--Pagination 10 each
+            var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
+
+            return View(researchResult);
         }
 
         public ActionResult CreateResearch()

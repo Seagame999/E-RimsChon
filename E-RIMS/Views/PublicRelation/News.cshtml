@@ -26,16 +26,18 @@
                     <div class="col-4"><img src="@Url.Content(Model.image)" class="img-fluid border-dark" /></div>
                     <div class="col-8">
                         <div class="card-title">
-                            <h4>@Model.newsName (@Model.date)</h4>
+                            <h4>
+                                @Html.DisplayFor(model => model.newsName)
+                                (@Html.DisplayFor(model => model.date))
+                            </h4>
                         </div>
-                        <p>@Model.description</p>
+                        <p>@Html.DisplayFor(model => model.description)</p>
                         <p><a href="@Url.Content(Model.docUpload)" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
                     </div>
                 </div>
-
             </div>
             <div class="card-footer text-right">
-                <p>จำนวนผู้เข้าชม: @Model.views ครั้ง</p>
+                <p>จำนวนผู้เข้าชม: @Html.DisplayFor(model => model.views) ครั้ง</p>
             </div>
         </div>
     </div>
