@@ -23,16 +23,16 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4"><img src="@Url.Content(Model.image)" class="img-fluid border-dark" /></div>
+                    <div class="col-4"><img src="@Url.Content(Model.image ?? "~/Image/no-camera.png")" class="img-fluid border-dark" /></div>
                     <div class="col-8">
                         <div class="card-title">
                             <h4>
                                 @Html.DisplayFor(model => model.newsName)
-                                (@Html.DisplayFor(model => model.date))
+                                (วันที่: @Html.DisplayFor(model => model.date))
                             </h4>
                         </div>
                         <p>@Html.DisplayFor(model => model.description)</p>
-                        <p><a href="@Url.Content(Model.docUpload)" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
+                        <p><a href="@Url.Content(Model.docUpload ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
                     </div>
                 </div>
             </div>

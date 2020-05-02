@@ -46,12 +46,7 @@
                         </div>
                         <div class="form-group col-3">
                             <label class="" for="">นักวิจัย</label>
-                            <select class="custom-select custom-select-sm" id="" name="creator">
-                                <option selected>-- นักวิจัย --</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <input type="text" class="form-control form-control-sm" name="creator" />
                         </div>
                         <div class="form-group col-4">
                             <label class="">กลุ่มงาน</label>
@@ -98,14 +93,14 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.date)</td>
-                    <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
-                    <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
-                    <td>@Html.DisplayFor(modelItem => item.creator)</td>
-                    <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
-                    <td class="text-nowrap"><a href="@Url.Action("EditResearch"+"/"+item.id,"Research")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
-                </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.date)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
+                        <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.creator)</td>
+                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
+                        <td class="text-nowrap"><a href="@Url.Action("EditResearch"+"/"+item.id,"Research")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                    </tr>
                 }
             </tbody>
             <tfoot>

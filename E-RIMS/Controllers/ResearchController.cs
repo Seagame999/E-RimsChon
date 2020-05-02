@@ -39,17 +39,17 @@ namespace E_RIMS.Controllers
                 researchResult = db.Research.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
                 return View(researchResult);
             }
-            else if (name != "")
+            if (name != "")
             {
                 researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
                 return View(researchResult);
             }
-            else if (creator != "-- นักวิจัย --")
+            if (creator != "")
             {
                 researchResult = db.Research.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
                 return View(researchResult);
             }
-            else if (workGroup != "-- กลุ่มงาน --")
+            if (workGroup != "-- กลุ่มงาน --")
             {
                 researchResult = db.Research.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
                 return View(researchResult);

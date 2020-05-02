@@ -24,10 +24,13 @@ namespace E_RIMS.Controllers
             return View(researcherResult);
         }
 
-        public ActionResult ListResearcher()
+        public ActionResult ListResearcher(int? page)
         {
             var researcher = db.Researcher;
-            return View(researcher.ToList());
+
+            //--Pagination 6 cards
+            var researcherResult = researcher.ToList().ToPagedList(page ?? 1, 6);
+            return View(researcherResult);
         }
 
         public ActionResult CreateResearcher()

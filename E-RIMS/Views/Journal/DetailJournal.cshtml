@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4"><img src="@Url.Content(Model.image)" class="img-fluid border-dark" /></div>
+                    <div class="col-4"><img src="@Url.Content(Model.image ?? "~/Image/no-camera.png")" class="img-fluid border-dark" /></div>
                     <div class="col-8">
                         <div class="card-title">
                             <h4>
@@ -32,7 +32,7 @@
                             </h4>
                         </div>
                         <p>@Html.DisplayFor(model => model.description)</p>
-                        <p><a href="@Url.Content(Model.files)" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดวารสาร</a></p>
+                        <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดวารสาร</a></p>
                     </div>
                 </div>
             </div>

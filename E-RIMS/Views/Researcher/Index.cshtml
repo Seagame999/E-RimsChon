@@ -39,7 +39,7 @@
                                 </h6>
                                 <div class="row">
                                     <div class="col text-center">
-                                        <img src="@Url.Content(item.image)" class="rounded" style="height:200px">
+                                        <img src="@Url.Content(item.image ?? "~/Image/no-camera.png")" class="rounded" style="height:200px">
                                         <p class="card-text">@Html.DisplayFor(modelItem => item.position)</p>
                                     </div>
                                 </div>

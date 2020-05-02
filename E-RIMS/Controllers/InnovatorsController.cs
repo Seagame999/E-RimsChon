@@ -26,10 +26,14 @@ namespace E_RIMS.Controllers
             return View(innovatorResult);
         }
 
-        public ActionResult InnovatorList()
+        public ActionResult InnovatorList(int? page)
         {
             var innovator = db.Innovator;
-            return View(innovator.ToList());
+
+            //--Pagination 6 cards
+            var innovatorResult = innovator.ToList().ToPagedList(page ?? 1, 6);
+
+            return View(innovatorResult);
         }
 
         public ActionResult CreateInnovator()

@@ -304,6 +304,8 @@
     <Content Include="Image\learning-material.svg" />
     <Content Include="Image\logo_NRCT.jpg" />
     <Content Include="Image\nia_logo_color.jpg" />
+    <Content Include="Image\no-camera.png" />
+    <Content Include="Image\no-document.png" />
     <Content Include="Image\odpc6_logo.png" />
     <Content Include="Image\pencil-alt-solid.svg" />
     <Content Include="Image\researcher.png" />
@@ -526,6 +528,7 @@
     <Content Include="Views\ResearchTopic\Index.cshtml" />
     <Content Include="Views\Journal\DetailJournal.cshtml" />
     <Content Include="Views\KnowledgeBox\Index.cshtml" />
+    <Content Include="Views\Journal\EditJournal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
