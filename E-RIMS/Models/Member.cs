@@ -21,6 +21,7 @@ namespace E_RIMS.Models
         [Required]
         public string username { get; set; }
         [Required]
+        [DataType(DataType.Password)]
         public string password { get; set; }
         [Required]
         [System.ComponentModel.DataAnnotations.Compare("password")]

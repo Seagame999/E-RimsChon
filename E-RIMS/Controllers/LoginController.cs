@@ -53,6 +53,13 @@ namespace E_RIMS.Controllers
             return View();
         }
 
+        //Logout
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
         //Password Hash MD5
         public string GetMD5(string password)
         {

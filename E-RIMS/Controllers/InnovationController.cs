@@ -72,6 +72,13 @@ namespace E_RIMS.Controllers
 
         public ActionResult CreateInnovation()
         {
+            var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+            ViewBag.InnovatorView = (from item in modelInnovator
+                                     select new SelectListItem
+                                     {
+                                         Text = item.name + " " + item.surname,
+                                         Value = item.name.ToString() + item.surname.ToString()
+                                     });
             return View();
         }
 
@@ -80,7 +87,7 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (innovation != null)
+                if (innovation.files2 != null)
                 {
                     var fileNameDoc = Path.GetFileNameWithoutExtension(innovation.files2.FileName);
                     string extension = Path.GetExtension(innovation.files2.FileName);
@@ -90,11 +97,11 @@ namespace E_RIMS.Controllers
                     innovation.files2.SaveAs(path);
                 }
 
-                if (Session["Id"] != null || Session["Username"] != null)
-                {
-                    innovation.idOwner = Convert.ToInt32(Session["Id"]);
-                    innovation.usernameOwner = Session["Username"].ToString();
-                }
+                //if (Session["Id"] != null || Session["Username"] != null)
+                //{
+                //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
+                //    innovation.usernameOwner = Session["Username"].ToString();
+                //}
 
                 innovation.date = DateTime.Today;
                 db.Innovation.Add(innovation);

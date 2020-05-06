@@ -20,7 +20,7 @@ namespace E_RIMS.Controllers
             var journal = db.Journal;
 
             //--Pagination 10 each
-            var journalResult = journal.ToList().ToPagedList(page ?? 1, 10);
+            var journalResult = journal.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
 
             return View(journalResult);
         }
@@ -30,7 +30,7 @@ namespace E_RIMS.Controllers
             var journal = db.Journal;
 
             //--Pagination 10 each
-            var journalResult = journal.ToList().ToPagedList(page ?? 1, 10);
+            var journalResult = journal.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
 
             return View(journalResult);
         }

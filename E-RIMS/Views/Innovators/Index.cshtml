@@ -26,15 +26,16 @@
         <hr />
 
         <div class="row">
-            <div class="col">
-                <div class="card-deck">
-                    @foreach (var item in Model)
-                    {
+
+            <div class="card-deck">
+                @foreach (var item in Model)
+                {
+                    <div class="col-4">
                         <div class="card">
                             <div class="card-body">
                                 <h6 class="card-title text-center">
                                     <a href="@Url.Action("DetailInnovator"+"/"+item.id,"Innovators")">
-                                        @Html.DisplayFor(modelItem => item.name)
+                                        @Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.surname)
                                     </a>
                                 </h6>
                                 <div class="row">
@@ -72,9 +73,10 @@
                                 <a class="btn btn-sm btn-info" href="@Url.Action("DetailInnovator"+"/"+item.id,"Innovators")">ข้อมูล</a>
                             </div>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             </div>
+
         </div>
         <div class="row">
             <div class="col-6"></div>

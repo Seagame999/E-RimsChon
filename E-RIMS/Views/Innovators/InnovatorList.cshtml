@@ -34,7 +34,7 @@
                             <div class="card-body">
                                 <h6 class="card-title text-center">
                                     <a href="@Url.Action("DetailInnovator"+"/"+item.id,"Innovators")">
-                                        @Html.DisplayFor(modelItem => item.name)
+                                        @Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.surname)
                                     </a>
                                 </h6>
                                 <div class="row">

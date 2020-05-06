@@ -58,7 +58,7 @@ namespace E_RIMS.Controllers
             {
                 return View(researchResult);
             }
-   }
+        }
 
         public ActionResult AllResearch(int? page)
         {
@@ -72,6 +72,13 @@ namespace E_RIMS.Controllers
 
         public ActionResult CreateResearch()
         {
+            var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+            ViewBag.ResearcherView = (from item in modelResearcher
+                                      select new SelectListItem
+                                      {
+                                          Text = item.name + " " + item.surname,
+                                          Value = item.name.ToString() + item.surname.ToString()
+                                      });
             return View();
         }
 
@@ -90,11 +97,11 @@ namespace E_RIMS.Controllers
                     research.files2.SaveAs(path);
                 }
 
-                if (Session["Id"] != null || Session["Username"] != null)
-                {
-                    research.idOwner = Convert.ToInt32(Session["Id"]);
-                    research.usernameOwner = Session["Username"].ToString();
-                }
+                //if (Session["Id"] != null || Session["Username"] != null)
+                //{
+                //    research.idOwner = Convert.ToInt32(Session["Id"]);
+                //    research.usernameOwner = Session["Username"].ToString();
+                //}
 
                 research.date = DateTime.Today;
                 db.Research.Add(research);

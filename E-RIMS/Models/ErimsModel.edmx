@@ -263,6 +263,16 @@
           <Property Name="budgetYear" Type="varchar" MaxLength="50" />
           <Property Name="idOwner" Type="int" />
           <Property Name="usernameOwner" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity10" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -579,6 +589,16 @@
           <Property Name="budgetYear" Type="varchar" MaxLength="50" />
           <Property Name="idOwner" Type="int" />
           <Property Name="usernameOwner" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="statusActivity10" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Researcher">
           <Key>
@@ -1238,6 +1258,16 @@
           <Property Name="budgetYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idOwner" Type="Int32" />
           <Property Name="usernameOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Research">
           <Key>
@@ -1394,6 +1424,16 @@
           <Property Name="budgetYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idOwner" Type="Int32" />
           <Property Name="usernameOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1788,6 +1828,16 @@
           <EntitySetMapping Name="Innovation">
             <EntityTypeMapping TypeName="ERIMSModel.Innovation">
               <MappingFragment StoreEntitySet="Innovation">
+                <ScalarProperty Name="statusActivity10" ColumnName="statusActivity10" />
+                <ScalarProperty Name="statusActivity9" ColumnName="statusActivity9" />
+                <ScalarProperty Name="statusActivity8" ColumnName="statusActivity8" />
+                <ScalarProperty Name="statusActivity7" ColumnName="statusActivity7" />
+                <ScalarProperty Name="statusActivity6" ColumnName="statusActivity6" />
+                <ScalarProperty Name="statusActivity5" ColumnName="statusActivity5" />
+                <ScalarProperty Name="statusActivity4" ColumnName="statusActivity4" />
+                <ScalarProperty Name="statusActivity3" ColumnName="statusActivity3" />
+                <ScalarProperty Name="statusActivity2" ColumnName="statusActivity2" />
+                <ScalarProperty Name="statusActivity1" ColumnName="statusActivity1" />
                 <ScalarProperty Name="usernameOwner" ColumnName="usernameOwner" />
                 <ScalarProperty Name="idOwner" ColumnName="idOwner" />
                 <ScalarProperty Name="budgetYear" ColumnName="budgetYear" />
@@ -1938,6 +1988,16 @@
           <EntitySetMapping Name="Research">
             <EntityTypeMapping TypeName="ERIMSModel.Research">
               <MappingFragment StoreEntitySet="Research">
+                <ScalarProperty Name="statusActivity10" ColumnName="statusActivity10" />
+                <ScalarProperty Name="statusActivity9" ColumnName="statusActivity9" />
+                <ScalarProperty Name="statusActivity8" ColumnName="statusActivity8" />
+                <ScalarProperty Name="statusActivity7" ColumnName="statusActivity7" />
+                <ScalarProperty Name="statusActivity6" ColumnName="statusActivity6" />
+                <ScalarProperty Name="statusActivity5" ColumnName="statusActivity5" />
+                <ScalarProperty Name="statusActivity4" ColumnName="statusActivity4" />
+                <ScalarProperty Name="statusActivity3" ColumnName="statusActivity3" />
+                <ScalarProperty Name="statusActivity2" ColumnName="statusActivity2" />
+                <ScalarProperty Name="statusActivity1" ColumnName="statusActivity1" />
                 <ScalarProperty Name="usernameOwner" ColumnName="usernameOwner" />
                 <ScalarProperty Name="idOwner" ColumnName="idOwner" />
                 <ScalarProperty Name="budgetYear" ColumnName="budgetYear" />
