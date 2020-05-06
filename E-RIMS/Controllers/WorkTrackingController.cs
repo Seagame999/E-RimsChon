@@ -15,116 +15,221 @@ namespace E_RIMS.Controllers
     {
         ERIMSEntities db = new ERIMSEntities();
         // GET: WorkTraking
-        public ActionResult Index(int? page)
-        {
-            var work = db.OverallOperation;
-
-            //--Pagination 10 works
-            var workResult = work.ToList().ToPagedList(page ?? 1, 10);
-
-            return View();
-        }
-
-        public ActionResult trackResearch()
+        public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult trackInnovation()
+        public ActionResult trackResearch(int? page)
         {
-            return View();
-        }
+            var research = db.Research;
 
-        public ActionResult updateResearchStatus()
-        {
-            return View();
-        }
+            //--Pagination 10 each
+            var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
 
-        public ActionResult updateInnovationStatus()
-        {
-            return View();
-        }
-
-        public ActionResult Listwork()
-        {
-            var work = db.OverallOperation;
-            return View(work.ToList());
-        }
-
-        public ActionResult CreateWork()
-        {
-            var percentSelect = db.PercentActivities.ToList();
-            ViewBag.percentSelect = (from item in percentSelect
-                                     select new SelectListItem
-                                     {
-                                         Text = item.status,
-                                         Value = item.percents.ToString()
-                                     });
-
-
-            return View();
+            return View(researchResult);
         }
 
         [HttpPost]
-        public ActionResult CreateWork(OverallOperation overallOperation)
+        public ActionResult trackResearch(string budgetYear, string workOverview, string name, string creator, string workGroup, int? page)
         {
-            if (ModelState.IsValid)
+            var research = db.Research;
+
+            //--Pagination 10 each
+            var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
+            if (budgetYear != "-- ปีงบประมาณ --")
             {
-                db.OverallOperation.Add(overallOperation);
-                db.SaveChanges();
-                ModelState.Clear();
+                researchResult = db.Research.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
 
-                return RedirectToAction("Index");
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
             }
+            if (workOverview != "-- สถานะ --")
+            {
+                var workOverviewToDecimal = Convert.ToDecimal(workOverview);
 
-            return RedirectToAction("CreateWork");
+                researchResult = db.Research.Where(x => x.workOverview.Equals(workOverviewToDecimal) || x.workOverview == workOverviewToDecimal).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            if (name != "")
+            {
+                researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            if (creator != "")
+            {
+                researchResult = db.Research.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            if (workGroup != "-- กลุ่มงาน --")
+            {
+                researchResult = db.Research.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            else
+            {
+                return View(researchResult);
+            }
         }
 
-        public ActionResult DetailsWork(int id)
+        public ActionResult trackInnovation(int? page)
         {
-            OverallOperation overallOperation = db.OverallOperation.Find(id);
+            var innovation = db.Innovation;
 
-            if(overallOperation == null)
-            {
-                return RedirectToAction("Index");
-            }
+            //--Pagination 10 each
+            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
 
-            return View(overallOperation);
-        }
-
-        public ActionResult EditWork(int id)
-        {
-            OverallOperation overallOperation = db.OverallOperation.Find(id);
-            if (overallOperation == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            var percentSelect = db.PercentActivities.ToList();
-
-            ViewBag.percentSelect = (from item in percentSelect
-                                     select new SelectListItem
-                                     {
-                                         Text = item.status,
-                                         Value = item.percents.ToString()
-                                     });
-
-            return View(overallOperation);
+            return View(innovationResult);
+            
         }
 
         [HttpPost]
-        public ActionResult EditWork(OverallOperation overallOperation)
+        public ActionResult trackInnovation(string budgetYear, string workOverview, string name, string creator, string workGroup, int? page)
+        {
+            var innovation = db.Innovation;
+
+            //--Pagination 10 each
+            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
+            if (budgetYear != "-- ปีงบประมาณ --")
+            {
+                innovationResult = db.Innovation.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+
+            if (workOverview != "-- สถานะ --")
+            {
+                var workOverviewToDecimal = Convert.ToDecimal(workOverview);
+
+                innovationResult = db.Innovation.Where(x => x.workOverview.Equals(workOverviewToDecimal) || x.workOverview == workOverviewToDecimal).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(innovationResult);
+            }
+
+            if (name != "")
+            {
+                innovationResult = db.Innovation.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (creator != "-- นวัตกร --")
+            {
+                innovationResult = db.Innovation.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (workGroup != "-- กลุ่มงาน --")
+            {
+                innovationResult = db.Innovation.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            else
+            {
+                return View(innovationResult);
+            }
+        }
+
+        public ActionResult updateResearchStatus(int id)
+        {
+            Research research = db.Research.Find(id);
+            if(research == null)
+            {
+                return RedirectToAction("trackResearch");
+            }
+            return View();
+        }
+
+        public ActionResult updateResearchStatus(Research research)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(overallOperation).State = EntityState.Modified;
+                research.date = DateTime.Today;
+                db.Entry(research).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("trackResearch");
             }
-
-            return View(overallOperation);
+            return View(research);
         }
 
+        public ActionResult updateInnovationStatus(int id)
+        {
+            Innovation innovation = db.Innovation.Find(id);
+            if (innovation == null)
+            {
+                return RedirectToAction("trackInnovation");
+            }
+            return View(innovation);
+        }
 
+        [HttpPost]
+        public ActionResult updateInnovationStatus(Innovation innovation)
+        {
+            if (ModelState.IsValid)
+            {
+                innovation.date = DateTime.Today;
+                db.Entry(innovation).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("trackInnovation");
+            }
+            return View(innovation);
+        }
     }
 }

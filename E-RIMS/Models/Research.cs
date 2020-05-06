@@ -182,5 +182,6 @@ namespace E_RIMS.Models
         public string statusActivity8 { get; set; }
         public string statusActivity9 { get; set; }
         public string statusActivity10 { get; set; }
+        public Nullable<decimal> workOverview { get; set; }
     }
 }

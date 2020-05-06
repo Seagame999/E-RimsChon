@@ -1,4 +1,8 @@
-﻿@{
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.Innovation>
+
+@{
     ViewBag.Title = "กำกับติดตามงานนวัตกรรม";
 }
 
@@ -23,63 +27,71 @@
                 ค้นหางานนวัตกรรม
             </div>
             <div class="card-body">
-                <div class="form-row">
-                    <div class="form-group col-2">
-                        <label class="" for="">ปีงบประมาณ</label>
-                        <select class="custom-select custom-select-sm" id="" name="budgetYear">
-                            <option selected>-- ปีงบประมาณ --</option>
-                            <option>2561</option>
-                            <option>2562</option>
-                            <option>2563</option>
-                            <option>2564</option>
-                            <option>2565</option>
-                        </select>
+                @using (Html.BeginForm("trackInnovation", "WorkTracking", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="form-group col-2">
+                            <label class="" for="">ปีงบประมาณ</label>
+                            <select class="custom-select custom-select-sm" id="" name="budgetYear">
+                                <option selected>-- ปีงบประมาณ --</option>
+                                <option>2561</option>
+                                <option>2562</option>
+                                <option>2563</option>
+                                <option>2564</option>
+                                <option>2565</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-2">
+                            <label class="" for="">สถานะงาน</label>
+                            <select class="custom-select custom-select-sm" id="" name="workOverview">
+                                <option selected>-- สถานะ --</option>
+                                <option value="10">10%</option>
+                                <option value="20">20%</option>
+                                <option value="30">30%</option>
+                                <option value="40">40%</option>
+                                <option value="50">50%</option>
+                                <option value="60">60%</option>
+                                <option value="70">70%</option>
+                                <option value="80">80%</option>
+                                <option value="90">90%</option>
+                                <option value="100">100%</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-2">
+                            <label class="" for="">ชื่อนวัตกรรม</label>
+                            <input type="text" class="form-control form-control-sm" name="name" />
+                        </div>
+                        <div class="form-group col-2">
+                            <label class="" for="">นวัตกร</label>
+                            <input type="text" class="form-control form-control-sm" name="creator" />
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="">กลุ่มงาน</label>
+                            <select class="form-control custom-select-sm" name="workGroup">
+                                <option selected>-- กลุ่มงาน --</option>
+                                <option>งานเภสัชกรรม</option>
+                                <option>บริหารทั่วไป</option>
+                                <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
+                                <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
+                                <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
+                                <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
+                                <option>โรคติดต่อ</option>
+                                <option>โรคไม่ติดต่อ</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
+                                <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
+                                <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
+                                <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group col-2">
-                        <label class="" for="">สถานะงาน</label>
-                        <select class="custom-select custom-select-sm" id="" name="status">
-                            <option selected>-- สถานะ --</option>
-                            <option>ยังไม่เริ่มโครงการ</option>
-                            <option>ระหว่างการวางแผน</option>
-                            <option>ระหว่างดำเนินงาน</option>
-                            <option>ดำเนินการเสร็จแล้ว</option>
-                        </select>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหานวัตกรรม</button>
                     </div>
-                    <div class="form-group col-2">
-                        <label class="" for="">ชื่อนวัตกรรม</label>
-                        <input type="text" class="form-control form-control-sm" name="name" />
-                    </div>
-                    <div class="form-group col-2">
-                        <label class="" for="">นวัตกร</label>
-                        <input type="text" class="form-control form-control-sm" name="creator" />
-                    </div>
-                    <div class="form-group col-4">
-                        <label class="">กลุ่มงาน</label>
-                        <select class="form-control custom-select-sm" name="workGroup">
-                            <option selected>-- กลุ่มงาน --</option>
-                            <option>งานเภสัชกรรม</option>
-                            <option>บริหารทั่วไป</option>
-                            <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
-                            <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
-                            <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
-                            <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
-                            <option>โรคติดต่อ</option>
-                            <option>โรคไม่ติดต่อ</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
-                            <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
-                            <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
-                            <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group text-right">
-                    <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหานวัตกรรม</button>
-                </div>
-
+                }
             </div>
         </div>
         <br />
