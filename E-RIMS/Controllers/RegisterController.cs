@@ -51,6 +51,7 @@ namespace E_RIMS.Controllers
             return View(member);
         }
 
+        //Re-New Password if forget password.
         public ActionResult EditRegister(int id)
         {
             Member member = db.Member.Find(id);

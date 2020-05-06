@@ -44,7 +44,7 @@ namespace E_RIMS.Controllers
 
                 else
                 {
-                    ViewBag.Error = "ไม่สามารถเข้าสู่ระบบได้";
+                    ViewBag.Error = "ไม่สามารถเข้าสู่ระบบได้ หากท่านลืมรหัสผ่านติดต่อ ADMIN เว็บไซต์เพื่อกำหนดรหัสผ่านใหม่";
 
                     return RedirectToAction("Login");
                 }

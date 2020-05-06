@@ -37,21 +37,45 @@ namespace E_RIMS.Controllers
             if (budgetYear != "-- ปีงบประมาณ --")
             {
                 researchResult = db.Research.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
+
+                if(researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";                    
+                }
+
                 return View(researchResult);
             }
             if (name != "")
             {
                 researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
                 return View(researchResult);
             }
             if (creator != "")
             {
                 researchResult = db.Research.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
                 return View(researchResult);
             }
             if (workGroup != "-- กลุ่มงาน --")
             {
                 researchResult = db.Research.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
                 return View(researchResult);
             }
             else
@@ -150,11 +174,11 @@ namespace E_RIMS.Controllers
                     research.files2.SaveAs(path);
                 }
 
-                if (Session["Id"] != null || Session["Username"] != null)
-                {
-                    research.idOwner = Convert.ToInt32(Session["Id"]);
-                    research.usernameOwner = Session["Username"].ToString();
-                }
+                //if (Session["Id"] != null || Session["Username"] != null)
+                //{
+                //    research.idOwner = Convert.ToInt32(Session["Id"]);
+                //    research.usernameOwner = Session["Username"].ToString();
+                //}
 
                 research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;

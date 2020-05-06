@@ -37,21 +37,45 @@ namespace E_RIMS.Controllers
             if (budgetYear != "-- ปีงบประมาณ --")
             {
                 innovationResult = db.Innovation.Where(x => x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
                 return View(innovationResult);
             }
             if (name != "")
             {
                 innovationResult = db.Innovation.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
                 return View(innovationResult);
             }
             if (creator != "-- นวัตกร --")
             {
                 innovationResult = db.Innovation.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
                 return View(innovationResult);
             }
             if (workGroup != "-- กลุ่มงาน --")
             {
                 innovationResult = db.Innovation.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
                 return View(innovationResult);
             }
             else
@@ -150,11 +174,11 @@ namespace E_RIMS.Controllers
                     innovation.files2.SaveAs(path);
                 }
 
-                if (Session["Id"] != null || Session["Username"] != null)
-                {
-                    innovation.idOwner = Convert.ToInt32(Session["Id"]);
-                    innovation.usernameOwner = Session["Username"].ToString();
-                }
+                //if (Session["Id"] != null || Session["Username"] != null)
+                //{
+                //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
+                //    innovation.usernameOwner = Session["Username"].ToString();
+                //}
 
                 innovation.date = DateTime.Today;
                 db.Entry(innovation).State = EntityState.Modified;
