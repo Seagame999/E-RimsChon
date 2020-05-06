@@ -25,6 +25,26 @@ namespace E_RIMS.Controllers
             return View();
         }
 
+        public ActionResult trackResearch()
+        {
+            return View();
+        }
+
+        public ActionResult trackInnovation()
+        {
+            return View();
+        }
+
+        public ActionResult updateResearchStatus()
+        {
+            return View();
+        }
+
+        public ActionResult updateInnovationStatus()
+        {
+            return View();
+        }
+
         public ActionResult Listwork()
         {
             var work = db.OverallOperation;
