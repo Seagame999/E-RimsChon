@@ -273,7 +273,7 @@
           <Property Name="statusActivity8" Type="varchar" MaxLength="255" />
           <Property Name="statusActivity9" Type="varchar" MaxLength="255" />
           <Property Name="statusActivity10" Type="varchar" MaxLength="255" />
-          <Property Name="workOverview" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="workOverview" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -600,7 +600,7 @@
           <Property Name="statusActivity8" Type="varchar" MaxLength="255" />
           <Property Name="statusActivity9" Type="varchar" MaxLength="255" />
           <Property Name="statusActivity10" Type="varchar" MaxLength="255" />
-          <Property Name="workOverview" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="workOverview" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Researcher">
           <Key>
@@ -1270,7 +1270,7 @@
           <Property Name="statusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="workOverview" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="workOverview" Type="Decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Research">
           <Key>
@@ -1437,7 +1437,7 @@
           <Property Name="statusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="workOverview" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="workOverview" Type="Decimal" Precision="5" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

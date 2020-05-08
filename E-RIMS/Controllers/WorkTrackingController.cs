@@ -50,19 +50,19 @@ namespace E_RIMS.Controllers
 
                 return View(researchResult);
             }
-            if (workOverview != "-- สถานะ --")
-            {
-                var workOverviewToDecimal = Convert.ToDecimal(workOverview);
+            //if (workOverview != "-- สถานะ --")
+            //{
+            //    var workOverviewToDecimal = Convert.ToDecimal(workOverview);
 
-                researchResult = db.Research.Where(x => x.workOverview.Equals(workOverviewToDecimal) || x.workOverview == workOverviewToDecimal).ToList().ToPagedList(page ?? 1, 10);
+            //    researchResult = db.Research.Where(x => x.workOverview.Equals(workOverviewToDecimal) || x.workOverview == workOverviewToDecimal).ToList().ToPagedList(page ?? 1, 10);
 
-                if (researchResult.TotalItemCount == 0)
-                {
-                    ViewBag.Nodata = "ไม่พบงานวิจัย";
-                }
+            //    if (researchResult.TotalItemCount == 0)
+            //    {
+            //        ViewBag.Nodata = "ไม่พบงานวิจัย";
+            //    }
 
-                return View(researchResult);
-            }
+            //    return View(researchResult);
+            //}
             if (name != "")
             {
                 researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
@@ -134,19 +134,19 @@ namespace E_RIMS.Controllers
                 return View(innovationResult);
             }
 
-            if (workOverview != "-- สถานะ --")
-            {
-                var workOverviewToDecimal = Convert.ToDecimal(workOverview);
+            //if (workOverview != "-- สถานะ --")
+            //{
+            //    var workOverviewToDecimal = Convert.ToDecimal(workOverview);
 
-                innovationResult = db.Innovation.Where(x => x.workOverview.Equals(workOverviewToDecimal) || x.workOverview == workOverviewToDecimal).ToList().ToPagedList(page ?? 1, 10);
+            //    innovationResult = db.Innovation.Where(x => x.workOverview.Equals(workOverviewToDecimal) || x.workOverview == workOverviewToDecimal).ToList().ToPagedList(page ?? 1, 10);
 
-                if (innovationResult.TotalItemCount == 0)
-                {
-                    ViewBag.Nodata = "ไม่พบงานวิจัย";
-                }
+            //    if (innovationResult.TotalItemCount == 0)
+            //    {
+            //        ViewBag.Nodata = "ไม่พบงานวิจัย";
+            //    }
 
-                return View(innovationResult);
-            }
+            //    return View(innovationResult);
+            //}
 
             if (name != "")
             {
@@ -197,6 +197,7 @@ namespace E_RIMS.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult updateResearchStatus(Research research)
         {
             if (ModelState.IsValid)

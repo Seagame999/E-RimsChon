@@ -156,6 +156,15 @@ namespace E_RIMS.Controllers
             {
                 return RedirectToAction("Index");
             }
+
+            var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+            ViewBag.ResearcherView = (from item in modelResearcher
+                                      select new SelectListItem
+                                      {
+                                          Text = item.name + " " + item.surname,
+                                          Value = item.name.ToString() + item.surname.ToString()
+                                      });
+
             return View(research);
         }
 
