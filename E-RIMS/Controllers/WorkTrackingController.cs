@@ -164,7 +164,7 @@ namespace E_RIMS.Controllers
         public ActionResult updateResearchStatus(int id)
         {
             Research research = db.Research.Find(id);
-            
+
             if (research == null)
             {
                 return RedirectToAction("trackResearch");
