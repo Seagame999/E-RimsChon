@@ -127,6 +127,7 @@ namespace E_RIMS.Controllers
                 //    research.usernameOwner = Session["Username"].ToString();
                 //}
 
+                research.workOverview = 00.00m;
                 research.date = DateTime.Today;
                 db.Research.Add(research);
                 db.SaveChanges();
@@ -189,6 +190,7 @@ namespace E_RIMS.Controllers
                 //    research.usernameOwner = Session["Username"].ToString();
                 //}
 
+                research.workOverview = 00.00m;
                 research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;
                 db.SaveChanges();

@@ -28,52 +28,52 @@
             <div class="card-body">
                 @using (Html.BeginForm("trackResearch", "WorkTracking", FormMethod.Post))
                 {
-                <div class="form-row">
-                    <div class="form-group col-2">
-                        <label class="" for="">ปีงบประมาณ</label>
-                        <select class="custom-select custom-select-sm" id="" name="budgetYear">
-                            <option selected>-- ปีงบประมาณ --</option>
-                            <option>2561</option>
-                            <option>2562</option>
-                            <option>2563</option>
-                            <option>2564</option>
-                            <option>2565</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group col-2">
+                            <label class="" for="">ปีงบประมาณ</label>
+                            <select class="custom-select custom-select-sm" id="" name="budgetYear">
+                                <option selected>-- ปีงบประมาณ --</option>
+                                <option>2561</option>
+                                <option>2562</option>
+                                <option>2563</option>
+                                <option>2564</option>
+                                <option>2565</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-2">
+                            <label class="" for="">ชื่องานวิจัย</label>
+                            <input type="text" class="form-control form-control-sm" name="name" />
+                        </div>
+                        <div class="form-group col-2">
+                            <label class="" for="">นักวิจัย</label>
+                            <input type="text" class="form-control form-control-sm" name="creator" />
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="">กลุ่มงาน</label>
+                            <select class="form-control custom-select-sm" name="workGroup">
+                                <option selected>-- กลุ่มงาน --</option>
+                                <option>งานเภสัชกรรม</option>
+                                <option>บริหารทั่วไป</option>
+                                <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
+                                <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
+                                <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
+                                <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
+                                <option>โรคติดต่อ</option>
+                                <option>โรคไม่ติดต่อ</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
+                                <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
+                                <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
+                                <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
+                            </select>
+                        </div>
+                        <div class="form-group text-right col-2">
+                            <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิจัย</button>
+                        </div>
                     </div>
-                    <div class="form-group col-2">
-                        <label class="" for="">ชื่องานวิจัย</label>
-                        <input type="text" class="form-control form-control-sm" name="name" />
-                    </div>
-                    <div class="form-group col-2">
-                        <label class="" for="">นักวิจัย</label>
-                        <input type="text" class="form-control form-control-sm" name="creator" />
-                    </div>
-                    <div class="form-group col-4">
-                        <label class="">กลุ่มงาน</label>
-                        <select class="form-control custom-select-sm" name="workGroup">
-                            <option selected>-- กลุ่มงาน --</option>
-                            <option>งานเภสัชกรรม</option>
-                            <option>บริหารทั่วไป</option>
-                            <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
-                            <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
-                            <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
-                            <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
-                            <option>โรคติดต่อ</option>
-                            <option>โรคไม่ติดต่อ</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
-                            <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
-                            <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
-                            <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
-                            <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
-                        </select>
-                    </div>
-                    <div class="form-group text-right col-2">
-                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิจัย</button>
-                    </div>
-                </div>
                 }
             </div>
         </div>
@@ -90,18 +90,28 @@
 
                 </tr>
             </thead>
-            <tbody class="small">
-                <tr><td colspan="6">@ViewBag.NoData</td></tr>
-                <tr class="table">
-                    <td>1</td>
-                    <td class="font-weight-bold">วิจัยเรื่องที่ 1</td>
-                    <td>นาย มานะ รักษ์ไทย</td>
-                    <td class="h4">58%</td>
-                    <td>7/5/2563</td>
-                    <td><a href="@Url.Action("updateResearchStatus", "WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a></td>
-                </tr>
-            </tbody>
+            @foreach (var item in Model)
+            {
+
+                <tbody class="small">
+                    <tr><td colspan="6">@ViewBag.NoData</td></tr>
+                    <tr class="table">
+                        <td style="width:10%">#</td>
+                        <td style="width:30%" class="font-weight-bold"><a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td style="width:30%">@Html.DisplayFor(modelItem => item.creator)</td>
+                        <td style="width:10%" class="h4">@Html.DisplayFor(modelItem => item.workOverview)%</td>
+                        <td style="width:10%">@Html.DisplayFor(modelItem => item.date)</td>
+                        <td style="width:10%"><a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a></td>
+                    </tr>
+                </tbody>
+            }
         </table>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                @Html.PagedListPager(Model, page => Url.Action("trackResearch", new { page }))
+            </div>
+        </div>
     </div>
 </div>
 

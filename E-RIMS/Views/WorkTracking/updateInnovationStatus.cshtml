@@ -20,91 +20,100 @@
         <h3>@ViewBag.Title</h3>
     </div>
 
-
-    <div class="card-body">
-        <h5 class="card-title">
-            <i class="fa fa-lightbulb"></i>&nbsp;@ViewBag.Title
-        </h5>
-        <hr />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6><i class="fa fa-user-circle"></i>&nbsp;นวัตกร และข้อมูลงานนวัตกรรม</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="form-group col-2">
-                                <label class="">ปีงบประมาณ</label>
-                                <label class="form-control">@Model.budgetYear</label>
-                            </div>
-                            <div class="form-group col-2">
-                                <label class="">ประเภทผลงาน</label>
-                                <label class="form-control">@Model.type</label>
-                            </div>
-                            <div class="form-group col-8">
-                                <label class="">ชื่อเรื่อง</label>
-                                <label class="form-control">@Model.name</label>
-                            </div>
-                            <div class="form-group col-4">
-                                <label class="">กลุ่มงาน</label>
-                                <label class="form-control">@Model.workGroup</label>
-                            </div>
-                            <div class="form-group col-8">
-                                <label class="">ผู้จัดทำ</label>
-                                <label class="form-control">@Model.creator</label>
+    @using (Html.BeginForm(Html.BeginForm("updateInnovationStatus", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fa fa-lightbulb"></i>&nbsp;@ViewBag.Title
+            </h5>
+            <hr />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-user-circle"></i>&nbsp;นวัตกร และข้อมูลงานนวัตกรรม&nbsp;<a href="@Url.Action("EditInnovation"+"/"+Model.id, "Innovation")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานนวัตกรรม</a></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-2">
+                                    <label class="">ปีงบประมาณ</label>
+                                    <label class="form-control">@Model.budgetYear</label>
+                                    <input type="hidden" name="budgetYear" value="@Model.budgetYear">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label class="">ประเภทผลงาน</label>
+                                    <label class="form-control">@Model.type</label>
+                                    <input type="hidden" name="type" value="@Model.type">
+                                </div>
+                                <div class="form-group col-8">
+                                    <label class="">ชื่อเรื่อง</label>
+                                    <label class="form-control">@Model.name</label>
+                                    <input type="hidden" name="name" value="@Model.name">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">กลุ่มงาน</label>
+                                    <label class="form-control">@Model.workGroup</label>
+                                    <input type="hidden" name="workGroup" value="@Model.workGroup">
+                                </div>
+                                <div class="form-group col-8">
+                                    <label class="">ผู้จัดทำ</label>
+                                    <label class="form-control">@Model.creator</label>
+                                    <input type="hidden" name="creator" value="@Model.creator">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6><i class="fa fa-info"></i>&nbsp;รายละเอียดงานนวัตกรรม</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="form-group col-4">
-                                <label class="">ที่มาและความสำคัญ</label>
-                                <label class="form-control">@Model.backgroudAndImportance</label>
-                            </div>
-                            <div class="form-group col-4">
-                                <label class="">วัตถุประสงค์</label>
-                                <label class="form-control">@Model.objective</label>
-                            </div>
-                            <div class="form-group col-4">
-                                <label class="">กลุ่มเป้าหมาย/ผู้ใช้ประโยชน์/ผู้ที่เกี่ยวข้อง</label>
-                                <label class="form-control">@Model.targetGroup</label>
-                            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-info"></i>&nbsp;รายละเอียดงานนวัตกรรม</h6>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-4">
-                                <label class="text-sm-left">ประโยชน์/ผลลัพธ์/ผลกระทบที่คาดว่าจะได้รับ</label>
-                                <label class="form-control">@Model.benefit</label>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label class="">ที่มาและความสำคัญ</label>
+                                    <label class="form-control">@Model.backgroudAndImportance</label>
+                                    <input type="hidden" name="backgroudAndImportance" value="@Model.backgroudAndImportance">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">วัตถุประสงค์</label>
+                                    <label class="form-control">@Model.objective</label>
+                                    <input type="hidden" name="objective" value="@Model.objective">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">กลุ่มเป้าหมาย/ผู้ใช้ประโยชน์/ผู้ที่เกี่ยวข้อง</label>
+                                    <label class="form-control">@Model.targetGroup</label>
+                                    <input type="hidden" name="targetGroup" value="@Model.targetGroup">
+                                </div>
                             </div>
-                            <div class="form-group col-4">
-                                <label class="">ไฟล์ที่เกี่ยวข้อง</label>
-                                <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลด</a></p>
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label class="text-sm-left">ประโยชน์/ผลลัพธ์/ผลกระทบที่คาดว่าจะได้รับ</label>
+                                    <label class="form-control">@Model.benefit</label>
+                                    <input type="hidden" name="benefit" value="@Model.benefit">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label class="">ไฟล์ที่เกี่ยวข้อง</label>
+                                    <input type="hidden" name="files" value="@Model.files">
+                                    <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลด</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6><i class="fa fa-calendar-check"></i>&nbsp;ระยะเวลาดำเนินงานนวัตกรรม</h6>
-                    </div>
-                    <div class="card-body">
-                        @using (Html.BeginForm(Html.BeginForm("updateResearchStatus", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
-                        {
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-calendar-check"></i>&nbsp;ระยะเวลาดำเนินงานนวัตกรรม</h6>
+                        </div>
+                        <div class="card-body">
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -133,6 +142,7 @@
                                         <td>1</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity1">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -140,6 +150,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity1</td>
+                                        <input type="hidden" name="activity1" value="@Model.activity1">
                                         <td>@Model.isOct1</td>
                                         <td>@Model.isNov1</td>
                                         <td>@Model.isDec1</td>
@@ -157,6 +168,7 @@
                                         <td>2</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity2">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -164,6 +176,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity2</td>
+                                        <input type="hidden" name="activity2" value="@Model.activity2">
                                         <td>@Model.isOct2</td>
                                         <td>@Model.isNov2</td>
                                         <td>@Model.isDec2</td>
@@ -181,6 +194,7 @@
                                         <td>3</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity3">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -188,6 +202,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity3</td>
+                                        <input type="hidden" name="activity3" value="@Model.activity3">
                                         <td>@Model.isOct3</td>
                                         <td>@Model.isNov3</td>
                                         <td>@Model.isDec3</td>
@@ -205,6 +220,7 @@
                                         <td>4</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity4">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -212,6 +228,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity4</td>
+                                        <input type="hidden" name="activity4" value="@Model.activity4">
                                         <td>@Model.isOct4</td>
                                         <td>@Model.isNov4</td>
                                         <td>@Model.isDec4</td>
@@ -229,6 +246,7 @@
                                         <td>5</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity5">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -236,6 +254,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity5</td>
+                                        <input type="hidden" name="activity5" value="@Model.activity5">
                                         <td>@Model.isOct5</td>
                                         <td>@Model.isNov5</td>
                                         <td>@Model.isDec5</td>
@@ -253,6 +272,7 @@
                                         <td>6</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity6">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -260,6 +280,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity6</td>
+                                        <input type="hidden" name="activity6" value="@Model.activity6">
                                         <td>@Model.isOct6</td>
                                         <td>@Model.isNov6</td>
                                         <td>@Model.isDec6</td>
@@ -277,6 +298,7 @@
                                         <td>7</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity7">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -284,6 +306,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity7</td>
+                                        <input type="hidden" name="activity7" value="@Model.activity7">
                                         <td>@Model.isOct7</td>
                                         <td>@Model.isNov7</td>
                                         <td>@Model.isDec7</td>
@@ -301,6 +324,7 @@
                                         <td>8</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity8">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -308,6 +332,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity8</td>
+                                        <input type="hidden" name="activity8" value="@Model.activity8">
                                         <td>@Model.isOct8</td>
                                         <td>@Model.isNov8</td>
                                         <td>@Model.isDec8</td>
@@ -325,6 +350,7 @@
                                         <td>9</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity9">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -332,6 +358,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity9</td>
+                                        <input type="hidden" name="activity9" value="@Model.activity9">
                                         <td>@Model.isOct9</td>
                                         <td>@Model.isNov9</td>
                                         <td>@Model.isDec9</td>
@@ -349,6 +376,7 @@
                                         <td>10</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity10">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
@@ -356,6 +384,7 @@
                                             </select>
                                         </td>
                                         <td>@Model.activity10</td>
+                                        <input type="hidden" name="activity10" value="@Model.activity10">
                                         <td>@Model.isOct10</td>
                                         <td>@Model.isNov10</td>
                                         <td>@Model.isDec10</td>
@@ -372,17 +401,17 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="15" class="text-right"><a href="" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;แก้ไขสถานะกิจกรรมในโครงการนี้</a>&nbsp;<a href="#" class="btn btn-danger"><i class="fa fa-undo"></i>&nbsp;รีเซ็ตหน้านี้</a></td>
+                                        <td colspan="15" class="text-right"><button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;แก้ไขสถานะกิจกรรมในโครงการนี้</button>&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i>&nbsp;รีเซ็ตหน้านี้</button></td>
                                     </tr>
                                 </tfoot>
                             </table>
-                        }
+                            <input type="hidden" name="useNumberOfActivities" value="@ViewBag.useNumberofActivities">
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
-
+    }
 
 </div>

@@ -127,6 +127,7 @@ namespace E_RIMS.Controllers
                 //    innovation.usernameOwner = Session["Username"].ToString();
                 //}
 
+                innovation.workOverview = 00.00m;
                 innovation.date = DateTime.Today;
                 db.Innovation.Add(innovation);
                 db.SaveChanges();
@@ -189,6 +190,7 @@ namespace E_RIMS.Controllers
                 //    innovation.usernameOwner = Session["Username"].ToString();
                 //}
 
+                innovation.workOverview = 00.00m;
                 innovation.date = DateTime.Today;
                 db.Entry(innovation).State = EntityState.Modified;
                 db.SaveChanges();

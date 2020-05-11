@@ -172,6 +172,9 @@
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="">อัพโหลดไฟล์ที่เกี่ยวข้อง</label>
+                                    <label class="">ไฟล์เดิม: @Model.files</label>
+                                    <input type="hidden" name="files" value="@Model.files">
+                                    <label class="">หรือ อัพโหลดไฟล์ใหม่</label>
                                     <input type="file" class="form-control-file" name="files2" />
                                     @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
                                 </div>

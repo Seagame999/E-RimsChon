@@ -19,119 +19,137 @@
     <div class="card-header">
         <h3>@ViewBag.Title</h3>
     </div>
-    <div class="card-body">
-        <h5 class="card-title"><i class="fa fa-project-diagram"></i>&nbsp;การกำกับติดตามงานวิจัย</h5>
-        <hr />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6><i class="fa fa-user-circle"></i>&nbsp;ผู้ดำเนินงานวิจัย และข้อมูลงานวิจัย&nbsp;<a href="@Url.Action("EditResearch", "Research")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานวิจัย</a></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="form-group col-2">
-                                <label class="">ประเภทงาน</label>
-                                <label class="form-control">@Model.type</label>
-                            </div>
-                            <div class="form-group col-2">
-                                <label class="">ปีงบประมาณ</label>
-                                <label class="form-control">@Model.budgetYear</label>
-                            </div>
-                            <div class="form-group col-8">
-                                <label class="">ชื่อเรื่อง</label>
-                                <label class="form-control">@Model.name</label>
-                            </div>
-                            <div class="form-group col-6">
-                                <label class="">ผู้จัดทำ</label>
-                                <label class="form-control">@Model.creator</label>
-                            </div>
-                            <div class="form-group col-6">
-                                <label class="">กลุ่มงาน</label>
-                                <label class="form-control">@Model.workGroup</label>
+    @using (Html.BeginForm(Html.BeginForm("updateResearchStatus", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
+        <div class="card-body">
+            <h5 class="card-title"><i class="fa fa-project-diagram"></i>&nbsp;การกำกับติดตามงานวิจัย</h5>
+            <hr />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-user-circle"></i>&nbsp;ผู้ดำเนินงานวิจัย และข้อมูลงานวิจัย&nbsp;<a href="@Url.Action("EditResearch"+"/"+Model.id, "Research")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานวิจัย</a></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-2">
+                                    <label class="">ประเภทงาน</label>
+                                    <label class="form-control" name="type">@Model.type</label>
+                                    <input type="hidden" name="type" value="@Model.type">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label class="">ปีงบประมาณ</label>
+                                    <label class="form-control" name="budgetYear">@Model.budgetYear</label>
+                                    <input type="hidden" name="budgetYear" value="@Model.budgetYear">
+                                </div>
+                                <div class="form-group col-8">
+                                    <label class="">ชื่อเรื่อง</label>
+                                    <label class="form-control" name="name">@Model.name</label>
+                                    <input type="hidden" name="name" value="@Model.name">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="">ผู้จัดทำ</label>
+                                    <label class="form-control" name="creator">@Model.creator</label>
+                                    <input type="hidden" name="creator" value="@Model.creator">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="">กลุ่มงาน</label>
+                                    <label class="form-control" name="workGroup">@Model.workGroup</label>
+                                    <input type="hidden" name="workGroup" value="@Model.workGroup">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6><i class="fa fa-info"></i>&nbsp;รายละเอียดงานวิจัย</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="form-group col-3">
-                                <label class="">บทนำ</label>
-                                <label class="form-control">@Model.preface</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">วัตถุประสงค์</label>
-                                <label class="form-control">@Model.objective</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">ประโยชน์ที่คาดว่าจะได้รับ</label>
-                                <label class="form-control">@Model.benefit</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">รูปแบบงานวิจัย</label>
-                                <label class="form-control">@Model.format</label>
-                            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-info"></i>&nbsp;รายละเอียดงานวิจัย</h6>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-3">
-                                <label class="">สถานที่ศึกษา</label>
-                                <label class="form-control">@Model.school</label>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-3">
+                                    <label class="">บทนำ</label>
+                                    <label class="form-control" name="preface">@Model.preface</label>
+                                    <input type="hidden" name="preface" value="@Model.preface">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">วัตถุประสงค์</label>
+                                    <label class="form-control" name="objective">@Model.objective</label>
+                                    <input type="hidden" name="objective" value="@Model.objective">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">ประโยชน์ที่คาดว่าจะได้รับ</label>
+                                    <label class="form-control" name="benefit">@Model.benefit</label>
+                                    <input type="hidden" name="benefit" value="@Model.benefit">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">รูปแบบงานวิจัย</label>
+                                    <label class="form-control" name="format">@Model.format</label>
+                                    <input type="hidden" name="format" value="@Model.format">
+                                </div>
                             </div>
-                            <div class="form-group col-3">
-                                <label class="">ระยะเวลาที่ศึกษา</label>
-                                <label class="form-control">@Model.timeOfStudy</label>
+                            <div class="form-row">
+                                <div class="form-group col-3">
+                                    <label class="">สถานที่ศึกษา</label>
+                                    <label class="form-control" name="school">@Model.school</label>
+                                    <input type="hidden" name="school" value="@Model.school">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">ระยะเวลาที่ศึกษา</label>
+                                    <label class="form-control" name="timeOfStudy">@Model.timeOfStudy</label>
+                                    <input type="hidden" name="timeOfStudy" value="@Model.timeOfStudy">
 
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">ประชากรที่ศึกษา</label>
+                                    <label class="form-control" name="population">@Model.population</label>
+                                    <input type="hidden" name="population" value="@Model.population">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">วิธีการเลือกตัวอย่าง</label>
+                                    <label class="form-control" name="sampleMethod">@Model.sampleMethod</label>
+                                    <input type="hidden" name="sampleMethod" value="@Model.sampleMethod">
+                                </div>
                             </div>
-                            <div class="form-group col-3">
-                                <label class="">ประชากรที่ศึกษา</label>
-                                <label class="form-control">@Model.population</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">วิธีการเลือกตัวอย่าง</label>
-                                <label class="form-control">@Model.sampleMethod</label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-3">
-                                <label class="">เครื่องมือที่ใช้ในการวิจัย</label>
-                                <label class="form-control">@Model.toolsOfResearch</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">การวิเคราะห์ข้อมูล</label>
-                                <label class="form-control">@Model.dataAnalysis</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">วิธีการเก็บรวบรวมข้อมูล</label>
-                                <label class="form-control">@Model.dataMethodCollect</label>
-                            </div>
-                            <div class="form-group col-3">
-                                <label class="">ไฟล์ที่เกี่ยวข้อง</label>
-                                <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลด</a></p>
+                            <div class="form-row">
+                                <div class="form-group col-3">
+                                    <label class="">เครื่องมือที่ใช้ในการวิจัย</label>
+                                    <label class="form-control" name="toolsOfResearch">@Model.toolsOfResearch</label>
+                                    <input type="hidden" name="toolsOfResearch" value="@Model.toolsOfResearch">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">การวิเคราะห์ข้อมูล</label>
+                                    <label class="form-control" name="dataAnalysis">@Model.dataAnalysis</label>
+                                    <input type="hidden" name="dataAnalysis" value="@Model.dataAnalysis">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">วิธีการเก็บรวบรวมข้อมูล</label>
+                                    <label class="form-control" name="dataMethodCollect">@Model.dataMethodCollect</label>
+                                    <input type="hidden" name="dataMethodCollect" value="@Model.dataMethodCollect">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="">ไฟล์ที่เกี่ยวข้อง</label>
+                                    <input type="hidden" name="files" value="@Model.files">
+                                    <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลด</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6><i class="fa fa-calendar-check"></i>&nbsp;ระยะเวลาดำเนินงานวิจัย</h6>
-                    </div>
-                    <div class="card-body">
-                        @using (Html.BeginForm(Html.BeginForm("updateResearchStatus", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
-                        {
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-calendar-check"></i>&nbsp;ระยะเวลาดำเนินงานวิจัย</h6>
+                        </div>
+                        <div class="card-body">
+
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -160,253 +178,276 @@
                                         <td>1</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity1">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity1</td>
-                                        <td>@Model.isOct1</td>
-                                        <td>@Model.isNov1</td>
-                                        <td>@Model.isDec1</td>
-                                        <td>@Model.isJan1</td>
-                                        <td>@Model.isFeb1</td>
-                                        <td>@Model.isMar1</td>
-                                        <td>@Model.isApr1</td>
-                                        <td>@Model.isMay1</td>
-                                        <td>@Model.isJun1</td>
-                                        <td>@Model.isJul1</td>
-                                        <td>@Model.isAug1</td>
-                                        <td>@Model.isSep1</td>
+                                        <td name="activity1">@Model.activity1</td>
+                                        <input type="hidden" name="activity1" value="@Model.activity1">
+                                        <td name="isOct1">@Model.isOct1</td>
+                                        <td name="isNov1">@Model.isNov1</td>
+                                        <td name="isDec1">@Model.isDec1</td>
+                                        <td name="isJan1">@Model.isJan1</td>
+                                        <td name="isFeb1">@Model.isFeb1</td>
+                                        <td name="isMar1">@Model.isMar1</td>
+                                        <td name="isApr1">@Model.isApr1</td>
+                                        <td name="isMay1">@Model.isMay1</td>
+                                        <td name="isJun1">@Model.isJun1</td>
+                                        <td name="isJul1">@Model.isJul1</td>
+                                        <td name="isAug1">@Model.isAug1</td>
+                                        <td name="isSep1">@Model.isSep1</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity2">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity2</td>
-                                        <td>@Model.isOct2</td>
-                                        <td>@Model.isNov2</td>
-                                        <td>@Model.isDec2</td>
-                                        <td>@Model.isJan2</td>
-                                        <td>@Model.isFeb2</td>
-                                        <td>@Model.isMar2</td>
-                                        <td>@Model.isApr2</td>
-                                        <td>@Model.isMay2</td>
-                                        <td>@Model.isJun2</td>
-                                        <td>@Model.isJul2</td>
-                                        <td>@Model.isAug2</td>
-                                        <td>@Model.isSep2</td>
+                                        <td name="activity2">@Model.activity2</td>
+                                        <input type="hidden" name="activity2" value="@Model.activity2">
+                                        <td name="isOct2">@Model.isOct2</td>
+                                        <td name="isNov2">@Model.isNov2</td>
+                                        <td name="isDec2">@Model.isDec2</td>
+                                        <td name="isJan2">@Model.isJan2</td>
+                                        <td name="isFeb2">@Model.isFeb2</td>
+                                        <td name="isMar2">@Model.isMar2</td>
+                                        <td name="isApr2">@Model.isApr2</td>
+                                        <td name="isMay2">@Model.isMay2</td>
+                                        <td name="isJun2">@Model.isJun2</td>
+                                        <td name="isJul2">@Model.isJul2</td>
+                                        <td name="isAug2">@Model.isAug2</td>
+                                        <td name="isSep2">@Model.isSep2</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity3">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity3</td>
-                                        <td>@Model.isOct3</td>
-                                        <td>@Model.isNov3</td>
-                                        <td>@Model.isDec3</td>
-                                        <td>@Model.isJan3</td>
-                                        <td>@Model.isFeb3</td>
-                                        <td>@Model.isMar3</td>
-                                        <td>@Model.isApr3</td>
-                                        <td>@Model.isMay3</td>
-                                        <td>@Model.isJun3</td>
-                                        <td>@Model.isJul3</td>
-                                        <td>@Model.isAug3</td>
-                                        <td>@Model.isSep3</td>
+                                        <td name="activity3">@Model.activity3</td>
+                                        <input type="hidden" name="activity3" value="@Model.activity3">
+                                        <td name="isOct3">@Model.isOct3</td>
+                                        <td name="isNov3">@Model.isNov3</td>
+                                        <td name="isDec3">@Model.isDec3</td>
+                                        <td name="isJan3">@Model.isJan3</td>
+                                        <td name="isFeb3">@Model.isFeb3</td>
+                                        <td name="isMar3">@Model.isMar3</td>
+                                        <td name="isApr3">@Model.isApr3</td>
+                                        <td name="isMay3">@Model.isMay3</td>
+                                        <td name="isJun3">@Model.isJun3</td>
+                                        <td name="isJul3">@Model.isJul3</td>
+                                        <td name="isAug3">@Model.isAug3</td>
+                                        <td name="isSep3">@Model.isSep3</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity4">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity4</td>
-                                        <td>@Model.isOct4</td>
-                                        <td>@Model.isNov4</td>
-                                        <td>@Model.isDec4</td>
-                                        <td>@Model.isJan4</td>
-                                        <td>@Model.isFeb4</td>
-                                        <td>@Model.isMar4</td>
-                                        <td>@Model.isApr4</td>
-                                        <td>@Model.isMay4</td>
-                                        <td>@Model.isJun4</td>
-                                        <td>@Model.isJul4</td>
-                                        <td>@Model.isAug4</td>
-                                        <td>@Model.isSep4</td>
+                                        <td name="activity4">@Model.activity4</td>
+                                        <input type="hidden" name="activity4" value="@Model.activity4">
+                                        <td name="isOct4">@Model.isOct4</td>
+                                        <td name="isNov4">@Model.isNov4</td>
+                                        <td name="isDec4">@Model.isDec4</td>
+                                        <td name="isJan4">@Model.isJan4</td>
+                                        <td name="isFeb4">@Model.isFeb4</td>
+                                        <td name="isMar4">@Model.isMar4</td>
+                                        <td name="isApr4">@Model.isApr4</td>
+                                        <td name="isMay4">@Model.isMay4</td>
+                                        <td name="isJun4">@Model.isJun4</td>
+                                        <td name="isJul4">@Model.isJul4</td>
+                                        <td name="isAug4">@Model.isAug4</td>
+                                        <td name="isSep4">@Model.isSep4</td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity5">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity5</td>
-                                        <td>@Model.isOct5</td>
-                                        <td>@Model.isNov5</td>
-                                        <td>@Model.isDec5</td>
-                                        <td>@Model.isJan5</td>
-                                        <td>@Model.isFeb5</td>
-                                        <td>@Model.isMar5</td>
-                                        <td>@Model.isApr5</td>
-                                        <td>@Model.isMay5</td>
-                                        <td>@Model.isJun5</td>
-                                        <td>@Model.isJul5</td>
-                                        <td>@Model.isAug5</td>
-                                        <td>@Model.isSep5</td>
+                                        <td name="activity5">@Model.activity5</td>
+                                        <input type="hidden" name="activity5" value="@Model.activity5">
+                                        <td name="isOct5">@Model.isOct5</td>
+                                        <td name="isNov5">@Model.isNov5</td>
+                                        <td name="isDec5">@Model.isDec5</td>
+                                        <td name="isJan5">@Model.isJan5</td>
+                                        <td name="isFeb5">@Model.isFeb5</td>
+                                        <td name="isMar5">@Model.isMar5</td>
+                                        <td name="isApr5">@Model.isApr5</td>
+                                        <td name="isMay5">@Model.isMay5</td>
+                                        <td name="isJun5">@Model.isJun5</td>
+                                        <td name="isJul5">@Model.isJul5</td>
+                                        <td name="isAug5">@Model.isAug5</td>
+                                        <td name="isSep5">@Model.isSep5</td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity6">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity6</td>
-                                        <td>@Model.isOct6</td>
-                                        <td>@Model.isNov6</td>
-                                        <td>@Model.isDec6</td>
-                                        <td>@Model.isJan6</td>
-                                        <td>@Model.isFeb6</td>
-                                        <td>@Model.isMar6</td>
-                                        <td>@Model.isApr6</td>
-                                        <td>@Model.isMay6</td>
-                                        <td>@Model.isJun6</td>
-                                        <td>@Model.isJul6</td>
-                                        <td>@Model.isAug6</td>
-                                        <td>@Model.isSep6</td>
+                                        <td name="activity6">@Model.activity6</td>
+                                        <input type="hidden" name="activity6" value="@Model.activity6">
+                                        <td name="isOct6">@Model.isOct6</td>
+                                        <td name="isNov6">@Model.isNov6</td>
+                                        <td name="isDec6">@Model.isDec6</td>
+                                        <td name="isJan6">@Model.isJan6</td>
+                                        <td name="isFeb6">@Model.isFeb6</td>
+                                        <td name="isMar6">@Model.isMar6</td>
+                                        <td name="isApr6">@Model.isApr6</td>
+                                        <td name="isMay6">@Model.isMay6</td>
+                                        <td name="isJun6">@Model.isJun6</td>
+                                        <td name="isJul6">@Model.isJul6</td>
+                                        <td name="isAug6">@Model.isAug6</td>
+                                        <td name="isSep6">@Model.isSep6</td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity7">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity7</td>
-                                        <td>@Model.isOct7</td>
-                                        <td>@Model.isNov7</td>
-                                        <td>@Model.isDec7</td>
-                                        <td>@Model.isJan7</td>
-                                        <td>@Model.isFeb7</td>
-                                        <td>@Model.isMar7</td>
-                                        <td>@Model.isApr7</td>
-                                        <td>@Model.isMay7</td>
-                                        <td>@Model.isJun7</td>
-                                        <td>@Model.isJul7</td>
-                                        <td>@Model.isAug7</td>
-                                        <td>@Model.isSep7</td>
+                                        <td name="activity7">@Model.activity7</td>
+                                        <input type="hidden" name="activity7" value="@Model.activity7">
+                                        <td name="isOct7">@Model.isOct7</td>
+                                        <td name="isNov7">@Model.isNov7</td>
+                                        <td name="isDec7">@Model.isDec7</td>
+                                        <td name="isJan7">@Model.isJan7</td>
+                                        <td name="isFeb7">@Model.isFeb7</td>
+                                        <td name="isMar7">@Model.isMar7</td>
+                                        <td name="isApr7">@Model.isApr7</td>
+                                        <td name="isMay7">@Model.isMay7</td>
+                                        <td name="isJun7">@Model.isJun7</td>
+                                        <td name="isJul7">@Model.isJul7</td>
+                                        <td name="isAug7">@Model.isAug7</td>
+                                        <td name="isSep7">@Model.isSep7</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity8">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity8</td>
-                                        <td>@Model.isOct8</td>
-                                        <td>@Model.isNov8</td>
-                                        <td>@Model.isDec8</td>
-                                        <td>@Model.isJan8</td>
-                                        <td>@Model.isFeb8</td>
-                                        <td>@Model.isMar8</td>
-                                        <td>@Model.isApr8</td>
-                                        <td>@Model.isMay8</td>
-                                        <td>@Model.isJun8</td>
-                                        <td>@Model.isJul8</td>
-                                        <td>@Model.isAug8</td>
-                                        <td>@Model.isSep8</td>
+                                        <td name="activity8">@Model.activity8</td>
+                                        <input type="hidden" name="activity8" value="@Model.activity8">
+                                        <td name="isOct8">@Model.isOct8</td>
+                                        <td name="isNov8">@Model.isNov8</td>
+                                        <td name="isDec8">@Model.isDec8</td>
+                                        <td name="isJan8">@Model.isJan8</td>
+                                        <td name="isFeb8">@Model.isFeb8</td>
+                                        <td name="isMar8">@Model.isMar8</td>
+                                        <td name="isApr8">@Model.isApr8</td>
+                                        <td name="isMay8">@Model.isMay8</td>
+                                        <td name="isJun8">@Model.isJun8</td>
+                                        <td name="isJul8">@Model.isJul8</td>
+                                        <td name="isAug8">@Model.isAug8</td>
+                                        <td name="isSep8">@Model.isSep8</td>
                                     </tr>
                                     <tr>
                                         <td>9</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity9">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity9</td>
-                                        <td>@Model.isOct9</td>
-                                        <td>@Model.isNov9</td>
-                                        <td>@Model.isDec9</td>
-                                        <td>@Model.isJan9</td>
-                                        <td>@Model.isFeb9</td>
-                                        <td>@Model.isMar9</td>
-                                        <td>@Model.isApr9</td>
-                                        <td>@Model.isMay9</td>
-                                        <td>@Model.isJun9</td>
-                                        <td>@Model.isJul9</td>
-                                        <td>@Model.isAug9</td>
-                                        <td>@Model.isSep9</td>
+                                        <td name="activity9">@Model.activity9</td>
+                                        <input type="hidden" name="activity9" value="@Model.activity9">
+                                        <td name="isOct9">@Model.isOct9</td>
+                                        <td name="isNov9">@Model.isNov9</td>
+                                        <td name="isDec9">@Model.isDec9</td>
+                                        <td name="isJan9">@Model.isJan9</td>
+                                        <td name="isFeb9">@Model.isFeb9</td>
+                                        <td name="isMar9">@Model.isMar9</td>
+                                        <td name="isApr9">@Model.isApr9</td>
+                                        <td name="isMay9">@Model.isMay9</td>
+                                        <td name="isJun9">@Model.isJun9</td>
+                                        <td name="isJul9">@Model.isJul9</td>
+                                        <td name="isAug9">@Model.isAug9</td>
+                                        <td name="isSep9">@Model.isSep9</td>
                                     </tr>
                                     <tr>
                                         <td>10</td>
                                         <td>
                                             <select class="form-control form-control-sm" name="statusActivity10">
+                                                <option>-- สถานะกิจกรรม --</option>
                                                 <option>ยังไม่เริ่ม</option>
                                                 <option>วางแผนแล้ว</option>
                                                 <option>ระหว่างดำเนินงาน</option>
                                                 <option>เสร็จสิ้นแล้ว</option>
                                             </select>
                                         </td>
-                                        <td>@Model.activity10</td>
-                                        <td>@Model.isOct10</td>
-                                        <td>@Model.isNov10</td>
-                                        <td>@Model.isDec10</td>
-                                        <td>@Model.isJan10</td>
-                                        <td>@Model.isFeb10</td>
-                                        <td>@Model.isMar10</td>
-                                        <td>@Model.isApr10</td>
-                                        <td>@Model.isMay10</td>
-                                        <td>@Model.isJun10</td>
-                                        <td>@Model.isJul10</td>
-                                        <td>@Model.isAug10</td>
-                                        <td>@Model.isSep10</td>
+                                        <td name="activity10">@Model.activity10</td>
+                                        <input type="hidden" name="activity10" value="@Model.activity10">
+                                        <td name="isOct10">@Model.isOct10</td>
+                                        <td name="isNov10">@Model.isNov10</td>
+                                        <td name="isDec10">@Model.isDec10</td>
+                                        <td name="isJan10">@Model.isJan10</td>
+                                        <td name="isFeb10">@Model.isFeb10</td>
+                                        <td name="isMar10">@Model.isMar10</td>
+                                        <td name="isApr10">@Model.isApr10</td>
+                                        <td name="isMay10">@Model.isMay10</td>
+                                        <td name="isJun10">@Model.isJun10</td>
+                                        <td name="isJul10">@Model.isJul10</td>
+                                        <td name="isAug10">@Model.isAug10</td>
+                                        <td name="isSep10">@Model.isSep10</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
-                                    <tr>
-                                        <td colspan="15" class="text-right"><a href="" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;แก้ไขสถานะกิจกรรมในโครงการนี้</a>&nbsp;<a href="#" class="btn btn-danger"><i class="fa fa-undo"></i>&nbsp;รีเซ็ตหน้านี้</a></td>
+                                    <tr>             
+                                        <td colspan="15" class="text-right"><button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;แก้ไขสถานะกิจกรรมในโครงการนี้</button>&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i>&nbsp;รีเซ็ตหน้านี้</button></td>
                                     </tr>
                                 </tfoot>
                             </table>
-                        }
+                            <input type="hidden" name="useNumberOfActivities" value="@ViewBag.useNumberofActivities">                         
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
 </div>
+
+
