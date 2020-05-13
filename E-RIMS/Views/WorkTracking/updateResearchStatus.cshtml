@@ -177,262 +177,202 @@
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity1">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity1, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm"})
                                         </td>
                                         <td name="activity1">@Model.activity1</td>
                                         <input type="hidden" name="activity1" value="@Model.activity1">
-                                        <td name="isOct1">@Model.isOct1</td>
-                                        <td name="isNov1">@Model.isNov1</td>
-                                        <td name="isDec1">@Model.isDec1</td>
-                                        <td name="isJan1">@Model.isJan1</td>
-                                        <td name="isFeb1">@Model.isFeb1</td>
-                                        <td name="isMar1">@Model.isMar1</td>
-                                        <td name="isApr1">@Model.isApr1</td>
-                                        <td name="isMay1">@Model.isMay1</td>
-                                        <td name="isJun1">@Model.isJun1</td>
-                                        <td name="isJul1">@Model.isJul1</td>
-                                        <td name="isAug1">@Model.isAug1</td>
-                                        <td name="isSep1">@Model.isSep1</td>
+                                        <td>@Html.CheckBox("isOct1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug1", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep1", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity2">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity2, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity2">@Model.activity2</td>
                                         <input type="hidden" name="activity2" value="@Model.activity2">
-                                        <td name="isOct2">@Model.isOct2</td>
-                                        <td name="isNov2">@Model.isNov2</td>
-                                        <td name="isDec2">@Model.isDec2</td>
-                                        <td name="isJan2">@Model.isJan2</td>
-                                        <td name="isFeb2">@Model.isFeb2</td>
-                                        <td name="isMar2">@Model.isMar2</td>
-                                        <td name="isApr2">@Model.isApr2</td>
-                                        <td name="isMay2">@Model.isMay2</td>
-                                        <td name="isJun2">@Model.isJun2</td>
-                                        <td name="isJul2">@Model.isJul2</td>
-                                        <td name="isAug2">@Model.isAug2</td>
-                                        <td name="isSep2">@Model.isSep2</td>
+                                        <td>@Html.CheckBox("isOct2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug2", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep2", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity3">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity3, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity3">@Model.activity3</td>
                                         <input type="hidden" name="activity3" value="@Model.activity3">
-                                        <td name="isOct3">@Model.isOct3</td>
-                                        <td name="isNov3">@Model.isNov3</td>
-                                        <td name="isDec3">@Model.isDec3</td>
-                                        <td name="isJan3">@Model.isJan3</td>
-                                        <td name="isFeb3">@Model.isFeb3</td>
-                                        <td name="isMar3">@Model.isMar3</td>
-                                        <td name="isApr3">@Model.isApr3</td>
-                                        <td name="isMay3">@Model.isMay3</td>
-                                        <td name="isJun3">@Model.isJun3</td>
-                                        <td name="isJul3">@Model.isJul3</td>
-                                        <td name="isAug3">@Model.isAug3</td>
-                                        <td name="isSep3">@Model.isSep3</td>
+                                        <td>@Html.CheckBox("isOct3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug3", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep3", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity4">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity4, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity4">@Model.activity4</td>
                                         <input type="hidden" name="activity4" value="@Model.activity4">
-                                        <td name="isOct4">@Model.isOct4</td>
-                                        <td name="isNov4">@Model.isNov4</td>
-                                        <td name="isDec4">@Model.isDec4</td>
-                                        <td name="isJan4">@Model.isJan4</td>
-                                        <td name="isFeb4">@Model.isFeb4</td>
-                                        <td name="isMar4">@Model.isMar4</td>
-                                        <td name="isApr4">@Model.isApr4</td>
-                                        <td name="isMay4">@Model.isMay4</td>
-                                        <td name="isJun4">@Model.isJun4</td>
-                                        <td name="isJul4">@Model.isJul4</td>
-                                        <td name="isAug4">@Model.isAug4</td>
-                                        <td name="isSep4">@Model.isSep4</td>
+                                        <td>@Html.CheckBox("isOct4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug4", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep4", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity5">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity5, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity5">@Model.activity5</td>
                                         <input type="hidden" name="activity5" value="@Model.activity5">
-                                        <td name="isOct5">@Model.isOct5</td>
-                                        <td name="isNov5">@Model.isNov5</td>
-                                        <td name="isDec5">@Model.isDec5</td>
-                                        <td name="isJan5">@Model.isJan5</td>
-                                        <td name="isFeb5">@Model.isFeb5</td>
-                                        <td name="isMar5">@Model.isMar5</td>
-                                        <td name="isApr5">@Model.isApr5</td>
-                                        <td name="isMay5">@Model.isMay5</td>
-                                        <td name="isJun5">@Model.isJun5</td>
-                                        <td name="isJul5">@Model.isJul5</td>
-                                        <td name="isAug5">@Model.isAug5</td>
-                                        <td name="isSep5">@Model.isSep5</td>
+                                        <td>@Html.CheckBox("isOct5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug5", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep5", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity6">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity6, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity6">@Model.activity6</td>
                                         <input type="hidden" name="activity6" value="@Model.activity6">
-                                        <td name="isOct6">@Model.isOct6</td>
-                                        <td name="isNov6">@Model.isNov6</td>
-                                        <td name="isDec6">@Model.isDec6</td>
-                                        <td name="isJan6">@Model.isJan6</td>
-                                        <td name="isFeb6">@Model.isFeb6</td>
-                                        <td name="isMar6">@Model.isMar6</td>
-                                        <td name="isApr6">@Model.isApr6</td>
-                                        <td name="isMay6">@Model.isMay6</td>
-                                        <td name="isJun6">@Model.isJun6</td>
-                                        <td name="isJul6">@Model.isJul6</td>
-                                        <td name="isAug6">@Model.isAug6</td>
-                                        <td name="isSep6">@Model.isSep6</td>
+                                        <td>@Html.CheckBox("isOct6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug6", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep6", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity7">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity7, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity7">@Model.activity7</td>
                                         <input type="hidden" name="activity7" value="@Model.activity7">
-                                        <td name="isOct7">@Model.isOct7</td>
-                                        <td name="isNov7">@Model.isNov7</td>
-                                        <td name="isDec7">@Model.isDec7</td>
-                                        <td name="isJan7">@Model.isJan7</td>
-                                        <td name="isFeb7">@Model.isFeb7</td>
-                                        <td name="isMar7">@Model.isMar7</td>
-                                        <td name="isApr7">@Model.isApr7</td>
-                                        <td name="isMay7">@Model.isMay7</td>
-                                        <td name="isJun7">@Model.isJun7</td>
-                                        <td name="isJul7">@Model.isJul7</td>
-                                        <td name="isAug7">@Model.isAug7</td>
-                                        <td name="isSep7">@Model.isSep7</td>
+                                        <td>@Html.CheckBox("isOct7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug7", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep7", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity8">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity8, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity8">@Model.activity8</td>
                                         <input type="hidden" name="activity8" value="@Model.activity8">
-                                        <td name="isOct8">@Model.isOct8</td>
-                                        <td name="isNov8">@Model.isNov8</td>
-                                        <td name="isDec8">@Model.isDec8</td>
-                                        <td name="isJan8">@Model.isJan8</td>
-                                        <td name="isFeb8">@Model.isFeb8</td>
-                                        <td name="isMar8">@Model.isMar8</td>
-                                        <td name="isApr8">@Model.isApr8</td>
-                                        <td name="isMay8">@Model.isMay8</td>
-                                        <td name="isJun8">@Model.isJun8</td>
-                                        <td name="isJul8">@Model.isJul8</td>
-                                        <td name="isAug8">@Model.isAug8</td>
-                                        <td name="isSep8">@Model.isSep8</td>
+                                        <td>@Html.CheckBox("isOct8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug8", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep8", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>9</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity9">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity9, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity9">@Model.activity9</td>
                                         <input type="hidden" name="activity9" value="@Model.activity9">
-                                        <td name="isOct9">@Model.isOct9</td>
-                                        <td name="isNov9">@Model.isNov9</td>
-                                        <td name="isDec9">@Model.isDec9</td>
-                                        <td name="isJan9">@Model.isJan9</td>
-                                        <td name="isFeb9">@Model.isFeb9</td>
-                                        <td name="isMar9">@Model.isMar9</td>
-                                        <td name="isApr9">@Model.isApr9</td>
-                                        <td name="isMay9">@Model.isMay9</td>
-                                        <td name="isJun9">@Model.isJun9</td>
-                                        <td name="isJul9">@Model.isJul9</td>
-                                        <td name="isAug9">@Model.isAug9</td>
-                                        <td name="isSep9">@Model.isSep9</td>
+                                        <td>@Html.CheckBox("isOct9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug9", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep9", new { @class = "form-check"})</td>
                                     </tr>
                                     <tr>
                                         <td>10</td>
                                         <td>
-                                            <select class="form-control form-control-sm" name="statusActivity10">
-                                                <option>-- สถานะกิจกรรม --</option>
-                                                <option>ยังไม่เริ่ม</option>
-                                                <option>วางแผนแล้ว</option>
-                                                <option>ระหว่างดำเนินงาน</option>
-                                                <option>เสร็จสิ้นแล้ว</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.statusActivity10, (IEnumerable<SelectListItem>)ViewBag.StatusActivityView, new { @class = "form-control , form-control-sm" })
                                         </td>
                                         <td name="activity10">@Model.activity10</td>
                                         <input type="hidden" name="activity10" value="@Model.activity10">
-                                        <td name="isOct10">@Model.isOct10</td>
-                                        <td name="isNov10">@Model.isNov10</td>
-                                        <td name="isDec10">@Model.isDec10</td>
-                                        <td name="isJan10">@Model.isJan10</td>
-                                        <td name="isFeb10">@Model.isFeb10</td>
-                                        <td name="isMar10">@Model.isMar10</td>
-                                        <td name="isApr10">@Model.isApr10</td>
-                                        <td name="isMay10">@Model.isMay10</td>
-                                        <td name="isJun10">@Model.isJun10</td>
-                                        <td name="isJul10">@Model.isJul10</td>
-                                        <td name="isAug10">@Model.isAug10</td>
-                                        <td name="isSep10">@Model.isSep10</td>
+                                        <td>@Html.CheckBox("isOct10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isNov10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isDec10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJan10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isFeb10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMar10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isApr10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isMay10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJun10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isJul10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isAug10", new { @class = "form-check"})</td>
+                                        <td>@Html.CheckBox("isSep10", new { @class = "form-check"})</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>

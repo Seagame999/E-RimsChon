@@ -158,6 +158,9 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index");
             }
 
+            decimal workOverviewValue = Convert.ToDecimal(research.workOverview);
+            ViewBag.workOverview = workOverviewValue;
+
             var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
             ViewBag.ResearcherView = (from item in modelResearcher
                                       select new SelectListItem
@@ -170,7 +173,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditResearch(Research research)
+        public ActionResult EditResearch(Research research,string workOverview)
         {
             if (ModelState.IsValid)
             {
@@ -190,7 +193,7 @@ namespace E_RIMS.Controllers
                 //    research.usernameOwner = Session["Username"].ToString();
                 //}
 
-                research.workOverview = 00.00m;
+                research.workOverview = Convert.ToDecimal(workOverview);
                 research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;
                 db.SaveChanges();

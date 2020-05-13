@@ -161,7 +161,7 @@ namespace E_RIMS.Controllers
             }
         }
 
-        //!!!!!หน้านี้ยังเหลือการเก็บค่าเดือนเป็น bool ไว้ใน DB ถ้าไม่ทำหาย
+        
         public ActionResult updateResearchStatus(int id)
         {
             Research research = db.Research.Find(id);
@@ -174,15 +174,21 @@ namespace E_RIMS.Controllers
             double useNumberofActivities = numberOfActivitiesResearch(id);
             ViewBag.useNumberofActivities = useNumberofActivities;
 
+            var modelStatusActivity = db.StatusActivity.ToList();
+            ViewBag.StatusActivityView = (from item in modelStatusActivity
+                                      select new SelectListItem
+                                      {
+                                          Text = item.statusActivity1,
+                                          Value = item.statusActivity1
+                                      });
+
             return View(research);
         }
 
         [HttpPost]
-        public ActionResult updateResearchStatus(Research research, double useNumberOfActivities, string statusActivity1, string statusActivity2,
-            string statusActivity3, string statusActivity4, string statusActivity5, string statusActivity6, string statusActivity7, string statusActivity8
-            , string statusActivity9, string statusActivity10)
+        public ActionResult updateResearchStatus(Research research, double useNumberOfActivities, StatusActivitiesModel statusActivitiesModel)
         {
-            double activityValueUse = activityValue(useNumberOfActivities, statusActivity1, statusActivity2, statusActivity3, statusActivity4, statusActivity5, statusActivity6, statusActivity7, statusActivity8, statusActivity9, statusActivity10);
+            double activityValueUse = activityValue(useNumberOfActivities, statusActivitiesModel);
 
             if (ModelState.IsValid)
             {
@@ -195,7 +201,7 @@ namespace E_RIMS.Controllers
             return View(research);
         }
 
-        //!!!!!หน้านี้ยังเหลือการเก็บค่าเดือนเป็น bool ไว้ใน DB ถ้าไม่ทำหาย
+        
         public ActionResult updateInnovationStatus(int id)
         {
             Innovation innovation = db.Innovation.Find(id);
@@ -207,15 +213,21 @@ namespace E_RIMS.Controllers
             double useNumberofActivities = numberOfActivitiesInnovation(id);
             ViewBag.useNumberofActivities = useNumberofActivities;
 
+            var modelStatusActivity = db.StatusActivity.ToList();
+            ViewBag.StatusActivityView = (from item in modelStatusActivity
+                                          select new SelectListItem
+                                          {
+                                              Text = item.statusActivity1,
+                                              Value = item.statusActivity1
+                                          });
+
             return View(innovation);
         }
 
         [HttpPost]
-        public ActionResult updateInnovationStatus(Innovation innovation, double useNumberOfActivities, string statusActivity1, string statusActivity2,
-            string statusActivity3, string statusActivity4, string statusActivity5, string statusActivity6, string statusActivity7, string statusActivity8
-            , string statusActivity9, string statusActivity10)
+        public ActionResult updateInnovationStatus(Innovation innovation, double useNumberOfActivities, StatusActivitiesModel statusActivitiesModel)
         {
-            double activityValueUse = activityValue(useNumberOfActivities, statusActivity1, statusActivity2, statusActivity3, statusActivity4, statusActivity5, statusActivity6, statusActivity7, statusActivity8, statusActivity9, statusActivity10);
+            double activityValueUse = activityValue(useNumberOfActivities, statusActivitiesModel);
 
             if (ModelState.IsValid)
             {
@@ -340,52 +352,169 @@ namespace E_RIMS.Controllers
         }
 
 
-        public double activityValue(double useNumberOfActivities, string statusActivity1, string statusActivity2,
-            string statusActivity3, string statusActivity4, string statusActivity5, string statusActivity6, string statusActivity7, string statusActivity8
-            , string statusActivity9, string statusActivity10)
+        public double activityValue(double useNumberOfActivities, StatusActivitiesModel statusActivitiesModel)
         {
             double statusActivity1Value = 0, statusActivity2Value = 0, statusActivity3Value = 0, statusActivity4Value = 0, statusActivity5Value = 0,
                 statusActivity6Value = 0, statusActivity7Value = 0, statusActivity8Value = 0, statusActivity9Value = 0, statusActivity10Value = 0;
+            
+            if (statusActivitiesModel.statusActivity1 != "ยังไม่ดำเนินการ")
+            {
+                if (statusActivitiesModel.statusActivity1.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity1Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity1.Equals("ดำเนินการ"))
+                {
+                    statusActivity1Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity1.Equals("วางแผน"))
+                {
+                    statusActivity1Value = useNumberOfActivities * 0.2;
+                }
+            }
 
-            if (statusActivity1.Equals("เสร็จสิ้นแล้ว"))
+            if (statusActivitiesModel.statusActivity2 != "ยังไม่ดำเนินการ")
             {
-                statusActivity1Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity2.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity2Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity2.Equals("ดำเนินการ"))
+                {
+                    statusActivity2Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity2.Equals("วางแผน"))
+                {
+                    statusActivity2Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity2.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity3 != "ยังไม่ดำเนินการ")
             {
-                statusActivity2Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity3.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity3Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity3.Equals("ดำเนินการ"))
+                {
+                    statusActivity3Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity3.Equals("วางแผน"))
+                {
+                    statusActivity3Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity3.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity4 != "ยังไม่ดำเนินการ")
             {
-                statusActivity3Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity4.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity4Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity4.Equals("ดำเนินการ"))
+                {
+                    statusActivity4Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity4.Equals("วางแผน"))
+                {
+                    statusActivity4Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity4.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity5 != "ยังไม่ดำเนินการ")
             {
-                statusActivity4Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity5.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity5Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity5.Equals("ดำเนินการ"))
+                {
+                    statusActivity5Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity5.Equals("วางแผน"))
+                {
+                    statusActivity5Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity5.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity6 != "ยังไม่ดำเนินการ")
             {
-                statusActivity5Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity6.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity6Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity6.Equals("ดำเนินการ"))
+                {
+                    statusActivity6Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity6.Equals("วางแผน"))
+                {
+                    statusActivity6Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity6.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity7 != "ยังไม่ดำเนินการ")
             {
-                statusActivity6Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity7.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity7Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity7.Equals("ดำเนินการ"))
+                {
+                    statusActivity7Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity7.Equals("วางแผน"))
+                {
+                    statusActivity7Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity7.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity8 != "ยังไม่ดำเนินการ")
             {
-                statusActivity7Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity8.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity8Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity8.Equals("ดำเนินการ"))
+                {
+                    statusActivity8Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity8.Equals("วางแผน"))
+                {
+                    statusActivity8Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity8.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity9 != "ยังไม่ดำเนินการ")
             {
-                statusActivity8Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity9.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity9Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity9.Equals("ดำเนินการ"))
+                {
+                    statusActivity9Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity9.Equals("วางแผน"))
+                {
+                    statusActivity9Value = useNumberOfActivities * 0.2;
+                }
             }
-            if (statusActivity9.Equals("เสร็จสิ้นแล้ว"))
+
+            if (statusActivitiesModel.statusActivity10 != "ยังไม่ดำเนินการ")
             {
-                statusActivity9Value = useNumberOfActivities;
-            }
-            if (statusActivity10.Equals("เสร็จสิ้นแล้ว"))
-            {
-                statusActivity10Value = useNumberOfActivities;
+                if (statusActivitiesModel.statusActivity10.Equals("เสร็จสิ้น"))
+                {
+                    statusActivity10Value = useNumberOfActivities;
+                }
+                if (statusActivitiesModel.statusActivity10.Equals("ดำเนินการ"))
+                {
+                    statusActivity10Value = useNumberOfActivities * 0.6;
+                }
+                if (statusActivitiesModel.statusActivity10.Equals("วางแผน"))
+                {
+                    statusActivity10Value = useNumberOfActivities * 0.2;
+                }
             }
 
             double sumActivityValue = statusActivity1Value + statusActivity2Value + statusActivity3Value + statusActivity4Value + statusActivity5Value + statusActivity6Value + statusActivity7Value + statusActivity8Value + statusActivity9Value + statusActivity10Value;

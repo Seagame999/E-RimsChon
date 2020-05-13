@@ -257,6 +257,10 @@
     <Compile Include="Models\ResearchTopic.cs">
       <DependentUpon>ErimsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StatusActivitiesModel.cs" />
+    <Compile Include="Models\StatusActivity.cs">
+      <DependentUpon>ErimsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SubDistrict.cs">
       <DependentUpon>ErimsModel.tt</DependentUpon>
     </Compile>

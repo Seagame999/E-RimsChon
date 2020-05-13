@@ -683,6 +683,13 @@
           <Property Name="htmlLink" Type="varchar" MaxLength="255" />
           <Property Name="docUploads" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="StatusActivity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusActivity" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="SubDistrict">
           <Key>
             <PropertyRef Name="id" />
@@ -718,6 +725,7 @@
           <EntitySet Name="ResearchFuds" EntityType="Self.ResearchFuds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResearchMonitoring" EntityType="Self.ResearchMonitoring" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResearchTopic" EntityType="Self.ResearchTopic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusActivity" EntityType="Self.StatusActivity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubDistrict" EntityType="Self.SubDistrict" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1095,6 +1103,7 @@
           <EntitySet Name="OperatingActivities" EntityType="ERIMSModel.OperatingActivities" />
           <EntitySet Name="Innovation" EntityType="ERIMSModel.Innovation" />
           <EntitySet Name="Research" EntityType="ERIMSModel.Research" />
+          <EntitySet Name="StatusActivity" EntityType="ERIMSModel.StatusActivity" />
         </EntityContainer>
         <EntityType Name="PercentActivities">
           <Key>
@@ -1438,6 +1447,13 @@
           <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="workOverview" Type="Decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="StatusActivity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusActivity1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2154,6 +2170,14 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusActivity">
+            <EntityTypeMapping TypeName="ERIMSModel.StatusActivity">
+              <MappingFragment StoreEntitySet="StatusActivity">
+                <ScalarProperty Name="statusActivity1" ColumnName="statusActivity" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

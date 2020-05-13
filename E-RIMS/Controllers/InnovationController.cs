@@ -158,6 +158,9 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index");
             }
 
+            decimal workOverviewValue = Convert.ToDecimal(innovation.workOverview);
+            ViewBag.workOverview = workOverviewValue;
+
             var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
             ViewBag.InnovatorView = (from item in modelInnovator
                                      select new SelectListItem
@@ -170,7 +173,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditInnovation(Innovation innovation)
+        public ActionResult EditInnovation(Innovation innovation, string workOverview)
         {
             if (ModelState.IsValid)
             {
@@ -190,7 +193,7 @@ namespace E_RIMS.Controllers
                 //    innovation.usernameOwner = Session["Username"].ToString();
                 //}
 
-                innovation.workOverview = 00.00m;
+                innovation.workOverview = Convert.ToDecimal(workOverview);
                 innovation.date = DateTime.Today;
                 db.Entry(innovation).State = EntityState.Modified;
                 db.SaveChanges();

@@ -53,5 +53,6 @@ namespace E_RIMS.Models
         public virtual DbSet<OperatingActivities> OperatingActivities { get; set; }
         public virtual DbSet<Innovation> Innovation { get; set; }
         public virtual DbSet<Research> Research { get; set; }
+        public virtual DbSet<StatusActivity> StatusActivity { get; set; }
     }
 }
