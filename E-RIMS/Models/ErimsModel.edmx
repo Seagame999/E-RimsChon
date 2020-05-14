@@ -274,6 +274,66 @@
           <Property Name="statusActivity9" Type="varchar" MaxLength="255" />
           <Property Name="statusActivity10" Type="varchar" MaxLength="255" />
           <Property Name="workOverview" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="planStatusActivity1" Type="text" />
+          <Property Name="planStatusActivity2" Type="text" />
+          <Property Name="planStatusActivity3" Type="text" />
+          <Property Name="planStatusActivity4" Type="text" />
+          <Property Name="planStatusActivity5" Type="text" />
+          <Property Name="planStatusActivity6" Type="text" />
+          <Property Name="planStatusActivity7" Type="text" />
+          <Property Name="planStatusActivity8" Type="text" />
+          <Property Name="planStatusActivity9" Type="text" />
+          <Property Name="planStatusActivity10" Type="text" />
+          <Property Name="filePlanStatusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity10" Type="varchar" MaxLength="255" />
+          <Property Name="proceedStatusActivity1" Type="text" />
+          <Property Name="proceedStatusActivity2" Type="text" />
+          <Property Name="proceedStatusActivity3" Type="text" />
+          <Property Name="proceedStatusActivity4" Type="text" />
+          <Property Name="proceedStatusActivity5" Type="text" />
+          <Property Name="proceedStatusActivity6" Type="text" />
+          <Property Name="proceedStatusActivity7" Type="text" />
+          <Property Name="proceedStatusActivity8" Type="text" />
+          <Property Name="proceedStatusActivity9" Type="text" />
+          <Property Name="proceedStatusActivity10" Type="text" />
+          <Property Name="fileProceedStatusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity10" Type="varchar" MaxLength="255" />
+          <Property Name="finishStatusActivity1" Type="text" />
+          <Property Name="finishStatusActivity2" Type="text" />
+          <Property Name="finishStatusActivity3" Type="text" />
+          <Property Name="finishStatusActivity4" Type="text" />
+          <Property Name="finishStatusActivity5" Type="text" />
+          <Property Name="finishStatusActivity6" Type="text" />
+          <Property Name="finishStatusActivity7" Type="text" />
+          <Property Name="finishStatusActivity8" Type="text" />
+          <Property Name="finishStatusActivity9" Type="text" />
+          <Property Name="finishStatusActivity10" Type="text" />
+          <Property Name="fileFinishStatusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity10" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -601,6 +661,66 @@
           <Property Name="statusActivity9" Type="varchar" MaxLength="255" />
           <Property Name="statusActivity10" Type="varchar" MaxLength="255" />
           <Property Name="workOverview" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="planStatusActivity1" Type="text" />
+          <Property Name="planStatusActivity2" Type="text" />
+          <Property Name="planStatusActivity3" Type="text" />
+          <Property Name="planStatusActivity4" Type="text" />
+          <Property Name="planStatusActivity5" Type="text" />
+          <Property Name="planStatusActivity6" Type="text" />
+          <Property Name="planStatusActivity7" Type="text" />
+          <Property Name="planStatusActivity8" Type="text" />
+          <Property Name="planStatusActivity9" Type="text" />
+          <Property Name="planStatusActivity10" Type="text" />
+          <Property Name="filePlanStatusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="filePlanStatusActivity10" Type="varchar" MaxLength="255" />
+          <Property Name="proceedStatusActivity1" Type="text" />
+          <Property Name="proceedStatusActivity2" Type="text" />
+          <Property Name="proceedStatusActivity3" Type="text" />
+          <Property Name="proceedStatusActivity4" Type="text" />
+          <Property Name="proceedStatusActivity5" Type="text" />
+          <Property Name="proceedStatusActivity6" Type="text" />
+          <Property Name="proceedStatusActivity7" Type="text" />
+          <Property Name="proceedStatusActivity8" Type="text" />
+          <Property Name="proceedStatusActivity9" Type="text" />
+          <Property Name="proceedStatusActivity10" Type="text" />
+          <Property Name="fileProceedStatusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="fileProceedStatusActivity10" Type="varchar" MaxLength="255" />
+          <Property Name="finishStatusActivity1" Type="text" />
+          <Property Name="finishStatusActivity2" Type="text" />
+          <Property Name="finishStatusActivity3" Type="text" />
+          <Property Name="finishStatusActivity4" Type="text" />
+          <Property Name="finishStatusActivity5" Type="text" />
+          <Property Name="finishStatusActivity6" Type="text" />
+          <Property Name="finishStatusActivity7" Type="text" />
+          <Property Name="finishStatusActivity8" Type="text" />
+          <Property Name="finishStatusActivity9" Type="text" />
+          <Property Name="finishStatusActivity10" Type="text" />
+          <Property Name="fileFinishStatusActivity1" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity2" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity3" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity4" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity5" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity6" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity7" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity8" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity9" Type="varchar" MaxLength="255" />
+          <Property Name="fileFinishStatusActivity10" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Researcher">
           <Key>
@@ -1280,6 +1400,66 @@
           <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="workOverview" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="planStatusActivity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Research">
           <Key>
@@ -1447,6 +1627,66 @@
           <Property Name="statusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="statusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="workOverview" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="planStatusActivity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="planStatusActivity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="filePlanStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proceedStatusActivity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileProceedStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="finishStatusActivity10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileFinishStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="StatusActivity">
           <Key>
@@ -1848,6 +2088,66 @@
           <EntitySetMapping Name="Innovation">
             <EntityTypeMapping TypeName="ERIMSModel.Innovation">
               <MappingFragment StoreEntitySet="Innovation">
+                <ScalarProperty Name="fileFinishStatusActivity10" ColumnName="fileFinishStatusActivity10" />
+                <ScalarProperty Name="fileFinishStatusActivity9" ColumnName="fileFinishStatusActivity9" />
+                <ScalarProperty Name="fileFinishStatusActivity8" ColumnName="fileFinishStatusActivity8" />
+                <ScalarProperty Name="fileFinishStatusActivity7" ColumnName="fileFinishStatusActivity7" />
+                <ScalarProperty Name="fileFinishStatusActivity6" ColumnName="fileFinishStatusActivity6" />
+                <ScalarProperty Name="fileFinishStatusActivity5" ColumnName="fileFinishStatusActivity5" />
+                <ScalarProperty Name="fileFinishStatusActivity4" ColumnName="fileFinishStatusActivity4" />
+                <ScalarProperty Name="fileFinishStatusActivity3" ColumnName="fileFinishStatusActivity3" />
+                <ScalarProperty Name="fileFinishStatusActivity2" ColumnName="fileFinishStatusActivity2" />
+                <ScalarProperty Name="fileFinishStatusActivity1" ColumnName="fileFinishStatusActivity1" />
+                <ScalarProperty Name="finishStatusActivity10" ColumnName="finishStatusActivity10" />
+                <ScalarProperty Name="finishStatusActivity9" ColumnName="finishStatusActivity9" />
+                <ScalarProperty Name="finishStatusActivity8" ColumnName="finishStatusActivity8" />
+                <ScalarProperty Name="finishStatusActivity7" ColumnName="finishStatusActivity7" />
+                <ScalarProperty Name="finishStatusActivity6" ColumnName="finishStatusActivity6" />
+                <ScalarProperty Name="finishStatusActivity5" ColumnName="finishStatusActivity5" />
+                <ScalarProperty Name="finishStatusActivity4" ColumnName="finishStatusActivity4" />
+                <ScalarProperty Name="finishStatusActivity3" ColumnName="finishStatusActivity3" />
+                <ScalarProperty Name="finishStatusActivity2" ColumnName="finishStatusActivity2" />
+                <ScalarProperty Name="finishStatusActivity1" ColumnName="finishStatusActivity1" />
+                <ScalarProperty Name="fileProceedStatusActivity10" ColumnName="fileProceedStatusActivity10" />
+                <ScalarProperty Name="fileProceedStatusActivity9" ColumnName="fileProceedStatusActivity9" />
+                <ScalarProperty Name="fileProceedStatusActivity8" ColumnName="fileProceedStatusActivity8" />
+                <ScalarProperty Name="fileProceedStatusActivity7" ColumnName="fileProceedStatusActivity7" />
+                <ScalarProperty Name="fileProceedStatusActivity6" ColumnName="fileProceedStatusActivity6" />
+                <ScalarProperty Name="fileProceedStatusActivity5" ColumnName="fileProceedStatusActivity5" />
+                <ScalarProperty Name="fileProceedStatusActivity4" ColumnName="fileProceedStatusActivity4" />
+                <ScalarProperty Name="fileProceedStatusActivity3" ColumnName="fileProceedStatusActivity3" />
+                <ScalarProperty Name="fileProceedStatusActivity2" ColumnName="fileProceedStatusActivity2" />
+                <ScalarProperty Name="fileProceedStatusActivity1" ColumnName="fileProceedStatusActivity1" />
+                <ScalarProperty Name="proceedStatusActivity10" ColumnName="proceedStatusActivity10" />
+                <ScalarProperty Name="proceedStatusActivity9" ColumnName="proceedStatusActivity9" />
+                <ScalarProperty Name="proceedStatusActivity8" ColumnName="proceedStatusActivity8" />
+                <ScalarProperty Name="proceedStatusActivity7" ColumnName="proceedStatusActivity7" />
+                <ScalarProperty Name="proceedStatusActivity6" ColumnName="proceedStatusActivity6" />
+                <ScalarProperty Name="proceedStatusActivity5" ColumnName="proceedStatusActivity5" />
+                <ScalarProperty Name="proceedStatusActivity4" ColumnName="proceedStatusActivity4" />
+                <ScalarProperty Name="proceedStatusActivity3" ColumnName="proceedStatusActivity3" />
+                <ScalarProperty Name="proceedStatusActivity2" ColumnName="proceedStatusActivity2" />
+                <ScalarProperty Name="proceedStatusActivity1" ColumnName="proceedStatusActivity1" />
+                <ScalarProperty Name="filePlanStatusActivity10" ColumnName="filePlanStatusActivity10" />
+                <ScalarProperty Name="filePlanStatusActivity9" ColumnName="filePlanStatusActivity9" />
+                <ScalarProperty Name="filePlanStatusActivity8" ColumnName="filePlanStatusActivity8" />
+                <ScalarProperty Name="filePlanStatusActivity7" ColumnName="filePlanStatusActivity7" />
+                <ScalarProperty Name="filePlanStatusActivity6" ColumnName="filePlanStatusActivity6" />
+                <ScalarProperty Name="filePlanStatusActivity5" ColumnName="filePlanStatusActivity5" />
+                <ScalarProperty Name="filePlanStatusActivity4" ColumnName="filePlanStatusActivity4" />
+                <ScalarProperty Name="filePlanStatusActivity3" ColumnName="filePlanStatusActivity3" />
+                <ScalarProperty Name="filePlanStatusActivity2" ColumnName="filePlanStatusActivity2" />
+                <ScalarProperty Name="filePlanStatusActivity1" ColumnName="filePlanStatusActivity1" />
+                <ScalarProperty Name="planStatusActivity10" ColumnName="planStatusActivity10" />
+                <ScalarProperty Name="planStatusActivity9" ColumnName="planStatusActivity9" />
+                <ScalarProperty Name="planStatusActivity8" ColumnName="planStatusActivity8" />
+                <ScalarProperty Name="planStatusActivity7" ColumnName="planStatusActivity7" />
+                <ScalarProperty Name="planStatusActivity6" ColumnName="planStatusActivity6" />
+                <ScalarProperty Name="planStatusActivity5" ColumnName="planStatusActivity5" />
+                <ScalarProperty Name="planStatusActivity4" ColumnName="planStatusActivity4" />
+                <ScalarProperty Name="planStatusActivity3" ColumnName="planStatusActivity3" />
+                <ScalarProperty Name="planStatusActivity2" ColumnName="planStatusActivity2" />
+                <ScalarProperty Name="planStatusActivity1" ColumnName="planStatusActivity1" />
                 <ScalarProperty Name="workOverview" ColumnName="workOverview" />
                 <ScalarProperty Name="statusActivity10" ColumnName="statusActivity10" />
                 <ScalarProperty Name="statusActivity9" ColumnName="statusActivity9" />
@@ -2009,6 +2309,66 @@
           <EntitySetMapping Name="Research">
             <EntityTypeMapping TypeName="ERIMSModel.Research">
               <MappingFragment StoreEntitySet="Research">
+                <ScalarProperty Name="fileFinishStatusActivity10" ColumnName="fileFinishStatusActivity10" />
+                <ScalarProperty Name="fileFinishStatusActivity9" ColumnName="fileFinishStatusActivity9" />
+                <ScalarProperty Name="fileFinishStatusActivity8" ColumnName="fileFinishStatusActivity8" />
+                <ScalarProperty Name="fileFinishStatusActivity7" ColumnName="fileFinishStatusActivity7" />
+                <ScalarProperty Name="fileFinishStatusActivity6" ColumnName="fileFinishStatusActivity6" />
+                <ScalarProperty Name="fileFinishStatusActivity5" ColumnName="fileFinishStatusActivity5" />
+                <ScalarProperty Name="fileFinishStatusActivity4" ColumnName="fileFinishStatusActivity4" />
+                <ScalarProperty Name="fileFinishStatusActivity3" ColumnName="fileFinishStatusActivity3" />
+                <ScalarProperty Name="fileFinishStatusActivity2" ColumnName="fileFinishStatusActivity2" />
+                <ScalarProperty Name="fileFinishStatusActivity1" ColumnName="fileFinishStatusActivity1" />
+                <ScalarProperty Name="finishStatusActivity10" ColumnName="finishStatusActivity10" />
+                <ScalarProperty Name="finishStatusActivity9" ColumnName="finishStatusActivity9" />
+                <ScalarProperty Name="finishStatusActivity8" ColumnName="finishStatusActivity8" />
+                <ScalarProperty Name="finishStatusActivity7" ColumnName="finishStatusActivity7" />
+                <ScalarProperty Name="finishStatusActivity6" ColumnName="finishStatusActivity6" />
+                <ScalarProperty Name="finishStatusActivity5" ColumnName="finishStatusActivity5" />
+                <ScalarProperty Name="finishStatusActivity4" ColumnName="finishStatusActivity4" />
+                <ScalarProperty Name="finishStatusActivity3" ColumnName="finishStatusActivity3" />
+                <ScalarProperty Name="finishStatusActivity2" ColumnName="finishStatusActivity2" />
+                <ScalarProperty Name="finishStatusActivity1" ColumnName="finishStatusActivity1" />
+                <ScalarProperty Name="fileProceedStatusActivity10" ColumnName="fileProceedStatusActivity10" />
+                <ScalarProperty Name="fileProceedStatusActivity9" ColumnName="fileProceedStatusActivity9" />
+                <ScalarProperty Name="fileProceedStatusActivity8" ColumnName="fileProceedStatusActivity8" />
+                <ScalarProperty Name="fileProceedStatusActivity7" ColumnName="fileProceedStatusActivity7" />
+                <ScalarProperty Name="fileProceedStatusActivity6" ColumnName="fileProceedStatusActivity6" />
+                <ScalarProperty Name="fileProceedStatusActivity5" ColumnName="fileProceedStatusActivity5" />
+                <ScalarProperty Name="fileProceedStatusActivity4" ColumnName="fileProceedStatusActivity4" />
+                <ScalarProperty Name="fileProceedStatusActivity3" ColumnName="fileProceedStatusActivity3" />
+                <ScalarProperty Name="fileProceedStatusActivity2" ColumnName="fileProceedStatusActivity2" />
+                <ScalarProperty Name="fileProceedStatusActivity1" ColumnName="fileProceedStatusActivity1" />
+                <ScalarProperty Name="proceedStatusActivity10" ColumnName="proceedStatusActivity10" />
+                <ScalarProperty Name="proceedStatusActivity9" ColumnName="proceedStatusActivity9" />
+                <ScalarProperty Name="proceedStatusActivity8" ColumnName="proceedStatusActivity8" />
+                <ScalarProperty Name="proceedStatusActivity7" ColumnName="proceedStatusActivity7" />
+                <ScalarProperty Name="proceedStatusActivity6" ColumnName="proceedStatusActivity6" />
+                <ScalarProperty Name="proceedStatusActivity5" ColumnName="proceedStatusActivity5" />
+                <ScalarProperty Name="proceedStatusActivity4" ColumnName="proceedStatusActivity4" />
+                <ScalarProperty Name="proceedStatusActivity3" ColumnName="proceedStatusActivity3" />
+                <ScalarProperty Name="proceedStatusActivity2" ColumnName="proceedStatusActivity2" />
+                <ScalarProperty Name="proceedStatusActivity1" ColumnName="proceedStatusActivity1" />
+                <ScalarProperty Name="filePlanStatusActivity10" ColumnName="filePlanStatusActivity10" />
+                <ScalarProperty Name="filePlanStatusActivity9" ColumnName="filePlanStatusActivity9" />
+                <ScalarProperty Name="filePlanStatusActivity8" ColumnName="filePlanStatusActivity8" />
+                <ScalarProperty Name="filePlanStatusActivity7" ColumnName="filePlanStatusActivity7" />
+                <ScalarProperty Name="filePlanStatusActivity6" ColumnName="filePlanStatusActivity6" />
+                <ScalarProperty Name="filePlanStatusActivity5" ColumnName="filePlanStatusActivity5" />
+                <ScalarProperty Name="filePlanStatusActivity4" ColumnName="filePlanStatusActivity4" />
+                <ScalarProperty Name="filePlanStatusActivity3" ColumnName="filePlanStatusActivity3" />
+                <ScalarProperty Name="filePlanStatusActivity2" ColumnName="filePlanStatusActivity2" />
+                <ScalarProperty Name="filePlanStatusActivity1" ColumnName="filePlanStatusActivity1" />
+                <ScalarProperty Name="planStatusActivity10" ColumnName="planStatusActivity10" />
+                <ScalarProperty Name="planStatusActivity9" ColumnName="planStatusActivity9" />
+                <ScalarProperty Name="planStatusActivity8" ColumnName="planStatusActivity8" />
+                <ScalarProperty Name="planStatusActivity7" ColumnName="planStatusActivity7" />
+                <ScalarProperty Name="planStatusActivity6" ColumnName="planStatusActivity6" />
+                <ScalarProperty Name="planStatusActivity5" ColumnName="planStatusActivity5" />
+                <ScalarProperty Name="planStatusActivity4" ColumnName="planStatusActivity4" />
+                <ScalarProperty Name="planStatusActivity3" ColumnName="planStatusActivity3" />
+                <ScalarProperty Name="planStatusActivity2" ColumnName="planStatusActivity2" />
+                <ScalarProperty Name="planStatusActivity1" ColumnName="planStatusActivity1" />
                 <ScalarProperty Name="workOverview" ColumnName="workOverview" />
                 <ScalarProperty Name="statusActivity10" ColumnName="statusActivity10" />
                 <ScalarProperty Name="statusActivity9" ColumnName="statusActivity9" />

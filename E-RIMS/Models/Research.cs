@@ -39,6 +39,7 @@ namespace E_RIMS.Models
         public string files { get; set; }
         [FileExtensionsValidationWorkPiece]
         public HttpPostedFileBase files2 { get; set; }
+        [Required(ErrorMessage = "กรุณาใส่กิจกรรมอย่างน้อย 1 กิจกรรม")]
         public string activity1 { get; set; }
         public Nullable<bool> isJan1 { get; set; }
         public Nullable<bool> isFeb1 { get; set; }
@@ -183,5 +184,125 @@ namespace E_RIMS.Models
         public string statusActivity9 { get; set; }
         public string statusActivity10 { get; set; }
         public Nullable<decimal> workOverview { get; set; }
+        public string planStatusActivity1 { get; set; }
+        public string planStatusActivity2 { get; set; }
+        public string planStatusActivity3 { get; set; }
+        public string planStatusActivity4 { get; set; }
+        public string planStatusActivity5 { get; set; }
+        public string planStatusActivity6 { get; set; }
+        public string planStatusActivity7 { get; set; }
+        public string planStatusActivity8 { get; set; }
+        public string planStatusActivity9 { get; set; }
+        public string planStatusActivity10 { get; set; }
+        public string filePlanStatusActivity1 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity1HttpPost { get; set; }
+        public string filePlanStatusActivity2 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity2HttpPost { get; set; }
+        public string filePlanStatusActivity3 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity3HttpPost { get; set; }
+        public string filePlanStatusActivity4 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity4HttpPost { get; set; }
+        public string filePlanStatusActivity5 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity5HttpPost { get; set; }
+        public string filePlanStatusActivity6 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity6HttpPost { get; set; }
+        public string filePlanStatusActivity7 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity7HttpPost { get; set; }
+        public string filePlanStatusActivity8 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity8HttpPost { get; set; }
+        public string filePlanStatusActivity9 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity9HttpPost { get; set; }
+        public string filePlanStatusActivity10 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase filePlanStatusActivity10HttpPost { get; set; }
+        public string proceedStatusActivity1 { get; set; }
+        public string proceedStatusActivity2 { get; set; }
+        public string proceedStatusActivity3 { get; set; }
+        public string proceedStatusActivity4 { get; set; }
+        public string proceedStatusActivity5 { get; set; }
+        public string proceedStatusActivity6 { get; set; }
+        public string proceedStatusActivity7 { get; set; }
+        public string proceedStatusActivity8 { get; set; }
+        public string proceedStatusActivity9 { get; set; }
+        public string proceedStatusActivity10 { get; set; }
+        public string fileProceedStatusActivity1 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity1HttpPost { get; set; }
+        public string fileProceedStatusActivity2 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity2HttpPost { get; set; }
+        public string fileProceedStatusActivity3 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity3HttpPost { get; set; }
+        public string fileProceedStatusActivity4 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity4HttpPost { get; set; }
+        public string fileProceedStatusActivity5 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity5HttpPost { get; set; }
+        public string fileProceedStatusActivity6 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity6HttpPost { get; set; }
+        public string fileProceedStatusActivity7 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity7HttpPost { get; set; }
+        public string fileProceedStatusActivity8 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity8HttpPost { get; set; }
+        public string fileProceedStatusActivity9 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity9HttpPost { get; set; }
+        public string fileProceedStatusActivity10 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileProceedStatusActivity10HttpPost { get; set; }
+        public string finishStatusActivity1 { get; set; }
+        public string finishStatusActivity2 { get; set; }
+        public string finishStatusActivity3 { get; set; }
+        public string finishStatusActivity4 { get; set; }
+        public string finishStatusActivity5 { get; set; }
+        public string finishStatusActivity6 { get; set; }
+        public string finishStatusActivity7 { get; set; }
+        public string finishStatusActivity8 { get; set; }
+        public string finishStatusActivity9 { get; set; }
+        public string finishStatusActivity10 { get; set; }
+        public string fileFinishStatusActivity1 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity1HttpPost { get; set; }
+        public string fileFinishStatusActivity2 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity2HttpPost { get; set; }
+        public string fileFinishStatusActivity3 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity3HttpPost { get; set; }
+        public string fileFinishStatusActivity4 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity4HttpPost { get; set; }
+        public string fileFinishStatusActivity5 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity5HttpPost { get; set; }
+        public string fileFinishStatusActivity6 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity6HttpPost { get; set; }
+        public string fileFinishStatusActivity7 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity7HttpPost { get; set; }
+        public string fileFinishStatusActivity8 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity8HttpPost { get; set; }
+        public string fileFinishStatusActivity9 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity9HttpPost { get; set; }
+        public string fileFinishStatusActivity10 { get; set; }
+        [FileExtensionsValidationWorkPiece]
+        public HttpPostedFileBase fileFinishStatusActivity10HttpPost { get; set; }
     }
 }

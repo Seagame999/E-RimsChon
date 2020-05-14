@@ -25,7 +25,7 @@ namespace E_RIMS.Controllers
             var research = db.Research;
 
             //--Pagination 10 each
-            var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
+            var researchResult = research.OrderByDescending(x => x.date).ToList().ToPagedList(page ?? 1, 10);
 
             return View(researchResult);
         }
@@ -95,7 +95,7 @@ namespace E_RIMS.Controllers
             var innovation = db.Innovation;
 
             //--Pagination 10 each
-            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+            var innovationResult = innovation.OrderByDescending(x => x.date).ToList().ToPagedList(page ?? 1, 10);
 
             return View(innovationResult);
 
@@ -133,7 +133,7 @@ namespace E_RIMS.Controllers
 
                 return View(innovationResult);
             }
-            if (creator != "-- นวัตกร --")
+            if (creator != "")
             {
                 innovationResult = db.Innovation.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
 
@@ -146,6 +146,7 @@ namespace E_RIMS.Controllers
             }
             if (workGroup != "-- กลุ่มงาน --")
             {
+                
                 innovationResult = db.Innovation.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
