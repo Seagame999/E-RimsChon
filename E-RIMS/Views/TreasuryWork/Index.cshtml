@@ -1,51 +1,46 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "คลังผลงาน";
 }
-<br><br>
-<h3><strong>คลังผลงาน</strong></h3>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <center>
-                <a href="@Url.Action("Index","Research")">
-                    <img src="~/Image/img1.png" width="150" height="150">
-                    <h4>งานวิจัย</h4>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">คลังผลงาน</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <a href="@Url.Action("ResearchTreasuryWork","TreasuryWork")">
+                    <img src="~/Image/researcher.png" style="height:250px; margin:10px;">
+                    <h4 class="card-title">คลังผลงานวิจัย</h4>
                 </a>
-            </center>
-        </div>
-        <div class="col">
-            <center>
-                <a href="@Url.Action("Index","AcademicPaper")">
-                    <img src="~/Image/img2.png" width="150" height="150">
-                    <h4>งานวิชาการ</h4>
-                </a>
-            </center>
-        </div>
-        <div class="col">
-            <center>
-                <a href="@Url.Action("Index","Journal")">
-                    <img src="~/Image/img3.png" width="150" height="150">
-                    <h4>วารสาร สคร.6 ชลบุรี</h4>
-                </a>
-            </center>
-        </div>
-        <div class="col">
-            <center>
-                <a href="@Url.Action("Index","Innovation")">
-                    <img src="~/Image/img4.jpg" width="150" height="150">
-                    <h4>นวัตกรรม</h4>
-                </a>
-            </center>
-        </div>
-        <div class="col">
-            <center>
-                <a href="@Url.Action("Index","KnowledgeBox")">
-                    <img src="~/Image/learning-material.svg" width="150" height="150">
-                    <h4>กล่องความรู้</h4>
-                </a>
-            </center>
+            </div>
         </div>
     </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <a href="@Url.Action("AcademicTreasuryWork","TreasuryWork")">
+                    <img src="~/Image/Books_PNG.png" style="height:250px; margin:10px;">
+                    <h4 class="card-title">คลังผลงานวิชาการ</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <a href="@Url.Action("InnovationTreasuryWork","TreasuryWork")">
+                    <img src="~/Image/innovator.png" style="height:250px; margin:10px;">
+                    <h4 class="card-title">คลังผลงานนวัตกรรม</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </div>

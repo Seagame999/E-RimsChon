@@ -1,0 +1,122 @@
+﻿@model IPagedList<E_RIMS.Models.Innovation>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "คลังผลงานนวัตกรรม";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "TreasuryWork")">คลังผลงาน</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>คลังผลงานนวัตกรรมที่ดำเนินการแล้วเสร็จ&nbsp;</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+        <div class="card">
+            <div class="card-header">
+                ค้นหางานนวัตกรรม
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Index", "Innovation", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="form-group col-2">
+                            <label class="" for="">ปีงบประมาณ</label>
+                            <select class="custom-select custom-select-sm" id="" name="budgetYear">
+                                <option selected>-- ปีงบประมาณ --</option>
+                                <option>2561</option>
+                                <option>2562</option>
+                                <option>2563</option>
+                                <option>2564</option>
+                                <option>2565</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label class="" for="">ชื่อนวัตกรรม</label>
+                            <input type="text" class="form-control form-control-sm" name="name" />
+                        </div>
+                        <div class="form-group col-3">
+                            <label class="" for="">นวัตกร</label>
+                            <input type="text" class="form-control form-control-sm" name="creator" />
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="">กลุ่มงาน</label>
+                            <select class="form-control custom-select-sm" name="workGroup">
+                                <option selected>-- กลุ่มงาน --</option>
+                                <option>งานเภสัชกรรม</option>
+                                <option>บริหารทั่วไป</option>
+                                <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
+                                <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
+                                <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
+                                <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
+                                <option>โรคติดต่อ</option>
+                                <option>โรคไม่ติดต่อ</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
+                                <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
+                                <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
+                                <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหานวัตกรรม</button>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <h5 class="card-title">รายงานนวัตกรรม</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">ปีงบประมาณ</th>
+                    <th scope="col">นวัตกรรม</th>
+                    <th scope="col">ประเภท</th>
+                    <th scope="col">นวัตกร</th>
+                    <th scope="col">กลุ่มงาน</th>
+                    <th scope="col">การกระทำ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.date)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
+                        <td><a href="@Url.Action("DetailInnovation"+"/"+item.id,"Innovation")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.type)</td>
+                        <td>@Html.DisplayFor(modelItem => item.creator)</td>
+                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
+                        <td class="text-nowrap"><a href="@Url.Action("EditInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="text-center">
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-6">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

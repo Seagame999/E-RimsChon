@@ -13,5 +13,23 @@ namespace E_RIMS.Controllers
         {
             return View();
         }
+
+        // GET: TreasuryWork
+        public ActionResult ResearchTreasuryWork()
+        {
+            return View();
+        }
+
+        // GET: TreasuryWork
+        public ActionResult InnovationTreasuryWork()
+        {
+            return View();
+        }
+
+        // GET: TreasuryWork
+        public ActionResult AcademicTreasuryWork()
+        {
+            return View();
+        }
     }
 }
