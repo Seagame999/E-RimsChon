@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "จัดการข้อมูลงานวิจัย และงานนวัตกรรม";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">งานวิจัยและงานนวัตกรรม</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>งานวิจัยและงานนวัตกรรม</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-title">
+                            จัดการงานวิจัย
+                        </div>
+                        <a href="@Url.Action("Index","Research")">
+                            <img src="~/Image/researcher.png" class="rounded" alt="" style="height:250px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-title">
+                            จัดการงานวัตกรรม
+                        </div>
+                        <a href="@Url.Action("Index","Innovation")">
+                            <img src="~/Image/innovator.png" class="rounded" alt="" style="height:250px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

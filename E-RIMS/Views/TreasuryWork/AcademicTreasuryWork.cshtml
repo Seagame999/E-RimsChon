@@ -24,10 +24,10 @@
         <hr />
         <div class="card">
             <div class="card-header">
-                ค้นหางานวิจัย
+                ค้นหางานวิชาการ
             </div>
             <div class="card-body">
-                @using (Html.BeginForm("Index", "Research", FormMethod.Post))
+                @using (Html.BeginForm("AcademicTreasuryWork", "TreasuryWork", FormMethod.Post))
                 {
                     <div class="form-row">
                         <div class="form-group col-2">
@@ -42,7 +42,7 @@
                             </select>
                         </div>
                         <div class="form-group col-3">
-                            <label class="" for="">ชื่องานวิจัย</label>
+                            <label class="" for="">ชื่องานวิชาการ</label>
                             <input type="text" class="form-control form-control-sm" name="name" />
                         </div>
                         <div class="form-group col-3">
@@ -73,19 +73,18 @@
                         </div>
                     </div>
                     <div class="form-group text-right">
-                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิจัย</button>
+                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิชาการ</button>
                     </div>
                 }
             </div>
         </div>
         <br />
-        <h5 class="card-title">รายการงานวิจัย</h5>
+        <h5 class="card-title">รายการงานวิชาการ</h5>
         <table class="table table-striped">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">#</th>
                     <th scope="col">ปีงบประมาณ</th>
-                    <th scope="col">ชื่องานวิจัย</th>
+                    <th scope="col">ชื่องานวิชาการ</th>
                     <th scope="col">นักวิจัย</th>
                     <th scope="col">กลุ่มงาน</th>
                     <th scope="col">การกระทำ</th>
@@ -95,7 +94,6 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.date)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
                         <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td>@Html.DisplayFor(modelItem => item.creator)</td>

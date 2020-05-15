@@ -133,6 +133,8 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
+
+
                 return RedirectToAction("Index");
             }
 

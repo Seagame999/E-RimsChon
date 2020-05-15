@@ -27,7 +27,7 @@
                 ค้นหางานวิจัย
             </div>
             <div class="card-body">
-                @using (Html.BeginForm("Index", "Research", FormMethod.Post))
+                @using (Html.BeginForm("ResearchTreasuryWork", "TreasuryWork", FormMethod.Post))
                 {
                     <div class="form-row">
                         <div class="form-group col-2">
@@ -83,7 +83,6 @@
         <table class="table table-striped">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">#</th>
                     <th scope="col">ปีงบประมาณ</th>
                     <th scope="col">ชื่องานวิจัย</th>
                     <th scope="col">นักวิจัย</th>
@@ -95,7 +94,6 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.date)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
                         <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td>@Html.DisplayFor(modelItem => item.creator)</td>

@@ -149,6 +149,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PublicRelationController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ResearchAndInnovationController.cs" />
     <Compile Include="Controllers\ResearchController.cs" />
     <Compile Include="Controllers\ResearcherAndInnovatorController.cs" />
     <Compile Include="Controllers\ResearcherController.cs" />
@@ -538,6 +539,10 @@
     <Content Include="Views\WorkTracking\trackResearch.cshtml" />
     <Content Include="Views\WorkTracking\updateInnovationStatus.cshtml" />
     <Content Include="Views\WorkTracking\updateResearchStatus.cshtml" />
+    <Content Include="Views\TreasuryWork\AcademicTreasuryWork.cshtml" />
+    <Content Include="Views\TreasuryWork\InnovationTreasuryWork.cshtml" />
+    <Content Include="Views\TreasuryWork\ResearchTreasuryWork.cshtml" />
+    <Content Include="Views\ResearchAndInnovation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

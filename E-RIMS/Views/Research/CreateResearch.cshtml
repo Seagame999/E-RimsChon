@@ -214,6 +214,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td><input type="text" class="form-control form-control-sm" name="activity1" /></td>
+                                        @Html.ValidationMessageFor(model => model.activity1, "", new { @class = "text-danger" })
                                         <td><input type="checkbox" class="form-check" name="isOct1" value="true" /></td>
                                         <td><input type="checkbox" class="form-check" name="isNov1" value="true" /></td>
                                         <td><input type="checkbox" class="form-check" name="isDec1" value="true" /></td>
