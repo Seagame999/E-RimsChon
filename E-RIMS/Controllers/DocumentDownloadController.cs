@@ -58,7 +58,7 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
 
                 return View(documentDownload);
@@ -92,7 +92,7 @@ namespace E_RIMS.Controllers
 
                 db.Entry(documentDownload).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
 
             return View(documentDownload);
@@ -116,6 +116,16 @@ namespace E_RIMS.Controllers
             db.DocumentDownload.Remove(documentDownload);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
     }
 }

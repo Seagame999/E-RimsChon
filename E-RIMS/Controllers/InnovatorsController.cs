@@ -75,7 +75,7 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
             return View(innovator);
         }
@@ -134,7 +134,7 @@ namespace E_RIMS.Controllers
 
                 db.Entry(innovator).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
 
             return View(innovator);
@@ -158,6 +158,16 @@ namespace E_RIMS.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
 
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
 
     }

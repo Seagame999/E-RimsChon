@@ -59,7 +59,7 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("AllNews");
+                return RedirectToAction("CreateSuccessMessage");
             }
 
             return View(publicRelation);
@@ -114,7 +114,7 @@ namespace E_RIMS.Controllers
                 }
                 db.Entry(publicRelation).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("AllNews");
+                return RedirectToAction("EditSuccessMessage");
 
             }
             return View(publicRelation);
@@ -139,6 +139,15 @@ namespace E_RIMS.Controllers
             db.SaveChanges();
             return RedirectToAction("AllNews");
         }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
         
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
+        }
     }
 }

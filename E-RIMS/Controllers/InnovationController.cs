@@ -133,7 +133,7 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
 
             return View(innovation);
@@ -197,7 +197,7 @@ namespace E_RIMS.Controllers
                 innovation.date = DateTime.Today;
                 db.Entry(innovation).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
             return View(innovation);
         }
@@ -219,6 +219,16 @@ namespace E_RIMS.Controllers
             db.Innovation.Remove(innovation);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
     }
 }

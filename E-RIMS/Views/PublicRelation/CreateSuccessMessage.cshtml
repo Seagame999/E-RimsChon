@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "สร้างข่าวสำเร็จแล้ว";
+}
+
+<script>
+        setTimeout(function () {
+            window.location.href = '@Url.Action("AllNews")';
+        }, 3000);
+</script>
+
+<style>
+    body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+    }
+
+    #h1 {
+        color: #1DA7B4;
+        font-weight: 900;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    #mark {
+        color: #1DA7B4;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left: -15px;
+    }
+
+    #card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    #buttonStyle {
+        background: #1DA7B4;
+    }
+</style>
+
+<div class="card" id="card">
+    <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark" id="mark">✓</i>
+    </div>
+    <br />
+    <h1 id="h1">สร้างข่าวสำเร็จแล้ว</h1>
+    <br />
+    <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("AllNews")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+</div>
+
+
+

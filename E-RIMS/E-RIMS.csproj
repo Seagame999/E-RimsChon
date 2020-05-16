@@ -543,6 +543,22 @@
     <Content Include="Views\TreasuryWork\InnovationTreasuryWork.cshtml" />
     <Content Include="Views\TreasuryWork\ResearchTreasuryWork.cshtml" />
     <Content Include="Views\ResearchAndInnovation\Index.cshtml" />
+    <Content Include="Views\PublicRelation\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\PublicRelation\EditSuccessMessage.cshtml" />
+    <Content Include="Views\Research\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Research\EditSuccessMessage.cshtml" />
+    <Content Include="Views\Innovation\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Innovation\EditSuccessMessage.cshtml" />
+    <Content Include="Views\WorkTracking\UpdateSuccessMessageResearch.cshtml" />
+    <Content Include="Views\WorkTracking\UpdateSuccessMessageInnovation.cshtml" />
+    <Content Include="Views\Researcher\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Researcher\EditSuccessMessage.cshtml" />
+    <Content Include="Views\Innovators\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Innovators\EditSuccessMessage.cshtml" />
+    <Content Include="Views\Journal\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Journal\EditSuccessMessage.cshtml" />
+    <Content Include="Views\DocumentDownload\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\DocumentDownload\EditSuccessMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

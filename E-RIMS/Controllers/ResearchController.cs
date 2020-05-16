@@ -135,7 +135,7 @@ namespace E_RIMS.Controllers
 
 
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
 
             return View(research);
@@ -199,7 +199,7 @@ namespace E_RIMS.Controllers
                 research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
             return View(research);
         }
@@ -221,6 +221,16 @@ namespace E_RIMS.Controllers
             db.Research.Remove(research);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
 
     }

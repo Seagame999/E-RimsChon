@@ -69,7 +69,7 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
 
             return View(journal);
@@ -124,7 +124,7 @@ namespace E_RIMS.Controllers
 
                 db.Entry(journal).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
             return View(journal);
         }
@@ -147,6 +147,16 @@ namespace E_RIMS.Controllers
             db.Journal.Remove(journal);
             db.SaveChanges();
             return RedirectToAction("AllJournal");
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
     }
 }

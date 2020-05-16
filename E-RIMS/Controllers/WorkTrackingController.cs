@@ -197,7 +197,7 @@ namespace E_RIMS.Controllers
                 research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("trackResearch");
+                return RedirectToAction("UpdateSuccessMessageResearch");
             }
             return View(research);
         }
@@ -236,7 +236,7 @@ namespace E_RIMS.Controllers
                 innovation.date = DateTime.Today;
                 db.Entry(innovation).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("trackInnovation");
+                return RedirectToAction("UpdateSuccessMessageInnovation");
             }
             return View(innovation);
         }
@@ -521,6 +521,16 @@ namespace E_RIMS.Controllers
             double sumActivityValue = statusActivity1Value + statusActivity2Value + statusActivity3Value + statusActivity4Value + statusActivity5Value + statusActivity6Value + statusActivity7Value + statusActivity8Value + statusActivity9Value + statusActivity10Value;
 
             return sumActivityValue;
+        }
+
+        public ActionResult UpdateSuccessMessageResearch()
+        {
+            return View();
+        }
+
+        public ActionResult UpdateSuccessMessageInnovation()
+        {
+            return View();
         }
     }
 }
