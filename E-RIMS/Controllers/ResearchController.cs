@@ -127,6 +127,7 @@ namespace E_RIMS.Controllers
                 //    research.usernameOwner = Session["Username"].ToString();
                 //}
 
+                research.views = 0;
                 research.workOverview = 00.00m;
                 research.date = DateTime.Today;
                 db.Research.Add(research);
@@ -149,6 +150,10 @@ namespace E_RIMS.Controllers
             {
                 return RedirectToAction("Index");
             }
+            //--Page Visitor
+            research.views = research.views + 1;
+            db.Entry(research).State = EntityState.Modified;
+            db.SaveChanges();
             return View(research);
         }
 
@@ -195,6 +200,7 @@ namespace E_RIMS.Controllers
                 //    research.usernameOwner = Session["Username"].ToString();
                 //}
 
+                research.views = 0;
                 research.workOverview = Convert.ToDecimal(workOverview);
                 research.date = DateTime.Today;
                 db.Entry(research).State = EntityState.Modified;

@@ -26,10 +26,14 @@ namespace E_RIMS.Controllers
             return View(expertResult);
         }
 
-        public ActionResult ListExpert()
+        public ActionResult ListExpert(int? page)
         {
             var expert = db.Expert;
-            return View(expert.ToList());
+
+            //--Pagination 6 cards
+            var expertResult = expert.ToList().ToPagedList(page ?? 1, 6);
+
+            return View(expertResult);
         }
 
         public ActionResult CreateExpert()
@@ -41,6 +45,23 @@ namespace E_RIMS.Controllers
                                          Text = item.nameTitle1,
                                          Value = item.nameTitle1.ToString()
                                      });
+
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
+
             return View();
         }
 
@@ -63,7 +84,7 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
             return View(expert);
         }
@@ -75,6 +96,7 @@ namespace E_RIMS.Controllers
             {
                 return RedirectToAction("Index");
             }
+
             return View(expert);
         }
 
@@ -93,6 +115,22 @@ namespace E_RIMS.Controllers
                                          Text = item.nameTitle1,
                                          Value = item.nameTitle1.ToString()
                                      });
+
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
 
             return View(expert);
         }
@@ -114,7 +152,7 @@ namespace E_RIMS.Controllers
 
                 db.Entry(expert).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
 
             return View(expert);
@@ -138,6 +176,16 @@ namespace E_RIMS.Controllers
             db.Expert.Remove(expert);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
     }
 }

@@ -559,6 +559,8 @@
     <Content Include="Views\Journal\EditSuccessMessage.cshtml" />
     <Content Include="Views\DocumentDownload\CreateSuccessMessage.cshtml" />
     <Content Include="Views\DocumentDownload\EditSuccessMessage.cshtml" />
+    <Content Include="Views\Expert\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Expert\EditSuccessMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

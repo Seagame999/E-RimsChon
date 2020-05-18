@@ -1,267 +1,85 @@
-﻿@model IEnumerable<E_RIMS.Models.Expert>
-
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.Expert>
 @{
-    ViewBag.Title = "ListExpert";
+    ViewBag.Title = "ประวัติผู้เชี่ยวชาญ";
 }
 
-<h2>ListExpert</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">ประวัติผู้เชี่ยวชาญ</li>
+    </ol>
+</nav>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nameTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.identificationNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.position)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.levels)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.houseNumberHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.villageNumberHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.alleyHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.roadHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.subDistricHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.districHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.provinceHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.postalHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.moblieNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.houseNumberOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.villageNumberOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.alleyOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.roadOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.subDistrictOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.districtOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.provinceOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.postalCodeOffice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.officePhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.officeFax)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.officeMobileNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.educationLevel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.graduationYear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.schoolName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.subjectQualification)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.specialExpertise)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dateWorkFrom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dateWorkTo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.workplace)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.positionWork)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.academicWorkYear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.joinDevelopmentTeam)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nameAcademic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.publication)
-        </th>
-        <th></th>
-    </tr>
+<div class="card">
+    <div class="card-header">
+        <h3>ประวัติผู้เชี่ยวชาญ</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            <i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title&nbsp;<small>
+                <a href="@Url.Action("CreateExpert","Expert")" class="btn btn-info">เพิ่มผู้เชี่ยวชาญรายใหม่</a>
+            </small>
+        </h5>
+        <hr />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nameTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.identificationNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.position)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.levels)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.houseNumberHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.villageNumberHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.alleyHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.roadHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subDistricHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.districHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.provinceHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postalHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.moblieNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.houseNumberOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.villageNumberOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.alleyOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.roadOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subDistrictOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.districtOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.provinceOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postalCodeOffice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officePhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officeFax)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officeMobileNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.educationLevel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.graduationYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.schoolName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subjectQualification)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.specialExpertise)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dateWorkFrom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dateWorkTo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.workplace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.positionWork)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.academicWorkYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.joinDevelopmentTeam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nameAcademic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.publication)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        <div class="row">
 
-</table>
+            <div class="card-deck">
+                @foreach (var item in Model)
+                {
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-center">
+                                    <a href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">
+                                        @Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.surname)
+                                    </a>
+                                </h6>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <img src="@Url.Content(item.image ?? "~/Image/no-camera.png")" class="rounded" style="height:200px">
+                                        <p class="card-text">@Html.DisplayFor(modelItem => item.position)</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์สำนักงาน:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.officePhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์โทรสาร:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.officeFax)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์มือถือ:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.moblieNumber)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <a class="btn btn-sm btn-info" href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditExpert"+"/"+item.id, "Expert")">แก้ไขข้อมูล</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+        </div>
+    </div>
+</div>

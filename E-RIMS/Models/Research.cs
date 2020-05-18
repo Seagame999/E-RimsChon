@@ -304,5 +304,6 @@ namespace E_RIMS.Models
         public string fileFinishStatusActivity10 { get; set; }
         [FileExtensionsValidationWorkPiece]
         public HttpPostedFileBase fileFinishStatusActivity10HttpPost { get; set; }
+        public Nullable<int> views { get; set; }
     }
 }

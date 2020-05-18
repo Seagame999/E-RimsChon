@@ -1,6 +1,85 @@
-﻿
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.Expert>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ประวัติผู้เชี่ยวชาญ";
 }
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">ประวัติผู้เชี่ยวชาญ</li>
+    </ol>
+</nav>
 
+<div class="card">
+    <div class="card-header">
+        <h3>ประวัติผู้เชี่ยวชาญ</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            <i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title&nbsp;<small>
+                <a href="@Url.Action("CreateExpert","Expert")" class="btn btn-info">เพิ่มผู้เชี่ยวชาญรายใหม่</a>
+            </small>
+        </h5>
+        <hr />
+
+        <div class="row">
+
+            <div class="card-deck">
+                @foreach (var item in Model)
+                {
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-center">
+                                    <a href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">
+                                        @Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.surname)
+                                    </a>
+                                </h6>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <img src="@Url.Content(item.image ?? "~/Image/no-camera.png")" class="rounded" style="height:200px">
+                                        <p class="card-text">@Html.DisplayFor(modelItem => item.position)</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์สำนักงาน:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.officePhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์โทรสาร:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.officeFax)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        เบอร์มือถือ:
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(modelItem => item.moblieNumber)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <a class="btn btn-sm btn-info" href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditExpert"+"/"+item.id, "Expert")">แก้ไขข้อมูล</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+        </div>
+    </div>
+</div>

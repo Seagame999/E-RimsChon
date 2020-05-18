@@ -35,7 +35,7 @@
                 <div class="form-group col-4">
                     <label>รูปประกอบข่าว</label>
                     <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                        <img class="card-img-top" src="@Url.Content(Model.image)" alt="Card image cap">
+                        <img class="card-img-top" src="@Url.Content(Model.image ?? "~/Image/no-camera.png")" alt="Card image cap">
                     </div>
                     <input type="file" name="image2" />
                     @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })

@@ -21,7 +21,6 @@ namespace E_RIMS.Models
         public int id { get; set; }
         public string newsName { get; set; }
         public string image { get; set; }
-        [Required(ErrorMessage ="กรุณาใส่รูปภาพประกอบข่าว")]
         [FileExtensionsValidationImage]
         public HttpPostedFileBase image2 { get; set; }
         public string description { get; set; }

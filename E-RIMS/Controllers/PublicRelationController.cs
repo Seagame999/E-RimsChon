@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.IO;
 using PagedList;
 using PagedList.Mvc;
+using System.Data.Entity.Validation;
 
 namespace E_RIMS.Controllers
 {
@@ -22,7 +23,7 @@ namespace E_RIMS.Controllers
             var publicRelation = db.PublicRelation;
             var publicRelationResult = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
 
-            return View(publicRelationResult);     
+            return View(publicRelationResult);
         }
 
         public ActionResult CreateNews()
@@ -39,7 +40,7 @@ namespace E_RIMS.Controllers
                 {
                     string fileName = Path.GetFileNameWithoutExtension(publicRelation.image2.FileName);
                     string extension = Path.GetExtension(publicRelation.image2.FileName);
-                    fileName = fileName +"_"+ DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
+                    fileName = fileName + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
                     publicRelation.image = "/ImagePublicRelation/" + fileName;
                     fileName = Path.Combine(Server.MapPath("~/ImagePublicRelation/"), fileName);
                     publicRelation.image2.SaveAs(fileName);
@@ -55,6 +56,7 @@ namespace E_RIMS.Controllers
                     publicRelation.docUpload2.SaveAs(path);
                 }
 
+                publicRelation.views = 0;
                 db.PublicRelation.Add(publicRelation);
                 db.SaveChanges();
                 ModelState.Clear();
@@ -65,8 +67,6 @@ namespace E_RIMS.Controllers
             return View(publicRelation);
         }
 
-
-
         public ActionResult News(int id)
         {
             PublicRelation publicRelation = db.PublicRelation.Find(id);
@@ -74,9 +74,12 @@ namespace E_RIMS.Controllers
             {
                 return RedirectToAction("AllNews");
             }
+            //--Page Visitor
+            publicRelation.views = publicRelation.views + 1;
+            db.Entry(publicRelation).State = EntityState.Modified;
+            db.SaveChanges();
             return View(publicRelation);
         }
-
 
         public ActionResult EditNews(int id)
         {
@@ -112,6 +115,7 @@ namespace E_RIMS.Controllers
                     var path = Path.Combine(Server.MapPath("~/docUploadPublicRelation/"), fileNameDoc);
                     publicRelation.docUpload2.SaveAs(path);
                 }
+                publicRelation.views = 0;
                 db.Entry(publicRelation).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
@@ -144,7 +148,7 @@ namespace E_RIMS.Controllers
         {
             return View();
         }
-        
+
         public ActionResult EditSuccessMessage()
         {
             return View();
