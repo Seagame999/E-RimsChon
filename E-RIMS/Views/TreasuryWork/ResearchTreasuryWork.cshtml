@@ -87,7 +87,6 @@
                     <th scope="col">ชื่องานวิจัย</th>
                     <th scope="col">นักวิจัย</th>
                     <th scope="col">กลุ่มงาน</th>
-                    <th scope="col">การกระทำ</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,8 +96,7 @@
                         <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
                         <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td>@Html.DisplayFor(modelItem => item.creator)</td>
-                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
-                        <td class="text-nowrap"><a href="@Url.Action("EditResearch"+"/"+item.id,"Research")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>                     
                     </tr>
                 }
             </tbody>

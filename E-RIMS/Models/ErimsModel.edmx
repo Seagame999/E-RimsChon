@@ -114,6 +114,7 @@
           <Property Name="joinDevelopmentTeam" Type="varchar" MaxLength="255" />
           <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
           <Property Name="publication" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Innovation">
           <Key>
@@ -963,6 +964,7 @@
           <Property Name="joinDevelopmentTeam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -1780,6 +1782,7 @@
           <EntitySetMapping Name="Expert">
             <EntityTypeMapping TypeName="ERIMSModel.Expert">
               <MappingFragment StoreEntitySet="Expert">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="nameTitle" ColumnName="nameTitle" />
