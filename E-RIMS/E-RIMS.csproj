@@ -561,6 +561,8 @@
     <Content Include="Views\DocumentDownload\EditSuccessMessage.cshtml" />
     <Content Include="Views\Expert\CreateSuccessMessage.cshtml" />
     <Content Include="Views\Expert\EditSuccessMessage.cshtml" />
+    <Content Include="Views\WorkTracking\updateActivityStatus.cshtml" />
+    <Content Include="Views\WorkTracking\updateResearchActivityStatus1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -570,6 +572,9 @@
     <Folder Include="docUploadJournal\" />
     <Folder Include="docUploadPublicRelation\" />
     <Folder Include="docUploadResearch\" />
+    <Folder Include="fileFinishStatusActivity1\" />
+    <Folder Include="filePlanStatusActivity1\" />
+    <Folder Include="fileProceedStatusActivity1\" />
     <Folder Include="ImageExpert\" />
     <Folder Include="ImageInnovator\" />
     <Folder Include="ImageJournal\" />

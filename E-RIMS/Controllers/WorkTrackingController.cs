@@ -146,7 +146,7 @@ namespace E_RIMS.Controllers
             }
             if (workGroup != "-- กลุ่มงาน --")
             {
-                
+
                 innovationResult = db.Innovation.Where(x => x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup)).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
@@ -162,7 +162,7 @@ namespace E_RIMS.Controllers
             }
         }
 
-        
+
         public ActionResult updateResearchStatus(int id)
         {
             Research research = db.Research.Find(id);
@@ -177,11 +177,11 @@ namespace E_RIMS.Controllers
 
             var modelStatusActivity = db.StatusActivity.ToList();
             ViewBag.StatusActivityView = (from item in modelStatusActivity
-                                      select new SelectListItem
-                                      {
-                                          Text = item.statusActivity1,
-                                          Value = item.statusActivity1
-                                      });
+                                          select new SelectListItem
+                                          {
+                                              Text = item.statusActivity1,
+                                              Value = item.statusActivity1
+                                          });
 
             return View(research);
         }
@@ -202,7 +202,7 @@ namespace E_RIMS.Controllers
             return View(research);
         }
 
-        
+
         public ActionResult updateInnovationStatus(int id)
         {
             Innovation innovation = db.Innovation.Find(id);
@@ -241,7 +241,7 @@ namespace E_RIMS.Controllers
             return View(innovation);
         }
 
-
+        //--คำนวรจำนวนกิจกรรมทั้งหมด
         public double numberOfActivitiesResearch(int id)
         {
             Research research = db.Research.Find(id);
@@ -352,12 +352,12 @@ namespace E_RIMS.Controllers
 
         }
 
-
+        //--คำนวณเปอร์เซ็นต์งาน
         public double activityValue(double useNumberOfActivities, StatusActivitiesModel statusActivitiesModel)
         {
             double statusActivity1Value = 0, statusActivity2Value = 0, statusActivity3Value = 0, statusActivity4Value = 0, statusActivity5Value = 0,
                 statusActivity6Value = 0, statusActivity7Value = 0, statusActivity8Value = 0, statusActivity9Value = 0, statusActivity10Value = 0;
-            
+
             if (statusActivitiesModel.statusActivity1 != "ยังไม่ดำเนินการ")
             {
                 if (statusActivitiesModel.statusActivity1.Equals("เสร็จสิ้น"))
@@ -531,6 +531,72 @@ namespace E_RIMS.Controllers
         public ActionResult UpdateSuccessMessageInnovation()
         {
             return View();
+        }
+
+        public ActionResult updateResearchActivityStatus1(int id)
+        {
+            Research research = db.Research.Find(id);
+
+            if (research == null)
+            {
+                return RedirectToAction("trackResearch");
+            }
+
+            ViewBag.StatusDropdrown = new SelectList(db.StatusActivity, "id", "statusActivity");
+
+            return View(research);
+        }
+
+        [HttpPost]
+        public ActionResult updateResearchActivityStatus1(Research research)
+        {
+
+            if (ModelState.IsValid)
+            {
+                if (research.filePlanStatusActivity1HttpPost != null)
+                {
+                    var fileNameDoc = Path.GetFileNameWithoutExtension(research.filePlanStatusActivity1HttpPost.FileName);
+                    string extension = Path.GetExtension(research.filePlanStatusActivity1HttpPost.FileName);
+                    fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
+                    research.filePlanStatusActivity1 = "/filePlanStatusActivity1/" + fileNameDoc;
+                    var path = Path.Combine(Server.MapPath("~/filePlanStatusActivity1/"), fileNameDoc);
+                    research.filePlanStatusActivity1HttpPost.SaveAs(path);
+                }
+
+                if (research.fileProceedStatusActivity1HttpPost != null)
+                {
+                    var fileNameDoc = Path.GetFileNameWithoutExtension(research.fileProceedStatusActivity1HttpPost.FileName);
+                    string extension = Path.GetExtension(research.fileProceedStatusActivity1HttpPost.FileName);
+                    fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
+                    research.fileProceedStatusActivity1 = "/fileProceedStatusActivity1/" + fileNameDoc;
+                    var path = Path.Combine(Server.MapPath("~/fileProceedStatusActivity1/"), fileNameDoc);
+                    research.fileProceedStatusActivity1HttpPost.SaveAs(path);
+                }
+
+                if (research.fileFinishStatusActivity1HttpPost != null)
+                {
+                    var fileNameDoc = Path.GetFileNameWithoutExtension(research.fileFinishStatusActivity1HttpPost.FileName);
+                    string extension = Path.GetExtension(research.fileFinishStatusActivity1HttpPost.FileName);
+                    fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
+                    research.fileFinishStatusActivity1 = "/fileFinishStatusActivity1/" + fileNameDoc;
+                    var path = Path.Combine(Server.MapPath("~/fileFinishStatusActivity1/"), fileNameDoc);
+                    research.fileFinishStatusActivity1HttpPost.SaveAs(path);
+                }
+
+                db.Research.Attach(research);
+                db.Entry(research).Property(x => x.statusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.planStatusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.proceedStatusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.finishStatusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.filePlanStatusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.fileProceedStatusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.fileFinishStatusActivity1).IsModified = true;
+                db.SaveChanges();
+
+                return RedirectToAction("UpdateSuccessMessageResearch");
+            }
+
+            return View(research);
         }
 
     }
