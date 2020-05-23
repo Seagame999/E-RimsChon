@@ -126,10 +126,51 @@ namespace E_RIMS.Controllers
                 //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
                 //    innovation.usernameOwner = Session["Username"].ToString();
                 //}
-
                 innovation.views = 0;
                 innovation.workOverview = 00.00m;
                 innovation.date = DateTime.Today;
+
+                if (innovation.activity1 != null)
+                {
+                    innovation.statusActivity1 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity2 != null)
+                {
+                    innovation.statusActivity2 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity3 != null)
+                {
+                    innovation.statusActivity3 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity4 != null)
+                {
+                    innovation.statusActivity4 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity5 != null)
+                {
+                    innovation.statusActivity5 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity6 != null)
+                {
+                    innovation.statusActivity6 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity7 != null)
+                {
+                    innovation.statusActivity7 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity8 != null)
+                {
+                    innovation.statusActivity8 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity9 != null)
+                {
+                    innovation.statusActivity9 = "ยังไม่ดำเนินการ";
+                }
+                if (innovation.activity10 != null)
+                {
+                    innovation.statusActivity10 = "ยังไม่ดำเนินการ";
+                }
+
                 db.Innovation.Add(innovation);
                 db.SaveChanges();
                 ModelState.Clear();

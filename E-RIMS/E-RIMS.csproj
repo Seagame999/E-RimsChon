@@ -586,6 +586,16 @@
     <Content Include="Views\WorkTracking\updateResearchActivityStatus8.cshtml" />
     <Content Include="Views\WorkTracking\updateResearchActivityStatus9.cshtml" />
     <Content Include="Views\WorkTracking\updateResearchActivityStatus10.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus1.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus2.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus3.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus4.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus5.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus6.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus7.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus8.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus9.cshtml" />
+    <Content Include="Views\WorkTracking\updateInnovationActivityStatus10.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

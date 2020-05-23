@@ -1,0 +1,95 @@
+﻿@model E_RIMS.Models.Innovation
+@{
+    /**/
+
+    ViewBag.Title = "แก้ไขสถานะกิจกรรม";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "WorkTracking")">กำกับติดตามงาน</a></li>
+        <li class="breadcrumb-item" aria-current="page">@ViewBag.Title</li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.name</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>@ViewBag.Title</h3>
+    </div>
+    @using (Html.BeginForm(Html.BeginForm("updateInnovationActivityStatus3", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        ชื่องานวิจัย: @Model.name
+                    </div>
+                    <div class="row">
+                        <div class="col">ผู้วิจัย: @Model.creator</div>
+                        <div class="col">กิจกรรม: @Model.activity3</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        <i class="fa"></i>&nbsp;วางแผน
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="">ผลการดำเนินงาน</label>
+                            @Html.TextAreaFor(model => model.planStatusActivity3, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="">เอกสารประกอบ</label>
+                            <input type="file" class="form-control" name="filePlanStatusActivity3HttpPost" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        <i class="fa"></i>&nbsp;ดำเนินการ
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="">ผลการดำเนินงาน</label>
+                            @Html.TextAreaFor(model => model.proceedStatusActivity3, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="">เอกสารประกอบ</label>
+                            <input type="file" class="form-control" name="fileProceedStatusActivity3HttpPost" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        <i class="fa"></i>&nbsp;เสร็จสิ้น
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="">ผลการดำเนินงาน</label>
+                            @Html.TextAreaFor(model => model.finishStatusActivity3, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="">เอกสารประกอบ</label>
+                            <input type="file" class="form-control" name="fileFinishStatusActivity3HttpPost" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-right">
+            <button type="submit" class="btn btn-success">ปรับปรุงสถานะกิจกรรม</button>&nbsp;<button type="reset" class="btn btn-danger">ยกเลิก</button>
+        </div>
+    }
+
+</div>
