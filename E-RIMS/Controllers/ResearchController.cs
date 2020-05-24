@@ -130,11 +130,51 @@ namespace E_RIMS.Controllers
                 research.views = 0;
                 research.workOverview = 00.00m;
                 research.date = DateTime.Today;
+
+                if(research.activity1 != null)
+                {
+                    research.statusActivity1 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity2 != null)
+                {
+                    research.statusActivity2 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity3 != null)
+                {
+                    research.statusActivity3 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity4 != null)
+                {
+                    research.statusActivity4 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity5 != null)
+                {
+                    research.statusActivity5 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity6 != null)
+                {
+                    research.statusActivity6 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity7 != null)
+                {
+                    research.statusActivity7 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity8 != null)
+                {
+                    research.statusActivity8 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity9 != null)
+                {
+                    research.statusActivity9 = "ยังไม่ดำเนินการ";
+                }
+                if (research.activity10 != null)
+                {
+                    research.statusActivity10 = "ยังไม่ดำเนินการ";
+                }
+
                 db.Research.Add(research);
                 db.SaveChanges();
                 ModelState.Clear();
-
-
 
                 return RedirectToAction("CreateSuccessMessage");
             }
@@ -179,6 +219,7 @@ namespace E_RIMS.Controllers
             return View(research);
         }
 
+        //**** เพิ่มฟิลด์ไฟล์สุดท้าย + เซฟรายฟิลด์
         [HttpPost]
         public ActionResult EditResearch(Research research,string workOverview)
         {

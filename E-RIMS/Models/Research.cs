@@ -306,4 +306,5 @@ namespace E_RIMS.Models
         public HttpPostedFileBase fileFinishStatusActivity10HttpPost { get; set; }
         public Nullable<int> views { get; set; }
     }
+
 }
