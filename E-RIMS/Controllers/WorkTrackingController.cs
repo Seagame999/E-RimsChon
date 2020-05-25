@@ -200,7 +200,20 @@ namespace E_RIMS.Controllers
             {
                 research.workOverview = Convert.ToDecimal(activityValueUse);
                 research.date = DateTime.Today;
-                db.Entry(research).State = EntityState.Modified;
+
+                db.Research.Attach(research);
+                db.Entry(research).Property(x => x.date).IsModified = true;
+                db.Entry(research).Property(x => x.workOverview).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity1).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity2).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity3).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity4).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity5).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity6).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity7).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity8).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity9).IsModified = true;
+                db.Entry(research).Property(x => x.statusActivity10).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("UpdateSuccessMessageResearch");
             }
@@ -240,7 +253,19 @@ namespace E_RIMS.Controllers
             {
                 innovation.workOverview = Convert.ToDecimal(activityValueUse);
                 innovation.date = DateTime.Today;
-                db.Entry(innovation).State = EntityState.Modified;
+                db.Innovation.Attach(innovation);
+                db.Entry(innovation).Property(x => x.date).IsModified = true;
+                db.Entry(innovation).Property(x => x.workOverview).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity1).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity2).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity3).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity4).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity5).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity6).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity7).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity8).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity9).IsModified = true;
+                db.Entry(innovation).Property(x => x.statusActivity10).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("UpdateSuccessMessageInnovation");
             }
@@ -366,7 +391,7 @@ namespace E_RIMS.Controllers
             double statusActivity1Value = 0, statusActivity2Value = 0, statusActivity3Value = 0, statusActivity4Value = 0, statusActivity5Value = 0,
                 statusActivity6Value = 0, statusActivity7Value = 0, statusActivity8Value = 0, statusActivity9Value = 0, statusActivity10Value = 0;
 
-            if (statusActivitiesModel.statusActivity1 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity1 != null)
             {
                 if (statusActivitiesModel.statusActivity1.Equals("เสร็จสิ้น"))
                 {
@@ -382,7 +407,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity2 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity2 != null)
             {
                 if (statusActivitiesModel.statusActivity2.Equals("เสร็จสิ้น"))
                 {
@@ -398,7 +423,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity3 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity3 != null)
             {
                 if (statusActivitiesModel.statusActivity3.Equals("เสร็จสิ้น"))
                 {
@@ -414,7 +439,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity4 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity4 != null)
             {
                 if (statusActivitiesModel.statusActivity4.Equals("เสร็จสิ้น"))
                 {
@@ -430,7 +455,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity5 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity5 != null)
             {
                 if (statusActivitiesModel.statusActivity5.Equals("เสร็จสิ้น"))
                 {
@@ -446,7 +471,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity6 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity6 != null)
             {
                 if (statusActivitiesModel.statusActivity6.Equals("เสร็จสิ้น"))
                 {
@@ -462,7 +487,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity7 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity7 != null)
             {
                 if (statusActivitiesModel.statusActivity7.Equals("เสร็จสิ้น"))
                 {
@@ -478,7 +503,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity8 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity8 != null)
             {
                 if (statusActivitiesModel.statusActivity8.Equals("เสร็จสิ้น"))
                 {
@@ -494,7 +519,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity9 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity9 != null)
             {
                 if (statusActivitiesModel.statusActivity9.Equals("เสร็จสิ้น"))
                 {
@@ -510,7 +535,7 @@ namespace E_RIMS.Controllers
                 }
             }
 
-            if (statusActivitiesModel.statusActivity10 != "ยังไม่ดำเนินการ")
+            if (statusActivitiesModel.statusActivity10 != null)
             {
                 if (statusActivitiesModel.statusActivity10.Equals("เสร็จสิ้น"))
                 {
@@ -527,6 +552,11 @@ namespace E_RIMS.Controllers
             }
 
             double sumActivityValue = statusActivity1Value + statusActivity2Value + statusActivity3Value + statusActivity4Value + statusActivity5Value + statusActivity6Value + statusActivity7Value + statusActivity8Value + statusActivity9Value + statusActivity10Value;
+
+            if(sumActivityValue == 99.9999999999999)
+            {
+                sumActivityValue = 100.00;
+            }
 
             return sumActivityValue;
         }
@@ -561,7 +591,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus1(Research research)
+        public ActionResult updateResearchActivityStatus1(Research research,int id)
         {
 
             if (ModelState.IsValid)
@@ -596,6 +626,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity1HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity1 == null && research.proceedStatusActivity1 == null && research.fileFinishStatusActivity1 == null)
+                {
+                    research.statusActivity1 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity1 != null && research.filePlanStatusActivity1 != null)
                 {
                     research.statusActivity1 = "วางแผน";
@@ -622,7 +657,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity1).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -642,7 +677,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus2(Research research)
+        public ActionResult updateResearchActivityStatus2(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -674,7 +709,12 @@ namespace E_RIMS.Controllers
                     fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
                     research.fileFinishStatusActivity2 = "/fileFinishStatusActivityAll/fileFinishStatusActivity2/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/fileFinishStatusActivityAll/fileFinishStatusActivity2/"), fileNameDoc);
-                    research.fileFinishStatusActivity1HttpPost.SaveAs(path);
+                    research.fileFinishStatusActivity2HttpPost.SaveAs(path);
+                }
+
+                if (research.planStatusActivity2 == null && research.proceedStatusActivity2 == null && research.fileFinishStatusActivity2 == null)
+                {
+                    research.statusActivity2 = "ยังไม่ดำเนินการ";
                 }
 
                 if (research.planStatusActivity2 != null && research.filePlanStatusActivity2 != null)
@@ -703,7 +743,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity2).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -722,7 +762,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus3(Research research)
+        public ActionResult updateResearchActivityStatus3(Research research, int id)
         {
             if (ModelState.IsValid)
             {
@@ -756,6 +796,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity3HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity3 == null && research.proceedStatusActivity3 == null && research.fileFinishStatusActivity3 == null)
+                {
+                    research.statusActivity3 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity3 != null && research.filePlanStatusActivity3 != null)
                 {
                     research.statusActivity3 = "วางแผน";
@@ -782,7 +827,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity3).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -801,7 +846,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus4(Research research)
+        public ActionResult updateResearchActivityStatus4(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -836,6 +881,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity4HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity4 == null && research.proceedStatusActivity4 == null && research.fileFinishStatusActivity4 == null)
+                {
+                    research.statusActivity4 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity4 != null && research.filePlanStatusActivity4 != null)
                 {
                     research.statusActivity4 = "วางแผน";
@@ -862,7 +912,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity4).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -881,7 +931,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus5(Research research)
+        public ActionResult updateResearchActivityStatus5(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -916,6 +966,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity5HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity5 == null && research.proceedStatusActivity5 == null && research.fileFinishStatusActivity5 == null)
+                {
+                    research.statusActivity5 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity5 != null && research.filePlanStatusActivity5 != null)
                 {
                     research.statusActivity5 = "วางแผน";
@@ -942,7 +997,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity5).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -961,7 +1016,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus6(Research research)
+        public ActionResult updateResearchActivityStatus6(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -996,6 +1051,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity6HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity6 == null && research.proceedStatusActivity6 == null && research.fileFinishStatusActivity6 == null)
+                {
+                    research.statusActivity6 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity6 != null && research.filePlanStatusActivity6 != null)
                 {
                     research.statusActivity6 = "วางแผน";
@@ -1022,7 +1082,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity6).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -1041,7 +1101,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus7(Research research)
+        public ActionResult updateResearchActivityStatus7(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -1076,6 +1136,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity7HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity7 == null && research.proceedStatusActivity7 == null && research.fileFinishStatusActivity7 == null)
+                {
+                    research.statusActivity7 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity7 != null && research.filePlanStatusActivity7 != null)
                 {
                     research.statusActivity7 = "วางแผน";
@@ -1102,7 +1167,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity7).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -1121,7 +1186,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus8(Research research)
+        public ActionResult updateResearchActivityStatus8(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -1156,6 +1221,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity8HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity8 == null && research.proceedStatusActivity8 == null && research.fileFinishStatusActivity8 == null)
+                {
+                    research.statusActivity8 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity8 != null && research.filePlanStatusActivity8 != null)
                 {
                     research.statusActivity8 = "วางแผน";
@@ -1182,7 +1252,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity8).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -1201,7 +1271,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus9(Research research)
+        public ActionResult updateResearchActivityStatus9(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -1236,6 +1306,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity9HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity9 == null && research.proceedStatusActivity9 == null && research.fileFinishStatusActivity9 == null)
+                {
+                    research.statusActivity9 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity9 != null && research.filePlanStatusActivity9 != null)
                 {
                     research.statusActivity9 = "วางแผน";
@@ -1262,7 +1337,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity9).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -1281,7 +1356,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus10(Research research)
+        public ActionResult updateResearchActivityStatus10(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -1316,6 +1391,11 @@ namespace E_RIMS.Controllers
                     research.fileFinishStatusActivity10HttpPost.SaveAs(path);
                 }
 
+                if (research.planStatusActivity10 == null && research.proceedStatusActivity10 == null && research.fileFinishStatusActivity10 == null)
+                {
+                    research.statusActivity10 = "ยังไม่ดำเนินการ";
+                }
+
                 if (research.planStatusActivity10 != null && research.filePlanStatusActivity10 != null)
                 {
                     research.statusActivity10 = "วางแผน";
@@ -1342,7 +1422,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.fileFinishStatusActivity10).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageResearch");
+                return RedirectToAction("updateResearchStatus", new { id });
             }
 
             return View(research);
@@ -1364,7 +1444,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus1(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus1(Innovation innovation, int id)
         {
             if (ModelState.IsValid)
             {
@@ -1398,6 +1478,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity1HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity1 == null && innovation.proceedStatusActivity1 == null && innovation.fileFinishStatusActivity1 == null)
+                {
+                    innovation.statusActivity1 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity1 != null && innovation.filePlanStatusActivity1 != null)
                 {
                     innovation.statusActivity1 = "วางแผน";
@@ -1424,7 +1509,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity1).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1443,7 +1528,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus2(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus2(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -1475,7 +1560,12 @@ namespace E_RIMS.Controllers
                     fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
                     innovation.fileFinishStatusActivity2 = "/fileFinishStatusActivityAll/fileFinishStatusActivity2/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/fileFinishStatusActivityAll/fileFinishStatusActivity2/"), fileNameDoc);
-                    innovation.fileFinishStatusActivity1HttpPost.SaveAs(path);
+                    innovation.fileFinishStatusActivity2HttpPost.SaveAs(path);
+                }
+
+                if (innovation.planStatusActivity2 == null && innovation.proceedStatusActivity2 == null && innovation.fileFinishStatusActivity2 == null)
+                {
+                    innovation.statusActivity2 = "ยังไม่ดำเนินการ";
                 }
 
                 if (innovation.planStatusActivity2 != null && innovation.filePlanStatusActivity2 != null)
@@ -1504,7 +1594,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity2).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1523,7 +1613,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus3(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus3(Innovation innovation, int id)
         {
             if (ModelState.IsValid)
             {
@@ -1557,6 +1647,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity3HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity3 == null && innovation.proceedStatusActivity3 == null && innovation.fileFinishStatusActivity3 == null)
+                {
+                    innovation.statusActivity3 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity3 != null && innovation.filePlanStatusActivity3 != null)
                 {
                     innovation.statusActivity3 = "วางแผน";
@@ -1583,7 +1678,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity3).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1602,7 +1697,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus4(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus4(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -1637,6 +1732,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity4HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity4 == null && innovation.proceedStatusActivity4 == null && innovation.fileFinishStatusActivity4 == null)
+                {
+                    innovation.statusActivity4 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity4 != null && innovation.filePlanStatusActivity4 != null)
                 {
                     innovation.statusActivity4 = "วางแผน";
@@ -1663,7 +1763,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity4).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1682,7 +1782,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus5(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus5(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -1717,6 +1817,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity5HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity5 == null && innovation.proceedStatusActivity5 == null && innovation.fileFinishStatusActivity5 == null)
+                {
+                    innovation.statusActivity5 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity5 != null && innovation.filePlanStatusActivity5 != null)
                 {
                     innovation.statusActivity5 = "วางแผน";
@@ -1743,7 +1848,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity5).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1762,7 +1867,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus6(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus6(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -1797,6 +1902,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity6HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity6 == null && innovation.proceedStatusActivity6 == null && innovation.fileFinishStatusActivity6 == null)
+                {
+                    innovation.statusActivity6 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity6 != null && innovation.filePlanStatusActivity6 != null)
                 {
                     innovation.statusActivity6 = "วางแผน";
@@ -1823,7 +1933,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity6).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1842,7 +1952,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus7(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus7(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -1877,6 +1987,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity7HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity7 == null && innovation.proceedStatusActivity7 == null && innovation.fileFinishStatusActivity7 == null)
+                {
+                    innovation.statusActivity7 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity7 != null && innovation.filePlanStatusActivity7 != null)
                 {
                     innovation.statusActivity7 = "วางแผน";
@@ -1903,7 +2018,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity7).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -1922,7 +2037,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus8(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus8(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -1957,6 +2072,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity8HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity8 == null && innovation.proceedStatusActivity8 == null && innovation.fileFinishStatusActivity8 == null)
+                {
+                    innovation.statusActivity8 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity8 != null && innovation.filePlanStatusActivity8 != null)
                 {
                     innovation.statusActivity8 = "วางแผน";
@@ -1983,7 +2103,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity8).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -2002,7 +2122,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus9(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus9(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -2037,6 +2157,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity9HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity9 == null && innovation.proceedStatusActivity9 == null && innovation.fileFinishStatusActivity9 == null)
+                {
+                    innovation.statusActivity9 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity9 != null && innovation.filePlanStatusActivity9 != null)
                 {
                     innovation.statusActivity9 = "วางแผน";
@@ -2063,7 +2188,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity9).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
@@ -2082,7 +2207,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateInnovationActivityStatus10(Innovation innovation)
+        public ActionResult updateInnovationActivityStatus10(Innovation innovation, int id)
         {
 
             if (ModelState.IsValid)
@@ -2117,6 +2242,11 @@ namespace E_RIMS.Controllers
                     innovation.fileFinishStatusActivity10HttpPost.SaveAs(path);
                 }
 
+                if (innovation.planStatusActivity10 == null && innovation.proceedStatusActivity10 == null && innovation.fileFinishStatusActivity10 == null)
+                {
+                    innovation.statusActivity10 = "ยังไม่ดำเนินการ";
+                }
+
                 if (innovation.planStatusActivity10 != null && innovation.filePlanStatusActivity10 != null)
                 {
                     innovation.statusActivity10 = "วางแผน";
@@ -2143,10 +2273,12 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.fileFinishStatusActivity10).IsModified = true;
                 db.SaveChanges();
 
-                return RedirectToAction("UpdateSuccessMessageInnovation");
+                return RedirectToAction("updateInnovationStatus", new { id });
             }
 
             return View(innovation);
         }
+
+        //---------------------------------------------------------------------------------------------------------------------------------------------//
     }
 }

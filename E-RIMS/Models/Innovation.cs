@@ -32,7 +32,6 @@ namespace E_RIMS.Models
         public string files { get; set; }
         [FileExtensionsValidationWorkPiece]
         public HttpPostedFileBase files2 { get; set; }
-        [Required(ErrorMessage = "กรุณาใส่กิจกรรมอย่างน้อย 1 กิจกรรม")]
         public string activity1 { get; set; }
         public Nullable<bool> isJan1 { get; set; }
         public Nullable<bool> isFeb1 { get; set; }
