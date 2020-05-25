@@ -25,13 +25,20 @@
                     <div class="col">ผู้วิจัย: xxxxxxxxxx</div>
                     <div class="col">กิจกรรม: yyyyyyyyyy</div>
                 </div>
+                <div class="timeline-container">
+                    <ul class="timeline">
+                        <li id="planningCheck">วางแผน</li>
+                        <li id="workingCheck">ดำเนินการ</li>
+                        <li id="finishingCheck">เสร็จสิ้น</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <br />
-        <div class="card">
+        <div class="card" id="planingCard">
             <div class="card-body">
                 <div class="card-title h5">
-                    <i class="fa"></i>&nbsp;วางแผน
+                    <i class="fa fa-brain"></i>&nbsp;ผลการวางแผน
                 </div>
                 <div class="row">
                     <div class="form-group col-6">
@@ -46,10 +53,10 @@
             </div>
         </div>
         <br />
-        <div class="card">
+        <div class="card" id="workingCard">
             <div class="card-body">
                 <div class="card-title h5">
-                    <i class="fa"></i>&nbsp;ดำเนินการ
+                    <i class="fa fa-briefcase"></i>&nbsp;ผลการดำเนินการ
                 </div>
                 <div class="row">
                     <div class="form-group col-6">
@@ -64,10 +71,10 @@
             </div>
         </div>
         <br />
-        <div class="card">
+        <div class="card" id="finishingCard">
             <div class="card-body">
                 <div class="card-title h5">
-                    <i class="fa"></i>&nbsp;เสร็จสิ้น
+                    <i class="fa fa-flag-checkered"></i>&nbsp;ผลการเสร็จสิ้น
                 </div>
                 <div class="row">
                     <div class="form-group col-6">
@@ -83,6 +90,8 @@
         </div>
     </div>
     <div class="card-footer text-right">
-        <button type="button" class="btn btn-success">ปรับปรุงสถานะกิจกรรม</button>&nbsp;<button type="reset" class="btn btn-danger">ยกเลิก</button>
+        <button type="button" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;ปรับปรุงสถานะกิจกรรม</button>&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-asterisk"></i>&nbsp;ยกเลิก</button>
     </div>
 </div>
+
+<script type="text/javascript" src="~/Scripts/updateactivity.js"></script>
