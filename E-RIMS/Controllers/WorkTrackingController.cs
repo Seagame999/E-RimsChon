@@ -553,7 +553,7 @@ namespace E_RIMS.Controllers
 
             double sumActivityValue = statusActivity1Value + statusActivity2Value + statusActivity3Value + statusActivity4Value + statusActivity5Value + statusActivity6Value + statusActivity7Value + statusActivity8Value + statusActivity9Value + statusActivity10Value;
 
-            if(sumActivityValue == 99.9999999999999)
+            if(sumActivityValue >= 99)
             {
                 sumActivityValue = 100.00;
             }
@@ -2280,5 +2280,10 @@ namespace E_RIMS.Controllers
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------------------//
+
+        public ActionResult updateActivityStatus()
+        {
+            return View();
+        }
     }
 }

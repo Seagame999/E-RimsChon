@@ -471,6 +471,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\updateactivity.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -601,6 +602,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="docUploadAcademicPaper\" />
     <Folder Include="docUploadDocumentDownload\" />
+    <Folder Include="docUploadFinalInnovation\" />
+    <Folder Include="docUploadFinalResearch\" />
     <Folder Include="docUploadInnovation\" />
     <Folder Include="docUploadJournal\" />
     <Folder Include="docUploadPublicRelation\" />

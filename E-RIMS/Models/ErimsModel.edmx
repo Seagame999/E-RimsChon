@@ -336,6 +336,7 @@
           <Property Name="fileFinishStatusActivity9" Type="varchar" MaxLength="255" />
           <Property Name="fileFinishStatusActivity10" Type="varchar" MaxLength="255" />
           <Property Name="views" Type="int" />
+          <Property Name="finalFiles" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -724,6 +725,7 @@
           <Property Name="fileFinishStatusActivity9" Type="varchar" MaxLength="255" />
           <Property Name="fileFinishStatusActivity10" Type="varchar" MaxLength="255" />
           <Property Name="views" Type="int" />
+          <Property Name="finalFiles" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Researcher">
           <Key>
@@ -1465,6 +1467,7 @@
           <Property Name="fileFinishStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="fileFinishStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="views" Type="Int32" />
+          <Property Name="finalFiles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Research">
           <Key>
@@ -1693,6 +1696,7 @@
           <Property Name="fileFinishStatusActivity9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="fileFinishStatusActivity10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="views" Type="Int32" />
+          <Property Name="finalFiles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="StatusActivity">
           <Key>
@@ -2095,6 +2099,7 @@
           <EntitySetMapping Name="Innovation">
             <EntityTypeMapping TypeName="ERIMSModel.Innovation">
               <MappingFragment StoreEntitySet="Innovation">
+                <ScalarProperty Name="finalFiles" ColumnName="finalFiles" />
                 <ScalarProperty Name="views" ColumnName="views" />
                 <ScalarProperty Name="fileFinishStatusActivity10" ColumnName="fileFinishStatusActivity10" />
                 <ScalarProperty Name="fileFinishStatusActivity9" ColumnName="fileFinishStatusActivity9" />
@@ -2317,6 +2322,7 @@
           <EntitySetMapping Name="Research">
             <EntityTypeMapping TypeName="ERIMSModel.Research">
               <MappingFragment StoreEntitySet="Research">
+                <ScalarProperty Name="finalFiles" ColumnName="finalFiles" />
                 <ScalarProperty Name="views" ColumnName="views" />
                 <ScalarProperty Name="fileFinishStatusActivity10" ColumnName="fileFinishStatusActivity10" />
                 <ScalarProperty Name="fileFinishStatusActivity9" ColumnName="fileFinishStatusActivity9" />

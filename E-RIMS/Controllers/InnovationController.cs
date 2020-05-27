@@ -101,7 +101,7 @@ namespace E_RIMS.Controllers
                                      select new SelectListItem
                                      {
                                          Text = item.name + " " + item.surname,
-                                         Value = item.name.ToString() + item.surname.ToString()
+                                         Value = item.name.ToString() + " " + item.surname.ToString()
                                      });
             return View();
         }
@@ -119,6 +119,16 @@ namespace E_RIMS.Controllers
                     innovation.files = "/docUploadInnovation/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadInnovation/"), fileNameDoc);
                     innovation.files2.SaveAs(path);
+                }
+
+                if (innovation.finalFilesHttpPost != null)
+                {
+                    var fileNameDoc = Path.GetFileNameWithoutExtension(innovation.finalFilesHttpPost.FileName);
+                    string extension = Path.GetExtension(innovation.finalFilesHttpPost.FileName);
+                    fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
+                    innovation.finalFiles = "/docUploadFinalInnovation/" + fileNameDoc;
+                    var path = Path.Combine(Server.MapPath("~/docUploadFinalInnovation/"), fileNameDoc);
+                    innovation.finalFilesHttpPost.SaveAs(path);
                 }
 
                 //if (Session["Id"] != null || Session["Username"] != null)
@@ -212,7 +222,7 @@ namespace E_RIMS.Controllers
                                      select new SelectListItem
                                      {
                                          Text = item.name + " " + item.surname,
-                                         Value = item.name.ToString() + item.surname.ToString()
+                                         Value = item.name.ToString()+ " " + item.surname.ToString()
                                      });
 
             return View(innovation);
@@ -231,6 +241,16 @@ namespace E_RIMS.Controllers
                     innovation.files = "/docUploadInnovation/" + fileNameDoc;
                     var path = Path.Combine(Server.MapPath("~/docUploadInnovation/"), fileNameDoc);
                     innovation.files2.SaveAs(path);
+                }
+
+                if (innovation.finalFilesHttpPost != null)
+                {
+                    var fileNameDoc = Path.GetFileNameWithoutExtension(innovation.finalFilesHttpPost.FileName);
+                    string extension = Path.GetExtension(innovation.finalFilesHttpPost.FileName);
+                    fileNameDoc = fileNameDoc + "_" + DateTime.Now.ToString("ddMMyy_HHmmss") + extension;
+                    innovation.finalFiles = "/docUploadFinalInnovation/" + fileNameDoc;
+                    var path = Path.Combine(Server.MapPath("~/docUploadFinalInnovation/"), fileNameDoc);
+                    innovation.finalFilesHttpPost.SaveAs(path);
                 }
 
                 //if (Session["Id"] != null || Session["Username"] != null)
@@ -387,6 +407,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.budgetYear).IsModified = true;
                 db.Entry(innovation).Property(x => x.usernameOwner).IsModified = true;
                 db.Entry(innovation).Property(x => x.views).IsModified = true;
+                db.Entry(innovation).Property(x => x.finalFiles).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
             }

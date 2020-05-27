@@ -5,6 +5,8 @@
     ViewBag.Title = "แก้ไขสถานะกิจกรรม";
 }
 
+<script type="text/javascript" src="~/Scripts/updateactivity.js"></script>
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
@@ -30,13 +32,20 @@
                         <div class="col">ผู้วิจัย: @Model.creator</div>
                         <div class="col">กิจกรรม: @Model.activity3</div>
                     </div>
+                    <div class="timeline-container">
+                        <ul class="timeline">
+                            <li id="planningCheck">วางแผน</li>
+                            <li id="workingCheck">ดำเนินการ</li>
+                            <li id="finishingCheck">เสร็จสิ้น</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <br />
-            <div class="card">
+            <div class="card" id="planningCard">
                 <div class="card-body">
                     <div class="card-title h5">
-                        <i class="fa"></i>&nbsp;วางแผน
+                        <i class="fa fa-brain"></i>&nbsp;ผลการวางแผน
                     </div>
                     <div class="row">
                         <div class="form-group col-6">
@@ -47,15 +56,18 @@
                             <label class="">เอกสารประกอบ</label>
                             <input type="file" class="form-control" name="filePlanStatusActivity3HttpPost" />
                             <input type="hidden" name="filePlanStatusActivity3" value="@Model.filePlanStatusActivity3">
+                            <br />
+                            <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
+                            <a href="@Model.filePlanStatusActivity3" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
                         </div>
                     </div>
                 </div>
             </div>
             <br />
-            <div class="card">
+            <div class="card" id="workingCard">
                 <div class="card-body">
                     <div class="card-title h5">
-                        <i class="fa"></i>&nbsp;ดำเนินการ
+                        <i class="fa fa-briefcase"></i>&nbsp;ผลการดำเนินการ
                     </div>
                     <div class="row">
                         <div class="form-group col-6">
@@ -66,15 +78,18 @@
                             <label class="">เอกสารประกอบ</label>
                             <input type="file" class="form-control" name="fileProceedStatusActivity3HttpPost" />
                             <input type="hidden" name="fileProceedStatusActivity3" value="@Model.fileProceedStatusActivity3">
+                            <br />
+                            <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
+                            <a href="@Model.fileProceedStatusActivity3" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
                         </div>
                     </div>
                 </div>
             </div>
             <br />
-            <div class="card">
+            <div class="card" id="finishingCard">
                 <div class="card-body">
                     <div class="card-title h5">
-                        <i class="fa"></i>&nbsp;เสร็จสิ้น
+                        <i class="fa fa-flag-checkered"></i>&nbsp;ผลการเสร็จสิ้น
                     </div>
                     <div class="row">
                         <div class="form-group col-6">
@@ -85,6 +100,9 @@
                             <label class="">เอกสารประกอบ</label>
                             <input type="file" class="form-control" name="fileFinishStatusActivity3HttpPost" />
                             <input type="hidden" name="fileFinishStatusActivity3" value="@Model.fileFinishStatusActivity3">
+                            <br />
+                            <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
+                            <a href="@Model.fileFinishStatusActivity3" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
                         </div>
                     </div>
                 </div>
