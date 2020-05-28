@@ -67,10 +67,12 @@
                                 <div class="form-group col-md-4">
                                     <label>ตำแหน่ง :</label>
                                     @Html.DropDownListFor(model => model.position, (IEnumerable<SelectListItem>)ViewBag.PositionView, "ตำแหน่ง", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.position, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>ระดับ :</label>
                                     @Html.DropDownListFor(model => model.levels, (IEnumerable<SelectListItem>)ViewBag.LevelView, "ระดับ", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.levels, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>

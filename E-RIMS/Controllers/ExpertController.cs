@@ -86,6 +86,31 @@ namespace E_RIMS.Controllers
 
                 return RedirectToAction("CreateSuccessMessage");
             }
+
+            var modelNameTitle = db.NameTitle.ToList();
+            ViewBag.nameTitleView = (from item in modelNameTitle
+                                     select new SelectListItem
+                                     {
+                                         Text = item.nameTitle1,
+                                         Value = item.nameTitle1.ToString()
+                                     });
+
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
+
             return View(expert);
         }
 
@@ -154,6 +179,31 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
             }
+
+            var modelNameTitle = db.NameTitle.ToList();
+            ViewBag.nameTitleView = (from item in modelNameTitle
+                                     select new SelectListItem
+                                     {
+                                         Text = item.nameTitle1,
+                                         Value = item.nameTitle1.ToString()
+                                     });
+
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
+
 
             return View(expert);
             

@@ -23,10 +23,15 @@ namespace E_RIMS.Models
         [FileExtensionsValidationImage]
         public HttpPostedFileBase image2 { get; set; }
         public string nameTitle { get; set; }
+        [Required(ErrorMessage = "กรุณากรอกชื่อนักวิจัย")]
         public string name { get; set; }
+        [Required(ErrorMessage = "กรุณากรอกนามสกุลนักวิจัย")]
         public string surname { get; set; }
+        [Required(ErrorMessage = "กรุณากรอกเลขบัตรประจำตัวประชาชน")]
         public string identificationNumber { get; set; }
+        [Required(ErrorMessage = "กรุณาเลือกตำแหน่ง")]
         public string position { get; set; }
+        [Required(ErrorMessage = "กรุณาเลือกระดับ")]
         public string levels { get; set; }
         public string houseNumberHome { get; set; }
         public string villageNumberHome { get; set; }
@@ -36,6 +41,7 @@ namespace E_RIMS.Models
         public string districtHome { get; set; }
         public string provinceHome { get; set; }
         public string postalCodeHome { get; set; }
+        [Required(ErrorMessage = "กรุณากรอกเบอร์โทรศัพท์มือถือ")]
         public string moblieNumber { get; set; }
         public string houseNumberOffice { get; set; }
         public string villageNumberOffice { get; set; }
@@ -58,6 +64,8 @@ namespace E_RIMS.Models
         public string joinDevelopmentTeam { get; set; }
         public string nameAcademic { get; set; }
         public string publication { get; set; }
+        [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string Email { get; set; }
     }
 }

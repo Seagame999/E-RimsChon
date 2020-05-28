@@ -77,6 +77,23 @@ namespace E_RIMS.Controllers
 
                 return RedirectToAction("CreateSuccessMessage");
             }
+
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
+
             return View(innovator);
         }
 
@@ -136,6 +153,22 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
             }
+
+            var modelPosition = db.Position.ToList();
+            ViewBag.PositionView = (from item in modelPosition
+                                    select new SelectListItem
+                                    {
+                                        Text = item.position1,
+                                        Value = item.position1.ToString()
+                                    });
+
+            var modelLevel = db.Level.ToList();
+            ViewBag.LevelView = (from item in modelLevel
+                                 select new SelectListItem
+                                 {
+                                     Text = item.levels,
+                                     Value = item.levels.ToString()
+                                 });
 
             return View(innovator);
         }
