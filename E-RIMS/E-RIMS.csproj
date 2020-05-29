@@ -300,6 +300,7 @@
     <Content Include="Image\graduation-cap-solid.svg" />
     <Content Include="Image\home-solid.svg" />
     <Content Include="Image\hsri_logo.jpg" />
+    <Content Include="Image\ico.ico" />
     <Content Include="Image\IconHome.png" />
     <Content Include="Image\img1.png" />
     <Content Include="Image\img2.png" />
