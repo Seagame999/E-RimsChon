@@ -187,6 +187,7 @@
                                     <label class="">เอกสาร: <a href="@Model.finalFiles" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a></label>
                                     <input type="hidden" name="files" value="@Model.finalFiles">
                                     <input type="file" class="form-control-file" name="finalFilesHttpPost" />
+                                    @Html.ValidationMessageFor(model => model.finalFiles, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>

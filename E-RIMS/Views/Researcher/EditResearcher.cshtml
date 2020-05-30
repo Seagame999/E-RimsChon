@@ -37,6 +37,7 @@
                             <div class="form-group">
                                 <label>เปลี่ยนรูปประจำตัว</label>
                                 <br /><input type="file" class="form-control-file" name="image2">
+                                @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-2">
