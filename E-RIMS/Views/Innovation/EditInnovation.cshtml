@@ -38,23 +38,12 @@
                             <div class="form-row">
                                 <div class="form-group col-2">
                                     <label class="">ปีงบประมาณ</label>
-                                    <select class="form-control custom-select-sm" name="budgetYear">
-                                        <option>2561</option>
-                                        <option>2562</option>
-                                        <option>2563</option>
-                                        <option>2564</option>
-                                        <option>2565</option>
-                                    </select>
+                                    @Html.DropDownListFor(model => model.budgetYear, new SelectList(ViewBag.budgetYearView), new { @class = "form-control custom-select-sm" })
                                 </div>
                                 <div class="form-group col-2">
                                     <label class="">ประเภทผลงาน</label>
-                                    <select class="form-control custom-select-sm" name="type">
-                                        <option>Product</option>
-                                        <option>Process</option>
-                                        <option>Service</option>
-                                        <option>Policy/Strategic</option>
-                                        @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
-                                    </select>
+                                    @Html.DropDownListFor(model => model.type, new SelectList(ViewBag.typeView), new { @class = "form-control custom-select-sm" })
+                                    @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-8">
                                     <label class="">ชื่อเรื่อง</label>
@@ -63,24 +52,7 @@
                                 </div>
                                 <div class="form-group col-4">
                                     <label class="">กลุ่มงาน</label>
-                                    <select class="form-control custom-select-sm" name="workGroup">
-                                        <option>งานเภสัชกรรม</option>
-                                        <option>บริหารทั่วไป</option>
-                                        <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
-                                        <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
-                                        <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
-                                        <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
-                                        <option>โรคติดต่อ</option>
-                                        <option>โรคไม่ติดต่อ</option>
-                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
-                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
-                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
-                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
-                                        <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
-                                        <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
-                                        <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
-                                        <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
-                                    </select>
+                                    @Html.DropDownListFor(model => model.workGroup, new SelectList(ViewBag.workGroupView), new { @class = "form-control custom-select-sm" })                                    
                                     @Html.ValidationMessageFor(model => model.workGroup, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-8">

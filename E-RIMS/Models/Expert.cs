@@ -69,7 +69,7 @@ namespace E_RIMS.Models
         public string nameAcademic { get; set; }
         public string publication { get; set; }
         [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
+        [EmailAddress(ErrorMessage = "รูปแบบอีเมล์ผิดพลาด")]
         public string email { get; set; }
     }
 }
