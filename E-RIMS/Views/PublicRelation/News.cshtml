@@ -28,7 +28,7 @@
                         <div class="card-title">
                             <h4>
                                 @Html.DisplayFor(model => model.newsName)
-                                (วันที่: @Html.DisplayFor(model => model.date))
+                                (วันที่: @Convert.ToDateTime(Model.date).ToString("dd/MM/yyyy"))
                             </h4>
                         </div>
                         <p>@Html.DisplayFor(model => model.description)</p>

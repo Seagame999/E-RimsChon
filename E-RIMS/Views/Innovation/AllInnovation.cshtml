@@ -39,7 +39,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.date)</td>
+                        <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
                         <td><a href="@Url.Action("DetailInnovation"+"/"+item.id,"Innovation")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td>@Html.DisplayFor(modelItem => item.type)</td>

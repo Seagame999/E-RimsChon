@@ -41,6 +41,7 @@
                                         <select class="form-control" name="nameTitle">
                                             <option>นาย</option>
                                             <option>นางสาว</option>
+                                            <option>นาง</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.nameTitle, "", new { @class = "text-danger" })
                                     </div>
@@ -117,7 +118,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="">จังหวัด</label>
-                                        <input type="text" class="form-control" id="" name="provinceOffice">
+                                        @Html.DropDownListFor(model => model.provinceOffice, new SelectList(ViewBag.proviceView), new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.provinceOffice, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group col-md-4">
@@ -170,7 +171,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="">จังหวัด</label>
-                                        <input type="text" class="form-control" id="" name="provinceHome">
+                                        @Html.DropDownListFor(model => model.provinceHome, new SelectList(ViewBag.proviceView), new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.provinceHome, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group col-md-4">

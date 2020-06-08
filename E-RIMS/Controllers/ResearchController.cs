@@ -239,7 +239,7 @@ namespace E_RIMS.Controllers
             ViewBag.typeView = typeView;
 
             var budgetYearView = new List<string>()
-            { "2559", "2560", "2561", "2562", "2563", "2564", "2565" };
+            { "2559", "2560", "2561", "2562", "2563", "2564", "2565", "2566", "2567", "2568", "2569", "2570", "2571", "2572", "2573", "2574", "2575", "2576", "2577" , "2578", "2579", "2580"};
             ViewBag.budgetYearView = budgetYearView;
 
             var workGroupView = new List<string>()
@@ -456,7 +456,8 @@ namespace E_RIMS.Controllers
             var typeView = new List<string>() { "วิจัย", "วิชาการ" };
             ViewBag.typeView = typeView;
 
-            var budgetYearView = new List<string>() { "2559", "2560", "2561", "2562", "2563", "2564", "2565" };
+            var budgetYearView = new List<string>()
+           { "2559", "2560", "2561", "2562", "2563", "2564", "2565", "2566", "2567", "2568", "2569", "2570", "2571", "2572", "2573", "2574", "2575", "2576", "2577" , "2578", "2579", "2580"};
             ViewBag.budgetYearView = budgetYearView;
 
             var workGroupView = new List<string>()
