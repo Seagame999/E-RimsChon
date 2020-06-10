@@ -32,6 +32,7 @@
                             </h4>
                         </div>
                         <p>@Html.DisplayFor(model => model.description)</p>
+                        <p>Link -> <a href="@Url.Action("news"+"/"+Model.id,"PublicRelation")">@Url.Action("news" + "/" + Model.id, "PublicRelation")</a></p>
                         <p><a href="@Url.Content(Model.docUpload ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
                     </div>
                 </div>

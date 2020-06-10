@@ -29,7 +29,7 @@
         <EntityTypeShape EntityType="ERIMSModel.ResearchMonitoring" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.ResearchTopic" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERIMSModel.SubDistrict" Width="1.5" PointX="14.5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERIMSModel.PercentActivities" Width="1.5" PointX="6.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ERIMSModel.PercentActivities" Width="1.5" PointX="4.75" PointY="12" />
         <EntityTypeShape EntityType="ERIMSModel.OperatingActivities" Width="1.5" PointX="13.375" PointY="14.75" />
         <EntityTypeShape EntityType="ERIMSModel.Innovation" Width="1.5" PointX="0.75" PointY="15.75" />
         <EntityTypeShape EntityType="ERIMSModel.Research" Width="1.5" PointX="15.75" PointY="9.75" />

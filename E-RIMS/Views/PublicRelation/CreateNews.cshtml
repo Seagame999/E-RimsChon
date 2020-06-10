@@ -42,11 +42,11 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-4">
-                        @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <label>วันที่</label>
                         <input type="date" class="datepicker-inline" name="date">
                     </div>
                     <div class="form-group col-4">
-                        @Html.LabelFor(model => model.docUpload, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <label>อัพโหลดเอกสาร</label>
                         <input type="file" name="docUpload2" />
                         @Html.ValidationMessageFor(model => model.docUpload2, "", new { @class = "text-danger" })
                     </div>

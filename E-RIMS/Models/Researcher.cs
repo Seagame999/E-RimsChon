@@ -67,5 +67,9 @@ namespace E_RIMS.Models
         [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
         [EmailAddress(ErrorMessage = "รูปแบบอีเมล์ผิดพลาด")]
         public string Email { get; set; }
+        public string education2 { get; set; }
+        public string education3 { get; set; }
+        public string workplace2 { get; set; }
+        public string workplace3 { get; set; }
     }
 }

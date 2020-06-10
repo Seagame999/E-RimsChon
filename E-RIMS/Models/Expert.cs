@@ -71,5 +71,20 @@ namespace E_RIMS.Models
         [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
         [EmailAddress(ErrorMessage = "รูปแบบอีเมล์ผิดพลาด")]
         public string email { get; set; }
+        public string educationLevel2 { get; set; }
+        public string educationLevel3 { get; set; }
+        public string workplace2 { get; set; }
+        public string workplace3 { get; set; }
+        public Nullable<bool> IsSpecialExpertInfection { get; set; }
+        public Nullable<bool> IsSpecialExpertNonInfection { get; set; }
+        public Nullable<bool> IsSpecialExpertDiseaseExposure { get; set; }
+        public Nullable<bool> IsSpecialExpertOccupationAndEnvironDiseases { get; set; }
+        public Nullable<bool> IsSpecialExpertEpidemiology { get; set; }
+        public Nullable<bool> IsSpecialExpertLaboratory { get; set; }
+        public Nullable<bool> IsSpecialExpertEvaluate { get; set; }
+        public Nullable<bool> IsSpecialExpertStatistics { get; set; }
+        public Nullable<bool> IsSpecialExpertManage { get; set; }
+        public Nullable<bool> IsSpecialExpertInnovation { get; set; }
+        public Nullable<bool> IsSpecialExpertEtc { get; set; }
     }
 }

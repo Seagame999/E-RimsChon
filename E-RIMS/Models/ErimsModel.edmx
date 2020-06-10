@@ -115,6 +115,21 @@
           <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
           <Property Name="publication" Type="varchar" MaxLength="255" />
           <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="educationLevel2" Type="text" />
+          <Property Name="educationLevel3" Type="text" />
+          <Property Name="workplace2" Type="varchar" MaxLength="255" />
+          <Property Name="workplace3" Type="varchar" MaxLength="255" />
+          <Property Name="IsSpecialExpertInfection" Type="bit" />
+          <Property Name="IsSpecialExpertNonInfection" Type="bit" />
+          <Property Name="IsSpecialExpertDiseaseExposure" Type="bit" />
+          <Property Name="IsSpecialExpertOccupationAndEnvironDiseases" Type="bit" />
+          <Property Name="IsSpecialExpertEpidemiology" Type="bit" />
+          <Property Name="IsSpecialExpertLaboratory" Type="bit" />
+          <Property Name="IsSpecialExpertEvaluate" Type="bit" />
+          <Property Name="IsSpecialExpertStatistics" Type="bit" />
+          <Property Name="IsSpecialExpertManage" Type="bit" />
+          <Property Name="IsSpecialExpertInnovation" Type="bit" />
+          <Property Name="IsSpecialExpertEtc" Type="bit" />
         </EntityType>
         <EntityType Name="Innovation">
           <Key>
@@ -381,6 +396,10 @@
           <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
           <Property Name="publication" Type="varchar" MaxLength="255" />
           <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="education2" Type="text" />
+          <Property Name="education3" Type="text" />
+          <Property Name="workplace2" Type="varchar" MaxLength="255" />
+          <Property Name="workplace3" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="JoinDevelopmentTeam">
           <Key>
@@ -770,6 +789,10 @@
           <Property Name="nameAcademic" Type="varchar" MaxLength="255" />
           <Property Name="publication" Type="varchar" MaxLength="255" />
           <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="education2" Type="text" />
+          <Property Name="education3" Type="text" />
+          <Property Name="workplace2" Type="varchar" MaxLength="255" />
+          <Property Name="workplace3" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="ResearchFuds">
           <Key>
@@ -967,6 +990,21 @@
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="educationLevel2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="educationLevel3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="workplace2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="workplace3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsSpecialExpertInfection" Type="Boolean" />
+          <Property Name="IsSpecialExpertNonInfection" Type="Boolean" />
+          <Property Name="IsSpecialExpertDiseaseExposure" Type="Boolean" />
+          <Property Name="IsSpecialExpertOccupationAndEnvironDiseases" Type="Boolean" />
+          <Property Name="IsSpecialExpertEpidemiology" Type="Boolean" />
+          <Property Name="IsSpecialExpertLaboratory" Type="Boolean" />
+          <Property Name="IsSpecialExpertEvaluate" Type="Boolean" />
+          <Property Name="IsSpecialExpertStatistics" Type="Boolean" />
+          <Property Name="IsSpecialExpertManage" Type="Boolean" />
+          <Property Name="IsSpecialExpertInnovation" Type="Boolean" />
+          <Property Name="IsSpecialExpertEtc" Type="Boolean" />
         </EntityType>
         <EntityType Name="Innovator">
           <Key>
@@ -1011,6 +1049,10 @@
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="education2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="education3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="workplace2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="workplace3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="JoinDevelopmentTeam">
           <Key>
@@ -1155,6 +1197,10 @@
           <Property Name="nameAcademic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="publication" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="education2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="education3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="workplace2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="workplace3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ResearchFuds">
           <Key>
@@ -1786,6 +1832,21 @@
           <EntitySetMapping Name="Expert">
             <EntityTypeMapping TypeName="ERIMSModel.Expert">
               <MappingFragment StoreEntitySet="Expert">
+                <ScalarProperty Name="IsSpecialExpertEtc" ColumnName="IsSpecialExpertEtc" />
+                <ScalarProperty Name="IsSpecialExpertInnovation" ColumnName="IsSpecialExpertInnovation" />
+                <ScalarProperty Name="IsSpecialExpertManage" ColumnName="IsSpecialExpertManage" />
+                <ScalarProperty Name="IsSpecialExpertStatistics" ColumnName="IsSpecialExpertStatistics" />
+                <ScalarProperty Name="IsSpecialExpertEvaluate" ColumnName="IsSpecialExpertEvaluate" />
+                <ScalarProperty Name="IsSpecialExpertLaboratory" ColumnName="IsSpecialExpertLaboratory" />
+                <ScalarProperty Name="IsSpecialExpertEpidemiology" ColumnName="IsSpecialExpertEpidemiology" />
+                <ScalarProperty Name="IsSpecialExpertOccupationAndEnvironDiseases" ColumnName="IsSpecialExpertOccupationAndEnvironDiseases" />
+                <ScalarProperty Name="IsSpecialExpertDiseaseExposure" ColumnName="IsSpecialExpertDiseaseExposure" />
+                <ScalarProperty Name="IsSpecialExpertNonInfection" ColumnName="IsSpecialExpertNonInfection" />
+                <ScalarProperty Name="IsSpecialExpertInfection" ColumnName="IsSpecialExpertInfection" />
+                <ScalarProperty Name="workplace3" ColumnName="workplace3" />
+                <ScalarProperty Name="workplace2" ColumnName="workplace2" />
+                <ScalarProperty Name="educationLevel3" ColumnName="educationLevel3" />
+                <ScalarProperty Name="educationLevel2" ColumnName="educationLevel2" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image" ColumnName="image" />
@@ -1834,6 +1895,10 @@
           <EntitySetMapping Name="Innovator">
             <EntityTypeMapping TypeName="ERIMSModel.Innovator">
               <MappingFragment StoreEntitySet="Innovator">
+                <ScalarProperty Name="workplace3" ColumnName="workplace3" />
+                <ScalarProperty Name="workplace2" ColumnName="workplace2" />
+                <ScalarProperty Name="education3" ColumnName="education3" />
+                <ScalarProperty Name="education2" ColumnName="education2" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image" ColumnName="image" />
@@ -1988,6 +2053,10 @@
           <EntitySetMapping Name="Researcher">
             <EntityTypeMapping TypeName="ERIMSModel.Researcher">
               <MappingFragment StoreEntitySet="Researcher">
+                <ScalarProperty Name="workplace3" ColumnName="workplace3" />
+                <ScalarProperty Name="workplace2" ColumnName="workplace2" />
+                <ScalarProperty Name="education3" ColumnName="education3" />
+                <ScalarProperty Name="education2" ColumnName="education2" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image" ColumnName="image" />
