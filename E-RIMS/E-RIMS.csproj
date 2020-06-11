@@ -280,7 +280,42 @@
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
+    <Content Include="docUploadAcademicPaper\file.txt" />
+    <Content Include="docUploadDocumentDownload\file.txt" />
+    <Content Include="docUploadFinalInnovation\file.txt" />
+    <Content Include="docUploadFinalResearch\file.txt" />
+    <Content Include="docUploadInnovation\file.txt" />
+    <Content Include="docUploadJournal\file.txt" />
+    <Content Include="docUploadPublicRelation\file.txt" />
+    <Content Include="docUploadResearch\file.txt" />
     <Content Include="favicon.ico" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity10\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity2\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity3\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity4\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity5\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity6\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity7\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity8\file.txt" />
+    <Content Include="fileFinishStatusActivityAll\fileFinishStatusActivity9\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity10\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity2\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity3\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity4\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity5\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity6\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity7\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity8\file.txt" />
+    <Content Include="filePlanStatusActivityAll\filePlanStatusActivity9\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity10\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity2\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity3\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity4\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity5\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity6\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity7\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity8\file.txt" />
+    <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity9\file.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -288,10 +323,16 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="ImageExpert\file.txt" />
+    <Content Include="ImageInnovator\file.txt" />
+    <Content Include="ImageJournal\file.txt" />
+    <Content Include="ImagePublicRelation\file.txt" />
+    <Content Include="ImageResearcher\file.txt" />
     <Content Include="Image\arda_logo.png" />
     <Content Include="Image\avatar.png" />
     <Content Include="Image\book-open-solid.svg" />
     <Content Include="Image\book-solid.svg" />
+    <Content Include="Image\Books_PNG.png" />
     <Content Include="Image\building-solid.svg" />
     <Content Include="Image\calendar-regular.svg" />
     <Content Include="Image\database-solid.svg" />
@@ -387,6 +428,7 @@
     <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity1\New เอกสาร Microsoft Word_210563_170303.docx" />
     <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity1\New เอกสาร Microsoft Word_210563_170407.docx" />
     <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity1\New เอกสาร Microsoft Word_210563_170910.docx" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\E-RIMS-Chonburi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -601,46 +643,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="docUploadAcademicPaper\" />
-    <Folder Include="docUploadDocumentDownload\" />
-    <Folder Include="docUploadFinalInnovation\" />
-    <Folder Include="docUploadFinalResearch\" />
-    <Folder Include="docUploadInnovation\" />
-    <Folder Include="docUploadJournal\" />
-    <Folder Include="docUploadPublicRelation\" />
-    <Folder Include="docUploadResearch\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity10\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity2\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity3\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity4\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity5\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity6\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity7\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity8\" />
-    <Folder Include="fileFinishStatusActivityAll\fileFinishStatusActivity9\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity10\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity2\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity3\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity4\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity5\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity6\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity7\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity8\" />
-    <Folder Include="filePlanStatusActivityAll\filePlanStatusActivity9\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity10\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity2\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity3\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity4\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity5\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity6\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity7\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity8\" />
-    <Folder Include="fileProceedStatusActivityAll\fileProceedStatusActivity9\" />
-    <Folder Include="ImageExpert\" />
-    <Folder Include="ImageInnovator\" />
-    <Folder Include="ImageJournal\" />
-    <Folder Include="ImagePublicRelation\" />
-    <Folder Include="ImageResearcher\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Register\" />
   </ItemGroup>
@@ -683,6 +685,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties Scripts_4esm_4popper_1min_1js_1map__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

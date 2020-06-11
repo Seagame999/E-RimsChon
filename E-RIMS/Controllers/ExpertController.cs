@@ -142,6 +142,67 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index");
             }
 
+            if(expert.IsSpecialExpertInfection == true)
+            {
+                var infection = Convert.ToString(expert.IsSpecialExpertInfection);
+                infection = "โรคติดต่อ";
+                ViewBag.infection = infection;
+            }
+            if (expert.IsSpecialExpertNonInfection == true)
+            {
+                var nonInfection = Convert.ToString(expert.IsSpecialExpertNonInfection);
+                nonInfection = "โรคไม่ติดต่อ";
+                ViewBag.nonInfection = nonInfection;
+            }
+            if (expert.IsSpecialExpertDiseaseExposure == true)
+            {
+                var diseaseExposure = Convert.ToString(expert.IsSpecialExpertDiseaseExposure);
+                diseaseExposure = "โรคจากการสัมผัส";
+                ViewBag.diseaseExposure = diseaseExposure;
+            }
+            if (expert.IsSpecialExpertOccupationAndEnvironDiseases == true)
+            {
+                var occupationAndEnvironDiseases = Convert.ToString(expert.IsSpecialExpertOccupationAndEnvironDiseases);
+                occupationAndEnvironDiseases = "โรคจากการประกอบอาชีพและสิ่งแวดล้อม";
+                ViewBag.occupationAndEnvironDiseases = occupationAndEnvironDiseases;
+            }
+            if (expert.IsSpecialExpertEpidemiology == true)
+            {
+                var epidemiology = Convert.ToString(expert.IsSpecialExpertEpidemiology);
+                epidemiology = "ระบาดวิทยา";
+                ViewBag.epidemiology = epidemiology;
+            }
+            if (expert.IsSpecialExpertLaboratory == true)
+            {
+                var expertLaboratory = Convert.ToString(expert.IsSpecialExpertLaboratory);
+                expertLaboratory = "ห้องปฎิบัติการ";
+                ViewBag.expertLaboratory = expertLaboratory;
+            }
+            if (expert.IsSpecialExpertEvaluate == true)
+            {
+                var evaluate = Convert.ToString(expert.IsSpecialExpertEvaluate);
+                evaluate = "ประเมินผล";
+                ViewBag.evaluate = evaluate;
+            }
+            if (expert.IsSpecialExpertStatistics == true)
+            {
+                var statistics = Convert.ToString(expert.IsSpecialExpertStatistics);
+                statistics = "สถิติ";
+                ViewBag.statistics = statistics;
+            }
+            if (expert.IsSpecialExpertManage == true)
+            {
+                var manage = Convert.ToString(expert.IsSpecialExpertManage);
+                manage = "บริหารจัดการ";
+                ViewBag.manage = manage;
+            }
+            if (expert.IsSpecialExpertInnovation == true)
+            {
+                var innovation = Convert.ToString(expert.IsSpecialExpertInnovation);
+                innovation = "นวัตกรรม";
+                ViewBag.innovation = innovation;
+            }
+
             return View(expert);
         }
 

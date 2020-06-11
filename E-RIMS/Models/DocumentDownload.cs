@@ -19,11 +19,13 @@ namespace E_RIMS.Models
     public partial class DocumentDownload
     {
         public int id { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> date { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string docUpload { get; set; }
         [FileExtensionsValidationDoc]
         public HttpPostedFileBase docUpload2{ get; set; }
+        public Nullable<int> views { get; set; }
     }
 }

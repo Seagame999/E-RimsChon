@@ -54,6 +54,7 @@ namespace E_RIMS.Controllers
                     documentDownload.docUpload2.SaveAs(path);
                 }
 
+                documentDownload.date = DateTime.Today;
                 db.DocumentDownload.Add(documentDownload);
                 db.SaveChanges();
                 ModelState.Clear();

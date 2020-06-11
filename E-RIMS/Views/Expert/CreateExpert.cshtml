@@ -195,19 +195,58 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="">วุฒิการศึกษาสูงสุด</label>
+                                    <label for="">วุฒิการศึกษา</label>
                                     <input type="text" class="form-control" id="" name="educationLevel">
                                     @Html.ValidationMessageFor(model => model.educationLevel, "", new { @class = "text-danger" })
+                                    <br />
+                                    <label for="">วุฒิการศึกษา</label>
+                                    <input type="text" class="form-control" id="" name="educationLevel2">
+                                    @Html.ValidationMessageFor(model => model.educationLevel2, "", new { @class = "text-danger" })
+                                    <br />
+                                    <label for="">วุฒิการศึกษา</label>
+                                    <input type="text" class="form-control" id="" name="educationLevel3">
+                                    @Html.ValidationMessageFor(model => model.educationLevel3, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
                                     <input type="text" class="form-control" id="" name="workplace">
                                     @Html.ValidationMessageFor(model => model.workplace, "", new { @class = "text-danger" })
+                                    <br />
+                                    <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
+                                    <input type="text" class="form-control" id="" name="workplace2">
+                                    @Html.ValidationMessageFor(model => model.workplace2, "", new { @class = "text-danger" })
+                                    <br />
+                                    <label for="">มหาวิทยาลัยที่จบการศึกษา</label>
+                                    <input type="text" class="form-control" id="" name="workplace3">
+                                    @Html.ValidationMessageFor(model => model.workplace3, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">ความเชี่ยวชาญ</label>
-                                <textarea class="form-control" id="" rows="3" name="specialExpertise"></textarea>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertInfection" value="true" />
+                                <label class="form-check-label">โรคติดต่อ</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertNonInfection" value="true" />
+                                <label class="form-check-label">โรคไม่ติดต่อ</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertDiseaseExposure" value="true" />
+                                <label class="form-check-label">โรคจากการสัมผัส</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertOccupationAndEnvironDiseases" value="true" />
+                                <label class="form-check-label">โรคจากการประกอบอาชีพและสิ่งแวดล้อม</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertEpidemiology" value="true" />
+                                <label class="form-check-label">ระบาดวิทยา</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertLaboratory" value="true" />
+                                <label class="form-check-label">ห้องปฎิบัติการ</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertEvaluate" value="true" />
+                                <label class="form-check-label">ประเมินผล</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertStatistics" value="true" />
+                                <label class="form-check-label">สถิติ</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertManage" value="true" />
+                                <label class="form-check-label">บริหารจัดการ</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertInnovation" value="true" />
+                                <label class="form-check-label">นวัตกรรม</label>
+                                <input type="checkbox" class="form-check" name="IsSpecialExpertEtc" value="true" />
+                                <label class="form-check-label">อื่น ๆ ระบุ...</label>
+                                <input type="text" class="form-control" id="" name="specialExpertise">
+                                @*<textarea class="form-control" id="" rows="3" name="specialExpertise"></textarea>*@
                                 @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">

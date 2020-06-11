@@ -61,6 +61,7 @@
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="description" Type="text" />
           <Property Name="docUpload" Type="varchar" MaxLength="255" />
+          <Property Name="views" Type="int" />
         </EntityType>
         <EntityType Name="Education Level">
           <Key>
@@ -936,6 +937,7 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="views" Type="Int32" />
         </EntityType>
         <EntityType Name="Education_Level">
           <Key>
@@ -1813,6 +1815,7 @@
           <EntitySetMapping Name="DocumentDownload">
             <EntityTypeMapping TypeName="ERIMSModel.DocumentDownload">
               <MappingFragment StoreEntitySet="DocumentDownload">
+                <ScalarProperty Name="views" ColumnName="views" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="name" ColumnName="name" />
