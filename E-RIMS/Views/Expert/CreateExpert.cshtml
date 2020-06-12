@@ -223,31 +223,55 @@
                             </div>
                             <div class="form-group">
                                 <label for="">ความเชี่ยวชาญ</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertInfection" value="true" />
-                                <label class="form-check-label">โรคติดต่อ</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertNonInfection" value="true" />
-                                <label class="form-check-label">โรคไม่ติดต่อ</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertDiseaseExposure" value="true" />
-                                <label class="form-check-label">โรคจากการสัมผัส</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertOccupationAndEnvironDiseases" value="true" />
-                                <label class="form-check-label">โรคจากการประกอบอาชีพและสิ่งแวดล้อม</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertEpidemiology" value="true" />
-                                <label class="form-check-label">ระบาดวิทยา</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertLaboratory" value="true" />
-                                <label class="form-check-label">ห้องปฎิบัติการ</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertEvaluate" value="true" />
-                                <label class="form-check-label">ประเมินผล</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertStatistics" value="true" />
-                                <label class="form-check-label">สถิติ</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertManage" value="true" />
-                                <label class="form-check-label">บริหารจัดการ</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertInnovation" value="true" />
-                                <label class="form-check-label">นวัตกรรม</label>
-                                <input type="checkbox" class="form-check" name="IsSpecialExpertEtc" value="true" />
-                                <label class="form-check-label">อื่น ๆ ระบุ...</label>
-                                <input type="text" class="form-control" id="" name="specialExpertise">
-                                @*<textarea class="form-control" id="" rows="3" name="specialExpertise"></textarea>*@
-                                @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertInfection" value="true" />
+                                        <label class="form-check-label">โรคติดต่อ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertNonInfection" value="true" />
+                                        <label class="form-check-label">โรคไม่ติดต่อ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertDiseaseExposure" value="true" />
+                                        <label class="form-check-label">โรคจากการสัมผัส</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertOccupationAndEnvironDiseases" value="true" />
+                                        <label class="form-check-label">โรคจากการประกอบอาชีพและสิ่งแวดล้อม</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertEpidemiology" value="true" />
+                                        <label class="form-check-label">ระบาดวิทยา</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertLaboratory" value="true" />
+                                        <label class="form-check-label">ห้องปฎิบัติการ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertEvaluate" value="true" />
+                                        <label class="form-check-label">ประเมินผล</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertStatistics" value="true" />
+                                        <label class="form-check-label">สถิติ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertManage" value="true" />
+                                        <label class="form-check-label">บริหารจัดการ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertInnovation" value="true" />
+                                        <label class="form-check-label">นวัตกรรม</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="IsSpecialExpertEtc" value="true" />
+                                        <label class="form-check-label">อื่น ๆ ระบุ...</label>
+                                    </div>
+                                    <input type="text" class="form-control" id="" name="specialExpertise">
+                                    @*<textarea class="form-control" id="" rows="3" name="specialExpertise"></textarea>*@
+                                    @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="">ประสบการณ์ทำงาน</label>

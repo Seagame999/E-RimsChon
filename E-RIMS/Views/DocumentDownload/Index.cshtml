@@ -28,7 +28,6 @@
                     <thead>
                         <tr>
                             <th scope="col">เอกสาร</th>
-                            <th scope="col">รายละเอียด</th>
                             <th scope="col">วันที่อัพโหลด</th>
                             <th scope="col">ดาวน์โหลด</th>
                         </tr>
@@ -38,8 +37,7 @@
                         {
                         <tr>
 
-                            <td>@Html.DisplayFor(modelItem => item.name)</td>
-                            <td>@Html.DisplayFor(modelItem => item.description)</td>
+                            <td><a href="@Url.Action("DocumentDetail"+"/"+item.id,"DocumentDownload")">@Html.DisplayFor(modelItem => item.name)</a></td>
                             <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
                             <td><a href="@Html.DisplayFor(model => item.docUpload)">@Html.DisplayFor(modelItem => item.name)</a></td>
 

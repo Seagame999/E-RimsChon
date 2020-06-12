@@ -196,27 +196,28 @@
                             </div>
                             <div class="form-group">
                                 <label for="">ความเชี่ยวชาญ</label>
-                                <textarea class="form-control" id="" rows="3">@ViewBag.infection
-                                @ViewBag.nonInfection
-                                @ViewBag.diseaseExposure
-                                @ViewBag.occupationAndEnvironDiseases
-                                @ViewBag.epidemiology
-                                @ViewBag.expertLaboratory
-                                @ViewBag.evaluate
-                                @ViewBag.statistics
-                                @ViewBag.manage
-                                @ViewBag.innovation
-                                @Model.specialExpertise
-                                </textarea>
+                                <div class="form-group">
+                                    @ViewBag.infection <br/>
+                                    @ViewBag.nonInfection <br />
+                                    @ViewBag.diseaseExposure <br />
+                                    @ViewBag.occupationAndEnvironDiseases <br />
+                                    @ViewBag.epidemiology <br />
+                                    @ViewBag.expertLaboratory <br />
+                                    @ViewBag.evaluate <br />
+                                    @ViewBag.statistics <br /> 
+                                    @ViewBag.manage <br />
+                                    @ViewBag.innovation <br />
+                                    @Model.specialExpertise <br />
+                                </div>
                                 @*<textarea class="form-control" id="" rows="3">@Model.specialExpertise</textarea>*@
                             </div>
                             <div class="form-group">
                                 <label for="">ประสบการณ์ทำงาน</label>
-                                <textarea class="form-control" id="" rows="3" >@Model.positionWork</textarea>
+                                <textarea class="form-control" id="" rows="3">@Model.positionWork</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">ผลงานทางวิชาการ</label>
-                                <textarea class="form-control" id="" rows="3" >@Model.nameAcademic</textarea>
+                                <textarea class="form-control" id="" rows="3">@Model.nameAcademic</textarea>
                             </div>
                         </div>
                     </div>

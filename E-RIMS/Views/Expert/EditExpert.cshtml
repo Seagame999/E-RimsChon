@@ -226,32 +226,55 @@
                             </div>
                             <div class="form-group">
                                 <label for="">ความเชี่ยวชาญ</label>
-                                @Html.CheckBox("IsSpecialExpertInfection", new { @class = "form-check" })
-                                <label class="form-check-label">โรคติดต่อ</label>
-                                @Html.CheckBox("IsSpecialExpertNonInfection", new { @class = "form-check" })
-                                <label class="form-check-label">โรคไม่ติดต่อ</label>
-                                @Html.CheckBox("IsSpecialExpertDiseaseExposure", new { @class = "form-check" })
-                                <label class="form-check-label">โรคจากการสัมผัส</label>
-                                @Html.CheckBox("IsSpecialExpertOccupationAndEnvironDiseases", new { @class = "form-check" })
-                                <label class="form-check-label">โรคจากการประกอบอาชีพและสิ่งแวดล้อม</label>
-                                @Html.CheckBox("IsSpecialExpertEpidemiology", new { @class = "form-check" })
-                                <label class="form-check-label">ระบาดวิทยา</label>
-                                @Html.CheckBox("IsSpecialExpertLaboratory", new { @class = "form-check" })
-                                <label class="form-check-label">ห้องปฎิบัติการ</label>
-                                @Html.CheckBox("IsSpecialExpertEvaluate", new { @class = "form-check" })
-                                <label class="form-check-label">ประเมินผล</label>
-                                @Html.CheckBox("IsSpecialExpertStatistics", new { @class = "form-check" })
-                                <label class="form-check-label">สถิติ</label>
-                                @Html.CheckBox("IsSpecialExpertManage", new { @class = "form-check" })
-                                <label class="form-check-label">บริหารจัดการ</label>
-                                @Html.CheckBox("IsSpecialExpertInnovation", new { @class = "form-check" })
-                                <label class="form-check-label">นวัตกรรม</label>
-                                @Html.CheckBox("IsSpecialExpertEtc", new { @class = "form-check" })
-                                <label class="form-check-label">อื่น ๆ ระบุ...</label>
-                                @Html.EditorFor(model => model.specialExpertise, new { htmlAttributes = new { @class = "form-control" } })
-
-                                @*@Html.TextAreaFor(model => model.specialExpertise, new { @class = "form-control", @rows = 3 })*@
-                                @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertInfection", new { @class = "form-check-input" })
+                                        <label class="form-check-label">โรคติดต่อ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertNonInfection", new { @class = "form-check-input" })
+                                        <label class="form-check-label">โรคไม่ติดต่อ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertDiseaseExposure", new { @class = "form-check-input" })
+                                        <label class="form-check-label">โรคจากการสัมผัส</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertOccupationAndEnvironDiseases", new { @class = "form-check-input" })
+                                        <label class="form-check-label">โรคจากการประกอบอาชีพและสิ่งแวดล้อม</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertEpidemiology", new { @class = "form-check-input" })
+                                        <label class="form-check-label">ระบาดวิทยา</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertLaboratory", new { @class = "form-check-input" })
+                                        <label class="form-check-label">ห้องปฎิบัติการ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertEvaluate", new { @class = "form-check-input" })
+                                        <label class="form-check-label">ประเมินผล</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertStatistics", new { @class = "form-check-input" })
+                                        <label class="form-check-label">สถิติ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertManage", new { @class = "form-check-input" })
+                                        <label class="form-check-label">บริหารจัดการ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertInnovation", new { @class = "form-check-input" })
+                                        <label class="form-check-label">นวัตกรรม</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        @Html.CheckBox("IsSpecialExpertEtc", new { @class = "form-check-input" })
+                                        <label class="form-check-label">อื่น ๆ ระบุ...</label>
+                                    </div>
+                                        @Html.EditorFor(model => model.specialExpertise, new { htmlAttributes = new { @class = "form-control" } })
+                                    @*@Html.TextAreaFor(model => model.specialExpertise, new { @class = "form-control", @rows = 3 })*@
+                                    @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="">ประสบการณ์ทำงาน</label>

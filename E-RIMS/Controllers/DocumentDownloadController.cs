@@ -55,6 +55,7 @@ namespace E_RIMS.Controllers
                 }
 
                 documentDownload.date = DateTime.Today;
+                documentDownload.views = 0;
                 db.DocumentDownload.Add(documentDownload);
                 db.SaveChanges();
                 ModelState.Clear();
@@ -63,6 +64,20 @@ namespace E_RIMS.Controllers
             }
 
                 return View(documentDownload);
+        }
+
+        public ActionResult DocumentDetail(int id)
+        {
+            DocumentDownload documentDownload = db.DocumentDownload.Find(id);
+            if (documentDownload == null)
+            {
+                return RedirectToAction("Index");
+            }
+            //--Page Visitor
+            documentDownload.views = documentDownload.views + 1;
+            db.Entry(documentDownload).State = EntityState.Modified;
+            db.SaveChanges();
+            return View(documentDownload);
         }
 
         public ActionResult EditDownloadDocument(int id)
@@ -91,7 +106,10 @@ namespace E_RIMS.Controllers
                     documentDownload.docUpload2.SaveAs(path);
                 }
 
-                db.Entry(documentDownload).State = EntityState.Modified;
+                db.DocumentDownload.Attach(documentDownload);
+                db.Entry(documentDownload).Property(x => x.name).IsModified = true;
+                db.Entry(documentDownload).Property(x => x.description).IsModified = true;
+                db.Entry(documentDownload).Property(x => x.docUpload).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
             }
