@@ -22,8 +22,11 @@ namespace E_RIMS.Models
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> date { get; set; }
         public string type { get; set; }
+        [Required(ErrorMessage = "กรุณากรอกชื่อนวัตกรรม")]
         public string name { get; set; }
+        [Required(ErrorMessage = "กรุณาเลือกกลุ่มงาน")]
         public string workGroup { get; set; }
+        [Required(ErrorMessage = "กรุณาเลือกผู้จัดทำ")]
         public string creator { get; set; }
         public string backgroudAndImportance { get; set; }
         public string objective { get; set; }
