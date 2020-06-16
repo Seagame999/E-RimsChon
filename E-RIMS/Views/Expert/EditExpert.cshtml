@@ -132,8 +132,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
+                    <br />
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-home"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (บ้าน)
@@ -190,7 +189,8 @@
                             </div>
                         </div>
                     </div>
-                    <br />
+                </div>
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-graduation-cap "></i>&nbsp;การศึกษาและความเชี่ยวชาญ
@@ -271,7 +271,7 @@
                                         @Html.CheckBox("IsSpecialExpertEtc", new { @class = "form-check-input" })
                                         <label class="form-check-label">อื่น ๆ ระบุ...</label>
                                     </div>
-                                        @Html.EditorFor(model => model.specialExpertise, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.specialExpertise, new { htmlAttributes = new { @class = "form-control" } })
                                     @*@Html.TextAreaFor(model => model.specialExpertise, new { @class = "form-control", @rows = 3 })*@
                                     @Html.ValidationMessageFor(model => model.specialExpertise, "", new { @class = "text-danger" })
                                 </div>
