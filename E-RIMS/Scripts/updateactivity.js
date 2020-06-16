@@ -1,5 +1,6 @@
-﻿$(document).ready(function () {
+﻿
 
+$(document).ready(function () {
     var activityStatus = $.urlParam('status');
     var res = decodeURI(activityStatus);
 
@@ -21,19 +22,13 @@
             workingCheck.addClass('inactive');
             finishingCheck.addClass('inactive');
         } else if (res == 'วางแผน') {
-            finishingCard.hide();
-
             planningCheck.addClass('active');
             workingCheck.addClass('inactive');
             finishingCheck.addClass('inactive');
+
+            finishingCard.hide();
         } else if (res == 'ดำเนินการ') {
-            planningCheck.addClass('active');
-            workingCheck.addClass('active');
-            finishingCheck.addClass('inactive');
-        } else if (ress == 'เสร็จสิ้น') {
-            planningCheck.addClass('active');
-            workingCheck.addClass('active');
-            finishingCheck.addClass('active');
+
         }
     }
 });
