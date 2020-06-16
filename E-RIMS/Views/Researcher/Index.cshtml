@@ -25,60 +25,57 @@
         </h5>
         <hr />
 
-        <div class="row">
-
-            <div class="card-deck">
-                @foreach (var item in Model)
-                {
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title text-center">
-                                    <a href="@Url.Action("DetailResearcher"+"/"+item.id,"Researcher")">
-                                        @Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.surname)
-                                    </a>
-                                </h6>
-                                <div class="row">
-                                    <div class="col text-center">
-                                        <img src="@Url.Content(item.image ?? "~/Image/no-camera.png")" class="rounded" style="height:200px">
-                                        <p class="card-text">@Html.DisplayFor(modelItem => item.position)</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        เบอร์สำนักงาน:
-                                    </div>
-                                    <div class="col-md-6">
-                                        @Html.DisplayFor(modelItem => item.officePhoneNumber)
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        เบอร์โทรสาร:
-                                    </div>
-                                    <div class="col-md-6">
-                                        @Html.DisplayFor(modelItem => item.officeFax)
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        เบอร์มือถือ:
-                                    </div>
-                                    <div class="col-md-6">
-                                        @Html.DisplayFor(modelItem => item.moblieNumber)
-                                    </div>
+        <div class="card-deck">
+            @foreach (var item in Model)
+            {
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title text-center">
+                                <a href="@Url.Action("DetailResearcher"+"/"+item.id,"Researcher")">
+                                    @Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.surname)
+                                </a>
+                            </h6>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <img src="@Url.Content(item.image ?? "~/Image/no-camera.png")" class="rounded" style="height:200px">
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.position)</p>
                                 </div>
                             </div>
-                            <div class="card-footer text-right">
-                                <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher"+"/"+item.id,"Researcher")">ข้อมูล</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    เบอร์สำนักงาน:
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.DisplayFor(modelItem => item.officePhoneNumber)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    เบอร์โทรสาร:
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.DisplayFor(modelItem => item.officeFax)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    เบอร์มือถือ:
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.DisplayFor(modelItem => item.moblieNumber)
+                                </div>
                             </div>
                         </div>
-                        <br/>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-sm btn-info" href="@Url.Action("DetailResearcher"+"/"+item.id,"Researcher")">ข้อมูล</a>
+                        </div>
                     </div>
-                }
-            </div>
-
+                    <br />
+                </div>
+            }
         </div>
+
         <div class="row">
             <div class="col-6"></div>
             <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
