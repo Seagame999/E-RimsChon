@@ -65,6 +65,7 @@ namespace E_RIMS.Controllers
                     journal.files2.SaveAs(path);
                 }
 
+                journal.date = DateTime.Today;
                 db.Journal.Add(journal);
                 db.SaveChanges();
                 ModelState.Clear();
@@ -122,6 +123,7 @@ namespace E_RIMS.Controllers
                     journal.files2.SaveAs(path);
                 }
 
+                journal.date = DateTime.Today;
                 db.Entry(journal).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
