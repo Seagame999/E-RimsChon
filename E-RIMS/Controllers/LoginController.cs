@@ -29,15 +29,18 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                var inputPassword = GetMD5(password);
-                var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(inputPassword)).ToList();
+                //var inputPassword = GetMD5(password);
+                //var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(inputPassword)).ToList();
+
+                var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(password)).ToList();
 
                 if(data.Count() > 0)
                 {
                     //Create Session
-                    Session["Username"] = data.FirstOrDefault().username;
-                    Session["Email"] = data.FirstOrDefault().email;
-                    Session["Id"] = data.FirstOrDefault().id;
+                    Session["Username"] = data.FirstOrDefault().username.ToString();
+                    Session["Email"] = data.FirstOrDefault().email.ToString();
+                    Session["Id"] = data.FirstOrDefault().id.ToString();
+                    Session["Role"] = data.FirstOrDefault().role.ToString();
 
                     return RedirectToAction("Index", "Home");
                 }

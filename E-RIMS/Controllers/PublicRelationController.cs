@@ -20,16 +20,34 @@ namespace E_RIMS.Controllers
 
         public ActionResult AllNews(int? page)
         {
-            var publicRelation = db.PublicRelation;
-            var publicRelationResult = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
-
-            return View(publicRelationResult);
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var publicRelation = db.PublicRelation;
+                    var publicRelationResult = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
+                    return View(publicRelationResult);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         public ActionResult CreateNews()
         {
-            return View();
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    return View();
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
+
 
         [HttpPost]
         public ActionResult CreateNews(PublicRelation publicRelation)
@@ -83,12 +101,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult EditNews(int id)
         {
-            PublicRelation publicRelation = db.PublicRelation.Find(id);
-            if (publicRelation == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("AllNews");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    PublicRelation publicRelation = db.PublicRelation.Find(id);
+                    if (publicRelation == null)
+                    {
+                        return RedirectToAction("AllNews");
+                    }
+                    return View(publicRelation);
+                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(publicRelation);
+            else
+                return RedirectToAction("Index", "Home");           
         }
 
         [HttpPost]
@@ -126,13 +153,22 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteNews(int id)
         {
-            PublicRelation publicRelation = db.PublicRelation.Find(id);
-
-            if (publicRelation == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("AllNews");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    PublicRelation publicRelation = db.PublicRelation.Find(id);
+
+                    if (publicRelation == null)
+                    {
+                        return RedirectToAction("AllNews");
+                    }
+                    return View(publicRelation);
+                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(publicRelation);
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost, ActionName("DeleteNews")]

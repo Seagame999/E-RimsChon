@@ -27,15 +27,33 @@ namespace E_RIMS.Controllers
 
         public ActionResult AllDocumentDownload()
         {
-            var docdownload = db.DocumentDownload;
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var docdownload = db.DocumentDownload;
 
-            return View(docdownload.ToList());
+                    return View(docdownload.ToList());
+                }
+                return RedirectToAction("Index", "DocumentDownload");
+            }
+            else
+                return RedirectToAction("Index", "DocumentDownload");            
         }
 
 
         public ActionResult CreateDownloadDocument()
         {
-            return View();
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    return View();
+                }
+                return RedirectToAction("Index", "DocumentDownload");
+            }
+            else
+                return RedirectToAction("Index", "DocumentDownload");          
         }
         
 
@@ -82,13 +100,22 @@ namespace E_RIMS.Controllers
 
         public ActionResult EditDownloadDocument(int id)
         {
-            DocumentDownload documentDownload = db.DocumentDownload.Find(id);
-            if(documentDownload == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    DocumentDownload documentDownload = db.DocumentDownload.Find(id);
+                    if (documentDownload == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            return View(documentDownload);
+                    return View(documentDownload);
+                }
+                return RedirectToAction("Index", "DocumentDownload");
+            }
+            else
+                return RedirectToAction("Index", "DocumentDownload");            
         }
 
         [HttpPost]
@@ -119,13 +146,22 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteDownloadDocument(int id)
         {
-            DocumentDownload documentDownload = db.DocumentDownload.Find(id);
-            if (documentDownload == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    DocumentDownload documentDownload = db.DocumentDownload.Find(id);
+                    if (documentDownload == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            return View(documentDownload);
+                    return View(documentDownload);
+                }
+                return RedirectToAction("Index", "DocumentDownload");
+            }
+            else
+                return RedirectToAction("Index", "DocumentDownload");            
         }
 
         [HttpPost, ActionName("DeleteDownloadDocument")]
