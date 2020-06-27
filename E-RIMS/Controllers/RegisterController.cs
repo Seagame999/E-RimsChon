@@ -31,6 +31,7 @@ namespace E_RIMS.Controllers
             if (ModelState.IsValid)
             {
                 member.password = GetMD5(member.password);
+                member.role = "User";
                 db.Member.Add(member);
                 db.SaveChanges();
                 ModelState.Clear();

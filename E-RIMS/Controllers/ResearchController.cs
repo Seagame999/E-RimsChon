@@ -17,16 +17,112 @@ namespace E_RIMS.Controllers
         // GET: Research
         public ActionResult Index(int? page)
         {
-            var research = db.Research;
+            if (Session["Role"] != null)
+            {
+                var research = db.Research;
 
-            //--Pagination 10 each
-            var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
+                //--Pagination 10 each
+                var convertIdOwner = Convert.ToInt32(Session["Id"]);
 
-            return View(researchResult);
+                var convertUsernameOwner = Session["Username"].ToString();
+
+                var researchResult = research.Where(x => x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                return View(researchResult);
+            }
+            else
+                return RedirectToAction("Index", "Home");           
         }
 
         [HttpPost]
         public ActionResult Index(string budgetYear, string name, string creator, string workGroup, int? page)
+        {
+            var research = db.Research;
+
+            //--Pagination 10 each
+            var convertIdOwner = Convert.ToInt32(Session["Id"]);
+
+            var convertUsernameOwner = Session["Username"].ToString();
+
+
+            var researchResult = research.Where(x => x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
+            if (budgetYear != "-- ปีงบประมาณ --")
+            {
+                researchResult = db.Research.Where(x => (x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            if (name != "")
+            {
+                researchResult = db.Research.Where(x => (x.name.StartsWith(name) || x.name.Equals(name))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            if (creator != "")
+            {
+                researchResult = db.Research.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            if (workGroup != "-- กลุ่มงาน --")
+            {
+                researchResult = db.Research.Where(x => (x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (researchResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบงานวิจัย";
+                }
+
+                return View(researchResult);
+            }
+            else
+            {
+                return View(researchResult);
+            }
+        }
+
+        public ActionResult AllResearch(int? page)
+        {
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var research = db.Research;
+
+                    //--Pagination 10 each
+                    var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
+
+                    return View(researchResult);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult AllResearch(string budgetYear, string name, string creator, string workGroup, int? page)
         {
             var research = db.Research;
 
@@ -84,25 +180,6 @@ namespace E_RIMS.Controllers
             }
         }
 
-        public ActionResult AllResearch(int? page)
-        {
-            if (Session["Role"] != null)
-            {
-                if (Session["Role"].Equals("Admin"))
-                {
-                    var research = db.Research;
-
-                    //--Pagination 10 each
-                    var researchResult = research.ToList().ToPagedList(page ?? 1, 10);
-
-                    return View(researchResult);
-                }
-                return RedirectToAction("Index", "Home");
-            }
-            else
-                return RedirectToAction("Index", "Home");
-        }
-
         public ActionResult CreateResearch()
         {
             if (Session["Role"] != null)
@@ -121,7 +198,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index", "Research");
             }
             else
-                return RedirectToAction("Index", "Research");         
+                return RedirectToAction("Index", "Research");
         }
 
         [HttpPost]
@@ -149,11 +226,12 @@ namespace E_RIMS.Controllers
                     research.finalFilesHttpPost.SaveAs(path);
                 }
 
-                //if (Session["Id"] != null || Session["Username"] != null)
-                //{
-                //    research.idOwner = Convert.ToInt32(Session["Id"]);
-                //    research.usernameOwner = Session["Username"].ToString();                     
-                //}
+                //ความเป็นเจ้าของงาน
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    research.idOwner = Convert.ToInt32(Session["Id"]);
+                    research.usernameOwner = Session["Username"].ToString();
+                }
 
                 research.views = 0;
                 research.workOverview = 00.00m;
