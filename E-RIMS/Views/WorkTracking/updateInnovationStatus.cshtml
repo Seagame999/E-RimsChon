@@ -31,7 +31,16 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h6><i class="fa fa-user-circle"></i>&nbsp;นวัตกร และข้อมูลงานนวัตกรรม&nbsp;<a href="@Url.Action("EditInnovation"+"/"+Model.id, "Innovation")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานนวัตกรรม</a></h6>
+                            <h6>
+                                <i class="fa fa-user-circle"></i>&nbsp;นวัตกร และข้อมูลงานนวัตกรรม&nbsp;
+                                @if (Session["Role"] != null)
+                                {
+                                    if (Session["Role"].Equals("Admin"))
+                                    {
+                                        <a href="@Url.Action("EditInnovation"+"/"+Model.id, "Innovation")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานนวัตกรรม</a>
+                                    }
+                                }
+                            </h6>
                         </div>
                         <div class="card-body">
                             <div class="form-row">

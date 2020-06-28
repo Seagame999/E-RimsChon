@@ -24,9 +24,22 @@
                         <div class="card-title">
                             จัดการงานวิจัย
                         </div>
-                        <a href="@Url.Action("Index","Research")">
-                            <img src="~/Image/researcher.png" class="rounded" alt="" style="height:250px;">
-                        </a>
+                        @if (Session["Role"] != null)
+                        {
+                            if (Session["Role"].Equals("Admin"))
+                            {
+                                <a href="@Url.Action("AllResearch","Research")">
+                                    <img src="~/Image/researcher.png" class="rounded" alt="" style="height:250px;">
+                                </a>
+                            }
+
+                            if (Session["Role"].Equals("User"))
+                            {
+                                <a href="@Url.Action("Index","Research")">
+                                    <img src="~/Image/researcher.png" class="rounded" alt="" style="height:250px;">
+                                </a>
+                            }
+                        }            
                     </div>
                 </div>
             </div>
@@ -37,9 +50,22 @@
                         <div class="card-title">
                             จัดการงานวัตกรรม
                         </div>
-                        <a href="@Url.Action("Index","Innovation")">
-                            <img src="~/Image/innovator.png" class="rounded" alt="" style="height:250px;">
-                        </a>
+                        @if (Session["Role"] != null)
+                        {
+                            if (Session["Role"].Equals("Admin"))
+                            {
+                                <a href="@Url.Action("AllInnovation","Innovation")">
+                                    <img src="~/Image/innovator.png" class="rounded" alt="" style="height:250px;">
+                                </a>
+                            }
+
+                            if (Session["Role"].Equals("User"))
+                            {
+                                <a href="@Url.Action("Index","Innovation")">
+                                    <img src="~/Image/innovator.png" class="rounded" alt="" style="height:250px;">
+                                </a>
+                            }
+                        }
                     </div>
                 </div>
             </div>

@@ -226,6 +226,13 @@
         </form>
     </div>
     <div class="card-footer text-right">
-        <a href="@Url.Action("EditExpert"+"/"+Model.id, "Expert")" class="btn btn-success btn-lg"><i class="fa fa-user-edit"></i>&nbsp;แก้ไขข้อมูลผู้เชี่ยวชาญ</a>&nbsp;
+        @if (Session["Role"] != null)
+        {
+            if (Session["Role"].Equals("Admin"))
+            {
+                <a href="@Url.Action("EditExpert"+"/"+Model.id, "Expert")" class="btn btn-success btn-lg"><i class="fa fa-user-edit"></i>&nbsp;แก้ไขข้อมูลผู้เชี่ยวชาญ</a>
+            }
+        }
+        &nbsp;
     </div>
 </div>

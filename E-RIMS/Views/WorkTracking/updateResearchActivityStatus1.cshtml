@@ -16,101 +16,104 @@
     </ol>
 </nav>
 
-    <div class="card">
-        <div class="card-header">
-            <h3>@ViewBag.Title</h3>
-        </div>
-        @using (Html.BeginForm(Html.BeginForm("updateResearchActivityStatus1", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
-        {
-            <div class="card-body">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title h5">
-                            ชื่องานวิจัย: @Model.name
-                        </div>
-                        <div class="row">
-                            <div class="col">ผู้วิจัย: @Model.creator</div>
-                            <div class="col">กิจกรรม: @Model.activity1</div>
-                        </div>
-                        <div class="timeline-container">
-                            <ul class="timeline">
-                                <li id="planningCheck">วางแผน</li>
-                                <li id="workingCheck">ดำเนินการ</li>
-                                <li id="finishingCheck">เสร็จสิ้น</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="card" id="planningCard">
-                    <div class="card-body">
-                        <div class="card-title h5">
-                            <i class="fa fa-brain"></i>&nbsp;ผลการวางแผน
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <label class="">ผลการดำเนินงาน</label>
-                                @Html.TextAreaFor(model => model.planStatusActivity1, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
-                            </div>
-                            <div class="form-group col-6">
-                                <label class="">เอกสารประกอบ</label>
-                                <input type="file" class="form-control" name="filePlanStatusActivity1HttpPost" />
-                                <input type="hidden" name="filePlanStatusActivity1" value="@Model.filePlanStatusActivity1">
-                                <br />
-                                <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
-                                <a href="@Model.filePlanStatusActivity1" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="card" id="workingCard">
-                    <div class="card-body">
-                        <div class="card-title h5">
-                            <i class="fa fa-briefcase"></i>&nbsp;ผลการดำเนินการ
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <label class="">ผลการดำเนินงาน</label>
-                                @Html.TextAreaFor(model => model.proceedStatusActivity1, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
-                            </div>
-                            <div class="form-group col-6">
-                                <label class="">เอกสารประกอบ</label>
-                                <input type="file" class="form-control" name="fileProceedStatusActivity1HttpPost" />
-                                <input type="hidden" name="fileProceedStatusActivity1" value="@Model.fileProceedStatusActivity1">
-                                <br />
-                                <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
-                                <a href="@Model.fileProceedStatusActivity1" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="card" id="finishingCard">
-                    <div class="card-body">
-                        <div class="card-title h5">
-                            <i class="fa fa-flag-checkered"></i>&nbsp;ผลการเสร็จสิ้น
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <label class="">ผลการดำเนินงาน</label>
-                                @Html.TextAreaFor(model => model.finishStatusActivity1, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
-                            </div>
-                            <div class="form-group col-6">
-                                <label class="">เอกสารประกอบ</label>
-                                <input type="file" class="form-control" name="fileFinishStatusActivity1HttpPost" />
-                                <input type="hidden" name="fileFinishStatusActivity1" value="@Model.fileFinishStatusActivity1">
-                                <br />
-                                <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
-                                <a href="@Model.fileFinishStatusActivity1" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer text-right">
-                <button type="submit" class="btn btn-success">ปรับปรุงสถานะกิจกรรม</button>&nbsp;<button type="reset" class="btn btn-danger">ยกเลิก</button>
-            </div>
-        }
-
+<div class="card">
+    <div class="card-header">
+        <h3>@ViewBag.Title</h3>
     </div>
+    @using (Html.BeginForm(Html.BeginForm("updateResearchActivityStatus1", "WorkTracking", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        ชื่องานวิจัย: @Model.name
+                    </div>
+                    <div class="row">
+                        <div class="col">ผู้วิจัย: @Model.creator</div>
+                        <div class="col">กิจกรรม: @Model.activity1</div>
+                    </div>
+                    <div class="timeline-container">
+                        <ul class="timeline">
+                            <li id="planningCheck">วางแผน</li>
+                            <li id="workingCheck">ดำเนินการ</li>
+                            <li id="finishingCheck">เสร็จสิ้น</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card" id="planningCard">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        <i class="fa fa-brain"></i>&nbsp;ผลการวางแผน
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="">ผลการดำเนินงาน</label>
+                            @Html.TextAreaFor(model => model.planStatusActivity1, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="">เอกสารประกอบ</label>
+                            <input type="file" class="form-control" name="filePlanStatusActivity1HttpPost" />
+                            <input type="hidden" name="filePlanStatusActivity1" value="@Model.filePlanStatusActivity1">
+                            <br />
+                            <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
+                            <a href="@Model.filePlanStatusActivity1" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card" id="workingCard">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        <i class="fa fa-briefcase"></i>&nbsp;ผลการดำเนินการ
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="">ผลการดำเนินงาน</label>
+                            @Html.TextAreaFor(model => model.proceedStatusActivity1, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="">เอกสารประกอบ</label>
+                            <input type="file" class="form-control" name="fileProceedStatusActivity1HttpPost" />
+                            <input type="hidden" name="fileProceedStatusActivity1" value="@Model.fileProceedStatusActivity1">
+                            <br />
+                            <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
+                            <a href="@Model.fileProceedStatusActivity1" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card" id="finishingCard">
+                <div class="card-body">
+                    <div class="card-title h5">
+                        <i class="fa fa-flag-checkered"></i>&nbsp;ผลการเสร็จสิ้น
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="">ผลการดำเนินงาน</label>
+                            @Html.TextAreaFor(model => model.finishStatusActivity1, new { @class = "form-control", @cols = 50, style = "height : 150px;" })
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="">เอกสารประกอบ</label>
+                            <input type="file" class="form-control" name="fileFinishStatusActivity1HttpPost" />
+                            <input type="hidden" name="fileFinishStatusActivity1" value="@Model.fileFinishStatusActivity1">
+                            <br />
+                            <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
+                            <a href="@Model.fileFinishStatusActivity1" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="name" value="@Model.name">
+        <input type="hidden" name="workGroup" value="@Model.workGroup">
+        <input type="hidden" name="creator" value="@Model.creator">
+        <div class="card-footer text-right">
+            <button type="submit" class="btn btn-success">ปรับปรุงสถานะกิจกรรม</button>&nbsp;<button type="reset" class="btn btn-danger">ยกเลิก</button>
+        </div>
+    }
+
+</div>

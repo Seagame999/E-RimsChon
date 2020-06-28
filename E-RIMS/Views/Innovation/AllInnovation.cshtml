@@ -21,6 +21,79 @@
     <div class="card-body">
         <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
         <hr />
+        <div class="card">
+            <div class="card-header">
+                ค้นหางานนวัตกรรม
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("AllInnovation", "Innovation", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="form-group col-2">
+                            <label class="" for="">ปีงบประมาณ</label>
+                            <select class="custom-select custom-select-sm" id="" name="budgetYear">
+                                <option selected>-- ปีงบประมาณ --</option>
+                                <option>2559</option>
+                                <option>2560</option>
+                                <option>2561</option>
+                                <option>2562</option>
+                                <option>2563</option>
+                                <option>2564</option>
+                                <option>2565</option>
+                                <option>2566</option>
+                                <option>2567</option>
+                                <option>2568</option>
+                                <option>2569</option>
+                                <option>2570</option>
+                                <option>2571</option>
+                                <option>2572</option>
+                                <option>2573</option>
+                                <option>2574</option>
+                                <option>2575</option>
+                                <option>2576</option>
+                                <option>2577</option>
+                                <option>2578</option>
+                                <option>2579</option>
+                                <option>2580</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label class="" for="">ชื่อนวัตกรรม</label>
+                            <input type="text" class="form-control form-control-sm" name="name" />
+                        </div>
+                        <div class="form-group col-3">
+                            <label class="" for="">นวัตกร</label>
+                            <input type="text" class="form-control form-control-sm" name="creator" />
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="">กลุ่มงาน</label>
+                            <select class="form-control custom-select-sm" name="workGroup">
+                                <option selected>-- กลุ่มงาน --</option>
+                                <option>งานเภสัชกรรม</option>
+                                <option>บริหารทั่วไป</option>
+                                <option>พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง</option>
+                                <option>พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล</option>
+                                <option>ยุทธศาสตร์ แผนงาน และเครือข่าย</option>
+                                <option>ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข</option>
+                                <option>โรคติดต่อ</option>
+                                <option>โรคไม่ติดต่อ</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด</option>
+                                <option>ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี</option>
+                                <option>สื่อสารความเสี่ยงโรคและภัยสุขภาพ</option>
+                                <option>หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง</option>
+                                <option>ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหานวัตกรรม</button>
+                    </div>
+                }
+            </div>
+        </div>
         <br />
         <h5 class="card-title">รายงานนวัตกรรม</h5>
         <table class="table table-striped">
@@ -55,7 +128,7 @@
                         <div class="row">
                             <div class="col-6"></div>
                             <div class="col-6">
-                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                                @Html.PagedListPager(Model, page => Url.Action("AllInnovation", new { page }))
                             </div>
                         </div>
                     </td>

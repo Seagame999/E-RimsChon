@@ -27,17 +27,35 @@ namespace E_RIMS.Controllers
 
         public ActionResult AllJournal(int? page)
         {
-            var journal = db.Journal;
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var journal = db.Journal;
 
-            //--Pagination 10 each
-            var journalResult = journal.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
+                    //--Pagination 10 each
+                    var journalResult = journal.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 10);
 
-            return View(journalResult);
+                    return View(journalResult);
+                }
+                return RedirectToAction("Index", "Journal");
+            }
+            else
+                return RedirectToAction("Index", "Journal");         
         }
 
         public ActionResult CreateJournal()
         {
-            return View();
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    return View();
+                }
+                return RedirectToAction("Index", "Journal");
+            }
+            else
+                return RedirectToAction("Index", "Journal");            
         }
 
         [HttpPost]
@@ -89,13 +107,22 @@ namespace E_RIMS.Controllers
 
         public ActionResult EditJournal(int id)
         {
-            Journal journal = db.Journal.Find(id);
-            if (journal == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Journal journal = db.Journal.Find(id);
+                    if (journal == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            return View(journal);
+                    return View(journal);
+                }
+                return RedirectToAction("Index", "Journal");
+            }
+            else
+                return RedirectToAction("Index", "Journal");            
         }
 
         [HttpPost]
@@ -133,13 +160,22 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteJournal(int id)
         {
-            Journal journal = db.Journal.Find(id);
-            if (journal == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Journal journal = db.Journal.Find(id);
+                    if (journal == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            return View(journal);
+                    return View(journal);
+                }
+                return RedirectToAction("Index", "Journal");
+            }
+            else
+                return RedirectToAction("Index", "Journal");           
         }
 
         [HttpPost,ActionName("DeleteJournal")]

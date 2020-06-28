@@ -212,6 +212,14 @@
         </form>
     </div>
     <div class="card-footer text-right">
-        <a href="@Url.Action("EditInnovator"+"/"+(Model.id),"Innovators")" class="btn btn-success btn-lg"><i class="fa fa-user-edit"></i>&nbsp;แก้ไขข้อมูลนักวิจัย</a>&nbsp;
+        @if (Session["Role"] != null)
+        {
+            if (Session["Role"].Equals("Admin"))
+            {
+                <a href="@Url.Action("EditInnovator"+"/"+(Model.id),"Innovators")" class="btn btn-success btn-lg"><i class="fa fa-user-edit"></i>&nbsp;แก้ไขข้อมูลนักวิจัย</a>
+
+            }
+        }
+        &nbsp;
     </div>
 </div>

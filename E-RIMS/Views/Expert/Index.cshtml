@@ -19,8 +19,14 @@
     <div class="card-body">
         <h5 class="card-title">
             <i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title&nbsp;<small>
-                <a href="@Url.Action("CreateExpert","Expert")" class="btn btn-info">เพิ่มผู้เชี่ยวชาญรายใหม่</a>
-            </small>
+    @if (Session["Role"] != null)
+    {
+        if (Session["Role"].Equals("Admin"))
+        {
+         <a href="@Url.Action("CreateExpert","Expert")" class="btn btn-info">เพิ่มผู้เชี่ยวชาญรายใหม่</a>
+        }
+    }       
+</small>
         </h5>
         <hr />
 
@@ -69,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-right">
-                                <a class="btn btn-sm btn-info" href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">ข้อมูล</a>&nbsp;<a class="btn btn-sm btn-warning" href="@Url.Action("EditExpert"+"/"+item.id, "Expert")">แก้ไขข้อมูล</a>
+                                <a class="btn btn-sm btn-info" href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">ข้อมูล</a>&nbsp;
                             </div>
                         </div>
                         <br/>

@@ -15,7 +15,16 @@
 
 <div class="card">
     <div class="card-header">
-        <h3>วารสาร สคร.6 จังหวัดชลบุรี&nbsp;<a href="@Url.Action("CreateJournal", "Journal")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มวารสารฉบับใหม่</a></h3>
+        <h3>
+            วารสาร สคร.6 จังหวัดชลบุรี&nbsp;
+            @if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    <a href="@Url.Action("CreateJournal", "Journal")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มวารสารฉบับใหม่</a>
+                }
+            }
+        </h3>
     </div>
     <div class="card-body">
         <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>

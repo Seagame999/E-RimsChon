@@ -16,7 +16,13 @@
 
 <div class="card">
     <div class="card-header">
-        <h3>จัดการนวัตกรรม&nbsp;<a href="@Url.Action("CreateInnovation", "Innovation")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มงานนวัตกรรมชิ้นใหม่</a></h3>
+        <h3>
+            จัดการนวัตกรรม&nbsp;
+            @if (Session["Role"] != null)
+            {
+                <a href="@Url.Action("CreateInnovation", "Innovation")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มงานนวัตกรรมชิ้นใหม่</a>
+            }
+        </h3>
     </div>
     <div class="card-body">
         <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
@@ -118,7 +124,23 @@
                         <td>@Html.DisplayFor(modelItem => item.type)</td>
                         <td>@Html.DisplayFor(modelItem => item.creator)</td>
                         <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
-                        <td class="text-nowrap"><a href="@Url.Action("EditInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                        <td class="text-nowrap">
+                            @if (Session["Role"] != null)
+                            {
+                                if (Session["Role"].Equals("Admin"))
+                                {
+                                    <a href="@Url.Action("EditInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>
+                                }
+                            }
+                            &nbsp;
+                            @if (Session["Role"] != null)
+                            {
+                                if (Session["Role"].Equals("Admin"))
+                                {
+                                    <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a>
+                                }
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>

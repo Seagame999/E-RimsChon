@@ -17,16 +17,111 @@ namespace E_RIMS.Controllers
         // GET: Innovation
         public ActionResult Index(int? page)
         {
-            var innovation = db.Innovation;
+            if (Session["Role"] != null)
+            {
+                var innovation = db.Innovation;
 
-            //--Pagination 10 each
-            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+                //--Pagination 10 each
+                var convertIdOwner = Convert.ToInt32(Session["Id"]);
 
-            return View(innovationResult);
+                var convertUsernameOwner = Session["Username"].ToString();
+
+                var innovationResult = innovation.Where(x => x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                return View(innovationResult);
+            }
+            else
+                return RedirectToAction("Index", "Home");           
         }
 
         [HttpPost]
         public ActionResult Index(string budgetYear, string name, string creator, string workGroup, int? page)
+        {
+            var innovation = db.Innovation;
+
+            //--Pagination 10 each
+            var convertIdOwner = Convert.ToInt32(Session["Id"]);
+
+            var convertUsernameOwner = Session["Username"].ToString();
+
+            var innovationResult = innovation.Where(x => x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
+            if (budgetYear != "-- ปีงบประมาณ --")
+            {
+                innovationResult = db.Innovation.Where(x => (x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (name != "")
+            {
+                innovationResult = db.Innovation.Where(x => (x.name.StartsWith(name) || x.name.Equals(name))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (creator != "-- นวัตกร --")
+            {
+                innovationResult = db.Innovation.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (workGroup != "-- กลุ่มงาน --")
+            {
+                innovationResult = db.Innovation.Where(x => (x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            else
+            {
+                return View(innovationResult);
+            }
+        }
+
+        public ActionResult AllInnovation(int? page)
+        {
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var innovation = db.Innovation;
+
+                    //--Pagination 10 each
+                    var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+
+                    return View(innovationResult);
+                }
+                return RedirectToAction("Index", "Innovation");
+            }
+            else
+                return RedirectToAction("Index", "Innovation");
+        }
+
+        [HttpPost]
+        public ActionResult AllInnovation(string budgetYear, string name, string creator, string workGroup, int? page)
         {
             var innovation = db.Innovation;
 
@@ -84,26 +179,25 @@ namespace E_RIMS.Controllers
             }
         }
 
-        public ActionResult AllInnovation(int? page)
-        {
-            var innovation = db.Innovation;
-
-            //--Pagination 10 each
-            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
-
-            return View(innovationResult);
-        }
-
         public ActionResult CreateInnovation()
         {
-            var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
-            ViewBag.InnovatorView = (from item in modelInnovator
-                                     select new SelectListItem
-                                     {
-                                         Text = item.name + " " + item.surname,
-                                         Value = item.name.ToString() + " " + item.surname.ToString()
-                                     });
-            return View();
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin") || Session["Role"].Equals("User"))
+                {
+                    var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+                    ViewBag.InnovatorView = (from item in modelInnovator
+                                             select new SelectListItem
+                                             {
+                                                 Text = item.name + " " + item.surname,
+                                                 Value = item.name.ToString() + " " + item.surname.ToString()
+                                             });
+                    return View();
+                }
+                return RedirectToAction("Index", "Innovation");
+            }
+            else
+                return RedirectToAction("Index", "Innovation");
         }
 
         [HttpPost]
@@ -131,11 +225,13 @@ namespace E_RIMS.Controllers
                     innovation.finalFilesHttpPost.SaveAs(path);
                 }
 
-                //if (Session["Id"] != null || Session["Username"] != null)
-                //{
-                //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
-                //    innovation.usernameOwner = Session["Username"].ToString();
-                //}
+                //ความเป็นเจ้าของงาน
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    innovation.idOwner = Convert.ToInt32(Session["Id"]);
+                    innovation.usernameOwner = Session["Username"].ToString();
+                }
+
                 innovation.views = 0;
                 innovation.workOverview = 00.00m;
                 innovation.date = DateTime.Today;
@@ -216,37 +312,46 @@ namespace E_RIMS.Controllers
 
         public ActionResult EditInnovation(int id)
         {
-            Innovation innovation = db.Innovation.Find(id);
-            if (innovation == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Innovation innovation = db.Innovation.Find(id);
+                    if (innovation == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            decimal workOverviewValue = Convert.ToDecimal(innovation.workOverview);
-            ViewBag.workOverview = workOverviewValue;
+                    decimal workOverviewValue = Convert.ToDecimal(innovation.workOverview);
+                    ViewBag.workOverview = workOverviewValue;
 
-            var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
-            ViewBag.InnovatorView = (from item in modelInnovator
-                                     select new SelectListItem
-                                     {
-                                         Text = item.name + " " + item.surname,
-                                         Value = item.name.ToString()+ " " + item.surname.ToString()
-                                     });
+                    var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+                    ViewBag.InnovatorView = (from item in modelInnovator
+                                             select new SelectListItem
+                                             {
+                                                 Text = item.name + " " + item.surname,
+                                                 Value = item.name.ToString() + " " + item.surname.ToString()
+                                             });
 
-            var budgetYearView = new List<string>()
+                    var budgetYearView = new List<string>()
             { "2559", "2560", "2561", "2562", "2563", "2564", "2565", "2566", "2567", "2568", "2569", "2570", "2571", "2572", "2573", "2574", "2575", "2576", "2577" , "2578", "2579", "2580"};
-            ViewBag.budgetYearView = budgetYearView;
+                    ViewBag.budgetYearView = budgetYearView;
 
-            var typeView = new List<string>()
+                    var typeView = new List<string>()
             {"Product","Process","Service","Policy/Strategic"};
-            ViewBag.typeView = typeView;
+                    ViewBag.typeView = typeView;
 
-            var workGroupView = new List<string>()
+                    var workGroupView = new List<string>()
             {"งานเภสัชกรรม","บริหารทั่วไป","พัฒนานวัตกรรมและวิจัย และงานควบคุมโรคเขตเมือง","พัฒนาระบบบริหารองค์กร และงานสถาปัตยกรรมข้อมูล","ยุทธศาสตร์ แผนงาน และเครือข่าย","ระบาดวิทยาและตอบโต้ภาวะฉุกเฉินทางด้านสาธารณสุข","โรคติดต่อ","โรคไม่ติดต่อ"
             ,"ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.1 ศรีราชา","ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.2 สระแก้ว","ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.3 ระยอง","ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.4 ตราด","ศูนย์ควบคุมโรคติดต่อนำโดยแมลงที่ 6.5 จันทบุรี","สื่อสารความเสี่ยงโรคและภัยสุขภาพ","หน่วยกามโรคและโรคเอดส์ที่ 6.1 บางละมุง","ห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค"};
-            ViewBag.workGroupView = workGroupView;
+                    ViewBag.workGroupView = workGroupView;
 
-            return View(innovation);
+                    return View(innovation);
+                }
+                return RedirectToAction("Index", "Innovation");
+            }
+            else
+                return RedirectToAction("Index", "Innovation");
         }
 
         [HttpPost]
@@ -273,12 +378,6 @@ namespace E_RIMS.Controllers
                     var path = Path.Combine(Server.MapPath("~/docUploadFinalInnovation/"), fileNameDoc);
                     innovation.finalFilesHttpPost.SaveAs(path);
                 }
-
-                //if (Session["Id"] != null || Session["Username"] != null)
-                //{
-                //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
-                //    innovation.usernameOwner = Session["Username"].ToString();
-                //}
 
                 innovation.views = 0;
                 innovation.workOverview = Convert.ToDecimal(workOverview);
@@ -426,7 +525,6 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.isDec9).IsModified = true;
                 db.Entry(innovation).Property(x => x.isDec10).IsModified = true;
                 db.Entry(innovation).Property(x => x.budgetYear).IsModified = true;
-                db.Entry(innovation).Property(x => x.usernameOwner).IsModified = true;
                 db.Entry(innovation).Property(x => x.views).IsModified = true;
                 db.Entry(innovation).Property(x => x.finalFiles).IsModified = true;
                 db.SaveChanges();
@@ -459,12 +557,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteInnovation(int id)
         {
-            Innovation innovation = db.Innovation.Find(id);
-            if (innovation == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Innovation innovation = db.Innovation.Find(id);
+                    if (innovation == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    return View(innovation);
+                }
+                return RedirectToAction("Index", "Innovation");
             }
-            return View(innovation);
+            else
+                return RedirectToAction("Index", "Innovation");           
         }
 
         [HttpPost, ActionName("DeleteInnovation")]

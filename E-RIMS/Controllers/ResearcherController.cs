@@ -26,32 +26,45 @@ namespace E_RIMS.Controllers
 
         public ActionResult ListResearcher(int? page)
         {
-            var researcher = db.Researcher;
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var researcher = db.Researcher;
 
-            //--Pagination 6 cards
-            var researcherResult = researcher.ToList().ToPagedList(page ?? 1, 6);
-            return View(researcherResult);
+                    //--Pagination 6 cards
+                    var researcherResult = researcher.ToList().ToPagedList(page ?? 1, 6);
+                    return View(researcherResult);
+                }
+                return RedirectToAction("Index", "Researcher");
+            }
+            else
+                return RedirectToAction("Index", "Researcher");          
         }
 
         public ActionResult CreateResearcher()
         {
-            var modelPosition = db.Position.ToList();
-            ViewBag.PositionView = (from item in modelPosition
-                                     select new SelectListItem
-                                     {
-                                         Text = item.position1,
-                                         Value = item.position1.ToString()
-                                     });
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var modelPosition = db.Position.ToList();
+                    ViewBag.PositionView = (from item in modelPosition
+                                            select new SelectListItem
+                                            {
+                                                Text = item.position1,
+                                                Value = item.position1.ToString()
+                                            });
 
-            var modelLevel = db.Level.ToList();
-            ViewBag.LevelView = (from item in modelLevel
-                                 select new SelectListItem
-                                    {
-                                        Text = item.levels,
-                                        Value = item.levels.ToString()
-                                    });
+                    var modelLevel = db.Level.ToList();
+                    ViewBag.LevelView = (from item in modelLevel
+                                         select new SelectListItem
+                                         {
+                                             Text = item.levels,
+                                             Value = item.levels.ToString()
+                                         });
 
-            var proviceView = new List<string>()
+                    var proviceView = new List<string>()
             { "กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท","ชัยภูมิ",
             "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช",
             "นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พะเยา",
@@ -59,9 +72,14 @@ namespace E_RIMS.Controllers
             "ยโสธร","ยะลา","ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ",
             "สกลนคร","สงขลา","สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
             "สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อำนาจเจริญ","อุดรธานี","อุตรดิตถ์","อุทัยธานี","อุบลราชธานี","บึงกาฬ"};
-            ViewBag.proviceView = proviceView;
+                    ViewBag.proviceView = proviceView;
 
-            return View();
+                    return View();
+                }
+                return RedirectToAction("Index", "Researcher");
+            }
+            else
+                return RedirectToAction("Index", "Researcher");            
         }
 
         [HttpPost]
@@ -128,29 +146,33 @@ namespace E_RIMS.Controllers
         
         public ActionResult EditResearcher(int id)
         {
-            Researcher researcher = db.Researcher.Find(id);
-            if (researcher == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Researcher researcher = db.Researcher.Find(id);
+                    if (researcher == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            var modelPosition = db.Position.ToList();
-            ViewBag.PositionView = (from item in modelPosition
-                                    select new SelectListItem
-                                    {
-                                        Text = item.position1,
-                                        Value = item.position1.ToString()
-                                    });
+                    var modelPosition = db.Position.ToList();
+                    ViewBag.PositionView = (from item in modelPosition
+                                            select new SelectListItem
+                                            {
+                                                Text = item.position1,
+                                                Value = item.position1.ToString()
+                                            });
 
-            var modelLevel = db.Level.ToList();
-            ViewBag.LevelView = (from item in modelLevel
-                                 select new SelectListItem
-                                 {
-                                     Text = item.levels,
-                                     Value = item.levels.ToString()
-                                 });
+                    var modelLevel = db.Level.ToList();
+                    ViewBag.LevelView = (from item in modelLevel
+                                         select new SelectListItem
+                                         {
+                                             Text = item.levels,
+                                             Value = item.levels.ToString()
+                                         });
 
-            var proviceView = new List<string>()
+                    var proviceView = new List<string>()
             { "กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท","ชัยภูมิ",
             "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช",
             "นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พะเยา",
@@ -158,9 +180,14 @@ namespace E_RIMS.Controllers
             "ยโสธร","ยะลา","ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ",
             "สกลนคร","สงขลา","สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
             "สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อำนาจเจริญ","อุดรธานี","อุตรดิตถ์","อุทัยธานี","อุบลราชธานี","บึงกาฬ"};
-            ViewBag.proviceView = proviceView;
+                    ViewBag.proviceView = proviceView;
 
-            return View(researcher);
+                    return View(researcher);
+                }
+                return RedirectToAction("Index", "Researcher");
+            }
+            else
+                return RedirectToAction("Index", "Researcher");            
         }
 
         [HttpPost]
@@ -214,12 +241,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteResearcher(int id)
         {
-            Researcher researcher = db.Researcher.Find(id);
-            if (researcher == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Researcher researcher = db.Researcher.Find(id);
+                    if (researcher == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    return View(researcher);
+                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(researcher);
+            else
+                return RedirectToAction("Index", "Home");           
         }
 
         [HttpPost, ActionName("DeleteResearcher")]

@@ -28,33 +28,47 @@ namespace E_RIMS.Controllers
 
         public ActionResult InnovatorList(int? page)
         {
-            var innovator = db.Innovator;
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var innovator = db.Innovator;
 
-            //--Pagination 6 cards
-            var innovatorResult = innovator.ToList().ToPagedList(page ?? 1, 6);
+                    //--Pagination 6 cards
+                    var innovatorResult = innovator.ToList().ToPagedList(page ?? 1, 6);
 
-            return View(innovatorResult);
+                    return View(innovatorResult);
+                }
+                return RedirectToAction("Index", "Innovators");
+            }
+            else
+                return RedirectToAction("Index", "Innovators");
+           
         }
 
         public ActionResult CreateInnovator()
         {
-            var modelPosition = db.Position.ToList();
-            ViewBag.PositionView = (from item in modelPosition
-                                    select new SelectListItem
-                                    {
-                                        Text = item.position1,
-                                        Value = item.position1.ToString()
-                                    });
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var modelPosition = db.Position.ToList();
+                    ViewBag.PositionView = (from item in modelPosition
+                                            select new SelectListItem
+                                            {
+                                                Text = item.position1,
+                                                Value = item.position1.ToString()
+                                            });
 
-            var modelLevel = db.Level.ToList();
-            ViewBag.LevelView = (from item in modelLevel
-                                 select new SelectListItem
-                                 {
-                                     Text = item.levels,
-                                     Value = item.levels.ToString()
-                                 });
+                    var modelLevel = db.Level.ToList();
+                    ViewBag.LevelView = (from item in modelLevel
+                                         select new SelectListItem
+                                         {
+                                             Text = item.levels,
+                                             Value = item.levels.ToString()
+                                         });
 
-            var proviceView = new List<string>()
+                    var proviceView = new List<string>()
             { "กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท","ชัยภูมิ",
             "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช",
             "นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พะเยา",
@@ -62,9 +76,14 @@ namespace E_RIMS.Controllers
             "ยโสธร","ยะลา","ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ",
             "สกลนคร","สงขลา","สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
             "สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อำนาจเจริญ","อุดรธานี","อุตรดิตถ์","อุทัยธานี","อุบลราชธานี","บึงกาฬ"};
-            ViewBag.proviceView = proviceView;
+                    ViewBag.proviceView = proviceView;
 
-            return View();
+                    return View();
+                }
+                return RedirectToAction("Index", "Innovators");
+            }
+            else
+                return RedirectToAction("Index", "Innovators");          
         }
 
         [HttpPost]
@@ -130,29 +149,33 @@ namespace E_RIMS.Controllers
 
         public ActionResult EditInnovator(int id)
         {
-            Innovator innovator = db.Innovator.Find(id);
-            if (innovator == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Innovator innovator = db.Innovator.Find(id);
+                    if (innovator == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            var modelPosition = db.Position.ToList();
-            ViewBag.PositionView = (from item in modelPosition
-                                    select new SelectListItem
-                                    {
-                                        Text = item.position1,
-                                        Value = item.position1.ToString()
-                                    });
+                    var modelPosition = db.Position.ToList();
+                    ViewBag.PositionView = (from item in modelPosition
+                                            select new SelectListItem
+                                            {
+                                                Text = item.position1,
+                                                Value = item.position1.ToString()
+                                            });
 
-            var modelLevel = db.Level.ToList();
-            ViewBag.LevelView = (from item in modelLevel
-                                 select new SelectListItem
-                                 {
-                                     Text = item.levels,
-                                     Value = item.levels.ToString()
-                                 });
+                    var modelLevel = db.Level.ToList();
+                    ViewBag.LevelView = (from item in modelLevel
+                                         select new SelectListItem
+                                         {
+                                             Text = item.levels,
+                                             Value = item.levels.ToString()
+                                         });
 
-            var proviceView = new List<string>()
+                    var proviceView = new List<string>()
             { "กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท","ชัยภูมิ",
             "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช",
             "นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พะเยา",
@@ -160,9 +183,14 @@ namespace E_RIMS.Controllers
             "ยโสธร","ยะลา","ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ",
             "สกลนคร","สงขลา","สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
             "สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อำนาจเจริญ","อุดรธานี","อุตรดิตถ์","อุทัยธานี","อุบลราชธานี","บึงกาฬ"};
-            ViewBag.proviceView = proviceView;
+                    ViewBag.proviceView = proviceView;
 
-            return View(innovator);
+                    return View(innovator);
+                }
+                return RedirectToAction("Index", "Innovators");
+            }
+            else
+                return RedirectToAction("Index", "Innovators");           
         }
 
         [HttpPost]
@@ -216,12 +244,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteInnovator(int id)
         {
-            Innovator innovator = db.Innovator.Find(id);
-            if (innovator == null)
+            if (Session["Role"] != null)
             {
-                return HttpNotFound();
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Innovator innovator = db.Innovator.Find(id);
+                    if (innovator == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(innovator);
+                }
+                return RedirectToAction("Index", "Innovators");
             }
-            return View(innovator);
+            else
+                return RedirectToAction("Index", "Innovators");           
         }
 
         [HttpPost, ActionName("DeleteInnovator")]

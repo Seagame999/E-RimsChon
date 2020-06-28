@@ -28,7 +28,17 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h6><i class="fa fa-user-circle"></i>&nbsp;ผู้ดำเนินงานวิจัย และข้อมูลงานวิจัย&nbsp;<a href="@Url.Action("EditResearch"+"/"+Model.id, "Research")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานวิจัย</a></h6>
+                            <h6>
+                                <i class="fa fa-user-circle"></i>&nbsp;ผู้ดำเนินงานวิจัย และข้อมูลงานวิจัย&nbsp;
+                                @if (Session["Role"] != null)
+                                {
+                                    if (Session["Role"].Equals("Admin"))
+                                    {
+                                        <a href="@Url.Action("EditResearch"+"/"+Model.id, "Research")" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>&nbsp;แก้ไขข้อมูลงานวิจัย</a>
+                                    }
+                                }
+
+                            </h6>
                         </div>
                         <div class="card-body">
                             <div class="form-row">
@@ -184,18 +194,18 @@
                                         </td>
                                         <td name="activity1">@Model.activity1</td>
                                         <input type="hidden" name="activity1" value="@Model.activity1">
-                                        <td>@Html.CheckBox("isOct1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug1", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep1", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug1", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep1", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -206,18 +216,18 @@
                                         </td>
                                         <td name="activity2">@Model.activity2</td>
                                         <input type="hidden" name="activity2" value="@Model.activity2">
-                                        <td>@Html.CheckBox("isOct2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug2", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep2", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug2", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep2", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
@@ -228,18 +238,18 @@
                                         </td>
                                         <td name="activity3">@Model.activity3</td>
                                         <input type="hidden" name="activity3" value="@Model.activity3">
-                                        <td>@Html.CheckBox("isOct3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug3", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep3", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug3", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep3", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
@@ -250,18 +260,18 @@
                                         </td>
                                         <td name="activity4">@Model.activity4</td>
                                         <input type="hidden" name="activity4" value="@Model.activity4">
-                                        <td>@Html.CheckBox("isOct4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug4", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep4", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug4", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep4", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
@@ -274,18 +284,18 @@
                                         </td>
                                         <td name="activity5">@Model.activity5</td>
                                         <input type="hidden" name="activity5" value="@Model.activity5">
-                                        <td>@Html.CheckBox("isOct5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug5", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep5", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug5", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep5", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
@@ -298,18 +308,18 @@
                                         </td>
                                         <td name="activity6">@Model.activity6</td>
                                         <input type="hidden" name="activity6" value="@Model.activity6">
-                                        <td>@Html.CheckBox("isOct6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug6", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep6", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug6", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep6", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
@@ -322,18 +332,18 @@
                                         </td>
                                         <td name="activity7">@Model.activity7</td>
                                         <input type="hidden" name="activity7" value="@Model.activity7">
-                                        <td>@Html.CheckBox("isOct7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug7", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep7", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug7", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep7", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
@@ -346,18 +356,18 @@
                                         </td>
                                         <td name="activity8">@Model.activity8</td>
                                         <input type="hidden" name="activity8" value="@Model.activity8">
-                                        <td>@Html.CheckBox("isOct8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug8", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep8", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug8", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep8", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>9</td>
@@ -370,18 +380,18 @@
                                         </td>
                                         <td name="activity9">@Model.activity9</td>
                                         <input type="hidden" name="activity9" value="@Model.activity9">
-                                        <td>@Html.CheckBox("isOct9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug9", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep9", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug9", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep9", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                     <tr>
                                         <td>10</td>
@@ -394,18 +404,18 @@
                                         </td>
                                         <td name="activity10">@Model.activity10</td>
                                         <input type="hidden" name="activity10" value="@Model.activity10">
-                                        <td>@Html.CheckBox("isOct10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isNov10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isDec10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJan10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isFeb10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMar10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isApr10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isMay10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJun10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isJul10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isAug10", new { @class = "form-check" , @disabled = "disabled" })</td>
-                                        <td>@Html.CheckBox("isSep10", new { @class = "form-check" , @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isOct10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isNov10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isDec10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJan10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isFeb10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMar10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isApr10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isMay10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJun10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isJul10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isAug10", new { @class = "form-check", @disabled = "disabled" })</td>
+                                        <td>@Html.CheckBox("isSep10", new { @class = "form-check", @disabled = "disabled" })</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>

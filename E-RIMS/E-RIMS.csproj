@@ -641,10 +641,12 @@
     <Content Include="Views\WorkTracking\updateInnovationActivityStatus9.cshtml" />
     <Content Include="Views\WorkTracking\updateInnovationActivityStatus10.cshtml" />
     <Content Include="Views\DocumentDownload\DocumentDetail.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\WorkTracking\trackResearchAll.cshtml" />
+    <Content Include="Views\WorkTracking\trackInnovationAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,12 @@ namespace E_RIMS.Controllers
         // GET: ResearchAndInnovation
         public ActionResult Index()
         {
-            return View();
+            if (Session["Role"] != null)
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
     }
 }

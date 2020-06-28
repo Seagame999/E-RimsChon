@@ -28,41 +28,56 @@ namespace E_RIMS.Controllers
 
         public ActionResult ListExpert(int? page)
         {
-            var expert = db.Expert;
 
-            //--Pagination 6 cards
-            var expertResult = expert.ToList().ToPagedList(page ?? 1, 6);
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var expert = db.Expert;
 
-            return View(expertResult);
+                    //--Pagination 6 cards
+                    var expertResult = expert.ToList().ToPagedList(page ?? 1, 6);
+
+                    return View(expertResult);
+                }
+                return RedirectToAction("Index", "Expert");
+            }
+            else
+                return RedirectToAction("Index", "Expert");
+            
         }
 
         public ActionResult CreateExpert()
         {
-           var modelNameTitle =  db.NameTitle.ToList();
-            ViewBag.nameTitleView = (from item in modelNameTitle
-                                     select new SelectListItem
-                                     {
-                                         Text = item.nameTitle1,
-                                         Value = item.nameTitle1.ToString()
-                                     });
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var modelNameTitle = db.NameTitle.ToList();
+                    ViewBag.nameTitleView = (from item in modelNameTitle
+                                             select new SelectListItem
+                                             {
+                                                 Text = item.nameTitle1,
+                                                 Value = item.nameTitle1.ToString()
+                                             });
 
-            var modelPosition = db.Position.ToList();
-            ViewBag.PositionView = (from item in modelPosition
-                                    select new SelectListItem
-                                    {
-                                        Text = item.position1,
-                                        Value = item.position1.ToString()
-                                    });
+                    var modelPosition = db.Position.ToList();
+                    ViewBag.PositionView = (from item in modelPosition
+                                            select new SelectListItem
+                                            {
+                                                Text = item.position1,
+                                                Value = item.position1.ToString()
+                                            });
 
-            var modelLevel = db.Level.ToList();
-            ViewBag.LevelView = (from item in modelLevel
-                                 select new SelectListItem
-                                 {
-                                     Text = item.levels,
-                                     Value = item.levels.ToString()
-                                 });
+                    var modelLevel = db.Level.ToList();
+                    ViewBag.LevelView = (from item in modelLevel
+                                         select new SelectListItem
+                                         {
+                                             Text = item.levels,
+                                             Value = item.levels.ToString()
+                                         });
 
-            var proviceView = new List<string>()
+                    var proviceView = new List<string>()
             { "กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท","ชัยภูมิ",
             "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช",
             "นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พะเยา",
@@ -70,9 +85,16 @@ namespace E_RIMS.Controllers
             "ยโสธร","ยะลา","ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ",
             "สกลนคร","สงขลา","สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
             "สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อำนาจเจริญ","อุดรธานี","อุตรดิตถ์","อุทัยธานี","อุบลราชธานี","บึงกาฬ"};
-            ViewBag.proviceView = proviceView;
+                    ViewBag.proviceView = proviceView;
 
-            return View();
+                    return View();
+                }
+                return RedirectToAction("Index", "Expert");
+            }
+            else
+                return RedirectToAction("Index", "Expert");
+
+           
         }
 
         [HttpPost]
@@ -208,37 +230,41 @@ namespace E_RIMS.Controllers
 
         public ActionResult EditExpert(int id)
         {
-            Expert expert = db.Expert.Find(id);
-            if(expert == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
-            }
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Expert expert = db.Expert.Find(id);
+                    if (expert == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-            var modelNameTitle = db.NameTitle.ToList();
-            ViewBag.nameTitleView = (from item in modelNameTitle
-                                     select new SelectListItem
-                                     {
-                                         Text = item.nameTitle1,
-                                         Value = item.nameTitle1.ToString()
-                                     });
+                    var modelNameTitle = db.NameTitle.ToList();
+                    ViewBag.nameTitleView = (from item in modelNameTitle
+                                             select new SelectListItem
+                                             {
+                                                 Text = item.nameTitle1,
+                                                 Value = item.nameTitle1.ToString()
+                                             });
 
-            var modelPosition = db.Position.ToList();
-            ViewBag.PositionView = (from item in modelPosition
-                                    select new SelectListItem
-                                    {
-                                        Text = item.position1,
-                                        Value = item.position1.ToString()
-                                    });
+                    var modelPosition = db.Position.ToList();
+                    ViewBag.PositionView = (from item in modelPosition
+                                            select new SelectListItem
+                                            {
+                                                Text = item.position1,
+                                                Value = item.position1.ToString()
+                                            });
 
-            var modelLevel = db.Level.ToList();
-            ViewBag.LevelView = (from item in modelLevel
-                                 select new SelectListItem
-                                 {
-                                     Text = item.levels,
-                                     Value = item.levels.ToString()
-                                 });
+                    var modelLevel = db.Level.ToList();
+                    ViewBag.LevelView = (from item in modelLevel
+                                         select new SelectListItem
+                                         {
+                                             Text = item.levels,
+                                             Value = item.levels.ToString()
+                                         });
 
-            var proviceView = new List<string>()
+                    var proviceView = new List<string>()
             { "กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท","ชัยภูมิ",
             "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช",
             "นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พะเยา",
@@ -246,9 +272,14 @@ namespace E_RIMS.Controllers
             "ยโสธร","ยะลา","ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ",
             "สกลนคร","สงขลา","สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
             "สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อำนาจเจริญ","อุดรธานี","อุตรดิตถ์","อุทัยธานี","อุบลราชธานี","บึงกาฬ"};
-            ViewBag.proviceView = proviceView;
+                    ViewBag.proviceView = proviceView;
 
-            return View(expert);
+                    return View(expert);
+                }
+                return RedirectToAction("Index", "Expert");
+            }
+            else
+                return RedirectToAction("Index", "Expert");            
         }
 
         [HttpPost]
@@ -312,12 +343,21 @@ namespace E_RIMS.Controllers
 
         public ActionResult DeleteExpert(int id)
         {
-            Expert expert = db.Expert.Find(id);
-            if(expert == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Expert expert = db.Expert.Find(id);
+                    if (expert == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    return View(expert);
+                }
+                return RedirectToAction("Index", "Expert");
             }
-            return View(expert);
+            else
+                return RedirectToAction("Index", "Expert");           
         }
         
         [HttpPost,ActionName("DeleteExpert")]
