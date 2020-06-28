@@ -2,12 +2,25 @@
 @{
     ViewBag.Title = "อัพเดทงานนวัตกรรมสำเร็จแล้ว";
 }
-
-<script>
+@if (Session["Role"] != null)
+{
+    if (Session["Role"].Equals("Admin"))
+    {
+        <script>
+        setTimeout(function () {
+            window.location.href = '@Url.Action("trackInnovationAll")';
+        }, 3000);
+        </script>
+    }
+    if (Session["Role"].Equals("User"))
+    {
+        <script>
         setTimeout(function () {
             window.location.href = '@Url.Action("trackInnovation")';
         }, 3000);
-</script>
+        </script>
+    }
+}
 
 <style>
     body {
@@ -51,7 +64,17 @@
     <br />
     <h1 id="h1">อัพเดทงานนวัตกรรมสำเร็จแล้ว</h1>
     <br />
-    <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("trackInnovation")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+    @if (Session["Role"] != null)
+    {
+        if (Session["Role"].Equals("Admin"))
+        {
+            <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("trackInnovationAll")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+        }
+        if (Session["Role"].Equals("User"))
+        {
+            <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("trackInnovation")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+        }
+    }
 </div>
 
 

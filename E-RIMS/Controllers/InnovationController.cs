@@ -17,16 +17,111 @@ namespace E_RIMS.Controllers
         // GET: Innovation
         public ActionResult Index(int? page)
         {
-            var innovation = db.Innovation;
+            if (Session["Role"] != null)
+            {
+                var innovation = db.Innovation;
 
-            //--Pagination 10 each
-            var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+                //--Pagination 10 each
+                var convertIdOwner = Convert.ToInt32(Session["Id"]);
 
-            return View(innovationResult);
+                var convertUsernameOwner = Session["Username"].ToString();
+
+                var innovationResult = innovation.Where(x => x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                return View(innovationResult);
+            }
+            else
+                return RedirectToAction("Index", "Home");           
         }
 
         [HttpPost]
         public ActionResult Index(string budgetYear, string name, string creator, string workGroup, int? page)
+        {
+            var innovation = db.Innovation;
+
+            //--Pagination 10 each
+            var convertIdOwner = Convert.ToInt32(Session["Id"]);
+
+            var convertUsernameOwner = Session["Username"].ToString();
+
+            var innovationResult = innovation.Where(x => x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+            //--Search Engine
+            if (budgetYear != "-- ปีงบประมาณ --")
+            {
+                innovationResult = db.Innovation.Where(x => (x.budgetYear.StartsWith(budgetYear) || x.budgetYear.Equals(budgetYear))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (name != "")
+            {
+                innovationResult = db.Innovation.Where(x => (x.name.StartsWith(name) || x.name.Equals(name))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (creator != "-- นวัตกร --")
+            {
+                innovationResult = db.Innovation.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            if (workGroup != "-- กลุ่มงาน --")
+            {
+                innovationResult = db.Innovation.Where(x => (x.workGroup.StartsWith(workGroup) || x.workGroup.Equals(workGroup))
+                && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
+
+                if (innovationResult.TotalItemCount == 0)
+                {
+                    ViewBag.Nodata = "ไม่พบนวัตกรรม";
+                }
+
+                return View(innovationResult);
+            }
+            else
+            {
+                return View(innovationResult);
+            }
+        }
+
+        public ActionResult AllInnovation(int? page)
+        {
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var innovation = db.Innovation;
+
+                    //--Pagination 10 each
+                    var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
+
+                    return View(innovationResult);
+                }
+                return RedirectToAction("Index", "Innovation");
+            }
+            else
+                return RedirectToAction("Index", "Innovation");
+        }
+
+        [HttpPost]
+        public ActionResult AllInnovation(string budgetYear, string name, string creator, string workGroup, int? page)
         {
             var innovation = db.Innovation;
 
@@ -84,25 +179,6 @@ namespace E_RIMS.Controllers
             }
         }
 
-        public ActionResult AllInnovation(int? page)
-        {
-            if (Session["Role"] != null)
-            {
-                if (Session["Role"].Equals("Admin"))
-                {
-                    var innovation = db.Innovation;
-
-                    //--Pagination 10 each
-                    var innovationResult = innovation.ToList().ToPagedList(page ?? 1, 10);
-
-                    return View(innovationResult);
-                }
-                return RedirectToAction("Index", "Innovation");
-            }
-            else
-                return RedirectToAction("Index", "Innovation");
-        }
-
         public ActionResult CreateInnovation()
         {
             if (Session["Role"] != null)
@@ -149,11 +225,13 @@ namespace E_RIMS.Controllers
                     innovation.finalFilesHttpPost.SaveAs(path);
                 }
 
-                //if (Session["Id"] != null || Session["Username"] != null)
-                //{
-                //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
-                //    innovation.usernameOwner = Session["Username"].ToString();
-                //}
+                //ความเป็นเจ้าของงาน
+                if (Session["Id"] != null || Session["Username"] != null)
+                {
+                    innovation.idOwner = Convert.ToInt32(Session["Id"]);
+                    innovation.usernameOwner = Session["Username"].ToString();
+                }
+
                 innovation.views = 0;
                 innovation.workOverview = 00.00m;
                 innovation.date = DateTime.Today;
@@ -301,12 +379,6 @@ namespace E_RIMS.Controllers
                     innovation.finalFilesHttpPost.SaveAs(path);
                 }
 
-                //if (Session["Id"] != null || Session["Username"] != null)
-                //{
-                //    innovation.idOwner = Convert.ToInt32(Session["Id"]);
-                //    innovation.usernameOwner = Session["Username"].ToString();
-                //}
-
                 innovation.views = 0;
                 innovation.workOverview = Convert.ToDecimal(workOverview);
                 innovation.date = DateTime.Today;
@@ -453,7 +525,6 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.isDec9).IsModified = true;
                 db.Entry(innovation).Property(x => x.isDec10).IsModified = true;
                 db.Entry(innovation).Property(x => x.budgetYear).IsModified = true;
-                db.Entry(innovation).Property(x => x.usernameOwner).IsModified = true;
                 db.Entry(innovation).Property(x => x.views).IsModified = true;
                 db.Entry(innovation).Property(x => x.finalFiles).IsModified = true;
                 db.SaveChanges();

@@ -384,12 +384,6 @@ namespace E_RIMS.Controllers
                     research.finalFilesHttpPost.SaveAs(path);
                 }
 
-                //if (Session["Id"] != null || Session["Username"] != null)
-                //{
-                //    research.idOwner = Convert.ToInt32(Session["Id"]);
-                //    research.usernameOwner = Session["Username"].ToString();
-                //}
-
                 research.views = 0;
                 research.workOverview = Convert.ToDecimal(workOverview);
                 research.date = DateTime.Today;
@@ -543,7 +537,6 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.isDec9).IsModified = true;
                 db.Entry(research).Property(x => x.isDec10).IsModified = true;
                 db.Entry(research).Property(x => x.budgetYear).IsModified = true;
-                db.Entry(research).Property(x => x.usernameOwner).IsModified = true;
                 db.Entry(research).Property(x => x.views).IsModified = true;
                 db.Entry(research).Property(x => x.finalFiles).IsModified = true;
                 db.SaveChanges();

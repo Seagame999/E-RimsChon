@@ -3,11 +3,27 @@
     ViewBag.Title = "อัพเดทงานวิจัยสำเร็จแล้ว";
 }
 
-<script>
+@if (Session["Role"] != null)
+{
+    if (Session["Role"].Equals("Admin"))
+    {
+        <script>
         setTimeout(function () {
-            window.location.href = '@Url.Action("trackResearch")';
-        }, 3000);
-</script>
+        window.location.href = '@Url.Action("trackResearchAll")';
+    }, 3000);
+        </script>
+    }
+
+    if (Session["Role"].Equals("User"))
+    {
+        <script>
+        setTimeout(function () {
+        window.location.href = '@Url.Action("trackResearch")';
+    }, 3000);
+        </script>
+    }
+}
+
 
 <style>
     body {
@@ -51,7 +67,17 @@
     <br />
     <h1 id="h1">อัพเดทงานวิจัยสำเร็จแล้ว</h1>
     <br />
-    <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("trackResearch")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+    @if (Session["Role"] != null)
+    {
+        if (Session["Role"].Equals("Admin"))
+        {
+            <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("trackResearchAll")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+        }
+        if (Session["Role"].Equals("User"))
+        {
+            <a class="btn btn-success text-center" id="buttonStyle" href="@Url.Action("trackResearch")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+        }
+    }
 </div>
 
 
