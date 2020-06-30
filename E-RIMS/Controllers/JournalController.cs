@@ -41,7 +41,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index", "Journal");
             }
             else
-                return RedirectToAction("Index", "Journal");         
+                return RedirectToAction("Index", "Journal");
         }
 
         public ActionResult CreateJournal()
@@ -55,7 +55,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index", "Journal");
             }
             else
-                return RedirectToAction("Index", "Journal");            
+                return RedirectToAction("Index", "Journal");
         }
 
         [HttpPost]
@@ -63,7 +63,7 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(journal.image2 != null)
+                if (journal.image2 != null)
                 {
                     string fileName = Path.GetFileNameWithoutExtension(journal.image2.FileName);
                     string extension = Path.GetExtension(journal.image2.FileName);
@@ -83,6 +83,7 @@ namespace E_RIMS.Controllers
                     journal.files2.SaveAs(path);
                 }
 
+                journal.views = 0;
                 journal.date = DateTime.Today;
                 db.Journal.Add(journal);
                 db.SaveChanges();
@@ -97,10 +98,15 @@ namespace E_RIMS.Controllers
         public ActionResult DetailJournal(int id)
         {
             Journal journal = db.Journal.Find(id);
-            if(journal == null)
+            if (journal == null)
             {
                 return RedirectToAction("Index");
             }
+
+            //--Page Visitor
+            journal.views = journal.views + 1;
+            db.Entry(journal).State = EntityState.Modified;
+            db.SaveChanges();
 
             return View(journal);
         }
@@ -122,7 +128,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index", "Journal");
             }
             else
-                return RedirectToAction("Index", "Journal");            
+                return RedirectToAction("Index", "Journal");
         }
 
         [HttpPost]
@@ -150,8 +156,11 @@ namespace E_RIMS.Controllers
                     journal.files2.SaveAs(path);
                 }
 
-                journal.date = DateTime.Today;
-                db.Entry(journal).State = EntityState.Modified;
+                db.Journal.Attach(journal);
+                db.Entry(journal).Property(x => x.image).IsModified = true;
+                db.Entry(journal).Property(x => x.name).IsModified = true;
+                db.Entry(journal).Property(x => x.description).IsModified = true;
+                db.Entry(journal).Property(x => x.files).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
             }
@@ -175,10 +184,10 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index", "Journal");
             }
             else
-                return RedirectToAction("Index", "Journal");           
+                return RedirectToAction("Index", "Journal");
         }
 
-        [HttpPost,ActionName("DeleteJournal")]
+        [HttpPost, ActionName("DeleteJournal")]
         public ActionResult DeleteJournalConfirm(int id)
         {
             Journal journal = db.Journal.Find(id);

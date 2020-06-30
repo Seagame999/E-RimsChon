@@ -154,6 +154,7 @@
     <Compile Include="Controllers\ResearcherAndInnovatorController.cs" />
     <Compile Include="Controllers\ResearcherController.cs" />
     <Compile Include="Controllers\ResearchTopicController.cs" />
+    <Compile Include="Controllers\SendNotificationController.cs" />
     <Compile Include="Controllers\TreasuryWorkController.cs" />
     <Compile Include="Controllers\WorkTrackingController.cs" />
     <Compile Include="FileValidation\FileExtensionsValidationImage.cs" />
@@ -428,6 +429,8 @@
     <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity1\New เอกสาร Microsoft Word_210563_170303.docx" />
     <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity1\New เอกสาร Microsoft Word_210563_170407.docx" />
     <Content Include="fileProceedStatusActivityAll\fileProceedStatusActivity1\New เอกสาร Microsoft Word_210563_170910.docx" />
+    <Content Include="Image\research_plan_62-64.pdf" />
+    <Content Include="Image\research_topics_62-64.pdf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\E-RIMS-Chonburi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -644,6 +647,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\WorkTracking\trackResearchAll.cshtml" />
     <Content Include="Views\WorkTracking\trackInnovationAll.cshtml" />
+    <Content Include="Views\SendNotification\SendNotification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

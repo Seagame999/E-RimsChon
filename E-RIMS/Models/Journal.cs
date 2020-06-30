@@ -21,7 +21,6 @@ namespace E_RIMS.Models
         public int id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public string image { get; set; }
-        [Required(ErrorMessage = "กรุณาใส่ภาพหน้าปกวารสาร")]
         [FileExtensionsValidationImage]
         public HttpPostedFileBase image2 { get; set; }
         public string name { get; set; }
@@ -29,5 +28,6 @@ namespace E_RIMS.Models
         public string files { get; set; }
         [FileExtensionsValidationDoc]
         public HttpPostedFileBase files2 { get; set; }
+        public Nullable<int> views { get; set; }
     }
 }

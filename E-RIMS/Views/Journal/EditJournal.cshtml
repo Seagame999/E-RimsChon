@@ -33,6 +33,7 @@
                         <img src="@Url.Content(Model.image ?? "~/Image/no-camera.png")" class="rounded border border-dark" style="height:250px; margin-bottom:20px; padding:10px;" />
                     </div>
                     <label for="journalCoverFile"><i class="fa fa-image"></i>&nbsp;ภาพหน้าปกวารสาร</label>
+                    <input type="hidden" class="form-control-file" name="image" value="@Model.image">
                     <input type="file" class="form-control-file" placeholder="ภาพหน้าปกวารสาร *.jpg หรือ *.png" id="journalCoverFile" name="image2">
                     @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
                 </div>
@@ -45,6 +46,7 @@
                 </div>
                 <div class="form-group col-6">
                     <label for="journalFile"><i class="fa fa-file-pdf"></i>&nbsp;ไฟล์เล่มวารสาร</label>
+                    <input type="hidden" class="form-control-file" name="files" value="@Model.files">
                     <input type="file" class="form-control-file" placeholder="ไฟล์เอกสารเล่มวารสาร *.pdf" id="journalFile" name="files2">
                     @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
                 </div>

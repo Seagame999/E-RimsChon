@@ -29,12 +29,22 @@
                             <h4>
                                 @Html.DisplayFor(model => model.name)
                                 (วันที่: @Convert.ToDateTime(Model.date).ToString("dd/MM/yyyy"))
+                                @if (Session["Role"] != null)
+                                {
+                                    if (Session["Role"].Equals("Admin"))
+                                    {
+                                        <a href="@Url.Action("EditJournal"+"/"+Model.id, "Journal")" class="btn btn-success text-right"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>
+                                    }
+                                }
                             </h4>
                         </div>
                         <p>@Html.DisplayFor(model => model.description)</p>
                         <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดวารสาร</a></p>
                     </div>
                 </div>
+            </div>
+            <div class="card-footer text-right">
+                <p>จำนวนผู้เข้าชม: @Html.DisplayFor(model => model.views) ครั้ง</p>
             </div>
         </div>
     </div>

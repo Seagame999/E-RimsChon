@@ -49,10 +49,16 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label>เลขประจำตัวประชาชน :</label>
-                                    <label class="form-control">@Model.identificationNumber</label>
-                                </div>
+                                @if (Session["Role"] != null)
+                                {
+                                    if (Session["Role"].Equals("Admin"))
+                                    {
+                                        <div class="form-group col-md-4">
+                                            <label>เลขประจำตัวประชาชน :</label>
+                                            <label class="form-control">@Model.identificationNumber</label>
+                                        </div>
+                                    }
+                                }
                                 <div class="form-group col-md-4">
                                     <label>ตำแหน่ง :</label>
                                     <label class="form-control">@Model.position</label>

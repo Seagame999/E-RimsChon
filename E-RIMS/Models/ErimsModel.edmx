@@ -419,6 +419,7 @@
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="description" Type="text" />
           <Property Name="files" Type="varchar" MaxLength="255" />
+          <Property Name="views" Type="int" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -1073,6 +1074,7 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="files" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="views" Type="Int32" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -1955,6 +1957,7 @@
           <EntitySetMapping Name="Journal">
             <EntityTypeMapping TypeName="ERIMSModel.Journal">
               <MappingFragment StoreEntitySet="Journal">
+                <ScalarProperty Name="views" ColumnName="views" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="image" ColumnName="image" />
