@@ -421,6 +421,17 @@
           <Property Name="files" Type="varchar" MaxLength="255" />
           <Property Name="views" Type="int" />
         </EntityType>
+        <EntityType Name="KnowledgeBox">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="docUpload" Type="varchar" MaxLength="255" />
+          <Property Name="views" Type="int" />
+        </EntityType>
         <EntityType Name="Level">
           <Key>
             <PropertyRef Name="id" />
@@ -861,6 +872,7 @@
           <EntitySet Name="Innovator" EntityType="Self.Innovator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JoinDevelopmentTeam" EntityType="Self.JoinDevelopmentTeam" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KnowledgeBox" EntityType="Self.KnowledgeBox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NameTitle" EntityType="Self.NameTitle" Schema="dbo" store:Type="Tables" />
@@ -1280,6 +1292,7 @@
           <EntitySet Name="Innovation" EntityType="ERIMSModel.Innovation" />
           <EntitySet Name="Research" EntityType="ERIMSModel.Research" />
           <EntitySet Name="StatusActivity" EntityType="ERIMSModel.StatusActivity" />
+          <EntitySet Name="KnowledgeBox" EntityType="ERIMSModel.KnowledgeBox" />
         </EntityContainer>
         <EntityType Name="PercentActivities">
           <Key>
@@ -1754,6 +1767,17 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="statusActivity1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KnowledgeBox">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="docUpload" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="views" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2628,6 +2652,18 @@
             <EntityTypeMapping TypeName="ERIMSModel.StatusActivity">
               <MappingFragment StoreEntitySet="StatusActivity">
                 <ScalarProperty Name="statusActivity1" ColumnName="statusActivity" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KnowledgeBox">
+            <EntityTypeMapping TypeName="ERIMSModel.KnowledgeBox">
+              <MappingFragment StoreEntitySet="KnowledgeBox">
+                <ScalarProperty Name="views" ColumnName="views" />
+                <ScalarProperty Name="docUpload" ColumnName="docUpload" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

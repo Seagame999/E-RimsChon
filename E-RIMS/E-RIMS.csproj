@@ -217,6 +217,9 @@
     <Compile Include="Models\Journal.cs">
       <DependentUpon>ErimsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\KnowledgeBox.cs">
+      <DependentUpon>ErimsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Level.cs">
       <DependentUpon>ErimsModel.tt</DependentUpon>
     </Compile>
@@ -287,6 +290,7 @@
     <Content Include="docUploadFinalResearch\file.txt" />
     <Content Include="docUploadInnovation\file.txt" />
     <Content Include="docUploadJournal\file.txt" />
+    <Content Include="docUploadKnowledgeBox\file.txt" />
     <Content Include="docUploadPublicRelation\file.txt" />
     <Content Include="docUploadResearch\file.txt" />
     <Content Include="favicon.ico" />
@@ -648,6 +652,13 @@
     <Content Include="Views\WorkTracking\trackResearchAll.cshtml" />
     <Content Include="Views\WorkTracking\trackInnovationAll.cshtml" />
     <Content Include="Views\SendNotification\SendNotification.cshtml" />
+    <Content Include="Views\DocumentDownload\EditDownloadDocument.cshtml" />
+    <Content Include="Views\KnowledgeBox\CreateKnowledgeBox.cshtml" />
+    <Content Include="Views\KnowledgeBox\KnowledgeBoxDetail.cshtml" />
+    <Content Include="Views\KnowledgeBox\EditKnowledgeBox.cshtml" />
+    <Content Include="Views\KnowledgeBox\DeleteKnowledgeBox.cshtml" />
+    <Content Include="Views\KnowledgeBox\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\KnowledgeBox\EditSuccessMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,8 +1,8 @@
-﻿@model E_RIMS.Models.DocumentDownload
+﻿@model E_RIMS.Models.KnowledgeBox
 @{
     /**/
 
-    ViewBag.Title = "เอกสารดาวน์โหลด";
+    ViewBag.Title = "กล่องความรู้";
 }
 
 <nav aria-label="breadcrumb">
@@ -14,7 +14,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3>เอกสารดาวน์โหลด</h3>
+        <h3>กล่องความรู้</h3>
     </div>
     <div class="card-body">
         <h5 class="card-title">
@@ -32,13 +32,13 @@
                                 {
                                     if (Session["Role"].Equals("Admin"))
                                     {
-                                        <a href="@Url.Action("EditDownloadDocument"+"/"+Model.id, "DocumentDownload")" class="btn btn-success text-right"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>
+                                        <a href="@Url.Action("EditKnowledgeBox"+"/"+Model.id, "KnowledgeBox")" class="btn btn-success text-right"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>
                                     }
                                 }
                             </h4>
                         </div>
                         <p>@Html.DisplayFor(model => model.description)</p>
-                        <p><a href="@Url.Content(Model.docUpload ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสาร</a></p>
+                        <p><a href="@Url.Content(Model.docUpload ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลด</a></p>
                     </div>
                 </div>
             </div>

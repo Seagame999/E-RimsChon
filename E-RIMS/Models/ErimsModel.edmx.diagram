@@ -34,6 +34,7 @@
         <EntityTypeShape EntityType="ERIMSModel.Innovation" Width="1.5" PointX="0.75" PointY="15.75" />
         <EntityTypeShape EntityType="ERIMSModel.Research" Width="1.5" PointX="15.75" PointY="9.75" />
         <EntityTypeShape EntityType="ERIMSModel.StatusActivity" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ERIMSModel.KnowledgeBox" Width="1.5" PointX="17.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
