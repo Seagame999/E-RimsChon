@@ -76,11 +76,31 @@
                     }
                     @if (Session["Role"] != null)
                     {
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="@Url.Action("Logout","Login")">
-                                <i class="fa fa-door-open"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString() [ออกจากระบบ]
+                        if (Session["Role"].Equals("User"))
+                        {
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                               aria-expanded="false" href="#">
+                                <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
                             </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
+                            </div>
                         </li>
+                        }
+                        if (Session["Role"].Equals("Admin"))
+                        {
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                   aria-expanded="false" href="#">
+                                    <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Register")"><i class="fa fa-users"></i>&nbsp;จัดการบัญชีผู้ใช้</a>
+                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
+                                </div>
+                            </li>
+                        }
                     }
                 </ul>
             </div>

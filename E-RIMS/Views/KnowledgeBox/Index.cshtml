@@ -1,4 +1,8 @@
-﻿@{
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<E_RIMS.Models.KnowledgeBox>
+
+@{
     ViewBag.Title = "กล่องความรู้";
 }
 
@@ -11,52 +15,91 @@
 
 <div class="card">
     <div class="card-header">
-        <h3>รวบรวมองค์ความรู้จากหลายแหล่งที่น่าสนใจต่อนักวิจัย</h3>
+        <h3>
+            รวบรวมองค์ความรู้จากหลายแหล่งที่น่าสนใจต่อนักวิจัย&nbsp;
+            @if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    <a href="@Url.Action("CreateKnowledgeBox", "KnowledgeBox")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มกล่องความรู้</a>
+                }
+            }
+        </h3>
     </div>
     <div class="card-body">
         <h5 class="card-title"><i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title</h5>
         <hr />
 
         <div class="row">
-            <div class="col">
-                <h1 class="text-center"><i class="fa fa-2x fa-question"></i></h1>
-                <p class="text-center">
-                    การตั้งคำถาม <br />และการเขียนกรอบแนวคิด งานวิจัย
-                    <br /><a href="~/docUploadKnowledge/DPC6 CHB- WS 26-01-16.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                </p>
-            </div>
-            <div class="col">
-                <h1 class="text-center"><i class="fa fa-2x fa-pen"></i></h1>
-                <p class="text-center">
-                    การเขียนโครงร่างวิจัย<br />
-                    ตามหลักจริยธรรมการวิจัยในคน
-                    <br /><a href="~/docUploadKnowledge/DPC6 CHB- WS 27-01-16.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                </p>
-            </div>
-            <div class="col align-middle">
-                <h1 class="text-center"><i class="fa fa-2x fa-tools"></i></h1>
-                <p class="text-center">
-                    หลักการสร้างเครื่องมือ<br />ที่ใช้ในงานวิจัย
-                    <br /><a href="~/docUploadKnowledge/WS2 - 23-03-16 res. tools nf.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                </p>
-            </div>
-            <div class="col">
-                <h1 class="text-center"><i class="fa fa-2x fa-hospital-user"></i></h1>
-                <p class="text-center">
-                    หลักการเขียน
-                    เอกสารขอคำยินยอมงานวิจัย<br />
-                    ตามหลักจริยธรรมการวิจัยในคน
-                    <br /><a href="~/docUploadKnowledge/WS2 - 24-03-16 ICF.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                </p>
-            </div>
-            <div class="col">
-                <h1 class="text-center"><i class="fa fa-2x fa-book"></i></h1>
-                <p class="text-center">
-                    การเขียนเอกสารวิชาการ
-                    <br /><a href="~/docUploadKnowledge/WS3-14-07-16 manuscript.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
-                </p>
-            </div>
-        </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">กล่องความรู้</th>
+                        <th scope="col">รายละเอียด</th>
+                        <th scope="col">วันที่อัพโหลด</th>
+                        <th scope="col">ดาวน์โหลด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
 
+                            <td><a href="@Url.Action("KnowledgeBoxDetail"+"/"+item.id,"KnowledgeBox")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                            <td>@Html.DisplayFor(modelItem => item.description)</td>
+                            <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
+                            <td><a href="@Html.DisplayFor(model => item.docUpload)">@Html.DisplayFor(modelItem => item.name)</a></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+        </div>
     </div>
 </div>
+
+
+
+
+@*<div class="col">
+        <h1 class="text-center"><i class="fa fa-2x fa-question"></i></h1>
+        <p class="text-center">
+            การตั้งคำถาม <br />และการเขียนกรอบแนวคิด งานวิจัย
+            <br /><a href="~/docUploadKnowledge/DPC6 CHB- WS 26-01-16.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+        </p>
+    </div>
+    <div class="col">
+        <h1 class="text-center"><i class="fa fa-2x fa-pen"></i></h1>
+        <p class="text-center">
+            การเขียนโครงร่างวิจัย<br />
+            ตามหลักจริยธรรมการวิจัยในคน
+            <br /><a href="~/docUploadKnowledge/DPC6 CHB- WS 27-01-16.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+        </p>
+    </div>
+    <div class="col align-middle">
+        <h1 class="text-center"><i class="fa fa-2x fa-tools"></i></h1>
+        <p class="text-center">
+            หลักการสร้างเครื่องมือ<br />ที่ใช้ในงานวิจัย
+            <br /><a href="~/docUploadKnowledge/WS2 - 23-03-16 res. tools nf.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+        </p>
+    </div>
+    <div class="col">
+        <h1 class="text-center"><i class="fa fa-2x fa-hospital-user"></i></h1>
+        <p class="text-center">
+            หลักการเขียน
+            เอกสารขอคำยินยอมงานวิจัย<br />
+            ตามหลักจริยธรรมการวิจัยในคน
+            <br /><a href="~/docUploadKnowledge/WS2 - 24-03-16 ICF.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+        </p>
+    </div>
+    <div class="col">
+        <h1 class="text-center"><i class="fa fa-2x fa-book"></i></h1>
+        <p class="text-center">
+            การเขียนเอกสารวิชาการ
+            <br /><a href="~/docUploadKnowledge/WS3-14-07-16 manuscript.ppt" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
+        </p>
+    </div>*@

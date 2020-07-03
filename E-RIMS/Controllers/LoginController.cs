@@ -16,12 +16,29 @@ namespace E_RIMS.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            return View();
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    return View();
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Login()
         {
-            return View();
+            if (Session["Role"] == null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+                
         }
 
         [HttpPost]
@@ -47,12 +64,16 @@ namespace E_RIMS.Controllers
 
                 else
                 {
-                    ViewBag.Error = "ไม่สามารถเข้าสู่ระบบได้ หากท่านลืมรหัสผ่านติดต่อ ADMIN เว็บไซต์เพื่อกำหนดรหัสผ่านใหม่";
-
-                    return RedirectToAction("Login");
+                    return RedirectToAction("LoginFailed");
                 }
 
             }
+            return View();
+        }
+
+        //Login Failed
+        public ActionResult LoginFailed()
+        {
             return View();
         }
 

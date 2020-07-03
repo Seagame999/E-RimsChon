@@ -16,13 +16,47 @@ namespace E_RIMS.Controllers
         // GET: Register
         public ActionResult Index()
         {
-            var member = db.Member;
-            return View(member.ToList());
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var member = db.Member;
+                    return View(member.ToList());
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         public ActionResult CreateRegister()
         {
-            return View();
+            if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+                    ViewBag.ResearcherView = (from item in modelResearcher
+                                              select new SelectListItem
+                                              {
+                                                  Text = item.name + " " + item.surname,
+                                                  Value = item.name.ToString() + " " + item.surname.ToString()
+                                              });
+
+                    var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+                    ViewBag.InnovatorView = (from item in modelInnovator
+                                             select new SelectListItem
+                                             {
+                                                 Text = item.name + " " + item.surname,
+                                                 Value = item.name.ToString() + " " + item.surname.ToString()
+                                             });
+
+                    return View();
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -36,31 +70,82 @@ namespace E_RIMS.Controllers
                 db.SaveChanges();
                 ModelState.Clear();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateSuccessMessage");
             }
+
+            var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+            ViewBag.ResearcherView = (from item in modelResearcher
+                                      select new SelectListItem
+                                      {
+                                          Text = item.name + " " + item.surname,
+                                          Value = item.name.ToString() + " " + item.surname.ToString()
+                                      });
+
+            var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+            ViewBag.InnovatorView = (from item in modelInnovator
+                                     select new SelectListItem
+                                     {
+                                         Text = item.name + " " + item.surname,
+                                         Value = item.name.ToString() + " " + item.surname.ToString()
+                                     });
 
             return View(member);
         }
 
         public ActionResult DetailRegister(int id)
         {
-            Member member = db.Member.Find(id);
-            if (member == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Member member = db.Member.Find(id);
+                    if (member == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    return View(member);
+                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(member);
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         //Re-New Password if forget password.
         public ActionResult EditRegister(int id)
         {
-            Member member = db.Member.Find(id);
-            if (member == null)
+            if (Session["Role"] != null)
             {
-                return RedirectToAction("Index");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    Member member = db.Member.Find(id);
+                    if (member == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+
+                    var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+                    ViewBag.ResearcherView = (from item in modelResearcher
+                                              select new SelectListItem
+                                              {
+                                                  Text = item.name + " " + item.surname,
+                                                  Value = item.name.ToString() + " " + item.surname.ToString()
+                                              });
+
+                    var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+                    ViewBag.InnovatorView = (from item in modelInnovator
+                                             select new SelectListItem
+                                             {
+                                                 Text = item.name + " " + item.surname,
+                                                 Value = item.name.ToString() + " " + item.surname.ToString()
+                                             });
+
+                    return View(member);
+                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(member);
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -71,8 +156,24 @@ namespace E_RIMS.Controllers
                 //member.password = GetMD5(member.password);
                 db.Entry(member).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditSuccessMessage");
             }
+
+            var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+            ViewBag.ResearcherView = (from item in modelResearcher
+                                      select new SelectListItem
+                                      {
+                                          Text = item.name + " " + item.surname,
+                                          Value = item.name.ToString() + " " + item.surname.ToString()
+                                      });
+
+            var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+            ViewBag.InnovatorView = (from item in modelInnovator
+                                     select new SelectListItem
+                                     {
+                                         Text = item.name + " " + item.surname,
+                                         Value = item.name.ToString() + " " + item.surname.ToString()
+                                     });
 
             return View(member);
         }
@@ -92,6 +193,16 @@ namespace E_RIMS.Controllers
             }
             return byteToString;
 
+        }
+
+        public ActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
+
+        public ActionResult EditSuccessMessage()
+        {
+            return View();
         }
     }
 }

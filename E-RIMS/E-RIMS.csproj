@@ -659,10 +659,15 @@
     <Content Include="Views\KnowledgeBox\DeleteKnowledgeBox.cshtml" />
     <Content Include="Views\KnowledgeBox\CreateSuccessMessage.cshtml" />
     <Content Include="Views\KnowledgeBox\EditSuccessMessage.cshtml" />
+    <Content Include="Views\Register\CreateRegister.cshtml" />
+    <Content Include="Views\Register\EditRegister.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Login\LoginFailed.cshtml" />
+    <Content Include="Views\Register\CreateSuccessMessage.cshtml" />
+    <Content Include="Views\Register\EditSuccessMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

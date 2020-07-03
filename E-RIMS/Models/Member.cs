@@ -15,19 +15,20 @@ namespace E_RIMS.Models
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
+
     public partial class Member
     {
         public int id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "กรุณากรอกชื่อผู้ใช้")]
         public string username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "กรุณากรอกรหัสผ่าน")]
         [DataType(DataType.Password)]
         public string password { get; set; }
-        [Required]
-        [System.ComponentModel.DataAnnotations.Compare("password")]
+        [Required(ErrorMessage = "กรุณายืนยันรหัสผ่านอีกครั้ง")]
+        [Compare(nameof(password),ErrorMessage = "รหัสผ่านไม่ตรงกัน")]
         public string confirmPassword { get; set; }
         public string role { get; set; }
-        [Required]
+        [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string email { get; set; }
     }

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<E_RIMS.Models.Member>
+@{
+    ViewBag.Title = "จัดการรายชื่อผู้ใช้";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">รายชื่อผู้ใช้</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        <h3>
+            รายชื่อผู้ใช้
+            @if (Session["Role"] != null)
+            {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    <a href="@Url.Action("CreateRegister", "Register")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มผู้ใช้รายใหม่</a>
+                }
+            }
+        </h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><i class="fa fa-user"></i>&nbsp;@ViewBag.Title</h5>
+        <hr />
+        <div class="form-row">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">จัดการ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.username</td>
+                            <td>@item.email</td>
+                            <td><a href="@Url.Action("EditRegister"+"/"+item.id,"Register")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
