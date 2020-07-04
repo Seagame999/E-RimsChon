@@ -32,18 +32,18 @@
                 <div class="card-deck">
                     @foreach (var item in Model)
                     {
-                    <div class="col-4">
-                        <div class="card" style="min-width: 18rem; max-width: 18rem;">
-                            <img class="card-img-top" src="@Url.Content(item.image ?? "~/Image/no-camera.png")" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.newsName)</h5>
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.description)<a href="@Url.Action("news"+"/"+item.id,"PublicRelation")">&nbsp; อ่านต่อ</a></p>
-                                <p class="card-text"><small class="text-muted">วันที่: @Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</small></p>
-                                <p><a href="@Url.Content(item.docUpload ?? "~/Image/no-document.png")" class="btn btn-sm btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
+                        <div class="col-4">
+                            <div class="card" style="min-width: 18rem; max-width: 18rem;">
+                                <img class="card-img-top" src="@Url.Content(item.image ?? "~/Image/no-camera.png")" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.newsName)</h5>
+                                    <p class="card-text">@item.description.Substring(0, Math.Min(item.description.Length, 100))<a href="@Url.Action("news"+"/"+item.id,"PublicRelation")">&nbsp; อ่านต่อ</a></p>
+                                    <p class="card-text"><small class="text-muted">วันที่: @Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</small></p>
+                                    <p><a href="@Url.Content(item.docUpload ?? "~/Image/no-document.png")" class="btn btn-sm btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
+                                </div>
                             </div>
+                            <br />
                         </div>
-                        <br />
-                    </div>                       
                     }
 
                 </div>

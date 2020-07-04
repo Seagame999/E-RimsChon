@@ -23,6 +23,7 @@ namespace E_RIMS.Models
         public string image { get; set; }
         [FileExtensionsValidationImage]
         public HttpPostedFileBase image2 { get; set; }
+        [Required(ErrorMessage = "กรุณาใส่รายละเอียดข่าว")]
         public string description { get; set; }
         public string htmlLink { get; set; }
         [Required(ErrorMessage ="กรุณาเลือกวันเดือนปี")]

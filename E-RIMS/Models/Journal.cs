@@ -24,6 +24,7 @@ namespace E_RIMS.Models
         [FileExtensionsValidationImage]
         public HttpPostedFileBase image2 { get; set; }
         public string name { get; set; }
+        [Required(ErrorMessage = "กรุณาใส่รายละเอียดวารสาร")]
         public string description { get; set; }
         public string files { get; set; }
         [FileExtensionsValidationDoc]

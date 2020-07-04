@@ -22,6 +22,7 @@ namespace E_RIMS.Models
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> date { get; set; }
         public string name { get; set; }
+        [Required(ErrorMessage ="กรุณากรอกรายละเอียด")]
         public string description { get; set; }
         public string docUpload { get; set; }
         [FileExtensionsValidationDoc]

@@ -31,5 +31,7 @@ namespace E_RIMS.Models
         [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string email { get; set; }
+        public string researcherOwner { get; set; }
+        public string innovatorOwner { get; set; }
     }
 }

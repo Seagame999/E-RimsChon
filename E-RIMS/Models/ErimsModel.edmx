@@ -448,6 +448,8 @@
           <Property Name="password" Type="varchar" MaxLength="255" />
           <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="role" Type="varchar" MaxLength="50" />
+          <Property Name="researcherOwner" Type="varchar" MaxLength="255" />
+          <Property Name="innovatorOwner" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="NameTitle">
           <Key>
@@ -1104,6 +1106,8 @@
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="researcherOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="innovatorOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="NameTitle">
           <Key>
@@ -2002,6 +2006,8 @@
           <EntitySetMapping Name="Member">
             <EntityTypeMapping TypeName="ERIMSModel.Member">
               <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="innovatorOwner" ColumnName="innovatorOwner" />
+                <ScalarProperty Name="researcherOwner" ColumnName="researcherOwner" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="username" ColumnName="username" />

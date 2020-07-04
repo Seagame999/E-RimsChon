@@ -38,7 +38,7 @@
                             <img class="card-img-top" src="@Url.Content(item.image ?? "~/Image/no-camera.png")" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.name)</h5>
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.description)<a href="@Url.Action("DetailJournal"+"/"+item.id)">&nbsp;รายละเอียด</a></p>                              
+                                <p class="card-text">@item.description.Substring(0, Math.Min(item.description.Length, 100))<a href="@Url.Action("DetailJournal"+"/"+item.id)">&nbsp;รายละเอียด</a></p>                              
                             </div>
                         </div>
                     }

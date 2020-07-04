@@ -3,6 +3,20 @@
     ViewBag.Title = "เพิ่มผู้ใช้รายใหม่";
 }
 
+<script>
+    $(document).ready(function () {
+        $("#rdbResearcher").click(function () {
+            $("#dpResearcher").attr("disabled", false);
+            $("#dpInnovator").attr("disabled", true);
+        });
+
+        $("#rdbInnovator").click(function () {
+            $("#dpInnovator").attr("disabled", false);
+            $("#dpResearcher").attr("disabled", true);
+        });
+    });    
+</script>
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
@@ -19,27 +33,41 @@
         </div>
         <div class="card-body">
             <div class="form-group">
-                <label>สร้างผู้ใช้ของ :</label>
-                @*@Html.DropDownListFor(model => model, (IEnumerable<SelectListItem>)ViewBag.ResearcherView, "นักวิจัย", new { @class = "form-control" })
-                @Html.DropDownListFor(model => model, (IEnumerable<SelectListItem>)ViewBag.InnovatorView, "นวัตกร", new { @class = "form-control" })*@
+                <label class="font-weight-bold">ประเภทบัญชี</label>
             </div>
             <div class="form-group">
-                <label>ชื่อผู้ใช้</label>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="radio" id="rdbResearcher" value="Researcher">
+                    <label class="form-check-label">นักวิจัย</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="radio" id="rdbInnovator" value="Innovator">
+                    <label class="form-check-label">นวัตกร</label>
+                </div>
+            </div>
+            <div class="form-group row-cols-3">
+                <label class="font-weight-bold">เจ้าของบัญชี</label>
+                @Html.DropDownListFor(model => model.researcherOwner, (IEnumerable<SelectListItem>)ViewBag.ResearcherView, "รายชื่อนักวิจัย", new { @class = "form-control", id = "dpResearcher" , @disabled = "disabled" })
+                <br/>
+                @Html.DropDownListFor(model => model.innovatorOwner, (IEnumerable<SelectListItem>)ViewBag.InnovatorView, "รายชื่อนวัตกร", new { @class = "form-control", id = "dpInnovator", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">ชื่อผู้ใช้</label>
                 <input class="form-control" name="username">
                 @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <label>รหัสผ่าน</label>
+                <label class="font-weight-bold">รหัสผ่าน</label>
                 <input class="form-control" type="password" name="password">
                 @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <label>ยืนยันรหัสผ่านอีกครั้ง</label>
+                <label class="font-weight-bold">ยืนยันรหัสผ่านอีกครั้ง</label>
                 <input class="form-control" type="password" name="confirmPassword">
                 @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <label>อีเมล์</label>
+                <label class="font-weight-bold">อีเมล์</label>
                 <input class="form-control" type="email" name="email" placeholder="example@gmail.com">
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </div>
