@@ -46,12 +46,12 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var inputPassword = GetMD5(password);
-                //var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(inputPassword)).ToList();
+                var inputPassword = GetMD5(password);
+                var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(inputPassword)).ToList();
 
-                var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(password)).ToList();
+                //var data = db.Member.Where(s => s.username.Equals(username) && s.password.Equals(password)).ToList();
 
-                if(data.Count() > 0)
+                if (data.Count() > 0)
                 {
                     //Create Session
                     Session["Username"] = data.FirstOrDefault().username.ToString();

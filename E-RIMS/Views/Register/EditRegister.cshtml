@@ -53,23 +53,23 @@
                 @Html.DropDownListFor(model => model.innovatorOwner, (IEnumerable<SelectListItem>)ViewBag.InnovatorView, "รายชื่อนวัตกร", new { @class = "form-control", id = "dpInnovator", @disabled = "disabled" })
             </div>
             <div class="form-group">
-                <label class="font-weight-bold">ชื่อผู้ใช้</label>
+                <label class="font-weight-bold"><i class="fa fa-user-alt"></i> ชื่อผู้ใช้</label>
                 @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
             </div>
             <label class="font-weight-bold">กำหนดรหัสผ่านใหม่</label>
             <div class="form-group">
-                <label class="font-weight-bold">รหัสผ่าน</label>
+                <label class="font-weight-bold"><i class="fa fa-key"></i> รหัสผ่าน</label>
                 <input class="form-control" type="password" name="password">
                 @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <label class="font-weight-bold">ยืนยันรหัสผ่านอีกครั้ง</label>
+                <label class="font-weight-bold"><i class="fa fa-key"></i> ยืนยันรหัสผ่านอีกครั้ง</label>
                 <input class="form-control" type="password" name="confirmPassword">
                 @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <label class="font-weight-bold">อีเมล์</label>
+                <label class="font-weight-bold"><i class="fa fa-envelope"></i> อีเมล์</label>
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </div>

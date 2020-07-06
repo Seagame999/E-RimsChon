@@ -29,7 +29,7 @@ namespace E_RIMS.Models
         public string confirmPassword { get; set; }
         public string role { get; set; }
         [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
+        [EmailAddress(ErrorMessage = "รูปแบบอีเมล์ผิดพลาด")]
         public string email { get; set; }
         public string researcherOwner { get; set; }
         public string innovatorOwner { get; set; }

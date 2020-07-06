@@ -170,11 +170,19 @@ namespace E_RIMS.Controllers
                 infection = "โรคติดต่อ";
                 ViewBag.infection = infection;
             }
+            else
+            {
+                ViewBag.infection = "*";
+            }
             if (expert.IsSpecialExpertNonInfection == true)
             {
                 var nonInfection = Convert.ToString(expert.IsSpecialExpertNonInfection);
                 nonInfection = "โรคไม่ติดต่อ";
                 ViewBag.nonInfection = nonInfection;
+            }
+            else
+            {
+                ViewBag.nonInfection = "*";
             }
             if (expert.IsSpecialExpertDiseaseExposure == true)
             {
@@ -182,11 +190,19 @@ namespace E_RIMS.Controllers
                 diseaseExposure = "โรคจากการสัมผัส";
                 ViewBag.diseaseExposure = diseaseExposure;
             }
+            else
+            {
+                ViewBag.diseaseExposure = "*";
+            }
             if (expert.IsSpecialExpertOccupationAndEnvironDiseases == true)
             {
                 var occupationAndEnvironDiseases = Convert.ToString(expert.IsSpecialExpertOccupationAndEnvironDiseases);
                 occupationAndEnvironDiseases = "โรคจากการประกอบอาชีพและสิ่งแวดล้อม";
                 ViewBag.occupationAndEnvironDiseases = occupationAndEnvironDiseases;
+            }
+            else
+            {
+                ViewBag.occupationAndEnvironDiseases = "*";
             }
             if (expert.IsSpecialExpertEpidemiology == true)
             {
@@ -194,11 +210,19 @@ namespace E_RIMS.Controllers
                 epidemiology = "ระบาดวิทยา";
                 ViewBag.epidemiology = epidemiology;
             }
+            else
+            {
+                ViewBag.epidemiology = "*";
+            }
             if (expert.IsSpecialExpertLaboratory == true)
             {
                 var expertLaboratory = Convert.ToString(expert.IsSpecialExpertLaboratory);
                 expertLaboratory = "ห้องปฎิบัติการ";
                 ViewBag.expertLaboratory = expertLaboratory;
+            }
+            else
+            {
+                ViewBag.expertLaboratory = "*";
             }
             if (expert.IsSpecialExpertEvaluate == true)
             {
@@ -206,11 +230,19 @@ namespace E_RIMS.Controllers
                 evaluate = "ประเมินผล";
                 ViewBag.evaluate = evaluate;
             }
+            else
+            {
+                ViewBag.evaluate = "*";
+            }
             if (expert.IsSpecialExpertStatistics == true)
             {
                 var statistics = Convert.ToString(expert.IsSpecialExpertStatistics);
                 statistics = "สถิติ";
                 ViewBag.statistics = statistics;
+            }
+            else
+            {
+                ViewBag.statistics = "*";
             }
             if (expert.IsSpecialExpertManage == true)
             {
@@ -218,11 +250,19 @@ namespace E_RIMS.Controllers
                 manage = "บริหารจัดการ";
                 ViewBag.manage = manage;
             }
+            else
+            {
+                ViewBag.manage = "*";
+            }
             if (expert.IsSpecialExpertInnovation == true)
             {
                 var innovation = Convert.ToString(expert.IsSpecialExpertInnovation);
                 innovation = "นวัตกรรม";
                 ViewBag.innovation = innovation;
+            }
+            else
+            {
+                ViewBag.innovation = "*";
             }
 
             return View(expert);

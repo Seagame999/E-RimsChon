@@ -64,7 +64,8 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                //member.password = GetMD5(member.password);
+                member.password = GetMD5(member.password);
+                member.confirmPassword = GetMD5(member.confirmPassword);
                 member.role = "User";
                 db.Member.Add(member);
                 db.SaveChanges();
@@ -153,7 +154,8 @@ namespace E_RIMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                //member.password = GetMD5(member.password);
+                member.password = GetMD5(member.password);
+                member.confirmPassword = GetMD5(member.confirmPassword);
                 member.role = "User";
                 db.Entry(member).State = EntityState.Modified;
                 db.SaveChanges();
