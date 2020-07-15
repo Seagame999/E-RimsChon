@@ -31,7 +31,7 @@ namespace E_RIMS.Controllers
                 return View(researchResult);
             }
             else
-                return RedirectToAction("Index", "Home");           
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -186,14 +186,18 @@ namespace E_RIMS.Controllers
             {
                 if (Session["Role"].Equals("Admin") || Session["Role"].Equals("User"))
                 {
-                    var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
-                    ViewBag.ResearcherView = (from item in modelResearcher
-                                              select new SelectListItem
-                                              {
-                                                  Text = item.name + " " + item.surname,
-                                                  Value = item.name.ToString() + " " + item.surname.ToString()
-                                              });
+                    var sessionCreatorToString = Session["Owner"].ToString();
+                    ViewBag.ResearcherView = sessionCreatorToString;
+
                     return View();
+
+                    //var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+                    //ViewBag.ResearcherView = (from item in modelResearcher
+                    //                          select new SelectListItem
+                    //                          {
+                    //                              Text = item.name + " " + item.surname,
+                    //                              Value = item.name.ToString() + " " + item.surname.ToString()
+                    //                          });                   
                 }
                 return RedirectToAction("Index", "Research");
             }
@@ -204,6 +208,8 @@ namespace E_RIMS.Controllers
         [HttpPost]
         public ActionResult CreateResearch(Research research)
         {
+            var sessionCreatorToString = Session["Owner"].ToString();
+
             if (ModelState.IsValid)
             {
                 if (research.files2 != null)
@@ -233,6 +239,7 @@ namespace E_RIMS.Controllers
                     research.usernameOwner = Session["Username"].ToString();
                 }
 
+                research.creator = sessionCreatorToString;
                 research.views = 0;
                 research.workOverview = 00.00m;
                 research.date = DateTime.Today;
@@ -285,13 +292,15 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("CreateSuccessMessage");
             }
 
-            var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
-            ViewBag.ResearcherView = (from item in modelResearcher
-                                      select new SelectListItem
-                                      {
-                                          Text = item.name + " " + item.surname,
-                                          Value = item.name.ToString() + " " + item.surname.ToString()
-                                      });
+            ViewBag.ResearcherView = sessionCreatorToString;
+
+            //var modelResearcher = db.Researcher.OrderBy(x => x.name).ToList();
+            //ViewBag.ResearcherView = (from item in modelResearcher
+            //                          select new SelectListItem
+            //                          {
+            //                              Text = item.name + " " + item.surname,
+            //                              Value = item.name.ToString() + " " + item.surname.ToString()
+            //                          });
 
             return View(research);
         }

@@ -26,7 +26,6 @@ namespace E_RIMS.Models
         public string name { get; set; }
         [Required(ErrorMessage = "กรุณาเลือกกลุ่มงาน")]
         public string workGroup { get; set; }
-        [Required(ErrorMessage = "กรุณาเลือกผู้จัดทำ")]
         public string creator { get; set; }
         public string preface { get; set; }
         public string objective { get; set; }

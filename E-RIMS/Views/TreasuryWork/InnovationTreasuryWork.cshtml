@@ -105,19 +105,21 @@
                     <th scope="col">ประเภท</th>
                     <th scope="col">นวัตกร</th>
                     <th scope="col">กลุ่มงาน</th>
+                    <th scope="col">จำนวนผู้เข้าชม(ครั้ง)</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.date)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
-                        <td><a href="@Url.Action("DetailInnovation"+"/"+item.id,"Innovation")">@Html.DisplayFor(modelItem => item.name)</a></td>
-                        <td>@Html.DisplayFor(modelItem => item.type)</td>
-                        <td>@Html.DisplayFor(modelItem => item.creator)</td>
-                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
-                    </tr>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.date)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
+                    <td><a href="@Url.Action("DetailInnovation"+"/"+item.id,"Innovation")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                    <td>@Html.DisplayFor(modelItem => item.type)</td>
+                    <td>@Html.DisplayFor(modelItem => item.creator)</td>
+                    <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.views)</td>
+                </tr>
                 }
             </tbody>
             <tfoot>

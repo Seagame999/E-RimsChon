@@ -37,18 +37,18 @@
                         <th scope="col">เอกสาร</th>
                         <th scope="col">วันที่อัพโหลด</th>
                         <th scope="col">ดาวน์โหลด</th>
+                        <th scope="col" class="text-center">จำนวนผู้เข้าชม(ครั้ง)</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-
-                            <td><a href="@Url.Action("DocumentDetail"+"/"+item.id,"DocumentDownload")">@Html.DisplayFor(modelItem => item.name)</a></td>
-                            <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
-                            <td><a href="@Html.DisplayFor(model => item.docUpload)">@Html.DisplayFor(modelItem => item.name)</a></td>
-
-                        </tr>
+                    <tr>
+                        <td><a href="@Url.Action("DocumentDetail"+"/"+item.id,"DocumentDownload")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
+                        <td><a href="@Html.DisplayFor(model => item.docUpload)">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td class="text-center">@Html.DisplayFor(model => item.views)</td>
+                    </tr>
                     }
                 </tbody>
             </table>

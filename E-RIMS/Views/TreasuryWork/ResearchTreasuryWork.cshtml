@@ -104,6 +104,7 @@
                     <th scope="col">ชื่องานวิจัย</th>
                     <th scope="col">นักวิจัย</th>
                     <th scope="col">กลุ่มงาน</th>
+                    <th scope="col">จำนวนผู้เข้าชม(ครั้ง)</th>
                 </tr>
             </thead>
             <tbody>
@@ -113,7 +114,8 @@
                         <td class="text-center">@Html.DisplayFor(modelItem => item.budgetYear)</td>
                         <td><a href="@Url.Action("DetailResearch"+"/"+item.id,"Research")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td>@Html.DisplayFor(modelItem => item.creator)</td>
-                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>                     
+                        <td>@Html.DisplayFor(modelItem => item.workGroup)</td>      
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.views)</td>
                     </tr>
                 }
             </tbody>

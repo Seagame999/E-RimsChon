@@ -76,8 +76,9 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label class="">ผู้จัดทำ</label>
-                                    @Html.DropDownListFor(model => model.creator, (IEnumerable<SelectListItem>)ViewBag.ResearcherView, "ผู้จัดทำ", new { @class = "form-control" })                
-                                    @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
+                                    <label class="form-control">@ViewBag.ResearcherView</label>
+                                    @*@Html.DropDownListFor(model => model.creator, (IEnumerable<SelectListItem>)ViewBag.ResearcherView, "ผู้จัดทำ", new { @class = "form-control" })*@
+                                    @*@Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })*@
                                 </div>
                                 <div class="form-group col-6">
                                     <label class="">กลุ่มงาน</label>

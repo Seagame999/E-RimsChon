@@ -38,11 +38,11 @@ namespace E_RIMS.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-                
+
         }
 
         [HttpPost]
-        public ActionResult Login(string username , string password)
+        public ActionResult Login(string username, string password)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +58,20 @@ namespace E_RIMS.Controllers
                     Session["Email"] = data.FirstOrDefault().email.ToString();
                     Session["Id"] = data.FirstOrDefault().id.ToString();
                     Session["Role"] = data.FirstOrDefault().role.ToString();
+
+                    //Session Creator
+                    if (data.FirstOrDefault().researcherOwner != null)
+                    {
+                        Session["Owner"] = data.FirstOrDefault().researcherOwner.ToString();
+                    }
+                    if (data.FirstOrDefault().innovatorOwner != null)
+                    {
+                        Session["Owner"] = data.FirstOrDefault().innovatorOwner.ToString();
+                    }
+                    if (data.FirstOrDefault().researcherOwner == null && data.FirstOrDefault().innovatorOwner == null)
+                    {
+                        Session["Owner"] = "ผู้ดูแลระบบ";
+                    }
 
                     return RedirectToAction("Index", "Home");
                 }

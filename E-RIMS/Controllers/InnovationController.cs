@@ -185,14 +185,18 @@ namespace E_RIMS.Controllers
             {
                 if (Session["Role"].Equals("Admin") || Session["Role"].Equals("User"))
                 {
-                    var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
-                    ViewBag.InnovatorView = (from item in modelInnovator
-                                             select new SelectListItem
-                                             {
-                                                 Text = item.name + " " + item.surname,
-                                                 Value = item.name.ToString() + " " + item.surname.ToString()
-                                             });
+                    var sessionCreatorToString = Session["Owner"].ToString();
+                    ViewBag.InnovatorView = sessionCreatorToString;
+
                     return View();
+                    //var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+                    //ViewBag.InnovatorView = (from item in modelInnovator
+                    //                         select new SelectListItem
+                    //                         {
+                    //                             Text = item.name + " " + item.surname,
+                    //                             Value = item.name.ToString() + " " + item.surname.ToString()
+                    //                         });
+
                 }
                 return RedirectToAction("Index", "Innovation");
             }
@@ -203,6 +207,8 @@ namespace E_RIMS.Controllers
         [HttpPost]
         public ActionResult CreateInnovation(Innovation innovation)
         {
+            var sessionCreatorToString = Session["Owner"].ToString();
+
             if (ModelState.IsValid)
             {
                 if (innovation.files2 != null)
@@ -232,6 +238,7 @@ namespace E_RIMS.Controllers
                     innovation.usernameOwner = Session["Username"].ToString();
                 }
 
+                innovation.creator = sessionCreatorToString;
                 innovation.views = 0;
                 innovation.workOverview = 00.00m;
                 innovation.date = DateTime.Today;
@@ -284,13 +291,15 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("CreateSuccessMessage");
             }
 
-            var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
-            ViewBag.InnovatorView = (from item in modelInnovator
-                                     select new SelectListItem
-                                     {
-                                         Text = item.name + " " + item.surname,
-                                         Value = item.name.ToString() + " " + item.surname.ToString()
-                                     });
+            ViewBag.InnovatorView = sessionCreatorToString;
+
+            //var modelInnovator = db.Innovator.OrderBy(x => x.name).ToList();
+            //ViewBag.InnovatorView = (from item in modelInnovator
+            //                         select new SelectListItem
+            //                         {
+            //                             Text = item.name + " " + item.surname,
+            //                             Value = item.name.ToString() + " " + item.surname.ToString()
+            //                         });
 
             return View(innovation);
         }

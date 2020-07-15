@@ -102,8 +102,9 @@
                                 </div>
                                 <div class="form-group col-8">
                                     <label class="">ผู้จัดทำ</label>
-                                    @Html.DropDownListFor(model => model.creator, (IEnumerable<SelectListItem>)ViewBag.InnovatorView, "ผู้จัดทำ", new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
+                                    <label class="form-control">@ViewBag.InnovatorView</label>
+                                    @*@Html.DropDownListFor(model => model.creator, (IEnumerable<SelectListItem>)ViewBag.InnovatorView, "ผู้จัดทำ", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })*@
                                 </div>
                             </div>
 
