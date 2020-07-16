@@ -26,7 +26,7 @@
                 <div class="form-row">
                     <div class="form-group col-4">
                         <label>ชื่อเรื่อง</label>
-                        @Html.EditorFor(model => model.newsName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.newsName, new { htmlAttributes = new { @class = "form-control" , required = "required" } })
                         @Html.ValidationMessageFor(model => model.newsName, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group col-4">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group col-4">
                         <label>รายละเอียด</label>
-                        @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
                     </div>
                 </div>

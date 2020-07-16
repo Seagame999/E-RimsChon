@@ -64,8 +64,8 @@ namespace E_RIMS.Models
         public string joinDevelopmentTeam { get; set; }
         public string nameAcademic { get; set; }
         public string publication { get; set; }
-        [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
-        [EmailAddress(ErrorMessage = "รูปแบบอีเมล์ผิดพลาด")]
+        [Required(ErrorMessage = "กรุณากรอกอีเมล")]
+        [EmailAddress(ErrorMessage = "รูปแบบอีเมลผิดพลาด")]
         public string Email { get; set; }
         public string education2 { get; set; }
         public string education3 { get; set; }

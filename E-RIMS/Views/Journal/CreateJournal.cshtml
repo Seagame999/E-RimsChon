@@ -25,7 +25,7 @@
                 <div class="form-row">
                     <div class="form-group col-6">
                         <label for="journalName"><i class="fa fa-book"></i>&nbsp;ชื่อวารสาร</label>
-                        <input type="text" class="form-control" id="journalName" name="name" placeholder="ชื่อวารสาร ฉบับที่ ปีที่">
+                        <input type="text" class="form-control" id="journalName" name="name" placeholder="ชื่อวารสาร ฉบับที่ ปีที่" required>
                         @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group col-6">
@@ -37,7 +37,7 @@
                 <div class="form-row">
                     <div class="form-group col-6">
                         <label for="journalDesc"><i class="fa fa-info"></i>&nbsp;รายละเอียดวารสาร</label>
-                        <textarea class="form-control" id="journalDesc" rows="3" placeholder="รายละเอียดวารสาร" name="description"></textarea>
+                        <textarea class="form-control" id="journalDesc" rows="3" placeholder="รายละเอียดวารสาร" name="description" required></textarea>
                         @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group col-6">

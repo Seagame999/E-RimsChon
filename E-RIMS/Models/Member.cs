@@ -28,8 +28,8 @@ namespace E_RIMS.Models
         [Compare(nameof(password),ErrorMessage = "รหัสผ่านไม่ตรงกัน")]
         public string confirmPassword { get; set; }
         public string role { get; set; }
-        [Required(ErrorMessage = "กรุณากรอกอีเมล์")]
-        [EmailAddress(ErrorMessage = "รูปแบบอีเมล์ผิดพลาด")]
+        [Required(ErrorMessage = "กรุณากรอกอีเมล")]
+        [EmailAddress(ErrorMessage = "รูปแบบอีเมลผิดพลาด")]
         public string email { get; set; }
         public string researcherOwner { get; set; }
         public string innovatorOwner { get; set; }

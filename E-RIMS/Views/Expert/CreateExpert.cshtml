@@ -47,19 +47,19 @@
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>ชื่อ :</label>
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" name="name" required>
                                     @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>นามสกุล :</label>
-                                    <input type="text" class="form-control" name="surname">
+                                    <input type="text" class="form-control" name="surname" required>
                                     @Html.ValidationMessageFor(model => model.surname, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>เลขประจำตัวประชาชน :</label>
-                                    <input type="text" class="form-control" name="identificationNumber">
+                                    <input type="text" class="form-control" name="identificationNumber" required>
                                     @Html.ValidationMessageFor(model => model.identificationNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-md-4">
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <input type="text" class="form-control" id="" name="moblieNumber" placeholder="081-2345678">
+                                    <input type="text" class="form-control" id="" name="moblieNumber" placeholder="081-2345678" required>
                                     @Html.ValidationMessageFor(model => model.moblieNumber, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -180,8 +180,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="">อีเมล์สำหรับการติดต่อสื่อสาร</label>
-                                <input type="text" class="form-control" id="" name="Email" placeholder="Dr.John@gmail.com">
+                                <label for="">อีเมลสำหรับการติดต่อสื่อสาร</label>
+                                <input type="text" class="form-control" id="" name="Email" placeholder="Dr.John@gmail.com" required>
                                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                             </div>
                         </div>
