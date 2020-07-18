@@ -373,7 +373,11 @@ namespace E_RIMS.Controllers
 
             if (research == null)
             {
-                return RedirectToAction("trackResearch");
+                if (Session["Role"].Equals("Admin"))
+                {
+                    return RedirectToAction("trackResearchAll");
+                }
+                    return RedirectToAction("trackResearch");
             }
 
             double useNumberofActivities = numberOfActivitiesResearch(id);
@@ -426,6 +430,10 @@ namespace E_RIMS.Controllers
             Innovation innovation = db.Innovation.Find(id);
             if (innovation == null)
             {
+                if (Session["Role"].Equals("Admin"))
+                {
+                    return RedirectToAction("trackInnovationAll");
+                }
                 return RedirectToAction("trackInnovation");
             }
 
