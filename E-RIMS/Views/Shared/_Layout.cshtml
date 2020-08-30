@@ -10,7 +10,6 @@
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <link href="~/Content/all.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
     <link href="~/Content/PagedList.css" rel="stylesheet" />
     <link href="~/Image/ico.ico" rel="icon" />
 
@@ -19,13 +18,17 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
             <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                <img src="~/Image/odpc6_logo.png" class="d-inline-block" style="height:60px;" />
-                &nbsp; E-RIMS: ODPC6 Chonburi
+                <img src="~/Image/logo.png" class="d-inline-block" style="height:120px;" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <h6 style="color: white;">
+                    E-RIMS: ODPC6 Chonburi<br />
+                    <small>ระบบจัดการงานวิจัยและนวัตกรรม<br />สำนักงานป้องกันควบคุมโรคที่ 6 ชลบุรี</small>
+                </h6>
+
                 <ul class="nav navbar-nav ml-auto">
                     <li class="dropdown nav-item">
                         <a class="dropdown-toggle nav-link" data-toggle="dropdown"
@@ -78,15 +81,15 @@
                     {
                         if (Session["Role"].Equals("User"))
                         {
-                        <li class="dropdown nav-item">
-                            <a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                               aria-expanded="false" href="#">
-                                <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
-                            </a>
-                            <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
-                            </div>
-                        </li>
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                   aria-expanded="false" href="#">
+                                    <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
+                                </div>
+                            </li>
                         }
                         if (Session["Role"].Equals("Admin"))
                         {
@@ -110,44 +113,40 @@
     <div class="container body-content">
         @RenderBody()
         <br />
-        <div class="card">
-            <div class="card-body">
-                <footer class="navbar navbar-fixed-bottom">
-                    <div class="container">
 
-                        <div class="row">
-                            <div class="col-sm-3 col-md-3">
-                                <h6><i class="fa fa-stethoscope"></i>&nbsp;บริการ</h6>
-                                <ul>
-                                    <li><a href="#">ที่ปรึกษางานวิจัย</a></li>
-                                    <li><a href="#">พัฒนางานวิจัย</a></li>
-                                    <li>บริการงานวิจัย<a href="#"></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <h6><i class="fa fa-building"></i>&nbsp;เกี่ยวกับเรา</h6>
-                                <ul>
-                                    <li><a href="#">ข้อมูลทั่วไป</a></li>
-                                    <li><a href="#">ทีมของเรา</a></li>
-                                    <li><a href="#">ติดต่อเรา</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <h6><i class="fa fa-link"></i>&nbsp;ลิ้งก์ที่น่าสนใจ</h6>
-                                <ul>
-                                    <li><a href="#">เว็บไซต์กระทรวงฯ</a></li>
-                                    <li><a href="#">เว็บไซต์กรมฯ</a></li>
-                                    <li><a href="#">เว็บไซต์ห้องสมุดงานวิจัย</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <p>&copy; กลุ่มพัฒนานวัตกรรมและวิจัยฯ สำนักงานป้องกันควบคุมโรคที่ 6 จังหวัดชลบุรี</p>
-                            </div>
+        <footer class="navbar navbar-fixed-bottom row">
+            <div class="card col-12">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h6><i class="fa fa-link"></i>&nbsp;ลิ้งก์ที่น่าสนใจ</h6>
+                            <ul>
+                                <li><a href="#">ที่ปรึกษางานวิจัย</a></li>
+                                <li><a href="#">เว็บไซต์กระทรวงฯ</a></li>
+                                <li><a href="#">เว็บไซต์กรมฯ</a></li>
+                                <li><a href="#">เว็บไซต์ห้องสมุดงานวิจัย</a></li>
+                            </ul>
+                        </div><div class="col-6">
+                            <h6><i class="fa fa-building"></i>&nbsp;เกี่ยวกับเรา</h6>
+                            <p>
+                                &copy; ทีมที่ปรึกษางานวิจัย กลุ่มพัฒนานวัตกรรมและวิจัยฯ <br />สำนักงานป้องกันควบคุมโรคที่ 6 จังหวัดชลบุรี
+                                <br />
+                                ที่อยู่ : 29/85 ถ.วชิรปราการ ต.บ้านสวน อ.เมือง จ.ชลบุรี 20000<br />
+                                โทรศัพท์ (สนง.หลัก)038-271881-2, 038-277057-8 (สนง.ถนนพระยาสัจจา) 038-260970<br />
+                                อีเมล์:
+                            </p>
+                            <ul></ul>
                         </div>
+
                     </div>
-                </footer>
+
+
+
+                </div>
             </div>
-        </div>
+        </footer>
+
     </div>
 </body>
 </html>

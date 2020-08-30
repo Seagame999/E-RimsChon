@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace E_RIMS.Controllers
 {
@@ -16,6 +17,7 @@ namespace E_RIMS.Controllers
         // GET: SendNotification
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -106,6 +108,52 @@ namespace E_RIMS.Controllers
             }
             else
                 return 0;
+        }
+
+        public string checkMonth(int month)
+        {
+            string result = "";
+
+            switch (month)
+            {
+                case 1:
+                    result = "isJan";
+                    break;
+                case 2:
+                    result = "isFeb";
+                    break;
+                case 3:
+                    result = "isMar";
+                    break;
+                case 4:
+                    result = "isApr";
+                    break;
+                case 5:
+                    result = "isMay";
+                    break;
+                case 6:
+                    result = "isJun";
+                    break;
+                case 7:
+                    result = "isJul";
+                    break;
+                case 8:
+                    result = "isAug";
+                    break;
+                case 9:
+                    result = "isSep";
+                    break;
+                case 10:
+                    result = "isOct";
+                    break;
+                case 11:
+                    result = "isNov";
+                    break;
+                case 12:
+                    result = "isDec";
+                    break;
+            }
+            return result;
         }
 
         public bool checkFirstMonthActivity(bool first, bool second)

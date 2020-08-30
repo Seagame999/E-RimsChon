@@ -1,6 +1,19 @@
-﻿body {
-    font-family: "Sarabun", sans-serif;
+﻿@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&family=Pridi:wght@500&display=swap');
+
+body {
+    font-family: 'Bai Jamjuree', sans-serif;
     font-size: 14px;
+}
+
+.navbar {
+    font-family: "Pridi", sans-serif;
+    font-size: 14px;
+}
+
+.card-header,
+.card-title
+{
+    font-family: "Pridi", sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -8,7 +21,6 @@
     margin-top: 100px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 150px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -36,7 +48,7 @@ textarea {
 
 .navbar-custom {
     background-color: #1DA7B4;
-    font-size: 18px;
+    font-size: 16px;
 }
 
     /* change the brand and text color */

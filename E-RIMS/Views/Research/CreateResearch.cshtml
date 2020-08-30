@@ -116,35 +116,37 @@
                         </div>
                         <div class="card-body">
                             <div class="form-row">
-                                <div class="form-group col-3">
-                                    <label class="">บทนำ</label>
+                                <div class="form-group col-6">
+                                    <label class="">1 บทนำ</label>
                                     <textarea class="form-control" rows="3" name="preface"></textarea>
                                     @Html.ValidationMessageFor(model => model.preface, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">วัตถุประสงค์</label>
+                                <div class="form-group col-6">
+                                    <label class="">2 วัตถุประสงค์</label>
                                     <textarea class="form-control" rows="3" name="objective"></textarea>
                                     @Html.ValidationMessageFor(model => model.objective, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">ประโยชน์ที่คาดว่าจะได้รับ</label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label class="">3 ประโยชน์ที่คาดว่าจะได้รับ</label>
                                     <textarea class="form-control" rows="3" name="benefit"></textarea>
                                     @Html.ValidationMessageFor(model => model.benefit, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">รูปแบบงานวิจัย</label>
+                                <div class="form-group col-6">
+                                    <label class="">4 รูปแบบงานวิจัย</label>
                                     <textarea class="form-control" rows="3" name="format"></textarea>
                                     @Html.ValidationMessageFor(model => model.format, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-3">
-                                    <label class="">สถานที่ศึกษา</label>
+                                <div class="form-group col-6">
+                                    <label class="">5 สถานที่ศึกษา</label>
                                     <textarea class="form-control" rows="3" name="school"></textarea>
                                     @Html.ValidationMessageFor(model => model.school, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">ระยะเวลาที่ศึกษา</label>
+                                <div class="form-group col-6">
+                                    <label class="">6 ระยะเวลาที่ศึกษา</label>
                                     <select class="form-control" name="timeOfStudy">
                                         <option>1 เดือน</option>
                                         <option>2 เดือน</option>
@@ -161,35 +163,39 @@
                                     </select>
                                     @Html.ValidationMessageFor(model => model.timeOfStudy, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">ประชากรที่ศึกษา</label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label class="">7 ประชากรที่ศึกษา</label>
                                     <textarea class="form-control" rows="3" name="population"></textarea>
                                     @Html.ValidationMessageFor(model => model.population, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">วิธีการเลือกตัวอย่าง</label>
+                                <div class="form-group col-6">
+                                    <label class="">8 วิธีการเลือกตัวอย่าง</label>
                                     <textarea class="form-control" rows="3" name="sampleMethod"></textarea>
                                     @Html.ValidationMessageFor(model => model.sampleMethod, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-3">
-                                    <label class="">เครื่องมือที่ใช้ในการวิจัย</label>
+                                <div class="form-group col-6">
+                                    <label class="">9 เครื่องมือที่ใช้ในการวิจัย</label>
                                     <textarea class="form-control" rows="3" name="toolsOfResearch"></textarea>
                                     @Html.ValidationMessageFor(model => model.toolsOfResearch, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">การวิเคราะห์ข้อมูล</label>
+                                <div class="form-group col-6">
+                                    <label class="">10 การวิเคราะห์ข้อมูล</label>
                                     <textarea class="form-control" rows="3" name="dataAnalysis"></textarea>
                                     @Html.ValidationMessageFor(model => model.dataAnalysis, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">วิธีการเก็บรวบรวมข้อมูล</label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label class="">11 วิธีการเก็บรวบรวมข้อมูล</label>
                                     <textarea class="form-control" rows="3" name="dataMethodCollect"></textarea>
                                     @Html.ValidationMessageFor(model => model.dataMethodCollect, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="">อัพโหลดไฟล์ที่เกี่ยวข้อง</label>
+                                <div class="form-group col-6">
+                                    <label class="">12 อัพโหลดไฟล์ที่เกี่ยวข้อง</label>
                                     <input type="file" class="form-control-file" name="files2" />
                                     @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
                                 </div>
