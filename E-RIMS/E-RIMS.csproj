@@ -354,6 +354,7 @@
     <Content Include="Image\img4.jpg" />
     <Content Include="Image\innovator.png" />
     <Content Include="Image\learning-material.svg" />
+    <Content Include="Image\logo.png" />
     <Content Include="Image\logo_NRCT.jpg" />
     <Content Include="Image\nia_logo_color.jpg" />
     <Content Include="Image\no-camera.png" />
@@ -665,6 +666,7 @@
     <Content Include="Views\Login\LoginFailed.cshtml" />
     <Content Include="Views\Register\CreateSuccessMessage.cshtml" />
     <Content Include="Views\Register\EditSuccessMessage.cshtml" />
+    <Content Include="Views\PublicRelation\NewsArchive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,6 +34,16 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult NewsArchive(int? page)
+        {
+            var publicRelation = db.PublicRelation;
+
+            //--Pagination 6 cards
+            var publicRelationResultArch = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 6);
+
+            return View(publicRelationResultArch);
+        }
+
         public ActionResult CreateNews()
         {
             if (Session["Role"] != null)

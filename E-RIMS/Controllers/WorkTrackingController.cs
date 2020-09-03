@@ -75,7 +75,7 @@ namespace E_RIMS.Controllers
 
             if (name != "")
             {
-                researchResult = db.Research.Where(x => (x.name.StartsWith(name) || x.name.Equals(name))
+                researchResult = db.Research.Where(x => (x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name))
                 && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
 
                 if (researchResult.TotalItemCount == 0)
@@ -87,7 +87,7 @@ namespace E_RIMS.Controllers
             }
             if (creator != "")
             {
-                researchResult = db.Research.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator))
+                researchResult = db.Research.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator))
                 && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
 
                 if (researchResult.TotalItemCount == 0)
@@ -157,7 +157,7 @@ namespace E_RIMS.Controllers
 
             if (name != "")
             {
-                researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+                researchResult = db.Research.Where(x => x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name)).ToList().ToPagedList(page ?? 1, 10);
 
                 if (researchResult.TotalItemCount == 0)
                 {
@@ -168,7 +168,7 @@ namespace E_RIMS.Controllers
             }
             if (creator != "")
             {
-                researchResult = db.Research.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+                researchResult = db.Research.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator)).ToList().ToPagedList(page ?? 1, 10);
 
                 if (researchResult.TotalItemCount == 0)
                 {
@@ -243,7 +243,7 @@ namespace E_RIMS.Controllers
 
             if (name != "")
             {
-                innovationResult = db.Innovation.Where(x => (x.name.StartsWith(name) || x.name.Equals(name))
+                innovationResult = db.Innovation.Where(x => (x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name))
                 && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
@@ -255,7 +255,7 @@ namespace E_RIMS.Controllers
             }
             if (creator != "")
             {
-                innovationResult = db.Innovation.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator))
+                innovationResult = db.Innovation.Where(x => (x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator))
                 && x.idOwner == convertIdOwner && x.usernameOwner == convertUsernameOwner).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
@@ -327,7 +327,7 @@ namespace E_RIMS.Controllers
 
             if (name != "")
             {
-                innovationResult = db.Innovation.Where(x => x.name.StartsWith(name) || x.name.Equals(name)).ToList().ToPagedList(page ?? 1, 10);
+                innovationResult = db.Innovation.Where(x => x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name)).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
                 {
@@ -338,7 +338,7 @@ namespace E_RIMS.Controllers
             }
             if (creator != "")
             {
-                innovationResult = db.Innovation.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator)).ToList().ToPagedList(page ?? 1, 10);
+                innovationResult = db.Innovation.Where(x => x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator)).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
                 {

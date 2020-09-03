@@ -19,8 +19,8 @@ namespace E_RIMS.Controllers
         {
             var publicRelation = db.PublicRelation;
 
-            //--Pagination 6 cards
-            var publicRelationResult = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 6);
+            //--Pagination 5 cards
+            var publicRelationResult = publicRelation.OrderByDescending(x => x.id).ToList().ToPagedList(page ?? 1, 5);
 
             return View(publicRelationResult);
         }

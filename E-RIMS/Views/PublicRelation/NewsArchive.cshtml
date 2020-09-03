@@ -3,18 +3,21 @@
 @model IPagedList<E_RIMS.Models.PublicRelation>
 
 @{
-    ViewBag.Title = "หน้าแรก";
+    ViewBag.Title = "ข่าวทั้งหมด";
 }
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">หน้าแรก</li>
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Index", "Home")">หน้าแรก</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
     </ol>
 </nav>
 
 <div class="card">
     <div class="card-header">
         <h3>
-            ข่าวประชาสัมพันธ์&nbsp;
+            ข่าวประชาสัมพันธ์ทั้งหมด&nbsp;
             @if (Session["Role"] != null)
             {
                 if (Session["Role"].Equals("Admin"))
@@ -45,14 +48,12 @@
                             <br />
                         </div>
                     }
-
                 </div>
             </div>
         </div>
         <div class="row">
-            @*<div class="col-6"></div>
-        <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>*@
-            <div class="col-12"><a href="@Url.Action("NewsArchive","PublicRelation")" class="btn btn-info float-right"><i class="fa fa-newspaper"></i>&nbsp;ข่าวทั้งหมด...</a></div>
+            <div class="col-6"></div>
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("NewsArchive", new { page }))</div>           
         </div>
     </div>
 </div>

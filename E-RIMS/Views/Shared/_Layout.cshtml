@@ -30,20 +30,23 @@
                 </h6>
 
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="dropdown nav-item">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                           aria-expanded="false" href="#">
-                            <i class="fa fa-book-medical"></i>&nbsp;งานวิจัยและนวัตกรรม&nbsp;
-                        </a>
-                        <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchAndInnovation")">
-                                <i class="fa fa-database"></i>&nbsp;เพิ่ม แก้ไข ข้อมูลงานวิจัยและนวัตกรรม
+                    @if (Session["Role"] != null)
+                    {
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                               aria-expanded="false" href="#">
+                                <i class="fa fa-book-medical"></i>&nbsp;งานวิจัยและนวัตกรรม&nbsp;
                             </a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "WorkTracking")">
-                                <i class="fa fa-calendar"></i>&nbsp;กำกับติดตามงาน
-                            </a>
-                        </div>
-                    </li>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchAndInnovation")">
+                                    <i class="fa fa-database"></i>&nbsp;เพิ่ม แก้ไข ข้อมูลงานวิจัยและนวัตกรรม
+                                </a>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "WorkTracking")">
+                                    <i class="fa fa-calendar"></i>&nbsp;กำกับติดตามงาน
+                                </a>
+                            </div>
+                        </li>
+                    }
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" href="@Url.Action("Index","ResearcherAndInnovator")">
                             &nbsp;<i class="fa fa-users"></i>&nbsp;ประวัตินักวิจัยและนวัตกร

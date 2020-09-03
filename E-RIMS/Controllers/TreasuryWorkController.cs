@@ -96,7 +96,7 @@ namespace E_RIMS.Controllers
             || x.fileFinishStatusActivity7 != null
             || x.fileFinishStatusActivity8 != null
             || x.fileFinishStatusActivity9 != null
-            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.name.StartsWith(name) || x.name.Equals(name))
+            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name))
             ).ToList().ToPagedList(page ?? 1, 10);
 
                 if (researchResult.TotalItemCount == 0)
@@ -117,7 +117,7 @@ namespace E_RIMS.Controllers
             || x.fileFinishStatusActivity7 != null
             || x.fileFinishStatusActivity8 != null
             || x.fileFinishStatusActivity9 != null
-            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.creator.StartsWith(creator) || x.creator.Equals(creator))).ToList().ToPagedList(page ?? 1, 10);
+            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator))).ToList().ToPagedList(page ?? 1, 10);
 
                 if (researchResult.TotalItemCount == 0)
                 {
@@ -228,7 +228,7 @@ namespace E_RIMS.Controllers
             || x.fileFinishStatusActivity7 != null
             || x.fileFinishStatusActivity8 != null
             || x.fileFinishStatusActivity9 != null
-            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.name.StartsWith(name) || x.name.Equals(name))
+            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name))
             ).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
@@ -249,7 +249,7 @@ namespace E_RIMS.Controllers
             || x.fileFinishStatusActivity7 != null
             || x.fileFinishStatusActivity8 != null
             || x.fileFinishStatusActivity9 != null
-            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.creator.StartsWith(creator) || x.creator.Equals(creator))).ToList().ToPagedList(page ?? 1, 10);
+            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator))).ToList().ToPagedList(page ?? 1, 10);
 
                 if (innovationResult.TotalItemCount == 0)
                 {
@@ -359,7 +359,7 @@ namespace E_RIMS.Controllers
             || x.fileFinishStatusActivity7 != null
             || x.fileFinishStatusActivity8 != null
             || x.fileFinishStatusActivity9 != null
-            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.name.StartsWith(name) || x.name.Equals(name))
+            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.name.StartsWith(name) || x.name.Equals(name) || x.name.Contains(name))
             ).ToList().ToPagedList(page ?? 1, 10);
 
                 if (academicResult.TotalItemCount == 0)
@@ -380,7 +380,7 @@ namespace E_RIMS.Controllers
             || x.fileFinishStatusActivity7 != null
             || x.fileFinishStatusActivity8 != null
             || x.fileFinishStatusActivity9 != null
-            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.creator.StartsWith(creator) || x.creator.Equals(creator))).ToList().ToPagedList(page ?? 1, 10);
+            || x.fileFinishStatusActivity10 != null) && (x.finalFiles != null) && (x.creator.StartsWith(creator) || x.creator.Equals(creator) || x.creator.Contains(creator))).ToList().ToPagedList(page ?? 1, 10);
 
                 if (academicResult.TotalItemCount == 0)
                 {
