@@ -148,6 +148,11 @@
                                     <input type="file" class="form-control-file" name="files2" />
                                     @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
                                 </div>
+                                <div class="form-group col-4">
+                                    <div class="form-check form-check-inline">
+                                        <label class=""><input type="checkbox" class="form-check-input" name="agreePublish" value="true" />ฉันยินยอมให้หน่วยงานเผยแพร่เอกสารฉบับสมบูรณ์</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -186,7 +191,7 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td><input type="text" class="form-control form-control-sm" name="activity1" required/></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="activity1" required /></td>
                                         <td><input type="checkbox" class="form-check" name="isOct1" value="true" /></td>
                                         <td><input type="checkbox" class="form-check" name="isNov1" value="true" /></td>
                                         <td><input type="checkbox" class="form-check" name="isDec1" value="true" /></td>

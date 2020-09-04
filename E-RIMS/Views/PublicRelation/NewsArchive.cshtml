@@ -39,7 +39,20 @@
                             <div class="card" style="min-width: 18rem; max-width: 18rem;">
                                 <img class="card-img-top" src="@Url.Content(item.image ?? "~/Image/no-camera.png")" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.newsName)</h5>
+                                    <h5 class="card-title">
+                                        @Html.DisplayFor(modelItem => item.newsName)
+                                        @{
+                                            var today = DateTime.Today.AddYears(-543); //หากเป็นเครื่องวันที่แบบคริสตศักราชให้เอา AddYears ออก
+                                            var dayNews = Convert.ToDateTime(item.date);
+                                            int dayBetweenNews = (today - dayNews).Days;
+
+                                            if (dayBetweenNews <= 14)
+                                            {
+                                                <img src="~/Image/new-icon.jpg" height="30px" width="auto">
+                                            }
+
+                                        }
+                                    </h5>
                                     <p class="card-text">@item.description.Substring(0, Math.Min(item.description.Length, 100))<a href="@Url.Action("news"+"/"+item.id,"PublicRelation")">&nbsp; อ่านต่อ</a></p>
                                     <p class="card-text"><small class="text-muted">วันที่: @Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</small></p>
                                     <p><a href="@Url.Content(item.docUpload ?? "~/Image/no-document.png")" class="btn btn-sm btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลดเอกสารประกอบ</a></p>
@@ -53,7 +66,7 @@
         </div>
         <div class="row">
             <div class="col-6"></div>
-            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("NewsArchive", new { page }))</div>           
+            <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("NewsArchive", new { page }))</div>
         </div>
     </div>
 </div>

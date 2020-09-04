@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-group col-4">
                                     <label class="">กลุ่มงาน</label>
-                                    @Html.DropDownListFor(model => model.workGroup, new SelectList(ViewBag.workGroupView), new { @class = "form-control custom-select-sm" })                                    
+                                    @Html.DropDownListFor(model => model.workGroup, new SelectList(ViewBag.workGroupView), new { @class = "form-control custom-select-sm" })
                                     @Html.ValidationMessageFor(model => model.workGroup, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-8">
@@ -105,14 +105,18 @@
                                     <input type="file" class="form-control-file" name="files2" />
                                     @Html.ValidationMessageFor(model => model.files2, "", new { @class = "text-danger" })
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="form-group col-4">
                                     <label class="">อัพโหลดเอกสารรายงานฉบับสมบูรณ์</label>
                                     <label class="">เอกสาร: <a href="@Model.finalFiles" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a></label>
                                     <input type="hidden" name="files" value="@Model.finalFiles">
                                     <input type="file" class="form-control-file" name="finalFilesHttpPost" />
                                     @Html.ValidationMessageFor(model => model.finalFiles, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    @Html.CheckBox("agreePublish", new { @class = "form-check" })
+                                    <label>ยินยอมให้หน่วยงานเผยแพร่เอกสารฉบับสมบูรณ์</label>
                                 </div>
                             </div>
                         </div>

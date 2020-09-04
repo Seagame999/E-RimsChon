@@ -147,6 +147,13 @@
                                     <p><a href="@Url.Content(Model.files ?? "~/Image/no-document.png")" class="btn btn-info"><i class="fa fa-download"></i>&nbsp;ดาวน์โหลด</a></p>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="form-group col-3">
+                                    <div class="form-check form-check-inline">
+                                        <label class="">@Html.CheckBox("agreePublish", new { @class = "form-check-input", @disabled = "disabled" })ยินยอมให้หน่วยงานเผยแพร่เอกสารฉบับสมบูรณ์</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

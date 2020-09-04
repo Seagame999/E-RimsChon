@@ -548,6 +548,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.budgetYear).IsModified = true;
                 db.Entry(research).Property(x => x.views).IsModified = true;
                 db.Entry(research).Property(x => x.finalFiles).IsModified = true;
+                db.Entry(research).Property(x => x.agreePublish).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("EditSuccessMessage");
             }

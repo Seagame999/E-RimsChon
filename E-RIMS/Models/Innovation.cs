@@ -302,5 +302,6 @@ namespace E_RIMS.Models
         public string finalFiles { get; set; }
         [FileExtensionsValidationWorkPiece]
         public HttpPostedFileBase finalFilesHttpPost { get; set; }
+        public Nullable<bool> agreePublish { get; set; }
     }
 }
