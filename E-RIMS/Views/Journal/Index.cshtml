@@ -29,23 +29,22 @@
     <div class="card-body">
         <h5 class="card-title"><i class="fa fa-book-medical"></i>&nbsp;@ViewBag.Title</h5>
         <hr />
-        <div class="form-row">
-            <div class="col-md-12">
-                <div class="card-deck">
-                    @foreach (var item in Model)
-                    {
-                        <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                            <img class="card-img-top" src="@Url.Content(item.image ?? "~/Image/no-camera.png")" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.name)</h5>
-                                <p class="card-text">@item.description.Substring(0, Math.Min(item.description.Length, 100))<a href="@Url.Action("DetailJournal"+"/"+item.id)">&nbsp;รายละเอียด</a></p>                              
-                            </div>
-                        </div>
-                    }
 
+        <div class="card-deck">
+            @foreach (var item in Model)
+            {
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="@Url.Content(item.image ?? "~/Image/no-camera.png")" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.name)</h5>
+                        <p class="card-text">@item.description.Substring(0, Math.Min(item.description.Length, 100))<a href="@Url.Action("DetailJournal"+"/"+item.id)">&nbsp;รายละเอียด</a></p>
+                    </div>
                 </div>
             </div>
+            }
         </div>
+
         <div class="row">
             <div class="col-6"></div>
             <div class="col-6">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>

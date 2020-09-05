@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group text-right col-12">
                             <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหางานวิจัย</button>
-                            <button type="reset" class="btn btn-warning btn-sm"><i class="fa fa-redo-alt"></i>&nbsp;</button>
+                            <button type="reset" class="btn btn-warning btn-sm"><i class="fa fa-redo-alt"></i></button>
                         </div>
                     </div>
                 }
@@ -113,7 +113,10 @@
                     <tr class="table">
                         <td style="width:35%" class="font-weight-bold"><a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td style="width:25%">@Html.DisplayFor(modelItem => item.creator)</td>
-                        <td style="width:20%" class="h5 text-right">@Html.DisplayFor(modelItem => item.workOverview)%</td>
+                        <td style="width:20%" class="h5 text-right">
+                            <progress value="@Html.DisplayFor(modelItem => item.workOverview)" max="100"></progress>
+                            @Html.DisplayFor(modelItem => item.workOverview)%
+                        </td>
                         <td style="width:10%">@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
                         <td style="width:10%">
                             <a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a>

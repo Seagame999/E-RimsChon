@@ -3,13 +3,13 @@
 @model IPagedList<E_RIMS.Models.KnowledgeBox>
 
 @{
-    ViewBag.Title = "กล่องความรู้";
+    ViewBag.Title = "เอกสารความรู้";
 }
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">หน้าแรก</a></li>
-        <li class="breadcrumb-item active" aria-current="page">กล่องความรู้ที่น่าสนใจ</li>
+        <li class="breadcrumb-item active" aria-current="page">เอกสารความรู้ที่น่าสนใจ</li>
     </ol>
 </nav>
 
@@ -21,7 +21,7 @@
             {
                 if (Session["Role"].Equals("Admin"))
                 {
-                    <a href="@Url.Action("CreateKnowledgeBox", "KnowledgeBox")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มกล่องความรู้</a>
+                    <a href="@Url.Action("CreateKnowledgeBox", "KnowledgeBox")" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;เพิ่มเอกสารความรู้ใหม่</a>
                 }
             }
         </h3>
@@ -34,7 +34,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">กล่องความรู้</th>
+                        <th scope="col">เอกสารความรู้</th>
                         <th scope="col">รายละเอียด</th>
                         <th scope="col">วันที่อัพโหลด</th>
                         <th scope="col">ดาวน์โหลด</th>

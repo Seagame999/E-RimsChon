@@ -58,11 +58,11 @@
                                 <option>2580</option>
                             </select>
                         </div>
-                        <div class="form-group col-2">
+                        <div class="form-group col-3">
                             <label class="" for="">ชื่อนวัตกรรม</label>
                             <input type="text" class="form-control form-control-sm" name="name" />
                         </div>
-                        <div class="form-group col-2">
+                        <div class="form-group col-3">
                             <label class="" for="">นวัตกร</label>
                             <input type="text" class="form-control form-control-sm" name="creator" />
                         </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="form-group text-right col-12">
                         <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i>&nbsp;ค้นหานวัตกรรม</button>
-                        <button type="reset" class="btn btn-warning btn-sm"><i class="fa fa-redo-alt"></i>&nbsp;</button>
+                        <button type="reset" class="btn btn-warning btn-sm"><i class="fa fa-redo-alt"></i></button>
                     </div>
                 }
             </div>
@@ -100,9 +100,9 @@
         <table class="table table-striped table-hover">
             <thead class="text-center thead-light">
                 <tr>
-                    <th style="width:40%">ชื่อนวัตกรรม</th>
-                    <th style="width:30%">นวัตกร</th>
-                    <th style="width:10%">ภาพรวม</th>
+                    <th style="width:35%">ชื่อนวัตกรรม</th>
+                    <th style="width:25%">นวัตกร</th>
+                    <th style="width:20%">ภาพรวม</th>
                     <th style="width:10%">วันที่อัพเดทล่าสุด</th>
                     <th style="width:10%">การกระทำ</th>
                 </tr>
@@ -112,9 +112,12 @@
                 @foreach (var item in Model)
                 {
                     <tr class="table">
-                        <td style="width:40%" class="font-weight-bold"><a href="@Url.Action("updateInnovationStatus" + "/" + item.id, "WorkTracking")">@Html.DisplayFor(modelItem => item.name)</a></td>
-                        <td style="width:30%">@Html.DisplayFor(modelItem => item.creator)</td>
-                        <td style="width:10%" class="h4">@Html.DisplayFor(modelItem => item.workOverview)%</td>
+                        <td style="width:35%" class="font-weight-bold"><a href="@Url.Action("updateInnovationStatus" + "/" + item.id, "WorkTracking")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                        <td style="width:25%">@Html.DisplayFor(modelItem => item.creator)</td>
+                        <td style="width:20%" class="h5 text-right">
+                            <progress value="@Html.DisplayFor(modelItem => item.workOverview)" max="100"></progress>
+                            @Html.DisplayFor(modelItem => item.workOverview)%
+                        </td>
                         <td style="width:10%">@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
                         <td style="width:10%">
                             <a href="@Url.Action("updateInnovationStatus" + "/" + item.id, "WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a>
