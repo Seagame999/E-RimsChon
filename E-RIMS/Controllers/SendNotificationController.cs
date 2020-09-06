@@ -233,7 +233,9 @@ namespace E_RIMS.Controllers
                 mail.IsBodyHtml = true;
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("choojai777@gmail.com", "clegiedgppxsaulw");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("academicdpc06@gmail.com", "aca12345");
+
+                //SmtpServer.Credentials = new System.Net.NetworkCredential("choojai777@gmail.com", "clegiedgppxsaulw");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
