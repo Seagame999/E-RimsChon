@@ -108,7 +108,7 @@ namespace E_RIMS.Controllers
             monthQuery = monthFixedQuery.Replace("thisMonth", checkMonth(currentMonth));
             monthQuery = monthQuery.Replace("beforeMonth", checkMonth(currentMonth - 1));
 
-            string connectionString = @"Data Source=BCJ-RyzenPC;Initial Catalog=ERIMS;User ID=sa;Password=jingjang";
+            string connectionString = @"Data Source=WINDOWS-NJFET91\SQLEXPRESS;Initial Catalog=ERIMS;User ID=sa;Password=jingjang";
             SqlConnection cnn = new SqlConnection(connectionString);
             cnn.Open();
 
