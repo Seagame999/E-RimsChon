@@ -98,32 +98,34 @@
         <table class="table table-striped table-hover">
             <thead class="text-center thead-light">
                 <tr>
-                    <th style="width:40%">ชื่องาน</th>
-                    <th style="width:30%">ผู้วิจัย</th>
-                    <th style="width:10%">ภาพรวม</th>
+                    <th style="width:35%">ชื่องาน</th>
+                    <th style="width:25%">ผู้วิจัย</th>
+                    <th style="width:20%">ภาพรวม</th>
                     <th style="width:10%">วันที่อัพเดทล่าสุด</th>
                     <th style="width:10%">การกระทำ</th>
                 </tr>
             </thead>
+            <tr><td colspan="5">@ViewBag.NoData</td></tr>
             <tbody class="small">
-                <tr><td colspan="6">@ViewBag.NoData</td></tr>
                 @foreach (var item in Model)
                 {
-                    <tr class="table">
-                        <td style="width:40%" class="font-weight-bold"><a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")">@Html.DisplayFor(modelItem => item.name)</a></td>
-                        <td style="width:30%">@Html.DisplayFor(modelItem => item.creator)</td>
-                        <td style="width:10%" class="h4">@Html.DisplayFor(modelItem => item.workOverview)%</td>
-                        <td style="width:10%">@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
-                        <td style="width:10%">
-                            <a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a>
-                        </td>
-                    </tr>
+                <tr class="table">
+                    <td style="width:35%" class="font-weight-bold"><a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")">@Html.DisplayFor(modelItem => item.name)</a></td>
+                    <td style="width:25%">@Html.DisplayFor(modelItem => item.creator)</td>
+                    <td style="width:20%" class="h5 text-right">
+                        <progress value="@Html.DisplayFor(modelItem => item.workOverview)" max="100"></progress>
+                        @Html.DisplayFor(modelItem => item.workOverview)%
+                    </td>
+                    <td style="width:10%">@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
+                    <td style="width:10%">
+                        <a href="@Url.Action("updateResearchStatus"+"/"+item.id,"WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
         <div class="row">
-            <div class="col-6"></div>
-            <div class="col-6">
+            <div class="col-12">
                 @Html.PagedListPager(Model, page => Url.Action("trackResearch", new { page }))
             </div>
         </div>
