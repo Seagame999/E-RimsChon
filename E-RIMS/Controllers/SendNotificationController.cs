@@ -7,8 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
 using System.Data.SqlClient;
-using System.Data;
-using System.Web.Hosting;
+using System.Data;using System.Web.Hosting;
 using System.Net.Mail;
 
 namespace E_RIMS.Controllers
@@ -233,8 +232,7 @@ namespace E_RIMS.Controllers
 
                 MailMessage mail = new MailMessage(from, to);
                 mail.To.Add("boonchoo.ji@gmail.com");
-                mail.CC.Add("academicdpc06@gmail.com");
-                mail.Subject = "[ERIMS] แจ้งเตือนเข้าสู่กิจกรรมในโครงการ " + researchName;
+                mail.Subject = "[ERIMS] แจ้งเตือนเข้าสู่กิจกรรมในโครงการ" + researchName ;
                 mail.Body = content;
                 mail.IsBodyHtml = true;
 
