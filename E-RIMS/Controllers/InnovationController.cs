@@ -397,7 +397,7 @@ namespace E_RIMS.Controllers
                 db.Entry(innovation).Property(x => x.type).IsModified = true;
                 db.Entry(innovation).Property(x => x.name).IsModified = true;
                 db.Entry(innovation).Property(x => x.workGroup).IsModified = true;
-                db.Entry(innovation).Property(x => x.creator).IsModified = true;
+                //db.Entry(innovation).Property(x => x.creator).IsModified = true;
                 db.Entry(innovation).Property(x => x.backgroudAndImportance).IsModified = true;
                 db.Entry(innovation).Property(x => x.objective).IsModified = true;
                 db.Entry(innovation).Property(x => x.benefit).IsModified = true;

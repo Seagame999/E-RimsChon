@@ -44,7 +44,7 @@ namespace E_RIMS.Controllers
                 return View(researchResult);
             }
             else
-                return RedirectToAction("Index", "Home");           
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -377,7 +377,7 @@ namespace E_RIMS.Controllers
                 {
                     return RedirectToAction("trackResearchAll");
                 }
-                    return RedirectToAction("trackResearch");
+                return RedirectToAction("trackResearch");
             }
 
             double useNumberofActivities = numberOfActivitiesResearch(id);
@@ -760,7 +760,7 @@ namespace E_RIMS.Controllers
 
             double sumActivityValue = statusActivity1Value + statusActivity2Value + statusActivity3Value + statusActivity4Value + statusActivity5Value + statusActivity6Value + statusActivity7Value + statusActivity8Value + statusActivity9Value + statusActivity10Value;
 
-            if(sumActivityValue >= 99)
+            if (sumActivityValue >= 99)
             {
                 sumActivityValue = 100.00;
             }
@@ -798,7 +798,7 @@ namespace E_RIMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateResearchActivityStatus1(Research research,int id)
+        public ActionResult updateResearchActivityStatus1(Research research, int id)
         {
 
             if (ModelState.IsValid)
@@ -838,16 +838,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity1 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity1 != null && research.filePlanStatusActivity1 != null)
+                if (research.planStatusActivity1 != null)
                 {
                     research.statusActivity1 = "วางแผน";
                 }
-                if (research.planStatusActivity1 != null && research.filePlanStatusActivity1 != null
+                if (research.planStatusActivity1 != null
                     && research.proceedStatusActivity1 != null && research.fileProceedStatusActivity1 != null)
                 {
                     research.statusActivity1 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity1 != null && research.filePlanStatusActivity1 != null
+                if (research.planStatusActivity1 != null
                     && research.proceedStatusActivity1 != null && research.fileProceedStatusActivity1 != null
                     && research.finishStatusActivity1 != null && research.fileFinishStatusActivity1 != null)
                 {
@@ -924,16 +924,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity2 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity2 != null && research.filePlanStatusActivity2 != null)
+                if (research.planStatusActivity2 != null)
                 {
                     research.statusActivity2 = "วางแผน";
                 }
-                if (research.planStatusActivity2 != null && research.filePlanStatusActivity2 != null
+                if (research.planStatusActivity2 != null
                     && research.proceedStatusActivity2 != null && research.fileProceedStatusActivity2 != null)
                 {
                     research.statusActivity2 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity2 != null && research.filePlanStatusActivity2 != null
+                if (research.planStatusActivity2 != null
                     && research.proceedStatusActivity2 != null && research.fileProceedStatusActivity2 != null
                     && research.finishStatusActivity2 != null && research.fileFinishStatusActivity2 != null)
                 {
@@ -1008,16 +1008,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity3 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity3 != null && research.filePlanStatusActivity3 != null)
+                if (research.planStatusActivity3 != null)
                 {
                     research.statusActivity3 = "วางแผน";
                 }
-                if (research.planStatusActivity3 != null && research.filePlanStatusActivity3 != null
+                if (research.planStatusActivity3 != null
                     && research.proceedStatusActivity3 != null && research.fileProceedStatusActivity3 != null)
                 {
                     research.statusActivity3 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity3 != null && research.filePlanStatusActivity3 != null
+                if (research.planStatusActivity3 != null
                     && research.proceedStatusActivity3 != null && research.fileProceedStatusActivity3 != null
                     && research.finishStatusActivity3 != null && research.fileFinishStatusActivity3 != null)
                 {
@@ -1093,16 +1093,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity4 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity4 != null && research.filePlanStatusActivity4 != null)
+                if (research.planStatusActivity4 != null)
                 {
                     research.statusActivity4 = "วางแผน";
                 }
-                if (research.planStatusActivity4 != null && research.filePlanStatusActivity4 != null
+                if (research.planStatusActivity4 != null
                     && research.proceedStatusActivity4 != null && research.fileProceedStatusActivity4 != null)
                 {
                     research.statusActivity4 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity4 != null && research.filePlanStatusActivity4 != null
+                if (research.planStatusActivity4 != null
                     && research.proceedStatusActivity4 != null && research.fileProceedStatusActivity4 != null
                     && research.finishStatusActivity4 != null && research.fileFinishStatusActivity4 != null)
                 {
@@ -1178,16 +1178,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity5 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity5 != null && research.filePlanStatusActivity5 != null)
+                if (research.planStatusActivity5 != null)
                 {
                     research.statusActivity5 = "วางแผน";
                 }
-                if (research.planStatusActivity5 != null && research.filePlanStatusActivity5 != null
+                if (research.planStatusActivity5 != null
                     && research.proceedStatusActivity5 != null && research.fileProceedStatusActivity5 != null)
                 {
                     research.statusActivity5 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity5 != null && research.filePlanStatusActivity5 != null
+                if (research.planStatusActivity5 != null
                     && research.proceedStatusActivity5 != null && research.fileProceedStatusActivity5 != null
                     && research.finishStatusActivity5 != null && research.fileFinishStatusActivity5 != null)
                 {
@@ -1263,16 +1263,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity6 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity6 != null && research.filePlanStatusActivity6 != null)
+                if (research.planStatusActivity6 != null)
                 {
                     research.statusActivity6 = "วางแผน";
                 }
-                if (research.planStatusActivity6 != null && research.filePlanStatusActivity6 != null
+                if (research.planStatusActivity6 != null
                     && research.proceedStatusActivity6 != null && research.fileProceedStatusActivity6 != null)
                 {
                     research.statusActivity6 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity6 != null && research.filePlanStatusActivity6 != null
+                if (research.planStatusActivity6 != null
                     && research.proceedStatusActivity6 != null && research.fileProceedStatusActivity6 != null
                     && research.finishStatusActivity6 != null && research.fileFinishStatusActivity6 != null)
                 {
@@ -1348,16 +1348,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity7 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity7 != null && research.filePlanStatusActivity7 != null)
+                if (research.planStatusActivity7 != null)
                 {
                     research.statusActivity7 = "วางแผน";
                 }
-                if (research.planStatusActivity7 != null && research.filePlanStatusActivity7 != null
+                if (research.planStatusActivity7 != null
                     && research.proceedStatusActivity7 != null && research.fileProceedStatusActivity7 != null)
                 {
                     research.statusActivity7 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity7 != null && research.filePlanStatusActivity7 != null
+                if (research.planStatusActivity7 != null
                     && research.proceedStatusActivity7 != null && research.fileProceedStatusActivity7 != null
                     && research.finishStatusActivity7 != null && research.fileFinishStatusActivity7 != null)
                 {
@@ -1433,16 +1433,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity8 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity8 != null && research.filePlanStatusActivity8 != null)
+                if (research.planStatusActivity8 != null)
                 {
                     research.statusActivity8 = "วางแผน";
                 }
-                if (research.planStatusActivity8 != null && research.filePlanStatusActivity8 != null
+                if (research.planStatusActivity8 != null
                     && research.proceedStatusActivity8 != null && research.fileProceedStatusActivity8 != null)
                 {
                     research.statusActivity8 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity8 != null && research.filePlanStatusActivity8 != null
+                if (research.planStatusActivity8 != null
                     && research.proceedStatusActivity8 != null && research.fileProceedStatusActivity8 != null
                     && research.finishStatusActivity8 != null && research.fileFinishStatusActivity8 != null)
                 {
@@ -1518,16 +1518,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity9 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity9 != null && research.filePlanStatusActivity9 != null)
+                if (research.planStatusActivity9 != null)
                 {
                     research.statusActivity9 = "วางแผน";
                 }
-                if (research.planStatusActivity9 != null && research.filePlanStatusActivity9 != null
+                if (research.planStatusActivity9 != null
                     && research.proceedStatusActivity9 != null && research.fileProceedStatusActivity9 != null)
                 {
                     research.statusActivity9 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity9 != null && research.filePlanStatusActivity9 != null
+                if (research.planStatusActivity9 != null
                     && research.proceedStatusActivity9 != null && research.fileProceedStatusActivity9 != null
                     && research.finishStatusActivity9 != null && research.fileFinishStatusActivity9 != null)
                 {
@@ -1603,16 +1603,16 @@ namespace E_RIMS.Controllers
                     research.statusActivity10 = "ยังไม่ดำเนินการ";
                 }
 
-                if (research.planStatusActivity10 != null && research.filePlanStatusActivity10 != null)
+                if (research.planStatusActivity10 != null)
                 {
                     research.statusActivity10 = "วางแผน";
                 }
-                if (research.planStatusActivity10 != null && research.filePlanStatusActivity10 != null
+                if (research.planStatusActivity10 != null
                     && research.proceedStatusActivity10 != null && research.fileProceedStatusActivity10 != null)
                 {
                     research.statusActivity10 = "ดำเนินการ";
                 }
-                if (research.planStatusActivity10 != null && research.filePlanStatusActivity10 != null
+                if (research.planStatusActivity10 != null
                     && research.proceedStatusActivity10 != null && research.fileProceedStatusActivity10 != null
                     && research.finishStatusActivity10 != null && research.fileFinishStatusActivity10 != null)
                 {
@@ -1690,16 +1690,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity1 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity1 != null && innovation.filePlanStatusActivity1 != null)
+                if (innovation.planStatusActivity1 != null)
                 {
                     innovation.statusActivity1 = "วางแผน";
                 }
-                if (innovation.planStatusActivity1 != null && innovation.filePlanStatusActivity1 != null
+                if (innovation.planStatusActivity1 != null
                     && innovation.proceedStatusActivity1 != null && innovation.fileProceedStatusActivity1 != null)
                 {
                     innovation.statusActivity1 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity1 != null && innovation.filePlanStatusActivity1 != null
+                if (innovation.planStatusActivity1 != null
                     && innovation.proceedStatusActivity1 != null && innovation.fileProceedStatusActivity1 != null
                     && innovation.finishStatusActivity1 != null && innovation.fileFinishStatusActivity1 != null)
                 {
@@ -1775,16 +1775,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity2 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity2 != null && innovation.filePlanStatusActivity2 != null)
+                if (innovation.planStatusActivity2 != null)
                 {
                     innovation.statusActivity2 = "วางแผน";
                 }
-                if (innovation.planStatusActivity2 != null && innovation.filePlanStatusActivity2 != null
+                if (innovation.planStatusActivity2 != null
                     && innovation.proceedStatusActivity2 != null && innovation.fileProceedStatusActivity2 != null)
                 {
                     innovation.statusActivity2 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity2 != null && innovation.filePlanStatusActivity2 != null
+                if (innovation.planStatusActivity2 != null
                     && innovation.proceedStatusActivity2 != null && innovation.fileProceedStatusActivity2 != null
                     && innovation.finishStatusActivity2 != null && innovation.fileFinishStatusActivity2 != null)
                 {
@@ -1859,16 +1859,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity3 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity3 != null && innovation.filePlanStatusActivity3 != null)
+                if (innovation.planStatusActivity3 != null)
                 {
                     innovation.statusActivity3 = "วางแผน";
                 }
-                if (innovation.planStatusActivity3 != null && innovation.filePlanStatusActivity3 != null
+                if (innovation.planStatusActivity3 != null
                     && innovation.proceedStatusActivity3 != null && innovation.fileProceedStatusActivity3 != null)
                 {
                     innovation.statusActivity3 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity3 != null && innovation.filePlanStatusActivity3 != null
+                if (innovation.planStatusActivity3 != null
                     && innovation.proceedStatusActivity3 != null && innovation.fileProceedStatusActivity3 != null
                     && innovation.finishStatusActivity3 != null && innovation.fileFinishStatusActivity3 != null)
                 {
@@ -1944,16 +1944,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity4 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity4 != null && innovation.filePlanStatusActivity4 != null)
+                if (innovation.planStatusActivity4 != null)
                 {
                     innovation.statusActivity4 = "วางแผน";
                 }
-                if (innovation.planStatusActivity4 != null && innovation.filePlanStatusActivity4 != null
+                if (innovation.planStatusActivity4 != null
                     && innovation.proceedStatusActivity4 != null && innovation.fileProceedStatusActivity4 != null)
                 {
                     innovation.statusActivity4 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity4 != null && innovation.filePlanStatusActivity4 != null
+                if (innovation.planStatusActivity4 != null
                     && innovation.proceedStatusActivity4 != null && innovation.fileProceedStatusActivity4 != null
                     && innovation.finishStatusActivity4 != null && innovation.fileFinishStatusActivity4 != null)
                 {
@@ -2029,16 +2029,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity5 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity5 != null && innovation.filePlanStatusActivity5 != null)
+                if (innovation.planStatusActivity5 != null)
                 {
                     innovation.statusActivity5 = "วางแผน";
                 }
-                if (innovation.planStatusActivity5 != null && innovation.filePlanStatusActivity5 != null
+                if (innovation.planStatusActivity5 != null
                     && innovation.proceedStatusActivity5 != null && innovation.fileProceedStatusActivity5 != null)
                 {
                     innovation.statusActivity5 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity5 != null && innovation.filePlanStatusActivity5 != null
+                if (innovation.planStatusActivity5 != null
                     && innovation.proceedStatusActivity5 != null && innovation.fileProceedStatusActivity5 != null
                     && innovation.finishStatusActivity5 != null && innovation.fileFinishStatusActivity5 != null)
                 {
@@ -2114,16 +2114,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity6 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity6 != null && innovation.filePlanStatusActivity6 != null)
+                if (innovation.planStatusActivity6 != null)
                 {
                     innovation.statusActivity6 = "วางแผน";
                 }
-                if (innovation.planStatusActivity6 != null && innovation.filePlanStatusActivity6 != null
+                if (innovation.planStatusActivity6 != null
                     && innovation.proceedStatusActivity6 != null && innovation.fileProceedStatusActivity6 != null)
                 {
                     innovation.statusActivity6 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity6 != null && innovation.filePlanStatusActivity6 != null
+                if (innovation.planStatusActivity6 != null
                     && innovation.proceedStatusActivity6 != null && innovation.fileProceedStatusActivity6 != null
                     && innovation.finishStatusActivity6 != null && innovation.fileFinishStatusActivity6 != null)
                 {
@@ -2199,16 +2199,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity7 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity7 != null && innovation.filePlanStatusActivity7 != null)
+                if (innovation.planStatusActivity7 != null)
                 {
                     innovation.statusActivity7 = "วางแผน";
                 }
-                if (innovation.planStatusActivity7 != null && innovation.filePlanStatusActivity7 != null
+                if (innovation.planStatusActivity7 != null
                     && innovation.proceedStatusActivity7 != null && innovation.fileProceedStatusActivity7 != null)
                 {
                     innovation.statusActivity7 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity7 != null && innovation.filePlanStatusActivity7 != null
+                if (innovation.planStatusActivity7 != null
                     && innovation.proceedStatusActivity7 != null && innovation.fileProceedStatusActivity7 != null
                     && innovation.finishStatusActivity7 != null && innovation.fileFinishStatusActivity7 != null)
                 {
@@ -2284,16 +2284,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity8 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity8 != null && innovation.filePlanStatusActivity8 != null)
+                if (innovation.planStatusActivity8 != null)
                 {
                     innovation.statusActivity8 = "วางแผน";
                 }
-                if (innovation.planStatusActivity8 != null && innovation.filePlanStatusActivity8 != null
+                if (innovation.planStatusActivity8 != null
                     && innovation.proceedStatusActivity8 != null && innovation.fileProceedStatusActivity8 != null)
                 {
                     innovation.statusActivity8 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity8 != null && innovation.filePlanStatusActivity8 != null
+                if (innovation.planStatusActivity8 != null
                     && innovation.proceedStatusActivity8 != null && innovation.fileProceedStatusActivity8 != null
                     && innovation.finishStatusActivity8 != null && innovation.fileFinishStatusActivity8 != null)
                 {
@@ -2369,16 +2369,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity9 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity9 != null && innovation.filePlanStatusActivity9 != null)
+                if (innovation.planStatusActivity9 != null)
                 {
                     innovation.statusActivity9 = "วางแผน";
                 }
-                if (innovation.planStatusActivity9 != null && innovation.filePlanStatusActivity9 != null
+                if (innovation.planStatusActivity9 != null
                     && innovation.proceedStatusActivity9 != null && innovation.fileProceedStatusActivity9 != null)
                 {
                     innovation.statusActivity9 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity9 != null && innovation.filePlanStatusActivity9 != null
+                if (innovation.planStatusActivity9 != null
                     && innovation.proceedStatusActivity9 != null && innovation.fileProceedStatusActivity9 != null
                     && innovation.finishStatusActivity9 != null && innovation.fileFinishStatusActivity9 != null)
                 {
@@ -2454,16 +2454,16 @@ namespace E_RIMS.Controllers
                     innovation.statusActivity10 = "ยังไม่ดำเนินการ";
                 }
 
-                if (innovation.planStatusActivity10 != null && innovation.filePlanStatusActivity10 != null)
+                if (innovation.planStatusActivity10 != null)
                 {
                     innovation.statusActivity10 = "วางแผน";
                 }
-                if (innovation.planStatusActivity10 != null && innovation.filePlanStatusActivity10 != null
+                if (innovation.planStatusActivity10 != null
                     && innovation.proceedStatusActivity10 != null && innovation.fileProceedStatusActivity10 != null)
                 {
                     innovation.statusActivity10 = "ดำเนินการ";
                 }
-                if (innovation.planStatusActivity10 != null && innovation.filePlanStatusActivity10 != null
+                if (innovation.planStatusActivity10 != null
                     && innovation.proceedStatusActivity10 != null && innovation.fileProceedStatusActivity10 != null
                     && innovation.finishStatusActivity10 != null && innovation.fileFinishStatusActivity10 != null)
                 {

@@ -402,7 +402,7 @@ namespace E_RIMS.Controllers
                 db.Entry(research).Property(x => x.type).IsModified = true;
                 db.Entry(research).Property(x => x.name).IsModified = true;
                 db.Entry(research).Property(x => x.workGroup).IsModified = true;
-                db.Entry(research).Property(x => x.creator).IsModified = true;
+                //db.Entry(research).Property(x => x.creator).IsModified = true;
                 db.Entry(research).Property(x => x.preface).IsModified = true;
                 db.Entry(research).Property(x => x.objective).IsModified = true;
                 db.Entry(research).Property(x => x.benefit).IsModified = true;

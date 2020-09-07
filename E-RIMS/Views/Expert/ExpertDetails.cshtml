@@ -72,107 +72,115 @@
                         </div>
                     </div>
                     <br />
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fa fa-building"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (ที่ทำงาน)
-                        </div>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์</label>
-                                    <label class="form-control">@Model.officePhoneNumber</label>
+                    @{ if (Session["Role"] != null && Session["Role"].Equals("Admin"))
+                        {
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-building"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (ที่ทำงาน)
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <label class="form-control">@Model.moblieNumber</label>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">เบอร์โทรศัพท์</label>
+                                            <label class="form-control">@Model.officePhoneNumber</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">เบอร์โทรศัพท์มือถือ</label>
+                                            <label class="form-control">@Model.moblieNumber</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="">บ้านเลขที่</label>
+                                            <label class="form-control">@Model.houseNumberOffice</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">ถนน</label>
+                                            <label class="form-control">@Model.roadOffice</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">ตำบล</label>
+                                            <label class="form-control">@Model.subDistrictOffice</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="">อำเภอ</label>
+                                            <label class="form-control">@Model.districtOffice</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">จังหวัด</label>
+                                            <label class="form-control">@Model.provinceOffice</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">รหัสไปรษณีย์</label>
+                                            <label class="form-control">@Model.postalCodeOffice</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">อีเมลสำหรับการติดต่อสื่อสาร</label>
+                                        <label class="form-control">@Model.email</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">บ้านเลขที่</label>
-                                    <label class="form-control">@Model.houseNumberOffice</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ถนน</label>
-                                    <label class="form-control">@Model.roadOffice</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ตำบล</label>
-                                    <label class="form-control">@Model.subDistrictOffice</label>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">อำเภอ</label>
-                                    <label class="form-control">@Model.districtOffice</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">จังหวัด</label>
-                                    <label class="form-control">@Model.provinceOffice</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">รหัสไปรษณีย์</label>
-                                    <label class="form-control">@Model.postalCodeOffice</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">อีเมลสำหรับการติดต่อสื่อสาร</label>
-                                <label class="form-control">@Model.email</label>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fa fa-home"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (บ้าน)
-                        </div>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์</label>
-                                    <label class="form-control">@Model.moblieNumber</label>
+                    @{ if (Session["Role"] != null && Session["Role"].Equals("Admin"))
+                        {
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-home"></i>&nbsp;ข้อมูลสำหรับการติดต่อ (บ้าน)
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="">เบอร์โทรศัพท์มือถือ</label>
-                                    <label class="form-control">@Model.moblieNumber</label>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">เบอร์โทรศัพท์</label>
+                                            <label class="form-control">@Model.moblieNumber</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">เบอร์โทรศัพท์มือถือ</label>
+                                            <label class="form-control">@Model.moblieNumber</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="">บ้านเลขที่</label>
+                                            <label class="form-control">@Model.houseNumberHome</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">ถนน</label>
+                                            <label class="form-control">@Model.roadHome</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">ตำบล</label>
+                                            <label class="form-control">@Model.subDistricHome</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="">อำเภอ</label>
+                                            <label class="form-control">@Model.districHome</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">จังหวัด</label>
+                                            <label class="form-control">@Model.provinceHome</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">รหัสไปรษณีย์</label>
+                                            <label class="form-control">@Model.postalHome</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">อีเมลสำหรับการติดต่อสื่อสาร</label>
+                                        @*<label class="form-control">@Model.Email</label>*@
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">บ้านเลขที่</label>
-                                    <label class="form-control">@Model.houseNumberHome</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ถนน</label>
-                                    <label class="form-control">@Model.roadHome</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">ตำบล</label>
-                                    <label class="form-control">@Model.subDistricHome</label>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="">อำเภอ</label>
-                                    <label class="form-control">@Model.districHome</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">จังหวัด</label>
-                                    <label class="form-control">@Model.provinceHome</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">รหัสไปรษณีย์</label>
-                                    <label class="form-control">@Model.postalHome</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">อีเมลสำหรับการติดต่อสื่อสาร</label>
-                                @*<label class="form-control">@Model.Email</label>*@
-                            </div>
-                        </div>
-                    </div>
-                    <br />
+                            <br />
+                        }
+                    }
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-graduation-cap "></i>&nbsp;การศึกษาและความเชี่ยวชาญ
@@ -203,14 +211,14 @@
                             <div class="form-group">
                                 <label for="">ความเชี่ยวชาญ</label>
                                 <div class="form-group">
-                                    @ViewBag.infection <br/>
+                                    @ViewBag.infection <br />
                                     @ViewBag.nonInfection <br />
                                     @ViewBag.diseaseExposure <br />
                                     @ViewBag.occupationAndEnvironDiseases <br />
                                     @ViewBag.epidemiology <br />
                                     @ViewBag.expertLaboratory <br />
                                     @ViewBag.evaluate <br />
-                                    @ViewBag.statistics <br /> 
+                                    @ViewBag.statistics <br />
                                     @ViewBag.manage <br />
                                     @ViewBag.innovation <br />
                                     @Model.specialExpertise <br />
