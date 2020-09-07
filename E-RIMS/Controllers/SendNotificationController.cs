@@ -25,15 +25,15 @@ namespace E_RIMS.Controllers
 
         public ActionResult SendNotification()
         {
+            //for dev variables
             int fiscalYear = 2563;
             int currentMonth = 11;
 
+            //for production variables
             /*int currentMonth = Int16.Parse(DateTime.Now.Month.ToString());
             int currentYear = Int16.Parse(DateTime.Now.Year.ToString());
-
             int thaiYear = currentYear + 543;
             int fiscalYear = 0;
-
             if (currentMonth > 7)
                 fiscalYear = thaiYear + 1;
             else
@@ -108,7 +108,12 @@ namespace E_RIMS.Controllers
             monthQuery = monthFixedQuery.Replace("thisMonth", checkMonth(currentMonth));
             monthQuery = monthQuery.Replace("beforeMonth", checkMonth(currentMonth - 1));
 
-            string connectionString = @"Data Source=WINDOWS-NJFET91\SQLEXPRESS;Initial Catalog=ERIMS;User ID=sa;Password=jingjang";
+            //for production connectionstring
+            string connectionString = @"Data Source=WINDOWS-NJFET91\SQLEXPRESS;Initial Catalog=ERIMS;User ID=sa;Password=@1q2w3e4r5t6y;";
+
+            //for dev connectionstring
+            //string connectionString = @"Data Source=BCJ-RyzenPC;Initial Catalog=ERIMS;User ID=sa;Password=jingjang;";
+
             SqlConnection cnn = new SqlConnection(connectionString);
             cnn.Open();
 
@@ -228,14 +233,13 @@ namespace E_RIMS.Controllers
 
                 MailMessage mail = new MailMessage(from, to);
                 mail.To.Add("boonchoo.ji@gmail.com");
-                mail.Subject = "[ERIMS] แจ้งเตือนเข้าสู่กิจกรรมในโครงการ" + researchName ;
+                mail.CC.Add("academicdpc06@gmail.com");
+                mail.Subject = "[ERIMS] แจ้งเตือนเข้าสู่กิจกรรมในโครงการ " + researchName;
                 mail.Body = content;
                 mail.IsBodyHtml = true;
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("academicdpc06@gmail.com", "aca12345");
-
-                //SmtpServer.Credentials = new System.Net.NetworkCredential("choojai777@gmail.com", "clegiedgppxsaulw");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

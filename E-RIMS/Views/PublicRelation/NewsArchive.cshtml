@@ -42,7 +42,7 @@
                                     <h5 class="card-title">
                                         @Html.DisplayFor(modelItem => item.newsName)
                                         @{
-                                            var today = DateTime.Today.AddYears(-543); //หากเป็นเครื่องวันที่แบบคริสตศักราชให้เอา AddYears ออก
+                                            var today = DateTime.Today; //หากเป็นเครื่องวันที่แบบคริสตศักราชให้เอา AddYears ออก
                                             var dayNews = Convert.ToDateTime(item.date);
                                             int dayBetweenNews = (today - dayNews).Days;
 
