@@ -30,7 +30,7 @@
             planningCheck.addClass('active');
             workingCheck.addClass('active');
             finishingCheck.addClass('inactive');
-        } else if (ress == 'เสร็จสิ้น') {
+        } else if (res == 'เสร็จสิ้น') {
             planningCheck.addClass('active');
             workingCheck.addClass('active');
             finishingCheck.addClass('active');

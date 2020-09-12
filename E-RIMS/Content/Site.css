@@ -18,7 +18,7 @@ body {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    margin-top: 160px;
+    margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -137,12 +137,12 @@ ul:nth-child(1) {
 }
 
 .timeline li.active {
-    color: #555555;
+    color: #4caf50;
 }
 
     .timeline li.active:before {
         background: #4caf50;
-        color: #F1F1F1;
+        color: #4caf50;
     }
 
     .timeline li.active + li:after {

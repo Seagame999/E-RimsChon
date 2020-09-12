@@ -15,103 +15,105 @@
 
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
-            <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                <img src="~/Image/logo.png" class="d-inline-block" style="height:120px;" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <h6 style="color: white;">
-                    E-RIMS: ODPC6 Chonburi<br />
-                    <small>ระบบจัดการงานวิจัยและนวัตกรรม<br />สำนักงานป้องกันควบคุมโรคที่ 6 ชลบุรี</small>
-                </h6>
+    
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <img src="~/Image/opdc6-logo.png" class="d-inline-block" style="height:120px;" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <h6 style="color: white;">
+                        E-RIMS: ODPC6 Chonburi<br />
+                        <small>Research & Innovation Management System<br />สำนักงานป้องกันควบคุมโรคที่ 6 ชลบุรี</small>
+                    </h6>
 
-                <ul class="nav navbar-nav ml-auto">
-                    @if (Session["Role"] != null)
-                    {
+                    <ul class="nav navbar-nav ml-auto">
+                        @if (Session["Role"] != null)
+                        {
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                   aria-expanded="false" href="#">
+                                    <i class="fa fa-book-medical"></i>&nbsp;งานวิจัยและนวัตกรรม&nbsp;
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchAndInnovation")">
+                                        <i class="fa fa-database"></i>&nbsp;เพิ่มข้อมูลงานวิจัยและนวัตกรรม
+                                    </a>
+                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "WorkTracking")">
+                                        <i class="fa fa-calendar"></i>&nbsp;กำกับติดตามงาน
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="@Url.Action("Index","ResearcherAndInnovator")">
+                                &nbsp;<i class="fa fa-users"></i>&nbsp;ประวัตินักวิจัยและนวัตกร
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="@Url.Action("Index","TreasuryWork")">
+                                <i class="fa fa-database"></i>&nbsp;คลังผลงาน
+                            </a>
+                        </li>
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown"
                                aria-expanded="false" href="#">
-                                <i class="fa fa-book-medical"></i>&nbsp;งานวิจัยและนวัตกรรม&nbsp;
+                                <i class="fa fa-info-circle"></i>&nbsp;ข้อมูลสำหรับนักวิจัย&nbsp;
                             </a>
                             <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchAndInnovation")">
-                                    <i class="fa fa-database"></i>&nbsp;เพิ่มข้อมูลงานวิจัยและนวัตกรรม
-                                </a>
-                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "WorkTracking")">
-                                    <i class="fa fa-calendar"></i>&nbsp;กำกับติดตามงาน
-                                </a>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Funding")"><i class="fa fa-piggy-bank"></i>&nbsp;แหล่งทุนวิจัย</a>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchTopic")"><i class="fa fa-th-list"></i>&nbsp;ประเด็นหัวข้อวิจัย</a>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Expert")"><i class="fa fa-user-md"></i>&nbsp;ทำเนียบผู้เชี่ยวชาญ</a>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Journal")"><i class="fa fa-book"></i>&nbsp;วารสารสคร.6</a>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "KnowledgeBox")"><i class="fa fa-bookmark"></i>&nbsp;เอกสารความรู้</a>
+                                <div class="dropdown-divider" role="presentation"></div>
+                                <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "DocumentDownload")"><i class="fa fa-download"></i>&nbsp;แบบฟอร์มที่เกี่ยวข้อง</a>
                             </div>
                         </li>
-                    }
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" href="@Url.Action("Index","ResearcherAndInnovator")">
-                            &nbsp;<i class="fa fa-users"></i>&nbsp;ประวัตินักวิจัยและนวัตกร
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" href="@Url.Action("Index","TreasuryWork")">
-                            <i class="fa fa-database"></i>&nbsp;คลังผลงาน
-                        </a>
-                    </li>
-                    <li class="dropdown nav-item">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                           aria-expanded="false" href="#">
-                            <i class="fa fa-info-circle"></i>&nbsp;ข้อมูลสำหรับนักวิจัย&nbsp;
-                        </a>
-                        <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Funding")"><i class="fa fa-piggy-bank"></i>&nbsp;แหล่งทุนวิจัย</a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "ResearchTopic")"><i class="fa fa-th-list"></i>&nbsp;ประเด็นหัวข้อวิจัย</a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Expert")"><i class="fa fa-user-md"></i>&nbsp;ทำเนียบผู้เชี่ยวชาญ</a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Journal")"><i class="fa fa-book"></i>&nbsp;วารสารสคร.6</a>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "KnowledgeBox")"><i class="fa fa-bookmark"></i>&nbsp;เอกสารความรู้</a>
-                            <div class="dropdown-divider" role="presentation"></div>
-                            <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "DocumentDownload")"><i class="fa fa-download"></i>&nbsp;แบบฟอร์มที่เกี่ยวข้อง</a>
-                        </div>
-                    </li>
-                    @if (Session["Role"] == null)
-                    {
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="@Url.Action("Login","Login")">
-                                <i class="fa fa-sign-in-alt"></i>&nbsp;เข้าสู่ระบบ
-                            </a>
-                        </li>
-                    }
-                    @if (Session["Role"] != null)
-                    {
-                        if (Session["Role"].Equals("User"))
+                        @if (Session["Role"] == null)
                         {
-                            <li class="dropdown nav-item">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                                   aria-expanded="false" href="#">
-                                    <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="@Url.Action("Login","Login")">
+                                    <i class="fa fa-sign-in-alt"></i>&nbsp;เข้าสู่ระบบ
                                 </a>
-                                <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
-                                </div>
                             </li>
                         }
-                        if (Session["Role"].Equals("Admin"))
+                        @if (Session["Role"] != null)
                         {
-                            <li class="dropdown nav-item">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                                   aria-expanded="false" href="#">
-                                    <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
-                                </a>
-                                <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Register")"><i class="fa fa-users"></i>&nbsp;จัดการบัญชีผู้ใช้</a>
-                                    <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
-                                </div>
-                            </li>
+                            if (Session["Role"].Equals("User"))
+                            {
+                                <li class="dropdown nav-item">
+                                    <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                       aria-expanded="false" href="#">
+                                        <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
+                                    </div>
+                                </li>
+                            }
+                            if (Session["Role"].Equals("Admin"))
+                            {
+                                <li class="dropdown nav-item">
+                                    <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                       aria-expanded="false" href="#">
+                                        <i class="fa fa-user-circle"></i>&nbsp;สวัสดีคุณ @Session["Username"].ToString()&nbsp;
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" role="presentation" href="@Url.Action("Index", "Register")"><i class="fa fa-users"></i>&nbsp;จัดการบัญชีผู้ใช้</a>
+                                        <a class="dropdown-item" role="presentation" href="@Url.Action("Logout", "Login")"><i class="fa fa-door-open"></i>&nbsp;ออกจากระบบ</a>
+                                    </div>
+                                </li>
+                            }
                         }
-                    }
-                </ul>
+                    </ul>
+                </div>
             </div>
         </nav>
-    </div>
+    
 
     <div class="container body-content">
         @RenderBody()
@@ -133,11 +135,11 @@
                         </div><div class="col-6">
                             <h6><i class="fa fa-building"></i>&nbsp;เกี่ยวกับเรา</h6>
                             <p>
-                                &copy; ทีมที่ปรึกษางานวิจัย กลุ่มพัฒนานวัตกรรมและวิจัยฯ <br />สำนักงานป้องกันควบคุมโรคที่ 6 จังหวัดชลบุรี
+                                &copy; กลุ่มพัฒนานวัตกรรมและวิจัยฯ <br />สำนักงานป้องกันควบคุมโรคที่ 6 จังหวัดชลบุรี
                                 <br />
                                 ที่อยู่ : 29/85 ถ.วชิรปราการ ต.บ้านสวน อ.เมือง จ.ชลบุรี 20000<br />
-                                โทรศัพท์ (สนง.หลัก)038-271881-2, 038-277057-8 (สนง.ถนนพระยาสัจจา) 038-260970<br />
-                                อีเมล์:
+                                โทรศัพท์: (สนง.หลัก)038-271881-2, 038-277057-8 <br />(สนง.ถนนพระยาสัจจา) 038-260970<br />
+                                อีเมล์: academicdpc06@gmail.com
                             </p>
                             <ul></ul>
                         </div>
