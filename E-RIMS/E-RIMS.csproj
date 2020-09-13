@@ -362,6 +362,7 @@
     <Content Include="Image\no-camera.png" />
     <Content Include="Image\no-document.png" />
     <Content Include="Image\odpc6_logo.png" />
+    <Content Include="Image\opdc6-logo.png" />
     <Content Include="Image\pencil-alt-solid.svg" />
     <Content Include="Image\researcher.png" />
     <Content Include="Image\search-dollar-solid.svg" />
