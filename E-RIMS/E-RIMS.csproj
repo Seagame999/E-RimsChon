@@ -670,6 +670,7 @@
     <Content Include="Views\Register\CreateSuccessMessage.cshtml" />
     <Content Include="Views\Register\EditSuccessMessage.cshtml" />
     <Content Include="Views\PublicRelation\NewsArchive.cshtml" />
+    <Content Include="Views\WorkTracking\SaveActivityFailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,6 +57,7 @@
                             <label class="">(.pdf, .docx, .xlsx, .pptx, .rar, .zip, .txt)</label>
                             <input type="file" class="form-control" name="filePlanStatusActivity9HttpPost" />
                             <input type="hidden" name="filePlanStatusActivity9" value="@Model.filePlanStatusActivity9">
+                            @Html.ValidationMessageFor(model => model.filePlanStatusActivity9, "", new { @class = "text-danger" })
                             <br />
                             <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
                             <a href="@Model.filePlanStatusActivity9" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
@@ -80,6 +81,7 @@
                             <label class="">(.pdf, .docx, .xlsx, .pptx, .rar, .zip, .txt)</label>
                             <input type="file" class="form-control" name="fileProceedStatusActivity9HttpPost" />
                             <input type="hidden" name="fileProceedStatusActivity9" value="@Model.fileProceedStatusActivity9">
+                            @Html.ValidationMessageFor(model => model.fileProceedStatusActivity9, "", new { @class = "text-danger" })
                             <br />
                             <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
                             <a href="@Model.fileProceedStatusActivity9" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>
@@ -103,6 +105,7 @@
                             <label class="">(.pdf, .docx, .xlsx, .pptx, .rar, .zip, .txt)</label>
                             <input type="file" class="form-control" name="fileFinishStatusActivity9HttpPost" />
                             <input type="hidden" name="fileFinishStatusActivity9" value="@Model.fileFinishStatusActivity9">
+                            @Html.ValidationMessageFor(model => model.fileFinishStatusActivity9, "", new { @class = "text-danger" })
                             <br />
                             <label>เอกสารประกอบล่าสุด</label> &nbsp;&nbsp;
                             <a href="@Model.fileFinishStatusActivity9" class="btn btn-info"><i class="fa fa-file-download"></i>&nbsp;ดาวน์โหลด</a>

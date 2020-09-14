@@ -1,0 +1,60 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "บันทึกกิจกรรมล้มเหลว";
+}
+
+<script>
+        setTimeout(function () {
+            window.location.href = '@Url.Action("Index")';
+        }, 5000);
+</script>
+
+<style>
+    body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+    }
+
+    #h1 {
+        color: #fa2a6c;
+        font-weight: 900;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    #mark {
+        color: #fa2a6c;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left: -15px;
+    }
+
+    #card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    #buttonStyle {
+        background: #fa2a6c;
+    }
+</style>
+
+<div class="card" id="card">
+    <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark" id="mark">X</i>
+    </div>
+    <br />
+    <h1 id="h1">รูปแบบไฟล์ที่อัพโหลดไม่รองรับ<br />กรุณาบันทึกใหม่อีกครั้ง</h1>
+    <br />
+    (.pdf, .docx, .xlsx, .pptx, .rar, .zip, .txt)
+    <br />
+    <a class="btn btn-danger text-center" id="buttonStyle" href="@Url.Action("Index")"><i class="fa fa-check-circle"></i>&nbsp;ตกลง</a>
+
+</div>

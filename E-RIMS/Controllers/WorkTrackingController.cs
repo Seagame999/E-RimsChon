@@ -867,7 +867,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
 
@@ -953,7 +953,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus3(int id)
@@ -1037,7 +1037,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus4(int id)
@@ -1122,7 +1122,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus5(int id)
@@ -1207,7 +1207,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus6(int id)
@@ -1292,7 +1292,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus7(int id)
@@ -1377,7 +1377,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus8(int id)
@@ -1462,7 +1462,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus9(int id)
@@ -1547,7 +1547,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateResearchActivityStatus10(int id)
@@ -1632,7 +1632,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateResearchStatus", new { id });
             }
 
-            return View(research);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------------------//
@@ -1719,7 +1719,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus2(int id)
@@ -1804,7 +1804,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus3(int id)
@@ -1888,7 +1888,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus4(int id)
@@ -1973,7 +1973,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus5(int id)
@@ -2058,7 +2058,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus6(int id)
@@ -2143,7 +2143,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus7(int id)
@@ -2228,7 +2228,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus8(int id)
@@ -2313,7 +2313,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus9(int id)
@@ -2398,7 +2398,7 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         public ActionResult updateInnovationActivityStatus10(int id)
@@ -2483,14 +2483,22 @@ namespace E_RIMS.Controllers
                 return RedirectToAction("updateInnovationStatus", new { id });
             }
 
-            return View(innovation);
+            return RedirectToAction("SaveActivityFailed");
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------------------//
 
         public ActionResult updateActivityStatus()
         {
+
             return View();
         }
+
+        //--สถานะการบันทึก
+        public ActionResult SaveActivityFailed()
+        {
+            return View();
+        }
+        //---------------------------------------------------------------------------------------------------------------------------------------------//
     }
 }
