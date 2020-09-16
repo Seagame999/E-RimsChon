@@ -27,7 +27,7 @@
                     <div class="col">
                         <div class="card-title">
                             <h4>
-                                @Html.DisplayFor(model => model.name) (วันที่อัพโหลด : @Convert.ToDateTime(Model.date).ToString("dd/MM/yyyy"))
+                                @Html.DisplayFor(model => model.name) (วันที่อัพโหลด : @Convert.ToDateTime(Model.date).AddYears(543).ToString("dd/MM/yyyy"))
                                 @if (Session["Role"] != null)
                                 {
                                     if (Session["Role"].Equals("Admin"))

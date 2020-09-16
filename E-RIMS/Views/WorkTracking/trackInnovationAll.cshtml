@@ -118,7 +118,7 @@
                             <progress value="@Html.DisplayFor(modelItem => item.workOverview)" max="100"></progress>
                             @Html.DisplayFor(modelItem => item.workOverview)%
                         </td>
-                        <td style="width:10%">@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
+                        <td style="width:10%">@Convert.ToDateTime(item.date).AddYears(543).ToString("dd/MM/yyyy")</td>
                         <td style="width:10%">
                             <a href="@Url.Action("updateInnovationStatus" + "/" + item.id, "WorkTracking")" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>&nbsp;แก้ไขสถานะ</a>
                         </td>

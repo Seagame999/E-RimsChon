@@ -28,7 +28,7 @@
                         <div class="card-title">
                             <h4>
                                 @Html.DisplayFor(model => model.name)
-                                (วันที่: @Convert.ToDateTime(Model.date).ToString("dd/MM/yyyy"))
+                                (วันที่: @Convert.ToDateTime(Model.date).AddYears(543).ToString("dd/MM/yyyy"))
                                 @if (Session["Role"] != null)
                                 {
                                     if (Session["Role"].Equals("Admin"))

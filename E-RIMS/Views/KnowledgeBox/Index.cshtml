@@ -48,7 +48,7 @@
 
                         <td><a href="@Url.Action("KnowledgeBoxDetail"+"/"+item.id,"KnowledgeBox")">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td>@item.description.Substring(0, Math.Min(item.description.Length, 50))</td>
-                        <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
+                        <td>@Convert.ToDateTime(item.date).AddYears(543).ToString("dd/MM/yyyy")</td>
                         <td><a href="@Html.DisplayFor(model => item.docUpload)">@Html.DisplayFor(modelItem => item.name)</a></td>
                         <td class="text-center">@Html.DisplayFor(model => item.views)</td>
                     </tr>
