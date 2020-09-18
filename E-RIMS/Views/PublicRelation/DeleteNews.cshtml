@@ -1,80 +1,30 @@
 ﻿@model E_RIMS.Models.PublicRelation
 
 @{
-    ViewBag.Title = "DeleteNews";
+    ViewBag.Title = "ยืนยันการลบข่าว";
 }
 
-<h2>DeleteNews</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>PublicRelation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.newsName)
-        </dt>
+<div class="d-flex justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <h1>ยืนยันการลบข่าว</h1>
+            <hr /> <br />
+            <h3 class="text-danger">คุณต้องการลบข่าวนี้หรือไม่</h3>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.newsName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.htmlLink)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.htmlLink)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.views)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.views)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.docUpload)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.docUpload)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <br />
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-danger">ยืนยัน</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("AllNews")" class="btn btn-info">ยกเลิก</a>
+                    </div>
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>
+

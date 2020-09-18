@@ -193,7 +193,7 @@ namespace E_RIMS.Controllers
             Journal journal = db.Journal.Find(id);
             db.Journal.Remove(journal);
             db.SaveChanges();
-            return RedirectToAction("AllJournal");
+            return RedirectToAction("Index");
         }
 
         public ActionResult CreateSuccessMessage()

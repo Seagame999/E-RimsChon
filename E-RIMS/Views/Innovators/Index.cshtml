@@ -20,14 +20,14 @@
     <div class="card-body">
         <h5 class="card-title">
             <i class="fa fa-money-bill-alt"></i>&nbsp;@ViewBag.Title&nbsp;<small>
-    @if (Session["Role"] != null)
-    {
-        if (Session["Role"].Equals("Admin"))
-        {
-            <a href="@Url.Action("CreateInnovator","Innovators")" class="btn btn-info">เพิ่มนวัตกรรายใหม่</a>
-        }
-    }
-</small>
+                @if (Session["Role"] != null)
+                {
+                    if (Session["Role"].Equals("Admin"))
+                    {
+                        <a href="@Url.Action("CreateInnovator","Innovators")" class="btn btn-info">เพิ่มนวัตกรรายใหม่</a>
+                    }
+                }
+            </small>
         </h5>
         <hr />
         <div class="card-deck">
@@ -74,6 +74,13 @@
                         </div>
                         <div class="card-footer text-right">
                             <a class="btn btn-sm btn-info" href="@Url.Action("DetailInnovator"+"/"+item.id,"Innovators")">ข้อมูล</a>
+                            @if (Session["Role"] != null)
+                            {
+                                if (Session["Role"].Equals("Admin"))
+                                {
+                                    <a class="btn btn-sm btn-danger" href="@Url.Action("DeleteInnovator"+"/"+item.id,"Innovators")">ลบ</a>
+                                }
+                            }
                         </div>
                     </div>
                     <br />

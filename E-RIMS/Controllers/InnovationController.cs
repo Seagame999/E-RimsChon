@@ -578,10 +578,10 @@ namespace E_RIMS.Controllers
                     }
                     return View(innovation);
                 }
-                return RedirectToAction("Index", "Innovation");
+                return RedirectToAction("AllInnovation", "Innovation");
             }
             else
-                return RedirectToAction("Index", "Innovation");           
+                return RedirectToAction("AllInnovation", "Innovation");           
         }
 
         [HttpPost, ActionName("DeleteInnovation")]
@@ -590,7 +590,7 @@ namespace E_RIMS.Controllers
             Innovation innovation = db.Innovation.Find(id);
             db.Innovation.Remove(innovation);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AllInnovation");
         }
 
         public ActionResult CreateSuccessMessage()

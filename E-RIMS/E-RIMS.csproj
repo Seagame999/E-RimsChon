@@ -671,6 +671,8 @@
     <Content Include="Views\Register\EditSuccessMessage.cshtml" />
     <Content Include="Views\PublicRelation\NewsArchive.cshtml" />
     <Content Include="Views\WorkTracking\SaveActivityFailed.cshtml" />
+    <Content Include="Views\Journal\DeleteJournal.cshtml" />
+    <Content Include="Views\DocumentDownload\DeleteDownloadDocument.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

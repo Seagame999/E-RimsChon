@@ -118,7 +118,7 @@
                         <td>@Html.DisplayFor(modelItem => item.type)</td>
                         <td>@Html.DisplayFor(modelItem => item.creator)</td>
                         <td>@Html.DisplayFor(modelItem => item.workGroup)</td>
-                        <td class="text-nowrap"><a href="@Url.Action("EditInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="#" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
+                        <td class="text-nowrap"><a href="@Url.Action("EditInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>&nbsp;<a href="@Url.Action("DeleteInnovation"+"/"+item.id,"Innovation")" class="btn btn-sm btn-danger"><i class="fa fa-eraser"></i>&nbsp;ลบ</a></td>
                     </tr>
                 }
             </tbody>

@@ -73,6 +73,13 @@
                         </div>
                         <div class="card-footer text-right">
                             <a class="btn btn-sm btn-info" href="@Url.Action("ExpertDetails"+"/"+item.id,"Expert")">ข้อมูล</a>&nbsp;
+                            @if (Session["Role"] != null)
+                            {
+                                if (Session["Role"].Equals("Admin"))
+                                {
+                                    <a class="btn btn-sm btn-danger" href="@Url.Action("DeleteExpert"+"/"+item.id,"Expert")">ลบ</a>
+                                }
+                            }
                         </div>
                     </div>
                     <br />

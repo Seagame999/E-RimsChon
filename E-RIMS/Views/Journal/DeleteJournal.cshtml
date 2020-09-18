@@ -1,14 +1,15 @@
-﻿
+﻿@model E_RIMS.Models.Journal
+
 @{
-    ViewBag.Title = "ยืนยันการลบเอกสารความรู้";
+    ViewBag.Title = "ยืนยันการลบวารสาร";
 }
 
 <div class="d-flex justify-content-center">
     <div class="card">
         <div class="card-body">
-            <h1>ยืนยันการลบเอกสารความรู้</h1>
+            <h1>ยืนยันการลบวารสาร</h1>
             <hr /> <br />
-            <h3 class="text-danger">คุณต้องการลบเอกสารความรู้นี้หรือไม่</h3>
+            <h3 class="text-danger">คุณต้องการลบวารสารฉบับนี้หรือไม่</h3>
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
@@ -25,4 +26,3 @@
         </div>
     </div>
 </div>
-

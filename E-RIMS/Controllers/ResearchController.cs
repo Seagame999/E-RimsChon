@@ -593,10 +593,10 @@ namespace E_RIMS.Controllers
                     }
                     return View(research);
                 }
-                return RedirectToAction("Index", "Research");
+                return RedirectToAction("AllResearch", "Research");
             }
             else
-                return RedirectToAction("Index", "Research");
+                return RedirectToAction("AllResearch", "Research");
         }
 
         [HttpPost, ActionName("DeleteResearch")]
@@ -605,7 +605,7 @@ namespace E_RIMS.Controllers
             Research research = db.Research.Find(id);
             db.Research.Remove(research);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AllResearch");
         }
 
         public ActionResult CreateSuccessMessage()

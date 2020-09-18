@@ -33,6 +33,7 @@
                                     if (Session["Role"].Equals("Admin"))
                                     {
                                         <a href="@Url.Action("EditDownloadDocument"+"/"+Model.id, "DocumentDownload")" class="btn btn-success text-right"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>
+                                        <a href="@Url.Action("DeleteDownloadDocument"+"/"+Model.id, "DocumentDownload")" class="btn btn-danger text-right"><i class="fa fa-trash"></i>&nbsp;ลบ</a>
                                     }
                                 }
                             </h4>

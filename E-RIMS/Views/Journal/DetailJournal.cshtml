@@ -34,6 +34,8 @@
                                     if (Session["Role"].Equals("Admin"))
                                     {
                                         <a href="@Url.Action("EditJournal"+"/"+Model.id, "Journal")" class="btn btn-success text-right"><i class="fa fa-edit"></i>&nbsp;แก้ไข</a>
+                                        <a href="@Url.Action("DeleteJournal"+"/"+Model.id, "Journal")" class="btn btn-danger text-right"><i class="fa fa-trash"></i>&nbsp;ลบ</a>
+
                                     }
                                 }
                             </h4>
