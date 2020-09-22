@@ -4,6 +4,20 @@
     ViewBag.Title = "แก้ไขการประชาสัมพันธ์ข่าว";
 }
 
+<link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-datepicker-custom.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.th.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            todayBtn: true,
+            language: 'th',             //เปลี่ยน label ต่างของ ปฏิทิน ให้เป็น ภาษาไทย
+        }).datepicker("setDate", "0");  //กำหนดเป็นวันปัจุบัน
+    });
+</script>
+
 <br><br>
 
 <nav aria-label="breadcrumb">
@@ -50,7 +64,7 @@
             <div class="form-row">
                 <div class="form-group col-4">
                     @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <input type="date" class="datepicker-inline" name="date">
+                    <input id="inputdatepicker" class="datepicker" data-date-format="mm/dd/yyyy" name="date">
                 </div>
                 <div class="form-group col-4">
                     @Html.LabelFor(model => model.docUpload, htmlAttributes: new { @class = "control-label col-md-2" })
