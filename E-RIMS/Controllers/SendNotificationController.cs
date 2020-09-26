@@ -26,18 +26,18 @@ namespace E_RIMS.Controllers
         public ActionResult SendNotification()
         {
             //for dev variables
-            int fiscalYear = 2563;
-            int currentMonth = 11;
+            //int fiscalYear = 2563;
+            //int currentMonth = 11;
 
             //for production variables
-            /*int currentMonth = Int16.Parse(DateTime.Now.Month.ToString());
+            int currentMonth = Int16.Parse(DateTime.Now.Month.ToString());
             int currentYear = Int16.Parse(DateTime.Now.Year.ToString());
             int thaiYear = currentYear + 543;
             int fiscalYear = 0;
             if (currentMonth > 7)
                 fiscalYear = thaiYear + 1;
             else
-                fiscalYear = thaiYear;*/
+                fiscalYear = thaiYear;
 
             List<DataRow> queryResult = query(currentMonth, fiscalYear);
             generateMail(queryResult, currentMonth);
